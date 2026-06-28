@@ -1,0 +1,62 @@
+/1.1/user/-/leaderboard/friends.json:
+  get:
+    operationId: friendsGetGetFriendsLeaderboard11UserLeaderboardFriendsJson
+    summary: Get Friends Leaderboard
+    description: This endpoint returns the user's friend leaderboard in the format
+      requested using units in the unit system which corresponds to the Accept-Language
+      header provided. This scope does not provide access to the friend's Fitbit data.
+      Those users will need to individually consent to share their data with your
+      application.
+    tags:
+    - Friends
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/friends/get-friends-leaderboard/
+    parameters: []
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - social
+/1.1/user/{user-id}/friends.json:
+  get:
+    operationId: friendsGetGetFriends11UserUserIdFriendsJson
+    summary: Get Friends
+    description: This endpoint allows the application to retrieves a list of the specified
+      Fitbit user's friends. This scope does not provide access to the friend's Fitbit
+      data. Those users will need to individually consent to share their data with
+      your application.
+    tags:
+    - Friends
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/friends/get-friends/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - social

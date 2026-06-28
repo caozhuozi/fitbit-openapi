@@ -1,0 +1,83 @@
+{
+  "domain": "activity-timeseries",
+  "title": "Get Activity Time Series by Date",
+  "url": "https://dev.fitbit.com/build/reference/web-api/activity-timeseries/get-activity-timeseries-by-date/",
+  "method": "get",
+  "path": "/1/user/{user-id}/activities/{resource-path}/date/{date}/{period}.json",
+  "description": "Retrieves the activity data for a given resource over a period of time by specifying a date and time period. The response will include only the daily summary values.",
+  "scope": "activity",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "resource",
+      "location": "path",
+      "required": true,
+      "description": "The resource of the data to be returned. See supported values in the Resource Options section."
+    },
+    {
+      "name": "date",
+      "location": "path",
+      "required": true,
+      "description": "The end date of the period specified in the format yyyy-MM-dd or today ."
+    },
+    {
+      "name": "period",
+      "location": "path",
+      "required": true,
+      "description": "The range for which data will be returned. Supported: 1d | 7d | 30d | 1w | 1m | 3m | 6m | 1y"
+    },
+    {
+      "name": "timezone",
+      "location": "query",
+      "required": false,
+      "description": "Returns the response from the specified timezone. Supported: UTC"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "activities-<resource> : datetime",
+      "description": "The date of the recorded resource in the format yyyy-MM-dd."
+    },
+    {
+      "name": "activities-<resource> : value",
+      "description": "The specified resource's daily total."
+    }
+  ],
+  "example_response": {
+    "activities-steps": [
+      {
+        "dateTime": "2018-12-26",
+        "value": "2504"
+      },
+      {
+        "dateTime": "2018-12-27",
+        "value": "3723"
+      },
+      {
+        "dateTime": "2018-12-28",
+        "value": "8304"
+      },
+      {
+        "dateTime": "2018-12-29",
+        "value": "7861"
+      },
+      {
+        "dateTime": "2018-12-30",
+        "value": "837"
+      },
+      {
+        "dateTime": "2018-12-31",
+        "value": "4103"
+      },
+      {
+        "dateTime": "2019-01-01",
+        "value": "1698"
+      }
+    ]
+  }
+}

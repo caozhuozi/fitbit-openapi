@@ -1,0 +1,144 @@
+{
+  "domain": "nutrition",
+  "title": "Get Food Log",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/get-food-log/",
+  "method": "get",
+  "path": "/1/user/{user-id}/foods/log/date/{date}.json",
+  "description": "Retrieves a summary of the user's food log entry for a given day.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "date",
+      "location": "path",
+      "required": true,
+      "description": "The date of records to be returned in the format yyyy-MM-dd."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "foods : isFavorite",
+      "description": ""
+    },
+    {
+      "name": "foods : logDate",
+      "description": ""
+    },
+    {
+      "name": "foods : logId",
+      "description": ""
+    },
+    {
+      "name": "foods : loggedFood : accessLevel",
+      "description": ""
+    },
+    {
+      "name": "foods : loggedFood : amount",
+      "description": ""
+    },
+    {
+      "name": "foods : loggedFood : brand",
+      "description": ""
+    },
+    {
+      "name": "foods : loggedFood : calories",
+      "description": ""
+    },
+    {
+      "name": "foods : loggedFood : foodId",
+      "description": ""
+    },
+    {
+      "name": "foods : loggedFood : locale",
+      "description": ""
+    },
+    {
+      "name": "foods : loggedFood : mealTypeId",
+      "description": ""
+    },
+    {
+      "name": "foods : loggedFood : name",
+      "description": ""
+    },
+    {
+      "name": "foods : loggedFood : unit : id",
+      "description": ""
+    },
+    {
+      "name": "foods : loggedFood : unit : name",
+      "description": ""
+    },
+    {
+      "name": "foods : loggedFood : unit : plural",
+      "description": ""
+    },
+    {
+      "name": "foods : loggedFood : units",
+      "description": ""
+    },
+    {
+      "name": "foods : nutritionalValues",
+      "description": "Available nutritional values for the food consumed."
+    },
+    {
+      "name": "goals : calories",
+      "description": "Daily calories goal."
+    }
+  ],
+  "example_response": {
+    "foods": [
+      {
+        "isFavorite": true,
+        "logDate": "2019-03-21",
+        "logId": 17406206369,
+        "loggedFood": {
+          "accessLevel": "PUBLIC",
+          "amount": 1,
+          "brand": "Subway",
+          "calories": 280,
+          "foodId": 14022778,
+          "locale": "en_US",
+          "mealTypeId": 3,
+          "name": "6 inch Turkey Breast",
+          "unit": {
+            "id": 296,
+            "name": "sandwich",
+            "plural": "sandwiches"
+          },
+          "units": [
+            296,
+            226,
+            180,
+            147,
+            389
+          ]
+        },
+        "nutritionalValues": {
+          "calories": 280,
+          "carbs": 46,
+          "fat": 3.5,
+          "fiber": 5,
+          "protein": 18,
+          "sodium": 760
+        }
+      }
+    ],
+    "goals": {
+      "calories": 2910
+    },
+    "summary": {
+      "calories": 280,
+      "carbs": 46,
+      "fat": 3.5,
+      "fiber": 5,
+      "protein": 18,
+      "sodium": 760,
+      "water": 0
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "domain": "nutrition",
+  "title": "Add Favorite Foods",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/add-favorite-foods/",
+  "method": "post",
+  "path": "/1/user/{user-id}/foods/log/favorite/{food-id}.json",
+  "description": "Adds a food with the given ID to the user's list of favorite foods.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "food-id",
+      "location": "path",
+      "required": true,
+      "description": "The ID of the food to add to the user's favorites."
+    }
+  ],
+  "response_fields": [],
+  "example_response": null
+}

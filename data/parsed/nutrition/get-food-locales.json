@@ -1,0 +1,12 @@
+{
+  "domain": "nutrition",
+  "title": "Get Food Locales",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/get-food-locales/",
+  "method": "get",
+  "path": "/1/foods/locales.json",
+  "description": "Retrieves the food locales used to search, log or create food.",
+  "scope": "nutrition",
+  "parameters": [],
+  "response_fields": [],
+  "example_response": null
+}

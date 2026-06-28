@@ -1,0 +1,40 @@
+{
+  "domain": "temperature",
+  "title": "Get Temperature (Core) Summary by Interval",
+  "url": "https://dev.fitbit.com/build/reference/web-api/temperature/get-temperature-core-summary-by-interval/",
+  "method": "get",
+  "path": "/1/user/{user-id}/temp/core/date/{start-date}/{end-date}.json",
+  "description": "This endpoint returns Temperature (Core) data for a date range. Temperature (Core) data applies specifically to data logged manually by the user on a given day. It only returns a value for dates on which the Fitbit device was able to record Temperature (Core) data and the maximum date range cannot exceed 30 days.\n\nIt uses units that correspond to the Accept-Language header provided.",
+  "scope": "temperature",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "start-date",
+      "location": "path",
+      "required": true,
+      "description": "The date in the format yyyy-MM-dd or today."
+    },
+    {
+      "name": "end-date",
+      "location": "path",
+      "required": true,
+      "description": "The date in the format yyyy-MM-dd or today. Maximum range: 30 days"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "tempCore : dateTime",
+      "description": "The log timestamp specified in the format YYYY-MM-DDThh:mm:ss."
+    },
+    {
+      "name": "tempCore : value",
+      "description": "The temperature value in degrees Celsius or Fahrenheit depending on the country specified in the Accept-Language header."
+    }
+  ],
+  "example_response": null
+}

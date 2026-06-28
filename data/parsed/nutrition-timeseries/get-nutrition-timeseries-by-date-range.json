@@ -1,0 +1,77 @@
+{
+  "domain": "nutrition-timeseries",
+  "title": "Get Nutrition Time Series by Date Range",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition-timeseries/get-nutrition-timeseries-by-date-range/",
+  "method": "get",
+  "path": "/1/user/{user-id}/foods/log/{resource}/date/{start-date}/{end-date}.json",
+  "description": "Retrieves the food and water consumption data for a given resource over a period of time by specifying a date range. The response will include only the daily summary values.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "resource",
+      "location": "path",
+      "required": true,
+      "description": "The resource of the data to be returned. Supported : caloriesIn | water"
+    },
+    {
+      "name": "start-date",
+      "location": "path",
+      "required": true,
+      "description": "The start date specified in the format yyyy-MM-dd or today ."
+    },
+    {
+      "name": "end-date",
+      "location": "path",
+      "required": true,
+      "description": "The end date specified in the format yyyy-MM-dd or today . Maximum range: 1095 days"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "foods-log- : dateTime",
+      "description": "The date representing the daily summary value of the resource."
+    },
+    {
+      "name": "foods-log- : value",
+      "description": "The total daily consumption for the resource."
+    }
+  ],
+  "example_response": {
+    "foods-log-water": [
+      {
+        "dateTime": "2025-12-12",
+        "value": 0
+      },
+      {
+        "dateTime": "2025-12-13",
+        "value": 0
+      },
+      {
+        "dateTime": "2025-12-14",
+        "value": 0
+      },
+      {
+        "dateTime": "2025-12-15",
+        "value": 0
+      },
+      {
+        "dateTime": "2025-12-16",
+        "value": 0
+      },
+      {
+        "dateTime": "2025-12-17",
+        "value": 64
+      },
+      {
+        "dateTime": "2025-12-18",
+        "value": 0
+      }
+    ]
+  }
+}

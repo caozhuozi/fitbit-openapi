@@ -1,0 +1,12 @@
+{
+  "domain": "authorization",
+  "title": "OAuth2 Token",
+  "url": "https://dev.fitbit.com/build/reference/web-api/authorization/oauth2-token/",
+  "method": "post",
+  "path": "/oauth2/token",
+  "description": "The /oauth2/token endpoint can do the following: Exchange the authorization code for the initial access token and refresh token (See OAuth2 Token ). This process is required when using the Authorization Code Grant Flow. Obtain a new access token and refresh token when the existing access token has expired (See Refresh Token ). Initiate the Client Credentials authorization flow (See Client Credentials ).",
+  "scope": null,
+  "parameters": [],
+  "response_fields": [],
+  "example_response": null
+}

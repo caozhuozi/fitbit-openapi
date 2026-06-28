@@ -1,0 +1,116 @@
+{
+  "domain": "user",
+  "title": "Get Badges",
+  "url": "https://dev.fitbit.com/build/reference/web-api/user/get-badges/",
+  "method": "get",
+  "path": "/1/user/{user-id}/badges.json",
+  "description": "Retrieves a list of the user’s badges.",
+  "scope": "profile",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "badges : badgeGradientEndColor",
+      "description": ""
+    },
+    {
+      "name": "badges : badgeGradientStartColor",
+      "description": ""
+    },
+    {
+      "name": "badges : badgeType",
+      "description": "Type of badge received."
+    },
+    {
+      "name": "badges : category",
+      "description": ""
+    },
+    {
+      "name": "badges : cheers",
+      "description": ""
+    },
+    {
+      "name": "badges : dateTime",
+      "description": "Date the badge was achieved."
+    },
+    {
+      "name": "badges : description",
+      "description": ""
+    },
+    {
+      "name": "badges : earnedMessage",
+      "description": ""
+    },
+    {
+      "name": "badges : encodedId",
+      "description": ""
+    },
+    {
+      "name": "badges : image100px",
+      "description": ""
+    },
+    {
+      "name": "badges : image125px",
+      "description": ""
+    },
+    {
+      "name": "badges : image300px",
+      "description": ""
+    },
+    {
+      "name": "badges : image50px",
+      "description": ""
+    },
+    {
+      "name": "badges : image75px",
+      "description": ""
+    },
+    {
+      "name": "badges : marketingDescription",
+      "description": ""
+    },
+    {
+      "name": "badges : mobileDescription",
+      "description": ""
+    },
+    {
+      "name": "badges : name",
+      "description": ""
+    },
+    {
+      "name": "badges : shareImage640px",
+      "description": ""
+    },
+    {
+      "name": "badges : shareText",
+      "description": ""
+    },
+    {
+      "name": "badges : shortDescription",
+      "description": ""
+    },
+    {
+      "name": "badges : shortName",
+      "description": ""
+    },
+    {
+      "name": "badges : timesAchieved",
+      "description": "Number of times the user has achieved the badge."
+    },
+    {
+      "name": "badges : unit",
+      "description": "Units of meaure based on localization settings."
+    },
+    {
+      "name": "badges : value",
+      "description": "The badge goal in the unit measurement."
+    }
+  ],
+  "example_response": null
+}

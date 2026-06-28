@@ -1,0 +1,72 @@
+/1/user/{user-id}/ecg/list.json:
+  get:
+    operationId: electrocardiogramGetGetEcgLogList1UserUserIdEcgListJson
+    summary: Get ECG Log List
+    description: 'This endpoint retrieves a list of the user’s Electrocardiogram (ECG)
+      log entries before or after a given day.
+
+
+      Note: The ECG API is for research use or investigational use only, and is not
+      intended for clinical or diagnostic purposes.'
+    tags:
+    - Electrocardiogram
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/electrocardiogram/get-ecg-log-list/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: beforeDate
+      in: query
+      required: true
+      description: The date in the format yyyy-MM-ddTHH:mm:ss. Only yyyy-MM-dd is
+        required. Either beforeDate or afterDate must be specified.
+      schema:
+        type: string
+        format: date
+    - name: afterDate
+      in: query
+      required: true
+      description: The date in the format yyyy-MM-ddTHH:mm:ss. Only yyyy-MM-dd is
+        required. Either beforeDate or afterDate must be specified.
+      schema:
+        type: string
+        format: date
+    - name: sort
+      in: query
+      required: true
+      description: The sort order of entries by date. Use asc (ascending) when using
+        afterDate. Use desc (descending) when using before date.
+      schema:
+        type: string
+    - name: limit
+      in: query
+      required: true
+      description: 'The number of entries returned. See Limit / Offset for more information.
+        Maximum: 10'
+      schema:
+        type: string
+    - name: offset
+      in: query
+      required: true
+      description: 'See Limit / Offset for more information. Supported: 0'
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - electrocardiogram

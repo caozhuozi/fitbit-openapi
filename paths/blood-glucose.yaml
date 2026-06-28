@@ -1,0 +1,39 @@
+/1/user/-/health/metrics/glucose/values/{startDate}/{endDate}.json:
+  get:
+    operationId: bloodGlucoseGetGetBloodGlucoseByInterval1UserHealthMetricsGlucoseValuesStartdateEnddateJson
+    summary: Get Blood Glucose by Interval
+    description: Retrieves the user's daily, min, max, sum and average values of blood
+      glucose levels within an interval.
+    tags:
+    - Blood-Glucose
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/blood-glucose/get-blood-glucose-by-interval/
+    parameters:
+    - name: startDate
+      in: path
+      required: true
+      description: Start date (inclusive) of the interval to query in format YYYY-MM-DD
+      schema:
+        type: string
+        format: date
+    - name: endDate
+      in: path
+      required: true
+      description: End date (inclusive) of the interval to query in format YYYY-MM-DD
+      schema:
+        type: string
+        format: date
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - blood_glucose

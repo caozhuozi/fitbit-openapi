@@ -1,0 +1,25 @@
+{
+  "domain": "body",
+  "title": "Delete Body Fat Log",
+  "url": "https://dev.fitbit.com/build/reference/web-api/body/delete-bodyfat-log/",
+  "method": "delete",
+  "path": "/1/user/{user-id}/body/log/fat/{body-fat-log-id}.json",
+  "description": "Deletes a body fat log entry",
+  "scope": "weight",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "body-fat-log-id",
+      "location": "path",
+      "required": true,
+      "description": "The body fat log ID to be deleted."
+    }
+  ],
+  "response_fields": [],
+  "example_response": null
+}

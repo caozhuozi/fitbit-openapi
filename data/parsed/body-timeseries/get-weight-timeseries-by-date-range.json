@@ -1,0 +1,80 @@
+{
+  "domain": "body-timeseries",
+  "title": "Get Weight Time Series by Date Range",
+  "url": "https://dev.fitbit.com/build/reference/web-api/body-timeseries/get-weight-timeseries-by-date-range/",
+  "method": "get",
+  "path": "/1/user/{user-id}/body/log/weight/date/{start-date}/{end-date}.json",
+  "description": "Retrieves a list of all user's weight log entries for a given date range.",
+  "scope": "weight",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "start-date",
+      "location": "path",
+      "required": true,
+      "description": "The start date specified in the format yyyy-MM-dd or today ."
+    },
+    {
+      "name": "end-date",
+      "location": "path",
+      "required": true,
+      "description": "The end date specified in the format yyyy-MM-dd or today . Maximum range: 31 days"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "weight : bmi",
+      "description": "Calculated BMI in the format X.XX."
+    },
+    {
+      "name": "weight : date",
+      "description": "Log entry date in the format yyyy-MM-dd."
+    },
+    {
+      "name": "weight : fat",
+      "description": "The body fat percentage."
+    },
+    {
+      "name": "weight : logId",
+      "description": "The weight log IDs. It's unique to the user, but not globally unique."
+    },
+    {
+      "name": "weight : source",
+      "description": "The source of the weight log. See \"source\" values for more information. Support: API | Aria | AriaAir | Withings"
+    },
+    {
+      "name": "weight : time",
+      "description": "Time of the measurement; hours and minutes in the format HH:mm:ss, set to the last second of the day if not provided."
+    },
+    {
+      "name": "weight : weight",
+      "description": "Weight in the format X.XX, in the unit system that corresponds to the Accept-Language header provided or if not provided in metric."
+    }
+  ],
+  "example_response": {
+    "weight": [
+      {
+        "bmi": 25.91,
+        "date": "2019-02-25",
+        "fat": 21,
+        "logId": 1551080804000,
+        "source": "Aria",
+        "time": "07:46:44",
+        "weight": 200
+      },
+      {
+        "bmi": 25.91,
+        "date": "2019-03-01",
+        "logId": 1551484799000,
+        "source": "API",
+        "time": "23:59:59",
+        "weight": 200
+      }
+    ]
+  }
+}

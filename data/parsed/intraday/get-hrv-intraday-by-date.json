@@ -1,0 +1,50 @@
+{
+  "domain": "intraday",
+  "title": "Get HRV Intraday by Date",
+  "url": "https://dev.fitbit.com/build/reference/web-api/intraday/get-hrv-intraday-by-date/",
+  "method": "get",
+  "path": "/1/user/{user-id}/hrv/date/{date}/all.json",
+  "description": "This endpoint returns the Heart Rate Variability (HRV) intraday data for a single date. HRV data applies specifically to a user’s “main sleep,” which is the longest single period of time asleep on a given date. It measures the HRV rate at various times and returns Root Mean Square of Successive Differences (rmssd), Low Frequency (LF), High Frequency (HF), and Coverage data for a given measurement. Rmssd measures short-term variability in your heart rate while asleep. LF and HF capture the power in interbeat interval fluctuations within either high frequency or low frequency bands. Finally, coverage refers to data completeness in terms of the number of interbeat intervals.\n\nSingle date measurements are provided at the end of a period of sleep. The data returned usually reflects a sleep period that began the day before. For example, if you request a daily HRV rate for 2021-12-22, it may include measurements that were taken the previous night on 2021-12-21 when the user fell asleep.\n\nIt uses units that correspond to the Accept-Language header provided.",
+  "scope": "heartrate",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "date",
+      "location": "path",
+      "required": true,
+      "description": "The date in the format yyyy-MM-dd or today."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "hrv : dateTime",
+      "description": "The sleep log date specified in the format YYYY-MM-DD."
+    },
+    {
+      "name": "hrv : minutes : minute",
+      "description": "A measurement taken at a given time."
+    },
+    {
+      "name": "hrv : minutes : value : rmssd",
+      "description": "The Root Mean Square of Successive Differences (RMSSD) between heart beats. It measures short-term variability in the user’s heart rate in milliseconds (ms)."
+    },
+    {
+      "name": "hrv : minutes : value : coverage",
+      "description": "Data completeness in terms of the number of interbeat intervals."
+    },
+    {
+      "name": "hrv : minutes : value : hf",
+      "description": "The power in interbeat interval fluctuations within the high frequency band (0.15 Hz - 0.4 Hz)."
+    },
+    {
+      "name": "hrv : minutes : value : lf",
+      "description": "The power in interbeat interval fluctuations within the low frequency band (0.04 Hz - 0.15 Hz)."
+    }
+  ],
+  "example_response": null
+}

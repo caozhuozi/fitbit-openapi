@@ -1,0 +1,69 @@
+{
+  "domain": "active-zone-minutes-timeseries",
+  "title": "Get AZM Time Series by Interval",
+  "url": "https://dev.fitbit.com/build/reference/web-api/active-zone-minutes-timeseries/get-azm-timeseries-by-interval/",
+  "method": "get",
+  "path": "/1/user/{user-id}/activities/active-zone-minutes/date/{start-date}/{end-date}.json",
+  "description": "This endpoint returns the daily summary values over an interval by specifying a date range.",
+  "scope": "activity",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "start-date",
+      "location": "path",
+      "required": true,
+      "description": "The date in the format yyyy-MM-dd or today."
+    },
+    {
+      "name": "end-date",
+      "location": "path",
+      "required": true,
+      "description": "The date in the format yyyy-MM-dd or today. Maximum range: 1095 days"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "value : activeZoneMinutes",
+      "description": "Total count of active zone minutes."
+    },
+    {
+      "name": "value : fatBurnActiveZoneMinutes",
+      "description": "The number of active zone minutes in the fat burn heart rate zone. 1 fat burn minute = 1 fat burn active zone minute."
+    },
+    {
+      "name": "value : cardioActiveZoneMinutes",
+      "description": "The number of active zone minutes in the cardio heart rate zone. 1 cardio minute = 2 cardio active zone minutes."
+    },
+    {
+      "name": "value : peakActiveZoneMinutes",
+      "description": "The number of active zone minutes in the peak heart rate zone. 1 peak minute = 2 peak active zone minutes."
+    }
+  ],
+  "example_response": {
+    "activities-active-zone-minutes": [
+      {
+        "dateTime": "2022-05-01",
+        "value": {
+          "activeZoneMinutes": 21,
+          "fatBurnActiveZoneMinutes": 5,
+          "cardioActiveZoneMinutes": 12,
+          "peakActiveZoneMinutes": 4
+        }
+      },
+      {
+        "dateTime": "2022-05-02",
+        "value": {
+          "activeZoneMinutes": 25,
+          "fatBurnActiveZoneMinutes": 7,
+          "cardioActiveZoneMinutes": 18,
+          "peakActiveZoneMinutes": 0
+        }
+      }
+    ]
+  }
+}

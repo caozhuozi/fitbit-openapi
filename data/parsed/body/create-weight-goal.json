@@ -1,0 +1,66 @@
+{
+  "domain": "body",
+  "title": "Create Weight Goal",
+  "url": "https://dev.fitbit.com/build/reference/web-api/body/create-weight-goal/",
+  "method": "post",
+  "path": "/1/user/{user-id}/body/log/weight/goal.json",
+  "description": "Creates or updates a user's weight goal.",
+  "scope": "weight",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "startDate",
+      "location": "query",
+      "required": true,
+      "description": "Weight goal start date in the format yyyy-MM-dd."
+    },
+    {
+      "name": "startWeight",
+      "location": "query",
+      "required": true,
+      "description": "Starting weight before reaching goal in the format X.XX; entered in the unit system corresponding to the Accept-Language header provided."
+    },
+    {
+      "name": "weight",
+      "location": "query",
+      "required": true,
+      "description": "Target weight goal in the format X.XX; entered in the unit system corresponding to the Accept-Language header provided. Required if the user doesn't have an existing weight goal."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "goal : goalType",
+      "description": "The goal type. Supported: LOSE | GAIN | MAINTAIN"
+    },
+    {
+      "name": "goal : startDate",
+      "description": "The goal start date."
+    },
+    {
+      "name": "goal : startWeight",
+      "description": "User's weight when goal was established."
+    },
+    {
+      "name": "goal : weight",
+      "description": "The weight goal to achieve."
+    },
+    {
+      "name": "goal : weightThreshold",
+      "description": "The recommended amount of weight to lose each week to achieve and maintain goal."
+    }
+  ],
+  "example_response": {
+    "goal": {
+      "goalType": "LOSE",
+      "startDate": "2019-03-21",
+      "startWeight": 200,
+      "weight": 180.5,
+      "weightThreshold": 0.05
+    }
+  }
+}

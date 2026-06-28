@@ -1,0 +1,31 @@
+{
+  "domain": "subscription",
+  "title": "Delete Subscription",
+  "url": "https://dev.fitbit.com/build/reference/web-api/subscription/delete-subscription/",
+  "method": "delete",
+  "path": "/1/user/{user-id}/{collection-path}/apiSubscriptions/{subscription-id}.json",
+  "description": "Deletes a subscription for a specific user. See Deleting a Subscription for more information.",
+  "scope": "See",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "collection-path",
+      "location": "path",
+      "required": false,
+      "description": "Collection of data to retrieve notifications. If not provided, a subscription will be deleted for all collections. Supported : activities | body | foods | sleep | userRevokedAccess The user must consent to the proper OAuth 2.0 scope before a subscription can be created for the collection. The list of requirements are: activities collection requires activity scope. body collection requires weight scope. foods collection requires nutrition scope. sleep collection requires sleep scope. userRevokedAccess collection does not require any scopes. If no collection specified, activity , nutrition , profile , settings , sleep , weight scopes are required."
+    },
+    {
+      "name": "subscription-id",
+      "location": "path",
+      "required": true,
+      "description": "The unique ID of the subscription created by the API client application. The value provides a way to associate an update with a particular user stream in your application. Maximum length : 50 characters"
+    }
+  ],
+  "response_fields": [],
+  "example_response": null
+}

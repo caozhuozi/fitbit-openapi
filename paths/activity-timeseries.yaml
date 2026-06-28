@@ -1,0 +1,76 @@
+/1/user/{user-id}/activities/{resource-path}/date/{start-date}/{end-date}.json:
+  get:
+    operationId: activityTimeseriesGetGetActivityTimeSeriesByDateRange1UserUserIdActivitiesResourcePathDateStartDateEndDateJson
+    summary: Get Activity Time Series by Date Range
+    description: Retrieves the activity data for a given resource over a period of
+      time by specifying a date range. The response will include only the daily summary
+      values.
+    tags:
+    - Activity-Timeseries
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/activity-timeseries/get-activity-timeseries-by-date-range/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: resource-path
+      in: path
+      required: true
+      description: ''
+      schema:
+        type: string
+    - name: start-date
+      in: path
+      required: true
+      description: The start date specified in the format yyyy-MM-dd or today .
+      schema:
+        type: string
+        format: date
+    - name: end-date
+      in: path
+      required: true
+      description: 'The end date specified in the format yyyy-MM-dd or today . Maximum
+        range: See Resource Options'
+      schema:
+        type: string
+        format: date
+    - name: timezone
+      in: query
+      required: false
+      description: 'Returns the response from the specified timezone. Supported: UTC'
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              activities-steps:
+              - dateTime: '2018-12-26'
+                value: '2504'
+              - dateTime: '2018-12-27'
+                value: '3723'
+              - dateTime: '2018-12-28'
+                value: '8304'
+              - dateTime: '2018-12-29'
+                value: '7861'
+              - dateTime: '2018-12-30'
+                value: '837'
+              - dateTime: '2018-12-31'
+                value: '4103'
+              - dateTime: '2019-01-01'
+                value: '1698'
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - activity

@@ -1,0 +1,92 @@
+{
+  "domain": "intraday",
+  "title": "Get AZM Intraday by Date",
+  "url": "https://dev.fitbit.com/build/reference/web-api/intraday/get-azm-intraday-by-date/",
+  "method": "get",
+  "path": "/1/user/{user-id}/activities/active-zone-minutes/date/{date}/1d/{detail-level}.json",
+  "description": "This endpoint retrieves the active zone minute (AZM) intraday time series data for a specific date or 24 hour period. Intraday support can extend the detail-level response to include 1min, 5min and 15min for Active Zone Minutes.\n\n3rd-party developers who want access to retrieve other Fitbit users’ Intraday data through the “Client” or “Server” application type should submit a request by filling out this form . A Fitbit developer’s personal Intraday data is automatically available through the “Personal” application type. You do not need to submit a request.",
+  "scope": "activity",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "date",
+      "location": "path",
+      "required": true,
+      "description": "The date in the format yyyy-MM-dd or today ."
+    },
+    {
+      "name": "detail-level",
+      "location": "path",
+      "required": true,
+      "description": "Number of data points to include. Supported: 1min | 5min | 15min"
+    },
+    {
+      "name": "start-time",
+      "location": "path",
+      "required": false,
+      "description": "The time in the format HH:mm ."
+    },
+    {
+      "name": "end-time",
+      "location": "path",
+      "required": false,
+      "description": "The time in the format HH:mm ."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "minutes : minute",
+      "description": "The dateTime when the AZM value was recorded."
+    },
+    {
+      "name": "minutes : value : fatBurnActiveZoneMinutes",
+      "description": "The number of active zone minutes in the fat burn heart rate zone earned during the previous iteration. 1 fat burn minute = 1 fat burn active zone minute."
+    },
+    {
+      "name": "minutes : value : cardioActiveZoneMinutes",
+      "description": "The number of active zone minutes in the cardio heart rate zone earned during the previous iteration. 1 cardio minute = 2 cardio active zone minute."
+    },
+    {
+      "name": "minutes : value : peakActiveZoneMinutes",
+      "description": "The number of active zone minutes in the peak heart rate zone earned during the previous iteration. 1 peak minute = 2 peak active zone minute."
+    },
+    {
+      "name": "minutes : value : activeZoneMinutes",
+      "description": "Total count of active zone minutes earned during the previous iteration."
+    }
+  ],
+  "example_response": {
+    "activities-active-zone-minutes-intraday": [
+      {
+        "dateTime": "2020-09-17",
+        "minutes": [
+          {
+            "minute": "2020-09-17T17:00:00",
+            "value": {
+              "fatBurnActiveZoneMinutes": 1,
+              "activeZoneMinutes": 1
+            }
+          },
+          {
+            "minute": "2020-09-17T17:01:00",
+            "value": {
+              "cardioActiveZoneMinutes": 1,
+              "activeZoneMinutes": 1
+            }
+          },
+          {
+            "minute": "2020-09-17T17:02:00",
+            "value": {
+              "activeZoneMinutes": 0
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "domain": "nutrition",
+  "title": "Create Food",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/create-food/",
+  "method": "post",
+  "path": "/1/user/{user-id}/foods.json",
+  "description": "Creates a new private food for a user.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "defaultFoodMeasurementUnitId",
+      "location": "query",
+      "required": true,
+      "description": "ID representing the default measurement unit used. A full list of units can be retrieved using the Get Food Units endpoints."
+    },
+    {
+      "name": "defaultServingSize",
+      "location": "query",
+      "required": true,
+      "description": "Size of the default serving. Nutritional values should be provided for this serving size."
+    },
+    {
+      "name": "calories",
+      "location": "query",
+      "required": true,
+      "description": "Number of calories for the default serving size."
+    },
+    {
+      "name": "formType",
+      "location": "query",
+      "required": true,
+      "description": "The texture of the food. Supported : LIQUID | DRY"
+    },
+    {
+      "name": "description",
+      "location": "query",
+      "required": true,
+      "description": "Description of the food."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "food : accessLevel",
+      "description": ""
+    },
+    {
+      "name": "food : brand",
+      "description": ""
+    },
+    {
+      "name": "food : calories",
+      "description": ""
+    },
+    {
+      "name": "food : creatorEncodedId",
+      "description": ""
+    },
+    {
+      "name": "food : defaultServingSize",
+      "description": ""
+    },
+    {
+      "name": "food : defaultUnit : id",
+      "description": ""
+    },
+    {
+      "name": "food : defaultUnit : name",
+      "description": ""
+    },
+    {
+      "name": "food : defaultUnit : plural",
+      "description": ""
+    },
+    {
+      "name": "food : foodId",
+      "description": ""
+    },
+    {
+      "name": "food : isGeneric",
+      "description": ""
+    },
+    {
+      "name": "food : name",
+      "description": ""
+    },
+    {
+      "name": "food : nutritionalValues",
+      "description": "Available nutritional values for the food consumed."
+    },
+    {
+      "name": "food : servings : multiplier",
+      "description": ""
+    },
+    {
+      "name": "food : servings : servingSize",
+      "description": ""
+    },
+    {
+      "name": "food : servings : unit : id",
+      "description": ""
+    },
+    {
+      "name": "food : servings : unit : name",
+      "description": ""
+    },
+    {
+      "name": "food : servings : unit : plural",
+      "description": ""
+    },
+    {
+      "name": "food : servings : unitId",
+      "description": ""
+    },
+    {
+      "name": "food : units",
+      "description": ""
+    }
+  ],
+  "example_response": {
+    "food": {
+      "accessLevel": "PRIVATE",
+      "brand": "",
+      "calories": 200,
+      "creatorEncodedId": "GGNJL9",
+      "defaultServingSize": 1,
+      "defaultUnit": {
+        "id": 304,
+        "name": "serving",
+        "plural": "servings"
+      },
+      "foodId": 753871120,
+      "isGeneric": false,
+      "name": "Lasagna",
+      "nutritionalValues": {
+        "biotin": 0,
+        "calcium": 0,
+        "calories": 200,
+        "caloriesFromFat": 0,
+        "cholesterol": 0,
+        "copper": 0,
+        "dietaryFiber": 0,
+        "folicAcid": 0,
+        "iodine": 0,
+        "iron": 0,
+        "magnesium": 0,
+        "niacin": 0,
+        "pantothenicAcid": 0,
+        "phosphorus": 0,
+        "potassium": 0,
+        "protein": 0,
+        "riboflavin": 0,
+        "saturatedFat": 0,
+        "sodium": 0,
+        "sugars": 0,
+        "thiamin": 0,
+        "totalCarbohydrate": 0,
+        "totalFat": 0,
+        "transFat": 0,
+        "vitaminA": 0,
+        "vitaminB12": 0,
+        "vitaminB6": 0,
+        "vitaminC": 0,
+        "vitaminD": 0,
+        "vitaminE": 0,
+        "zinc": 0
+      },
+      "servings": [
+        {
+          "multiplier": 1,
+          "servingSize": 1,
+          "unit": {
+            "id": 304,
+            "name": "serving",
+            "plural": "servings"
+          },
+          "unitId": 304
+        }
+      ],
+      "units": [
+        304
+      ]
+    }
+  }
+}

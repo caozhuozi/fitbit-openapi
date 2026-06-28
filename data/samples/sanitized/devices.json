@@ -1,0 +1,15 @@
+{
+  "status": 200,
+  "body": [
+    {
+      "battery": "Medium",
+      "batteryLevel": 26,
+      "deviceVersion": "Inspire 3",
+      "features": [],
+      "id": "2999347580",
+      "lastSyncTime": "2026-06-28T15:32:18.000",
+      "mac": "C71C31FA66E8",
+      "type": "TRACKER"
+    }
+  ]
+}

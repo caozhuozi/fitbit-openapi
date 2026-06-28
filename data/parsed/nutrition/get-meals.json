@@ -1,0 +1,167 @@
+{
+  "domain": "nutrition",
+  "title": "Get Meals",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/get-meals/",
+  "method": "get",
+  "path": "/1/user/{user-id}/meals.json",
+  "description": "Retrieves a list of meals created by the user from their food log.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "meals : description",
+      "description": ""
+    },
+    {
+      "name": "meals : id",
+      "description": ""
+    },
+    {
+      "name": "meals : mealFoods : accessLevel",
+      "description": ""
+    },
+    {
+      "name": "meals : mealFoods : amount",
+      "description": ""
+    },
+    {
+      "name": "meals : mealFoods : brand",
+      "description": ""
+    },
+    {
+      "name": "meals : mealFoods : calories",
+      "description": ""
+    },
+    {
+      "name": "meals : mealFoods : foodId",
+      "description": ""
+    },
+    {
+      "name": "meals : mealFoods : locale",
+      "description": ""
+    },
+    {
+      "name": "meals : mealFoods : mealTypeId",
+      "description": ""
+    },
+    {
+      "name": "meals : mealFoods : name",
+      "description": ""
+    },
+    {
+      "name": "meals : mealFoods : unit : id",
+      "description": ""
+    },
+    {
+      "name": "meals : mealFoods : unit : name",
+      "description": ""
+    },
+    {
+      "name": "meals : mealFoods : unit : plural",
+      "description": ""
+    },
+    {
+      "name": "meals : mealFoods : units",
+      "description": ""
+    },
+    {
+      "name": "meals : name",
+      "description": ""
+    }
+  ],
+  "example_response": {
+    "meals": [
+      {
+        "description": "",
+        "id": 250763687,
+        "mealFoods": [
+          {
+            "accessLevel": "PUBLIC",
+            "amount": 1,
+            "brand": "",
+            "calories": 774,
+            "foodId": 28395,
+            "locale": "en_US",
+            "mealTypeId": 7,
+            "name": "Ground Beef, Broiled, 95% Lean",
+            "unit": {
+              "id": 180,
+              "name": "lb",
+              "plural": "lbs"
+            },
+            "units": [
+              238,
+              226,
+              180,
+              147,
+              389
+            ]
+          },
+          {
+            "accessLevel": "PUBLIC",
+            "amount": 1,
+            "brand": "Southern valley",
+            "calories": 30,
+            "foodId": 727995344,
+            "locale": "en_US",
+            "mealTypeId": 7,
+            "name": "Bell Pepper",
+            "unit": {
+              "id": 304,
+              "name": "serving",
+              "plural": "servings"
+            },
+            "units": [
+              304,
+              226,
+              180,
+              147,
+              389
+            ]
+          },
+          {
+            "accessLevel": "PUBLIC",
+            "amount": 1,
+            "brand": "",
+            "calories": 53,
+            "foodId": 81002,
+            "locale": "en_US",
+            "mealTypeId": 7,
+            "name": "Onion",
+            "unit": {
+              "id": 204,
+              "name": "medium",
+              "plural": "mediums"
+            },
+            "units": [
+              288,
+              316,
+              311,
+              319,
+              204,
+              179,
+              304,
+              349,
+              364,
+              91,
+              256,
+              279,
+              226,
+              180,
+              147,
+              389
+            ]
+          }
+        ],
+        "name": "Spaghetti"
+      }
+    ]
+  }
+}

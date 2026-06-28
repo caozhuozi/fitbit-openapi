@@ -1,0 +1,56 @@
+{
+  "domain": "body",
+  "title": "Get Body Fat Log",
+  "url": "https://dev.fitbit.com/build/reference/web-api/body/get-bodyfat-log/",
+  "method": "get",
+  "path": "/1/user/{user-id}/body/log/fat/date/{date}.json",
+  "description": "Retrieves a list of all user's body fat log entries for a given date.",
+  "scope": "weight",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "date",
+      "location": "path",
+      "required": true,
+      "description": "The date in the format yyyy-MM-dd."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "fat : date",
+      "description": "The date the body fat log was recorded."
+    },
+    {
+      "name": "fat : fat",
+      "description": "The body fat percentage."
+    },
+    {
+      "name": "fat : logId",
+      "description": "The body fat log Id."
+    },
+    {
+      "name": "fat : source",
+      "description": "The location where the body fat data originated. See \"source\" values for more information. Support: API | Aria | AriaAir | Withings"
+    },
+    {
+      "name": "fat : time",
+      "description": "The timestamp when the body fat log was recorded."
+    }
+  ],
+  "example_response": {
+    "fat": [
+      {
+        "date": "2019-03-20",
+        "fat": 15,
+        "logId": 1553067000000,
+        "source": "Aria",
+        "time": "07:38:14"
+      }
+    ]
+  }
+}

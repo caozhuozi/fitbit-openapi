@@ -1,0 +1,25 @@
+{
+  "domain": "nutrition",
+  "title": "Delete Water Log",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/delete-water-log/",
+  "method": "delete",
+  "path": "/1/user/{user-id}/foods/log/water/{water-log-id}.json",
+  "description": "Deleted a user's water log entry using the given log ID.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "water-log-id",
+      "location": "path",
+      "required": true,
+      "description": "The id of the water log entry."
+    }
+  ],
+  "response_fields": [],
+  "example_response": null
+}

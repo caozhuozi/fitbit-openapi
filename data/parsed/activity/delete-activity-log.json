@@ -1,0 +1,25 @@
+{
+  "domain": "activity",
+  "title": "Delete Activity Log",
+  "url": "https://dev.fitbit.com/build/reference/web-api/activity/delete-activity-log/",
+  "method": "delete",
+  "path": "/1/user/{user-id}/activities/{activity-log-id}.json",
+  "description": "Deletes a user’s activity log entry with the given ID.",
+  "scope": "activity",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "activity-log-id",
+      "location": "path",
+      "required": true,
+      "description": "The ID of the activity log entry."
+    }
+  ],
+  "response_fields": [],
+  "example_response": null
+}

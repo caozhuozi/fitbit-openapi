@@ -1,0 +1,54 @@
+/1/user/{user-id}/activities/active-zone-minutes/date/{date}/{period}.json:
+  get:
+    operationId: activeZoneMinutesTimeseriesGetGetAzmTimeSeriesByDate1UserUserIdActivitiesActiveZoneMinutesDateDatePeriodJson
+    summary: Get AZM Time Series by Date
+    description: This endpoint returns the daily summary values over a period of time
+      by specifying a date and time period.
+    tags:
+    - Active-Zone-Minutes-Timeseries
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/active-zone-minutes-timeseries/get-azm-timeseries-by-date/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: date
+      in: path
+      required: true
+      description: The end date of the period in the format yyyy-MM-dd or today.
+      schema:
+        type: string
+        format: date
+    - name: period
+      in: path
+      required: true
+      description: 'The range for which data will be returned. Supported: 1d | 7d
+        | 30d | 1w | 1m | 3m | 6m | 1y'
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              activities-active-zone-minutes:
+              - dateTime: '2022-05-01'
+                value:
+                  activeZoneMinutes: 21
+                  fatBurnActiveZoneMinutes: 5
+                  cardioActiveZoneMinutes: 12
+                  peakActiveZoneMinutes: 4
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - activity

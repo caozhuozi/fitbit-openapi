@@ -1,0 +1,25 @@
+{
+  "domain": "body",
+  "title": "Delete Weight Log",
+  "url": "https://dev.fitbit.com/build/reference/web-api/body/delete-weight-log/",
+  "method": "delete",
+  "path": "/1/user/{user-id}/body/log/weight/{weight-log-id}.json",
+  "description": "Deletes a Weight log entry",
+  "scope": "weight",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "weight-log-id",
+      "location": "path",
+      "required": true,
+      "description": "The weight log ID to be deleted."
+    }
+  ],
+  "response_fields": [],
+  "example_response": null
+}

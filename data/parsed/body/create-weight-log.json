@@ -1,0 +1,73 @@
+{
+  "domain": "body",
+  "title": "Create Weight Log",
+  "url": "https://dev.fitbit.com/build/reference/web-api/body/create-weight-log/",
+  "method": "post",
+  "path": "/1/user/{user-id}/body/log/weight.json",
+  "description": "Creates a weight log entry",
+  "scope": "weight",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "weight",
+      "location": "query",
+      "required": true,
+      "description": "Weight measurement in the format X.XX."
+    },
+    {
+      "name": "date",
+      "location": "query",
+      "required": true,
+      "description": "The date the weight measurement was recorded in the format yyyy-MM-dd."
+    },
+    {
+      "name": "time",
+      "location": "query",
+      "required": false,
+      "description": "The timestamp the weight measurement was recorded in the format HH:mm:ss. If a value is not provided, the timestamp will be the last second of the day."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "weightLog : bmi",
+      "description": "Calculated BMI in the format X.XX"
+    },
+    {
+      "name": "weightLog : date",
+      "description": "Log entry date in the format yyyy-MM-dd"
+    },
+    {
+      "name": "weightLog : logId",
+      "description": "Weight Log IDs are unique to the user, but not globally unique."
+    },
+    {
+      "name": "weightLog : source",
+      "description": "The source of the weight log. See \"source\" values for more information. Support: API | Aria | AriaAir | Withings"
+    },
+    {
+      "name": "weightLog : time",
+      "description": "Time of the measurement; hours and minutes in the format HH:mm:ss, set to the last second of the day if not provided."
+    },
+    {
+      "name": "weightLog : weight",
+      "description": "Weight in the format X.XX, in the unit system that corresponds to the Accept-Language header provided or if not provided in metric."
+    }
+  ],
+  "example_response": {
+    "weightLog": [
+      {
+        "bmi": 25.91,
+        "date": "2019-03-01",
+        "logId": 1553067494000,
+        "source": "Aria",
+        "time": "07:38:14",
+        "weight": 200
+      }
+    ]
+  }
+}

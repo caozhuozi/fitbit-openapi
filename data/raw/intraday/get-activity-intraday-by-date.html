@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+  <!-- Fitbit Cookie Manager -->
+<script src="https://corporate-webapps.fitbit.com/corporate-web-libs/channels/prod/oneTrust_production/consent/cfddceb3-572a-45f4-8f2d-21ab97e004c4/OtAutoBlock.js" type="text/javascript" charset="UTF-8" integrity="sha256-+7z7ToCbV9KjMecylPgbzuWmsJYt00/hukBnfb2pItg=" crossorigin="anonymous"></script>
+
+<script src="https://corporate-webapps.fitbit.com/corporate-web-libs/channels/prod/oneTrust_production/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="cfddceb3-572a-45f4-8f2d-21ab97e004c4" integrity="sha256-2F5Ny1LOcUxxNuuVoydlMlIFpKq9tRkyvZAkxAC+Zl0=" crossorigin="anonymous"></script>
+
+<script type="text/javascript"> function OptanonWrapper() {} </script>
+<!-- End Fitbit Cookie Manager -->
+<meta http-equiv="Content-Security-Policy" content="default-src &apos;self&apos;; connect-src  *.algolia.net *.algolia.com *.algolianet.com https://fhs--uat.sandbox.my.salesforce-sites.com/ https://fhs.my.salesforce-sites.com corporate-webapps.fitbit.com api.fitbit.com *.google-analytics.com *.googletagmanager.com cdn.cookielaw.org *.doubleclick.net *.onetrust.com syndication.twitter.com; frame-src docs.google.com www.instagram.com platform.twitter.com syndication.twitter.com *.youtube.com *.google-analytics.com *.googletagmanager.com cdn.cookielaw.org *.doubleclick.net *.onetrust.com; script-src &apos;self&apos; &apos;unsafe-eval&apos; cdn.jsdelivr.net *.google-analytics.com ajax.googleapis.com *.googletagmanager.com cdn.cookielaw.org *.doubleclick.net *.onetrust.com platform.twitter.com platform.instagram.com cdn.syndication.twimg.com www.youtube.com &apos;sha256-oj9+1T68cR7Jkr8W7VKn0bEvYYJuIB5ZRTSOlgt9GSw=&apos; &apos;sha256-IgMQOOOedQeMPBl7lSreMVPmJvU62bc6l8HcsGXnbWc=&apos; &apos;sha256-grL1fzigmhYU6rCxzAlznoXD51f2fxNv9Q4Fbvd3xi8=&apos; *.fitbit.com; img-src &apos;self&apos; data: syndication.twitter.com *.twimg.com platform.twitter.com *.google-analytics.com *.googletagmanager.com cdn.cookielaw.org *.doubleclick.net *.onetrust.com www.gravatar.com *.google.com *.google.co.uk; style-src cdnjs.cloudflare.com &apos;self&apos; &apos;unsafe-inline&apos; platform.twitter.com *.youtube.com; font-src &apos;self&apos; cdnjs.cloudflare.com; child-src youtube.com;">
+<meta name="robots" content="noIndex">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<meta name="description" content="You&apos;ll fit in here. Using JavaScript, CSS, and SVG, developers now have a fast, easy way to build apps and clock faces for Fitbit OS.">
+<title>Get Activity Intraday by Date</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.css">
+<link rel="stylesheet" href="/styles/app-a858888fb3e3764883e4504e38aa4524.css">
+<meta name="google-site-verification" content="n0weR6PKsP7ScjgqbUNSslc4csqsgny9Cxjjxi7CA4M">
+
+<meta property="og:title" content="Fitbit Development: Get Activity Intraday by Date">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dev.fitbit.com/build/reference/web-api/intraday/get-activity-intraday-by-date/">
+<meta property="og:description" content="You&apos;ll fit in here. Using JavaScript, CSS, and SVG, developers now have a fast, easy way to build apps and clock faces for Fitbit OS.">
+<meta property="og:image" content="https://dev.fitbit.com/opengraph.png">
+
+<!-- Fitbit Auto Cookie Blocking Script -->
+<script src></script>
+<!-- END Auto Cookie Blocking Script -->
+
+</head>
+
+<body>
+  <header>
+  <div class="row">
+    <div class="row">
+    <div class="row" style="background-color: #edd70d; padding: 10px; font-size: 25px; font-weight: bold; color: #333; text-align:center;">
+        Modernizing the Fitbit Developer Experience.
+    </div>
+    <div class="row" style="background-color: #edd70d; padding: 10px; font-size: 17px; font-weight: bold; color: #333; text-align:center;">
+        The Fitbit Web APIs are moving to a new, scalable infrastructure. We
+        will be deprecating the legacy Fitbit Web API in September 2026. To
+        ensure uninterrupted data continuity for your users, you will need
+        to migrate your applications. Detailed migration guides are live
+        on the 
+        <a href="https://developers.google.com/health">Google Health API</a>
+        developer site.
+    </div>
+</div>
+  </div>
+  <div class="row expanded row-header hide-for-print">
+    <div id="title-bar" class="expanded mobile-title-bar">
+  <div class="title-bar overview align-justify flex-container flex-dir-row-reverse" id="overview" data-magellan-target="overview" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+    <div class="float-right">
+      <div class="float-right" data-hide-for="medium">
+        <button class="menu-icon" type="button" data-toggle></button>
+      </div>
+      <div class="search-icon-box float-right mobile-show">
+        <a href="#" class="search-button"><img src="/images/search-icon-ce72b3f26dca3833d10b930464c46d19.svg" alt="search" class="icon icon-search"></a>
+      </div>
+    </div>
+    <div class="title-bar-title">
+      <a href="/">
+        <img src="/images/fitbit-logo-5894e7f66b64ae9d05a1ef278c367c18.svg" alt="Fitbit" width="112">
+      </a>
+    </div>
+  </div>
+</div>
+<div class="mobile-sidenav-box expanded mobile-show">
+  <div class="mobile-sidenav-title">Get Activity Intraday by Date</div>
+  <div>
+    <img class="chevron-down" src="/images/chevron_down_black-8dae3183d2527940f30b31664da79f0d.svg" alt="chevron down">
+  </div>
+</div>
+
+<div class="expanded mobile-top-bar">
+  <div class="top-bar" id="responsive-menu">
+    <div class="top-bar-left">
+      <a href="/">
+        <img src="/images/fitbit-logo-5894e7f66b64ae9d05a1ef278c367c18.svg" alt="Fitbit" width="184">
+      </a>
+    </div>
+    <div class="top-bar-right">
+      <ul class="top-submenu medium-horizontal vertical dropdown menu" data-multi-open="false" data-responsive-menu="accordion medium-dropdown">
+        <li class><a href="/getting-started/" title="Getting Started">Getting Started</a></li><li class="has-submenu"><a href="/build/" title="Build">Build</a><ul class="submenu menu vertical" data-submenu><a href="/build/" title="Build" class="show-for-small-only show-for-medium-only">Overview</a><a href="/build/guides/" title="Guides">Guides</a><a href="/build/reference/" title="Reference">Reference</a><a href="/build/tutorials/" title="Tutorials">Tutorials</a><a href="/build/fitbit-studio/" title="Fitbit Studio">Fitbit Studio</a></ul></li><li class="has-submenu"><a href="/manage/" title="Manage">Manage</a><ul class="submenu menu vertical" data-submenu><a href="/manage/" title="Manage" class="show-for-small-only show-for-medium-only">Overview</a><a href="/manage/support/" title="Support">Support</a><a href="/apps/new/" target>Register An App</a>
+<a href="https://gam.fitbit.com" target="_blank">Gallery App Manager</a>
+<a href="/legal/app-gallery-guidelines/" target>App Gallery Guidelines</a>
+</ul></li><li class="has-submenu"><a href="/community/" title="Community">Community</a><ul class="submenu menu vertical" data-submenu><a href="/community/" title="Community" class="show-for-small-only show-for-medium-only">Overview</a><a href="/blog/" target>Developer Blog</a>
+<a href="https://chttps://support.google.com/googlehealth/community?product_label=googlehealth-sdk-helpommunity.fitbit.com/t5/SDK-Development/bd-p/sdk" target="_blank">Community Forum</a>
+<a href="https://twitter.com/fitbitdev" target="_blank">Twitter</a>
+<a href="/community/contributing/" title="Contributing to the Fitbit OS SDK">Contributing to the Fitbit OS SDK</a></ul></li>
+          <li><a href="#" class="search-button desktop-show"><img src="/images/search-icon-ce72b3f26dca3833d10b930464c46d19.svg" alt="search" class="icon icon-search"></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="search-bar">
+  <div class="search-bar-icon">
+    <a href="#" class="close-search-box mobile-show">
+      <img class="close-search-button auto-shrink" src="/images/chevron-left-912dff8691d0ff2084124300699ee011.svg" alt="back">
+    </a>
+    <img class="search-icon" src="/images/search-icon-ce72b3f26dca3833d10b930464c46d19.svg" alt="search icon">
+    <a href="#"><img class="cancel-search-icon" src="/images/cancel-search-85d34fbe814dbe230b00a0fa5a764d3a.svg" alt="cancel search"></a>
+  </div>
+  <input class="columns" id="search-input" type="search">
+</div>
+  </div>
+</header>
+
+  
+
+  <div class="row expanded contentRow" data-equalizer data-equalize-on="medium">
+    
+      <div class="desktop-show small-12 medium-4 large-3 columns left-nav hide-for-print" data-equalizer-watch>
+        <div id="sidebar-left">
+  <div class="mobile-show">
+    <img class="close-nav-button" src="/images/close-45026d1b82a16816abbad5ca8e928a2c.svg" alt="close">
+  </div>
+  <nav class="sidebar-inner">
+    <h3>
+<a href="/build/reference/" class=" ">Reference</a>
+</h3>
+<ul class="menu vertical depth1">
+<li>
+<a href="/build/reference/device-api/" class=" ">Device API</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/companion-api/" class=" ">Companion API</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/settings-api/" class=" ">Settings API</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/" class=" parent-current">Web API</a>
+</li>
+<li class="divider"></li><ul class="menu vertical nested is-active depth2">
+<li>
+<a href="/build/reference/web-api/developer-guide/" class=" ">Developer Guide</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/active-zone-minutes-timeseries/" class=" ">Active Zone Minutes Time Series</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/activity/" class=" ">Activity</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/activity-timeseries/" class=" ">Activity Time Series</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/authorization/" class=" ">Authorization</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/blood-glucose/" class=" ">Blood Glucose</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/body/" class=" ">Body</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/body-timeseries/" class=" ">Body Time Series</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/breathing-rate/" class=" ">Breathing Rate</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/cardio-fitness-score/" class=" ">Cardio Fitness Score (VO2 Max)</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/devices/" class=" ">Devices</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/electrocardiogram/" class=" ">Electrocardiogram</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/friends/" class=" ">Friends</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/heartrate-timeseries/" class=" ">Heart Rate Time Series</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/heartrate-variability/" class=" ">Heart Rate Variability</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/intraday/" class=" parent-current">Intraday</a>
+</li>
+<li class="divider"></li><ul class="menu vertical nested is-active depth3">
+<li>
+<a href="/build/reference/web-api/intraday/get-azm-intraday-by-date/" class=" ">Get AZM Intraday by Date</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/intraday/get-azm-intraday-by-interval/" class=" ">Get AZM Intraday by Interval</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/intraday/get-activity-intraday-by-date/" class="current parent-current">Get Activity Intraday by Date</a>
+</li>
+<li class="divider"></li><ul class="menu vertical nested is-active toc show-for-medium"><li><a href="#Request">Request</a></li><li class="divider"></li><li><a href="#Response">Response</a></li><li class="divider"></li><li><a href="#Additional-Information">Additional Information</a></li><li class="divider"></li></ul><li>
+<a href="/build/reference/web-api/intraday/get-activity-intraday-by-interval/" class=" ">Get Activity Intraday by Interval</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/intraday/get-br-intraday-by-date/" class=" ">Get Breathing Rate Intraday by Date</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/intraday/get-br-intraday-by-interval/" class=" ">Get Breathing Rate Intraday by Interval</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/intraday/get-heartrate-intraday-by-date/" class=" ">Get Heart Rate Intraday by Date</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/intraday/get-heartrate-intraday-by-interval/" class=" ">Get Heart Rate Intraday by Interval</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/intraday/get-hrv-intraday-by-date/" class=" ">Get HRV Intraday by Date</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/intraday/get-hrv-intraday-by-interval/" class=" ">Get HRV Intraday by Interval</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/intraday/get-spo2-intraday-by-date/" class=" ">Get SpO2 Intraday by Date</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/intraday/get-spo2-intraday-by-interval/" class=" ">Get SpO2 Intraday by Interval</a>
+</li>
+<li class="divider"></li></ul>
+<li>
+<a href="/build/reference/web-api/irregular-rhythm-notifications/" class=" ">Irregular Rhythm Notifications (IRN)</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/nutrition/" class=" ">Nutrition</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/nutrition-timeseries/" class=" ">Nutrition Time Series</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/sleep/" class=" ">Sleep</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/spo2/" class=" ">SpO2</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/subscription/" class=" ">Subscription</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/temperature/" class=" ">Temperature</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/user/" class=" ">User</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/troubleshooting-guide/" class=" ">Troubleshooting Guide</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/help/" class=" ">Web API Support</a>
+</li>
+<li class="divider"></li></ul>
+</ul>
+
+  </nav>
+</div>
+
+
+        &#xA0;
+      </div>
+      <div id="content" class="content small-12 medium-8 large-9 columns">
+        <div class="mobile-show small-12 medium-4 large-3 columns left-nav" data-equalizer-watch>
+          <div id="sidebar-left">
+  <div class="mobile-show">
+    <img class="close-nav-button" src="/images/close-45026d1b82a16816abbad5ca8e928a2c.svg" alt="close">
+  </div>
+  <nav class="sidebar-inner">
+    <h3>
+<a href="/build/reference/" class=" ">Reference</a>
+</h3>
+<ul class="menu vertical depth1">
+<li>
+<a href="/build/reference/device-api/" class=" ">Device API</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/companion-api/" class=" ">Companion API</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/settings-api/" class=" ">Settings API</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/" class=" parent-current">Web API</a>
+</li>
+<li class="divider"></li><ul class="menu vertical nested is-active depth2">
+<li>
+<a href="/build/reference/web-api/developer-guide/" class=" ">Developer Guide</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/active-zone-minutes-timeseries/" class=" ">Active Zone Minutes Time Series</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/activity/" class=" ">Activity</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/activity-timeseries/" class=" ">Activity Time Series</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/authorization/" class=" ">Authorization</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/blood-glucose/" class=" ">Blood Glucose</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/body/" class=" ">Body</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/body-timeseries/" class=" ">Body Time Series</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/breathing-rate/" class=" ">Breathing Rate</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/cardio-fitness-score/" class=" ">Cardio Fitness Score (VO2 Max)</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/devices/" class=" ">Devices</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/electrocardiogram/" class=" ">Electrocardiogram</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/friends/" class=" ">Friends</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/heartrate-timeseries/" class=" ">Heart Rate Time Series</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/heartrate-variability/" class=" ">Heart Rate Variability</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/intraday/" class=" parent-current">Intraday</a>
+</li>
+<li class="divider"></li><ul class="menu vertical nested is-active depth3">
+<li>
+<a href="/build/reference/web-api/intraday/get-azm-intraday-by-date/" class=" ">Get AZM Intraday by Date</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/intraday/get-azm-intraday-by-interval/" class=" ">Get AZM Intraday by Interval</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/intraday/get-activity-intraday-by-date/" class="current parent-current">Get Activity Intraday by Date</a>
+</li>
+<li class="divider"></li><ul class="menu vertical nested is-active toc show-for-medium"><li><a href="#Request">Request</a></li><li class="divider"></li><li><a href="#Response">Response</a></li><li class="divider"></li><li><a href="#Additional-Information">Additional Information</a></li><li class="divider"></li></ul><li>
+<a href="/build/reference/web-api/intraday/get-activity-intraday-by-interval/" class=" ">Get Activity Intraday by Interval</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/intraday/get-br-intraday-by-date/" class=" ">Get Breathing Rate Intraday by Date</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/intraday/get-br-intraday-by-interval/" class=" ">Get Breathing Rate Intraday by Interval</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/intraday/get-heartrate-intraday-by-date/" class=" ">Get Heart Rate Intraday by Date</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/intraday/get-heartrate-intraday-by-interval/" class=" ">Get Heart Rate Intraday by Interval</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/intraday/get-hrv-intraday-by-date/" class=" ">Get HRV Intraday by Date</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/intraday/get-hrv-intraday-by-interval/" class=" ">Get HRV Intraday by Interval</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/intraday/get-spo2-intraday-by-date/" class=" ">Get SpO2 Intraday by Date</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/intraday/get-spo2-intraday-by-interval/" class=" ">Get SpO2 Intraday by Interval</a>
+</li>
+<li class="divider"></li></ul>
+<li>
+<a href="/build/reference/web-api/irregular-rhythm-notifications/" class=" ">Irregular Rhythm Notifications (IRN)</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/nutrition/" class=" ">Nutrition</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/nutrition-timeseries/" class=" ">Nutrition Time Series</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/sleep/" class=" ">Sleep</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/spo2/" class=" ">SpO2</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/subscription/" class=" ">Subscription</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/temperature/" class=" ">Temperature</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/user/" class=" ">User</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/troubleshooting-guide/" class=" ">Troubleshooting Guide</a>
+</li>
+<li class="divider"></li><li>
+<a href="/build/reference/web-api/help/" class=" ">Web API Support</a>
+</li>
+<li class="divider"></li></ul>
+</ul>
+
+  </nav>
+</div>
+
+
+          &#xA0;
+        </div>
+        <div class="searchIndex row article-box">
+          <article class="small-12 large-11 large-centered column columns-overview everything " data-equalizer-watch>
+            <h1>Get Activity Intraday by Date</h1> 
+
+<p>This endpoint retrieves the activity intraday time series data for a given 
+resource on a specific date or 24 hour period.  Intraday support can extend the 
+detail-level response to include 1min, 5min and 15min for Activity.</p>
+
+<p>3rd-party developers who want access to retrieve other Fitbit users&#x2019; 
+Intraday data through the &#x201C;Client&#x201D; or &#x201C;Server&#x201D; application type should submit a 
+request by filling out this 
+<a href="/build/reference/web-api/intraday/">form</a>.  <font color="00B0B9"><b><i>A 
+Fitbit developer&#x2019;s personal Intraday data is automatically available through 
+the &#x201C;Personal&#x201D; application type.  You do not need to submit a 
+request.</i></b></font></p>
+
+<p><b>Scope:</b> <i>activity</i></p>
+<hr>
+
+<h2 id="Request">Request</h2>
+
+<table class="unstriped">
+    <colgroup>
+        <col width="10%">
+        <col width="90%">
+    </colgroup>
+    <tr style="font-weight:bold">
+        <td style="background-color:#00B0B9; color:white">GET</td>
+        <td style="background-color:#C3C8C9; color:black">
+        /1/user/[user-id]/activities/[resource]/date/[date]/1d/[detail-level].json<br>
+        <br>
+        /1/user/[user-id]/activities/[resource]/date/[date]/1d/[detail-level]/time/[start-time]/[end-time].json</td>
+    </tr>
+</table>
+<br>
+
+<b>URI Arguments</b><br>
+<table class="unstriped"> 
+    <colgroup>
+        <col width="20%">
+        <col width="15%">
+        <col width="65%">
+    </colgroup>
+    <tr>
+        <td>user-id</td>
+        <td>required</td>
+        <td>The encoded ID of the user.  Use &quot;-&quot; (dash) for current logged-in 
+        user. </td>
+    </tr>
+    <tr>
+        <td>resource</td>
+        <td>required</td>
+        <td>The resource of the data to be returned.<br>
+        <b>Supported:</b> <code>calories</code> | <code>distance</code> | 
+        <code>elevation</code> | <code>floors</code> | <code>steps</code> | 
+        <code>swimming-strokes</code></td>
+    </tr>
+    <tr>
+        <td>date</td>
+        <td>required</td>
+        <td>The date in the format <code>yyyy-MM-dd</code> or 
+        <code>today</code>.</td>
+    </tr>
+    <tr>
+        <td>detail-level</td>
+        <td>required</td>
+        <td>Number of data points to include.<br>
+        <b>Supported:</b> <code>1min</code> | <code>5min</code> | 
+        <code>15min</code></td>
+    </tr>
+    <tr>
+        <td>start-time</td>
+        <td>optional</td>
+        <td>The start of the time period in the format <code>HH:mm</code>.</td>
+    </tr>
+    <tr>
+        <td>end-time</td>
+        <td>optional</td>
+        <td>The end of the time period in the format <code>HH:mm</code>.</td>
+    </tr>
+</table>
+<br>
+
+<b>Query Parameters</b><br>
+<table class="unstriped">
+    <colgroup>
+        <col width="20%">
+        <col width="15%">
+        <col width="50%">
+        <col width="15%">
+    </colgroup>
+    <tr>
+        <td>timezone</td>
+        <td>optional</td>
+        <td>Returns the response from the specified timezone.<br>
+        <b>Supported:</b> <code>UTC</code></td>
+        <td>string</td>
+    </tr>
+</table>
+<br>
+
+<b>Request Headers</b>
+<table class="unstriped"> 
+    <colgroup>
+        <col width="20%">
+        <col width="15%">
+        <col width="65%">
+    </colgroup>
+    <tr>
+        <td>authorization</td>
+        <td>required</td>
+        <td>Specify the token type and Fitbit user&#x2019;s access token.<br>
+        <b>Token type:</b> <code>Bearer</code></td>
+    </tr>
+    <tr>
+        <td>accept</td>
+        <td>optional</td>
+        <td>The media type of the response content the client is expecting.<br>
+        <b>Supported:</b> <code>application/json</code></td>
+    </tr>
+    <tr>
+        <td>accept-language</td>
+        <td>recommended</td>
+        <td>The measurement unit system to use for response values.  See 
+        <a href="/build/reference/web-api/developer-guide/application-design/#Localization">Localization</a>.</td>
+    </tr>
+    <tr>
+        <td>accept-locale</td>
+        <td>optional</td>
+        <td>The locale to use for response values.  See 
+        <a href="/build/reference/web-api/developer-guide/application-design/#Localization">Localization</a>.</td>
+    </tr>
+</table>
+<br>
+
+<b>Examples</b>
+<ul class="tabs" data-tabs id="example-tabs">
+    <li class="tabs-title is-active"><a href="#url">URL</a></li>
+    <li class="tabs-title"><a href="#curl">CURL</a></li>
+</ul>
+<div class="tabs-content" data-tabs-content="example-tabs">
+    <div class="tabs-panel is-active" id="url">
+GET https<nolink>://api.fitbit.com/1/user/-/activities/steps/date/2019-01-01/1d/1min.json<br>
+GET https<nolink>://api.fitbit.com/1/user/GGNJL9/activities/steps/date/2019-01-01/1d/1min.json<br>
+<br>
+GET https<nolink>://api.fitbit.com/1/user/-/activities/steps/date/2019-01-01/1d/1min/time/08:00/08:30.json<br>
+GET https<nolink>://api.fitbit.com/1/user/GGNJL9/activities/steps/date/2019-01-01/1d/1min/time/08:00/08:30.json
+    </nolink></nolink></nolink></nolink></div>
+    <div class="tabs-panel" id="curl">
+curl -X GET &quot;https<nolink>://api.fitbit.com/1/user/-/activities/steps/date/2019-01-01/1d/1min.json&quot; \<br>
+-H &quot;accept: application/json&quot; \<br>
+-H &quot;authorization: Bearer &lt;access_token&gt;&quot;<br>
+<br>
+curl -X GET &quot;https<nolink>://api.fitbit.com/1/user/-/activities/steps/date/2019-01-01/1d/1min/time/08:00/08:30.json&quot; \<br>
+-H &quot;accept: application/json&quot; \<br>
+-H &quot;authorization: Bearer &lt;access_token&gt;&quot;
+    </nolink></nolink></div>
+</div>
+<br>
+
+<hr>
+
+<h2 id="Response">Response</h2>
+
+<ul class="tabs" data-tabs id="response-tabs">
+    <li class="tabs-title is-active"><a href="#description">Description</a></li>
+    <li class="tabs-title"><a href="#message-body">Example Response</a></li>
+</ul>
+<div class="tabs-content" data-tabs-content="response-tabs">
+    <div class="tabs-panel is-active" id="description">
+        <table class="unstriped"> 
+            <colgroup>
+                <col width="50%">
+                <col width="50%">
+            </colgroup>
+            <tr style="font-weight:bold">
+                <td>Element Name</td>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>activities-&lt;resource&gt; : datetime</td>
+                <td>The date of the recorded resource in the format yyyy-MM-dd.
+                </td>
+            </tr>
+            <tr>
+                <td>activities-&lt;resource&gt; : value</td>
+                <td>The specified resource&apos;s daily total or the total during 
+                the time period specified.</td>
+            </tr>
+            <tr>
+                <td>activities-&lt;resource&gt;-intraday : dataset : level</td>
+                <td>Numerical value representing the user&apos;s activity-level at 
+                the moment when the resource was recorded.<br>
+                <br>
+                0 = sedentary<br>
+                1 = lightly active<br>
+                2 = fairly/moderately active<br>
+                3 = very active<br>
+                <br>
+                Returned only when resource = calories.</td>
+            </tr>
+            <tr>
+                <td>activities-&lt;resource&gt;-intraday : dataset : mets </td>
+                <td>METs value at the moment when the resource was recorded.<br>
+                <br>
+                Returned only when resource = calories.</td>
+            </tr>
+            <tr>
+                <td>activities-&lt;resource&gt;-intraday : dataset : time</td>
+                <td>The time of the recorded resource. </td>
+            </tr>
+            <tr>
+                <td>activities-&lt;resource&gt;-intraday : dataset : value</td>
+                <td>The specified resource&apos;s value at the time it is recorded.</td>
+            </tr>
+        </table>
+    </div>
+    <div class="tabs-panel" id="message-body">
+      <pre>
+{
+  &quot;activities-steps&quot;: [
+    {
+      &quot;dateTime&quot;: &quot;2019-01-01&quot;,
+      &quot;value&quot;: &quot;0&quot;
+    }
+  ],
+  &quot;activities-steps-intraday&quot;: {
+    &quot;dataset&quot;: [
+      {
+        &quot;time&quot;: &quot;08:00:00&quot;,
+        &quot;value&quot;: 0
+      },
+      {
+        &quot;time&quot;: &quot;08:01:00&quot;,
+        &quot;value&quot;: 0
+      },
+      {
+        &quot;time&quot;: &quot;08:02:00&quot;,
+        &quot;value&quot;: 0
+      },
+
+
+[...]
+
+      {
+        &quot;time&quot;: &quot;08:30:00&quot;,
+        &quot;value&quot;: 0
+      }
+    ],
+    &quot;datasetInterval&quot;: 1,
+    &quot;datasetType&quot;: &quot;minute&quot;
+  }
+}
+      </pre>
+    </div>
+</div>
+<br>
+
+<b>Response Headers</b><br>
+<table class="unstriped"> 
+    <colgroup>
+        <col width="35%">
+        <col width="65%">
+    </colgroup>
+    <tr>
+        <td>content-type</td>
+        <td>The media type of the response content being sent to the client.<br>
+        <b>Supported:</b> <code>application/json</code></td>
+    </tr>
+    <tr>
+        <td>fitbit-rate-limit-limit</td>
+        <td>The quota number of calls.</td>
+    </tr>
+    <tr>
+        <td>fitbit-rate-limit-remaining</td>
+        <td>The number of calls remaining before hitting the rate limit.</td>
+    </tr>
+    <tr>
+        <td>fitbit-rate-limit-reset</td>
+        <td>The number of seconds until the rate limit resets.</td>
+    </tr>
+</table>
+
+<p><blockquote>
+    <b>Note:</b> The rate limit headers are approximate and asynchronously 
+    updated. This means that there may be a minor delay in the decrementing of 
+    remaining requests. This could result in your application receiving an 
+    unexpected 429 response if you don&apos;t track the total number of requests 
+    you make yourself.
+</blockquote>
+<br></p>
+<p><b>Response Type</b><br></p>
+<table class="unstriped"> 
+    <colgroup>
+        <col width="35%">
+        <col width="65%">
+    </colgroup>
+    <tr>
+        <td>HTTP Status Code</td>
+        <td>HTTP response code.  List of codes are found in the 
+        <a href="/build/reference/web-api/troubleshooting-guide/error-messages/">Troubleshooting Guide</a>.</td>
+    </tr>
+    <tr>
+        <td>Status Message</td>
+        <td>Description of the status code.</td>
+    </tr>
+    <tr>
+        <td>Response Body</td>
+        <td>Contains the JSON response to the API call.  When errors are 
+        returned by the API call, the errorType, fieldName and message text 
+        will provide more information to the cause of the failure.</td> 
+    </tr>
+</table>
+<br>
+
+<b>Response Codes</b><br>
+<table class="unstriped"> 
+    <colgroup>
+        <col width="20%">
+        <col width="80%">
+    </colgroup>
+    <tr>
+        <td>200</td>
+        <td>A successful request.</td>
+    </tr>
+    <tr>
+        <td>400</td>
+        <td>The request had bad syntax or was inherently impossible to be 
+        satisfied.</td>
+    </tr>
+    <tr>
+        <td>401</td>
+        <td>The request requires user authentication.</td>
+    </tr>
+</table>
+
+<p><blockquote>
+    <b>Note:</b> For a complete list of response codes, please refer to the 
+    <a href="/build/reference/web-api/troubleshooting-guide/error-messages/">Troubleshooting Guide</a>.
+</blockquote>
+<br></p>
+<h2 id="Additional-Information">Additional Information</h2>
+
+<p>Access to the Intraday Time Series for personal use (accessing your own data) 
+is available through the &quot;Personal&quot; App Type.</p>
+
+<p><b>Restriction</b>: Activity Intraday data cannot be retrieved for more than a 
+24 hour period.  Any requests that expand over a 24 hour period will result 
+with the summary data for the date range specified.</p>
+
+<p>The activity intraday time series data for a given resource is returned in 
+the format requested. The endpoint mimics the Get Activity Time Series 
+endpoints. If your application has the appropriate access, your calls to a 
+time series endpoint for a specific day (by using start and end dates on the 
+same day or a period of 24 hours), the response will include extended intraday 
+values with 1-minute, 5-minute or 15-minute detail level for that day. Unlike 
+other time series calls that allow fetching data of other users, intraday data 
+is available only for and to the authorized user.</p>
+
+<p>Any discrepancies between time series detail-level totals vs daily summary 
+totals is likely due to how the device calculates on-wrist and off-wrist 
+data. On-wrist data is defined as data collected while the device is 
+worn.  On-wrist data is also referred to as Intraday data.  Off-wrist data 
+is defined as data collected while the device is not worn. For example, 
+step data can be collected if the device was in a bag while driving down a 
+bumpy road.  By design, daily summary totals include on-wrist totals and 
+off-wrist totals; while Intraday totals include on-wrist totals only.</p>
+
+<h4 id="Considerations">Considerations</h4>
+
+<ol>
+    <li>If a user hasn&apos;t synced a tracker for more than seven (7) days, the 
+    tracker stores only summary values for the days older than one week. In 
+    this case, the intraday data for steps is zero and the intraday calories 
+    are calculated from BMR or EER. Intraday steps could be estimated from 
+    the total daily summary data by the equation above.</li>
+    <li>For the current day we will include only values until current timestamp 
+    (in the user&apos;s timezone).</li>
+    <li>If a specific time interval was passed to the call via 
+    <b>start-time/end-time</b> parameters, <b>data-value</b> will include a 
+    summary only for the requested time period (versus whole day).</li>
+    <li>For the <b>activities/log/calories</b> resource, each data point also 
+    includes the <b>level</b> field that reflects calculated activity level 
+    for that time period <b>( 0 - sedentary; 1 - lightly active; 2 - fairly 
+    active; 3 - very active)</b>.</li>
+    <li>If BMR or EER have been used to estimate calories for the whole 
+    specific day (no tracker data), intraday data for calories would be flat 
+    and estimated according to the simple equation <b>calories_1m = 
+    BMR(EER)/24/60.</b></li>
+</ol>
+
+<h4 id="Using-BMREER-Algorithms">Using BMR/EER Algorithms</h4>
+
+<p>If a user had no Fitbit tracker data for the specific day then the greater 
+of Logged Activities + BMR (for minutes when there is no activity) and the 
+calories calculated from the EER for that day (if EER enabled for this user&apos;s 
+profile) are taken. In case, there was some data from the tracker for the 
+specific day, that data where available is used and for time where data is 
+unavailable, the BMR is used. If the total is less than 20% greater than BMR 
+then the EER (cals &lt; EER * 0.8) is used. EER never used to calculate calories 
+for today.</p>
+
+<h4 id="Using-BMR-Formula">Using BMR Formula</h4>
+
+<p>Fitbit uses the standard MD Mifflin-St Jeor equation:</p>
+
+<pre>9.99 * weightKg + 6.25*heightCm - 4.92*ageYears + s, where s is +5 for 
+males
+and -161 for female</pre>
+
+<h4 id="EER-Formula-TEE-total-energy-expenditure">EER Formula (TEE total energy expenditure)</h4>
+
+<p>The EER Formula is based on 
+<a href="http://www.cdc.gov/pcd/issues/2006/oct/pdf/06_0034.pdf">http://www.cdc.gov/pcd/issues/2006/oct/pdf/06_0034.pdf</a>, which in turn is 
+based on &quot;Food and Nutrition Board. Dietary reference intakes for energy, 
+carbohydrate, fiber, fat, fatty acids, cholesterol, protein, and amino acids 
+(macronutrients). Washington (DC): National Academy Press; 2005.&quot; 
+<a href="http://www.nap.edu/openbook.php?isbn=0309085373&amp;page=204">http://www.nap.edu/openbook.php?isbn=0309085373&amp;page=204</a></p>
+
+<h4 id="MALE-based-EER-Formula">MALE-based EER Formula:</h4>
+
+<pre>TEE = 864 - 9.72 x age (years) + 1.0 x (14.2 x weight(kg) + 503 x height
+(meters))</pre>
+
+<h4 id="FEMALE-based-EER-Formula">FEMALE-based EER Formula:</h4>
+
+<pre>TEE = 387 - 7.31 x age (years) + 1.0 x (10.9 x weight(kg) + 660.7 x height
+(meters))</pre>
+
+<h3 id="Distance-pace-and-speed">Distance, pace and speed</h3>
+
+<p>The Fitbit devices use the following formulas to calculate distance, pace 
+and speed.  Please note, stride length is approximated by the person&apos;s height 
+and gender.</p>
+
+<p>
+    <code>distance = steps * stride length</code><br>
+    <code>pace = time(sec) / distance</code><br>
+    <code>speed = distance / time(hour)</code><br>
+</p>
+
+<p>Daily activity summary and auto-detected exercises&apos; (recorded using Smart Track) 
+distance are estimated values based on steps and stride length.  Devices 
+that support on-device or connected GPS will record distance, pace 
+and speed from the GPS data when the exercise is initiated using the 
+on-device Exercise application.  If the person begins moving before receiving 
+a GPS signal, steps and stride length are used to calculate distance until the 
+GPS connects. Intraday distance values, returned by the Intraday endpoints or 
+Activity TCX endpoint, can be more accurate since they use the GPS data.  To 
+determine how the exercise was recorded, see 
+<a href="/build/reference/web-api/activity/get-activity-log-list/#logType-values">
+&quot;logType&quot; values</a>.</p>
+
+<p>Some people have noticed that the standard formula for calculating pace and 
+speed doesn&apos;t always provide accurate results.  That&apos;s because pace and speed
+are calculated from the GPS data, while the total distance is an approximate 
+value based on how the tracker calculates distance (GPS vs steps &amp; stride 
+length).  The mobile application duplicates the tracker distance value by 
+displaying the exercise summary view.  This is done to provide a better 
+user experience for the consumer.  When the user drills down into the exercise 
+details, like data charts or maps, they should see the more accurate data 
+coming from the GPS or Intraday data.</p>
+
+<p>Developers who need to display the most accurate distance values, we suggest
+using only the intraday distance data points instead of the activity summary.</p>
+
+<p>See <a href="https://support.google.com/fitbit/answer/14237111">
+How does my Fitbit device calcuate my daily activity?</a> for more information.</p>
+
+
+
+<h3 id="Webhook-notifications">Webhook notifications</h3>
+
+<p>The Fitbit Web API can send notifications when a Fitbit user has new data 
+to download.  This is possible by implementing the Subscription API and 
+subscribing to one or more data collections.  See 
+<a href="/build/reference/web-api/developer-guide/using-subscriptions/">
+Using Subscriptions</a>. Whenever the activity service recognizes a change 
+to the user&#x2019;s data, a notification is sent to your application&#x2019;s subscriber.</p>
+
+<p>The activity collection recognizes changes to a user&#x2019;s recorded activities, 
+step count, calories burned, distance traveled, etc.  Keep in mind that even 
+when a person is not in motion, their body is burning calories.   It&#x2019;s 
+possible to receive activity notifications representing calorie burn even 
+when the user is sleeping or stationary.  Today, you cannot subscribe to a 
+subset of the user&#x2019;s activity data.  So, it is the responsibility of your 
+application to query the necessary activity endpoint(s) to reconcile the 
+data in your system.</p>
+            <div class="section-nav flex-container align-justify"><div class="previous-page flex-container">  <a href="/build/reference/web-api/intraday/get-azm-intraday-by-interval/" target><img src="/images/next-4a798552f1301bc41839afd0a22e5e82.svg" alt="previous"></a>  <div class="next-page-link"><a href="/build/reference/web-api/intraday/get-azm-intraday-by-interval/" target>Get AZM Intraday by Interval</a></div></div><div class="next-page flex-container">  <div class="next-page-link"><a href="/build/reference/web-api/intraday/get-activity-intraday-by-interval/" target>Get Activity Intraday by Interval</a></div>  <a href="/build/reference/web-api/intraday/get-activity-intraday-by-interval/" target><img src="/images/next-4a798552f1301bc41839afd0a22e5e82.svg" alt="next"></a></div></div>
+          </article>
+        </div>
+      </div>
+    
+  </div>
+
+  <footer class="row expanded" id="footer">
+  <div class="row">
+    <div class="row-legal">
+
+  <div class="legal-links column desktop-show-legal">
+    <div class="desktop-row">
+      
+          <div class="legal-item">
+            <a href="https://www.fitbit.com/terms">
+              Terms of Service
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="https://www.fitbit.com/legal/privacy">
+              Privacy Policy
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="/legal/platform-terms-of-service/">
+              Platform Terms
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="/legal/fitbit-user-data-and-developer-policy/">
+              Fitbit User Data and Developer Policy
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="/legal/controller-data-protection-terms/">
+              Controller Data Protection Terms
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="/legal/health-research-policy/">
+              Health Research Policy
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="/legal/app-distribution-agreement/">
+              App Distribution Agreement
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="/legal/brand-assets/">
+              Brand Assets
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="/legal/app-gallery-guidelines/">
+              App Gallery Guidelines
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="https://www.fitbit.com/legal/returns-and-warranty">
+              Returns &amp; Warranty
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="https://info.evidon.com/pub_info/13911?v=1&amp;nt=0&amp;nw=false">
+              Ad Choices
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="/legal/design-asset-license/">
+              Design Asset License
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="/legal/deprecation-policy/">
+              SDK Deprecation Policy
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="/legal/reporting-apps/">
+              Report Copyright &amp; Trademark Infringement
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="https://healthsolutions.fitbit.com/research-pledge/">
+              Research Pledge
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="https://healthsolutions.fitbit.com/wellnesspledge/">
+              Wellness Pledge
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="https://transparencyreport.google.com/report-downloads?lu=report-24">
+              Information about EU monthly active recipients
+            </a>
+          </div>
+          
+    </div>
+
+  </div>
+
+  <div class="legal-links row flex-container mobile-show-legal">
+    <div class="columns column-a flex-container">
+      
+          <div class="legal-item">
+            <a href="https://www.fitbit.com/terms">
+              Terms of Service
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="https://www.fitbit.com/legal/privacy">
+              Privacy Policy
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="/legal/platform-terms-of-service/">
+              Platform Terms
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="/legal/fitbit-user-data-and-developer-policy/">
+              Fitbit User Data and Developer Policy
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="/legal/controller-data-protection-terms/">
+              Controller Data Protection Terms
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="/legal/health-research-policy/">
+              Health Research Policy
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="/legal/app-distribution-agreement/">
+              App Distribution Agreement
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="/legal/brand-assets/">
+              Brand Assets
+            </a>
+          </div>
+          
+    </div>
+
+    <div class="columns column-b flex-container">
+      
+          <div class="legal-item">
+            <a href="/legal/app-gallery-guidelines/">
+              App Gallery Guidelines
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="https://www.fitbit.com/legal/returns-and-warranty">
+              Returns &amp; Warranty
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="https://info.evidon.com/pub_info/13911?v=1&amp;nt=0&amp;nw=false">
+              Ad Choices
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="/legal/design-asset-license/">
+              Design Asset License
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="/legal/deprecation-policy/">
+              SDK Deprecation Policy
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="/legal/reporting-apps/">
+              Report Copyright &amp; Trademark Infringement
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="https://healthsolutions.fitbit.com/research-pledge/">
+              Research Pledge
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="https://healthsolutions.fitbit.com/wellnesspledge/">
+              Wellness Pledge
+            </a>
+          </div>
+          
+          <div class="legal-item">
+            <a href="https://transparencyreport.google.com/report-downloads?lu=report-24">
+              Information about EU monthly active recipients
+            </a>
+          </div>
+          
+    </div>
+  </div>
+
+</div>
+  </div>
+  <div class="row">
+    <div class="row row-copyright">
+  <div class="column">
+    &#xA9; 2023 <a href="https://www.fitbit.com">Fitbit LLC</a> All rights reserved.
+  </div>
+</div>
+
+  </div>
+  <div class="row expanded">
+    <div class="row row-social expanded">
+  <div class="row">
+    <div class="column">
+      <ul class="menu">
+        <li>
+          <a href="https://twitter.com/fitbitdev/" target="_blank" class="socialbtn twitter" title="Twitter">
+            <img src="/images/Twitter_Color-3ed6d50c8062c9a8de8dc074b207d2af.svg" alt="Twitter">
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/fitbit/" target="_blank" class="socialbtn github" title="Github">
+            <img src="/images/Github_Color-b9b718d716e2c9da9fd0702afeadf434.svg" alt="Github">
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/fitbitdev" target="_blank" class="socialbtn youtube" title="YouTube">
+            <img src="/images/Youtube_Color-e7011ebd2dcf79cdf859df7ad310e0a7.svg" alt="YouTube">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  </div>
+</footer>
+
+    <script type="text/javascript" src="/scripts/jspm_packages/system-csp-production.src-b4cd40bdb01c02a2b9168721dda2a571.js"></script>
+    <script type="text/javascript" src="/scripts/systemjs-configs/config-6da540ca2666628294ece6bf4fba136a.js"></script>
+    <script type="text/javascript" data-main="[&quot;app.js&quot;]" src="/scripts/loadScripts-7ac17bda62b7693f7112fa6f8297556f.js"></script>
+
+
+</body>
+
+</html>

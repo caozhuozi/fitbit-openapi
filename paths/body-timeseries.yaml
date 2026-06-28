@@ -1,0 +1,207 @@
+/1/user/{user-id}/body/{resource}/date/{begin-date}/{end-date}.json:
+  get:
+    operationId: bodyTimeseriesGetGetBodyTimeSeriesByDateRange1UserUserIdBodyResourceDateBeginDateEndDateJson
+    summary: Get Body Time Series by Date Range
+    description: Retrieves a list of all user's bmi, body fat, or weight for a given
+      date range.
+    tags:
+    - Body-Timeseries
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/body-timeseries/get-body-timeseries-by-date-range/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: resource
+      in: path
+      required: true
+      description: 'The body resource to be returned. Supported : bmi | fat | weight'
+      schema:
+        type: string
+    - name: begin-date
+      in: path
+      required: true
+      description: The start date specified in the format yyyy-MM-dd or today .
+      schema:
+        type: string
+        format: date
+    - name: end-date
+      in: path
+      required: true
+      description: 'The end date specified in the format yyyy-MM-dd or today . Maximum
+        range: 1095 days'
+      schema:
+        type: string
+        format: date
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              body-weight:
+              - dateTime: '2019-01-01'
+                value: '165'
+              - dateTime: '2019-01-02'
+                value: '166'
+              - dateTime: '2019-01-03'
+                value: '166'
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - weight
+/1/user/{user-id}/body/log/fat/date/{start-date}/{end-date}.json:
+  get:
+    operationId: bodyTimeseriesGetGetBodyFatTimeSeriesByDateRange1UserUserIdBodyLogFatDateStartDateEndDateJson
+    summary: Get Body Fat Time Series by Date Range
+    description: Retrieves a list of all user's body fat log entries for a given date
+      range.
+    tags:
+    - Body-Timeseries
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/body-timeseries/get-bodyfat-timeseries-by-date-range/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: start-date
+      in: path
+      required: true
+      description: The start date specified in the format yyyy-MM-dd or today .
+      schema:
+        type: string
+        format: date
+    - name: end-date
+      in: path
+      required: true
+      description: 'The end date specified in the format yyyy-MM-dd or today . Maximum
+        range: 30 days'
+      schema:
+        type: string
+        format: date
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              fat:
+              - date: '2018-02-21'
+                fat: 15.5
+                logId: 1532187349000
+                source: Aria
+                time: '15:35:49'
+              - date: '2018-02-23'
+                fat: 16.1
+                logId: 1532333041000
+                source: Aria
+                time: 08:04:01
+              - date: '2018-02-26'
+                fat: 16.8
+                logId: 1532586869000
+                source: Aria
+                time: 06:34:29
+              - date: '2018-02-26'
+                fat: 17.2
+                logId: 1532586900000
+                source: Aria
+                time: 06:35:00
+              - date: '2018-02-26'
+                fat: 17.5
+                logId: 1532586936000
+                source: Aria
+                time: 06:35:36
+              - date: '2018-07-27'
+                fat: 17.4
+                logId: 1532677290000
+                source: Aria
+                time: 07:41:30
+              - date: '2018-03-01'
+                fat: 16.5
+                logId: 1532748067000
+                source: Aria
+                time: 03:21:07
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - weight
+/1/user/{user-id}/body/log/weight/date/{start-date}/{end-date}.json:
+  get:
+    operationId: bodyTimeseriesGetGetWeightTimeSeriesByDateRange1UserUserIdBodyLogWeightDateStartDateEndDateJson
+    summary: Get Weight Time Series by Date Range
+    description: Retrieves a list of all user's weight log entries for a given date
+      range.
+    tags:
+    - Body-Timeseries
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/body-timeseries/get-weight-timeseries-by-date-range/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: start-date
+      in: path
+      required: true
+      description: The start date specified in the format yyyy-MM-dd or today .
+      schema:
+        type: string
+        format: date
+    - name: end-date
+      in: path
+      required: true
+      description: 'The end date specified in the format yyyy-MM-dd or today . Maximum
+        range: 31 days'
+      schema:
+        type: string
+        format: date
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              weight:
+              - bmi: 25.91
+                date: '2019-02-25'
+                fat: 21
+                logId: 1551080804000
+                source: Aria
+                time: 07:46:44
+                weight: 200
+              - bmi: 25.91
+                date: '2019-03-01'
+                logId: 1551484799000
+                source: API
+                time: '23:59:59'
+                weight: 200
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - weight

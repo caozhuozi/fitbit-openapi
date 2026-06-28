@@ -1,0 +1,45 @@
+{
+  "domain": "friends",
+  "title": "Get Friends Leaderboard",
+  "url": "https://dev.fitbit.com/build/reference/web-api/friends/get-friends-leaderboard/",
+  "method": "get",
+  "path": "/1.1/user/-/leaderboard/friends.json",
+  "description": "This endpoint returns the user's friend leaderboard in the format requested using units in the unit system which corresponds to the Accept-Language header provided. This scope does not provide access to the friend's Fitbit data. Those users will need to individually consent to share their data with your application.",
+  "scope": "social",
+  "parameters": [],
+  "response_fields": [
+    {
+      "name": "attributes : step-rank",
+      "description": "Ranking among the user's friends."
+    },
+    {
+      "name": "attributes : step-summary",
+      "description": "Weekly step count."
+    },
+    {
+      "name": "attributes : avatar",
+      "description": "Link to user's avatar picture."
+    },
+    {
+      "name": "attributes : child",
+      "description": "Boolean value describing friend as a child account."
+    },
+    {
+      "name": "attributes : friend",
+      "description": "Supported: true"
+    },
+    {
+      "name": "attributes : name",
+      "description": "Person's display name."
+    },
+    {
+      "name": "relationships : user : data : id",
+      "description": "Fitbit user id."
+    },
+    {
+      "name": "relationships : user : data : type",
+      "description": "Supported: person"
+    }
+  ],
+  "example_response": null
+}

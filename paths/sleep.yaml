@@ -1,0 +1,553 @@
+/1.2/user/{user-id}/sleep/goal.json:
+  post:
+    operationId: sleepPostCreateSleepGoal12UserUserIdSleepGoalJson
+    summary: Create Sleep Goal
+    description: Create or update a user's sleep goal.
+    tags:
+    - Sleep
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/sleep/create-sleep-goals/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: bedtime
+      in: query
+      required: true
+      description: The user's targeted bedtime.
+      schema:
+        type: string
+    - name: minDuration
+      in: query
+      required: true
+      description: Length of sleep goal in minutes.
+      schema:
+        type: string
+    - name: wakeupTime
+      in: query
+      required: true
+      description: The user's targeted wake time.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              goal:
+                minDuration: 600
+                updatedOn: '2020-01-01T00:26:40.794Z'
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - sleep
+  get:
+    operationId: sleepGetGetSleepGoal12UserUserIdSleepGoalJson
+    summary: Get Sleep Goal
+    description: Returns a user's current sleep goal.
+    tags:
+    - Sleep
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/sleep/get-sleep-goals/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              goal:
+                bedtime: '22:00'
+                minDuration: 600
+                updatedOn: '2025-05-01T20:00:00.000Z'
+                wakeupTime: 07:00
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - sleep
+/1.2/user/{user-id}/sleep.json:
+  post:
+    operationId: sleepPostCreateSleepLog12UserUserIdSleepJson
+    summary: Create Sleep Log
+    description: Creates a log entry for a sleep event and returns a response in the
+      format requested.
+    tags:
+    - Sleep
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/sleep/create-sleep-log/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: date
+      in: query
+      required: true
+      description: Log entry date in the format yyyy-MM-dd.
+      schema:
+        type: string
+        format: date
+    - name: duration
+      in: query
+      required: true
+      description: Duration in milliseconds.
+      schema:
+        type: string
+    - name: startTime
+      in: query
+      required: true
+      description: Start time; hours and minutes in the format HH:mm.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              sleep:
+                dateOfSleep: '2020-02-09'
+                duration: 720000
+                efficiency: 100
+                endTime: '2020-02-09T22:12:00.000'
+                infoCode: 0
+                isMainSleep: false
+                levels:
+                  data:
+                  - dateTime: '2020-02-09T22:00:00.000'
+                    level: asleep
+                    seconds: 720
+                  summary:
+                    asleep:
+                      count: 0
+                      minutes: 12
+                    awake:
+                      count: 0
+                      minutes: 0
+                    restless:
+                      count: 0
+                      minutes: 0
+                logId: 25793948582
+                minutesAfterWakeup: 0
+                minutesAsleep: 12
+                minutesAwake: 0
+                minutesToFallAsleep: 0
+                startTime: '2020-02-09T22:00:00.000'
+                timeInBed: 12
+                type: classic
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - sleep
+/1.2/user/{user-id}/sleep/{log-id}.json:
+  delete:
+    operationId: sleepDeleteDeleteSleepLog12UserUserIdSleepLogIdJson
+    summary: Delete Sleep Log
+    description: Deletes a sleep log with the given log id.
+    tags:
+    - Sleep
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/sleep/delete-sleep-log/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: log-id
+      in: path
+      required: true
+      description: ID of the sleep log to be deleted.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SleepResponse'
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - sleep
+/1.2/user/{user-id}/sleep/date/{startDate}/{endDate}.json:
+  get:
+    operationId: sleepGetGetSleepLogByDateRange12UserUserIdSleepDateStartdateEnddateJson
+    summary: Get Sleep Log by Date Range
+    description: 'This endpoint returns a list of a user''s sleep log entries for
+      a date range. The data returned for either date can include a sleep period that
+      ended that date but began on the previous date. For example, if you request
+      a sleep log between 2021-12-22 and 2021-12-26, it may return log entries that
+      span 2021-12-21 and 2021-12-22, as well as 2021-12-25 and 2021-12-26.
+
+
+      It uses units that correspond to the Accept-Language header provided.'
+    tags:
+    - Sleep
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/sleep/get-sleep-log-by-date-range/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: startDate
+      in: path
+      required: true
+      description: The date for the first sleep log to be returned in the format yyyy-MM-dd.
+      schema:
+        type: string
+        format: date
+    - name: endDate
+      in: path
+      required: true
+      description: 'The date for the last sleep log to be returned in the format yyyy-MM-dd.
+        Maximum range: 100 days'
+      schema:
+        type: string
+        format: date
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SleepResponse'
+            example:
+              sleep:
+              - dateOfSleep: '2020-01-27'
+                duration: 4560000
+                efficiency: 86
+                endTime: '2020-01-27T00:17:30.000'
+                infoCode: 2
+                isMainSleep: true
+                levels:
+                  data:
+                  - dateTime: '2020-01-26T23:01:00.000'
+                    level: restless
+                    seconds: 360
+                  - dateTime: '2020-01-26T23:07:00.000'
+                    level: asleep
+                    seconds: 1800
+                  - dateTime: '2020-01-27T00:00:00.000'
+                    level: asleep
+                    seconds: 1020
+                  summary:
+                    asleep:
+                      count: 3
+                      minutes: 65
+                    awake:
+                      count: 0
+                      minutes: 0
+                    restless:
+                      count: 4
+                      minutes: 11
+                logId: 25647389515
+                minutesAfterWakeup: 0
+                minutesAsleep: 65
+                minutesAwake: 11
+                minutesToFallAsleep: 0
+                logType: auto_detected
+                startTime: '2020-01-26T23:01:00.000'
+                timeInBed: 76
+                type: classic
+              - dateOfSleep: '2020-01-26'
+                duration: 18000000
+                efficiency: 94
+                endTime: '2020-01-26T08:03:00.000'
+                infoCode: 0
+                isMainSleep: true
+                levels:
+                  data:
+                  - dateTime: '2020-01-26T03:02:30.000'
+                    level: wake
+                    seconds: 450
+                  - dateTime: '2020-01-26T03:10:00.000'
+                    level: light
+                    seconds: 330
+                  - dateTime: '2020-01-26T03:15:30.000'
+                    level: deep
+                    seconds: 450
+                  - dateTime: '2020-01-26T07:50:00.000'
+                    level: wake
+                    seconds: 780
+                  shortData:
+                  - dateTime: '2020-01-26T03:12:00.000'
+                    level: wake
+                    seconds: 30
+                  - dateTime: '2020-01-26T03:22:30.000'
+                    level: wake
+                    seconds: 30
+                  - dateTime: '2020-01-26T07:38:30.000'
+                    level: wake
+                    seconds: 30
+                  - dateTime: '2020-01-26T07:44:00.000'
+                    level: wake
+                    seconds: 30
+                  summary:
+                    deep:
+                      count: 4
+                      minutes: 46
+                      thirtyDayAvgMinutes: 0
+                    light:
+                      count: 19
+                      minutes: 133
+                      thirtyDayAvgMinutes: 0
+                    rem:
+                      count: 8
+                      minutes: 81
+                      thirtyDayAvgMinutes: 0
+                    wake:
+                      count: 21
+                      minutes: 40
+                      thirtyDayAvgMinutes: 0
+                logId: 25647389514
+                minutesAfterWakeup: 3
+                minutesAsleep: 260
+                minutesAwake: 40
+                minutesToFallAsleep: 0
+                logType: auto_detected
+                startTime: '2020-01-26T03:02:30.000'
+                timeInBed: 300
+                type: stages
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - sleep
+/1.2/user/{user-id}/sleep/date/{date}.json:
+  get:
+    operationId: sleepGetGetSleepLogByDate12UserUserIdSleepDateDateJson
+    summary: Get Sleep Log by Date
+    description: 'This endpoint returns a list of a user''s sleep log entries for
+      a given date. The data returned can include sleep periods that began on the
+      previous date. For example, if you request a Sleep Log for 2021-12-22, it may
+      return a log entry that began the previous night on 2021-12-21, but ended on
+      2021-12-22.
+
+
+      It uses units that correspond to the Accept-Language header provided.'
+    tags:
+    - Sleep
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/sleep/get-sleep-log-by-date/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: date
+      in: path
+      required: true
+      description: The date for the sleep log to be returned in the format yyyy-MM-dd.
+      schema:
+        type: string
+        format: date
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SleepResponse'
+            example:
+              sleep:
+              - dateOfSleep: '2020-02-21'
+                duration: 27720000
+                efficiency: 96
+                endTime: '2020-02-21T07:03:30.000'
+                infoCode: 0
+                isMainSleep: true
+                levels:
+                  data:
+                  - dateTime: '2020-02-20T23:21:30.000'
+                    level: wake
+                    seconds: 630
+                  - dateTime: '2020-02-20T23:32:00.000'
+                    level: light
+                    seconds: 30
+                  - dateTime: '2020-02-20T23:32:30.000'
+                    level: deep
+                    seconds: 870
+                  - dateTime: '2020-02-21T06:32:30.000'
+                    level: light
+                    seconds: 1860
+                  shortData:
+                  - dateTime: '2020-02-21T00:10:30.000'
+                    level: wake
+                    seconds: 30
+                  - dateTime: '2020-02-21T00:15:00.000'
+                    level: wake
+                    seconds: 30
+                  - dateTime: '2020-02-21T06:18:00.000'
+                    level: wake
+                    seconds: 60
+                  summary:
+                    deep:
+                      count: 5
+                      minutes: 104
+                      thirtyDayAvgMinutes: 69
+                    light:
+                      count: 32
+                      minutes: 205
+                      thirtyDayAvgMinutes: 202
+                    rem:
+                      count: 11
+                      minutes: 75
+                      thirtyDayAvgMinutes: 87
+                    wake:
+                      count: 30
+                      minutes: 78
+                      thirtyDayAvgMinutes: 55
+                logId: 26013218219
+                minutesAfterWakeup: 0
+                minutesAsleep: 384
+                minutesAwake: 78
+                minutesToFallAsleep: 0
+                logType: auto_detected
+                startTime: '2020-02-20T23:21:30.000'
+                timeInBed: 462
+                type: stages
+              summary:
+                stages:
+                  deep: 104
+                  light: 205
+                  rem: 75
+                  wake: 78
+                totalMinutesAsleep: 384
+                totalSleepRecords: 1
+                totalTimeInBed: 462
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - sleep
+/1.2/user/{user-id}/sleep/list.json:
+  get:
+    operationId: sleepGetGetSleepLogList12UserUserIdSleepListJson
+    summary: get-sleep-log-list
+    description: 'This endpoint returns a list of a user''s sleep log entries before
+      or after a given date, and specifying offset, limit and sort order. The data
+      returned for different dates can include sleep periods that began on the previous
+      date. For example, a sleep log entry for 2018-10-21 may have ended that day
+      but started the previous night on 2018-10-20.
+
+
+      It uses units that correspond to the Accept-Language header provided.'
+    tags:
+    - Sleep
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/sleep/get-sleep-log-list/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: beforeDate
+      in: query
+      required: true
+      description: The date in the format yyyy-MM-ddTHH:mm:ss. Only yyyy-MM-dd is
+        required. Either beforeDate or afterDate must be specified. Set sort to desc
+        when using beforeDate.
+      schema:
+        type: string
+        format: date
+    - name: afterDate
+      in: query
+      required: true
+      description: The date in the format yyyy-MM-ddTHH:mm:ss. Only yyyy-MM-dd is
+        required. Either beforeDate or afterDate must be specified. Set sort to asc
+        when using afterDate.
+      schema:
+        type: string
+        format: date
+    - name: sort
+      in: query
+      required: true
+      description: 'Supported : asc | desc The sort oder of entries by date. Use asc
+        to show the oldest sleep log first. Use desc to show the most frequent sleep
+        log first.'
+      schema:
+        type: string
+    - name: limit
+      in: query
+      required: true
+      description: 'The number of sleep logs to be returned. Maximum: 100'
+      schema:
+        type: string
+    - name: offset
+      in: query
+      required: true
+      description: 'Supported : 0 (zero) IMPORTANT : To paginate, request the next
+        and previous links in the pagination response object. Do not manually specify
+        the offset parameter, as it will be removed in the future and your app will
+        break.'
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SleepResponse'
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - sleep

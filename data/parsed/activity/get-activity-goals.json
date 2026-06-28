@@ -1,0 +1,59 @@
+{
+  "domain": "activity",
+  "title": "Get Activity Goals",
+  "url": "https://dev.fitbit.com/build/reference/web-api/activity/get-activity-goals/",
+  "method": "get",
+  "path": "/1/user/{user-id}/activities/goals/{period}.json",
+  "description": "Retrieves a user's current daily or weekly activity goals.\n\nIt uses units that correspond to the Accept-Language header provided.",
+  "scope": "activity",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "period",
+      "location": "path",
+      "required": true,
+      "description": "Supported: daily | weekly"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "goals : activeMinutes",
+      "description": "Daily active minutes goal. A value is not returned for weekly goals."
+    },
+    {
+      "name": "goals : activeZoneMinutes",
+      "description": "Daily or weekly active zone minutes goal."
+    },
+    {
+      "name": "goals : caloriesOut",
+      "description": "Daily calories burned goal. A value is not returned for weekly goals."
+    },
+    {
+      "name": "goals : distance",
+      "description": "Daily or weekly distance goal."
+    },
+    {
+      "name": "goals : floors",
+      "description": "Daily or weekly floors climbed goal."
+    },
+    {
+      "name": "goals : steps",
+      "description": "Daily or weekly steps taken goal."
+    }
+  ],
+  "example_response": {
+    "goals": {
+      "activeMinutes": 55,
+      "activeZoneMinutes": 21,
+      "caloriesOut": 3500,
+      "distance": 5,
+      "floors": 10,
+      "steps": 10000
+    }
+  }
+}

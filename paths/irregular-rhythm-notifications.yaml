@@ -1,0 +1,115 @@
+/1/user/{user-id}/irn/alerts/list.json:
+  get:
+    operationId: irregularRhythmNotificationsGetGetIrnAlertsList1UserUserIdIrnAlertsListJson
+    summary: Get IRN Alerts List
+    description: 'This endpoint returns a paginated list of Irregular Rhythm Notifications
+      (IRN) alerts, as well as all of the alert tachograms. This endpoint will only
+      return alerts that the user has read in the Fitbit app already, as that is meant
+      as the primary entrypoint for viewing notifications.
+
+
+      Note: The IRN API is for research use or investigational use only, and is not
+      intended for clinical or diagnostic purposes.'
+    tags:
+    - Irregular-Rhythm-Notifications
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/irregular-rhythm-notifications/get-irn-alerts-list/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: beforeDate
+      in: query
+      required: true
+      description: The date in the format yyyy-MM-ddTHH:mm:ss. Only yyyy-MM-dd is
+        required. Either beforeDate or afterDate must be specified.
+      schema:
+        type: string
+        format: date
+    - name: afterDate
+      in: query
+      required: true
+      description: The date in the format yyyy-MM-ddTHH:mm:ss. Only yyyy-MM-dd is
+        required. Either beforeDate or afterDate must be specified.
+      schema:
+        type: string
+        format: date
+    - name: sort
+      in: query
+      required: true
+      description: The sort order of entries by date. Use asc (ascending) when using
+        afterDate. Use desc (descending) when using before date.
+      schema:
+        type: string
+    - name: limit
+      in: query
+      required: true
+      description: 'The number of entries returned. See Limit / Offset for more information.
+        Maximum: 10'
+      schema:
+        type: string
+    - name: offset
+      in: query
+      required: true
+      description: 'See Limit / Offset for more information. Supported: 0'
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - irregular_rhythm_notifications
+/1/user/{user-id}/irn/profile.json:
+  get:
+    operationId: irregularRhythmNotificationsGetGetIrnProfile1UserUserIdIrnProfileJson
+    summary: Get IRN Profile
+    description: 'This endpoint returns the user state for Irregular Rhythm Notifications
+      (IRN). The user state contains most information about the user’s current engagement
+      with the feature, including onboarding progress and algorithm processing state.
+
+
+      Note: The IRN API is for research use or investigational use only, and is not
+      intended for clinical or diagnostic purposes.'
+    tags:
+    - Irregular-Rhythm-Notifications
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/irregular-rhythm-notifications/get-irn-profile/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              onboarded: true
+              enrolled: true
+              lastUpdated: '2022-09-28T17:12:30.000'
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - irregular_rhythm_notifications

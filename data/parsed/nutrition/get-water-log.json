@@ -1,0 +1,48 @@
+{
+  "domain": "nutrition",
+  "title": "Get Water Log",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/get-water-log/",
+  "method": "get",
+  "path": "/1/user/{user-id}/foods/log/water/date/{date}.json",
+  "description": "Retrieves a summary and list of a user's water log entries for a given day.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "date",
+      "location": "path",
+      "required": true,
+      "description": "The date in the format yyyy-MM-dd."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "summary : water",
+      "description": "Total amount of water consumed for the day."
+    },
+    {
+      "name": "water : amount",
+      "description": "Amount of water consumed for each period of the day."
+    },
+    {
+      "name": "water : logId",
+      "description": "The water log ID."
+    }
+  ],
+  "example_response": {
+    "summary": {
+      "water": 1892.7099609375
+    },
+    "water": [
+      {
+        "amount": 1892.7099609375,
+        "logId": 6088001986
+      }
+    ]
+  }
+}

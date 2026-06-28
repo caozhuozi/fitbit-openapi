@@ -1,0 +1,154 @@
+{
+  "domain": "sleep",
+  "title": "Create Sleep Log",
+  "url": "https://dev.fitbit.com/build/reference/web-api/sleep/create-sleep-log/",
+  "method": "post",
+  "path": "/1.2/user/{user-id}/sleep.json",
+  "description": "Creates a log entry for a sleep event and returns a response in the format requested.",
+  "scope": "sleep",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "date",
+      "location": "query",
+      "required": true,
+      "description": "Log entry date in the format yyyy-MM-dd."
+    },
+    {
+      "name": "duration",
+      "location": "query",
+      "required": true,
+      "description": "Duration in milliseconds."
+    },
+    {
+      "name": "startTime",
+      "location": "query",
+      "required": true,
+      "description": "Start time; hours and minutes in the format HH:mm."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "sleep : dateOfSleep",
+      "description": "The data the sleep log ended."
+    },
+    {
+      "name": "sleep : duration",
+      "description": "Length of the sleep in milliseconds."
+    },
+    {
+      "name": "sleep : efficiency",
+      "description": "Calculated sleep efficiency score. This is not the sleep score available in the mobile application."
+    },
+    {
+      "name": "sleep : endTime",
+      "description": "Time the sleep log ended."
+    },
+    {
+      "name": "sleep : infoCode",
+      "description": ""
+    },
+    {
+      "name": "sleep : isMainSleep",
+      "description": "Boolean value: true or false"
+    },
+    {
+      "name": "sleep : levels : data : dateTime",
+      "description": "Timestamp the user started in sleep level."
+    },
+    {
+      "name": "sleep : levels : data : level",
+      "description": "The sleep level the user entered."
+    },
+    {
+      "name": "sleep : levels : data : seconds",
+      "description": "The length of time the user was in the sleep level. Displayed in seconds."
+    },
+    {
+      "name": "sleep : levels : summary : [stage] : count",
+      "description": "Total number of times the user entered the sleep level."
+    },
+    {
+      "name": "sleep : levels : summary : [stage] : minutes",
+      "description": "Total number of minutes the user appeared in the sleep level."
+    },
+    {
+      "name": "sleep : logId",
+      "description": "Sleep log ID."
+    },
+    {
+      "name": "sleep : minutesAfterWakeup",
+      "description": "The total number of minutes after the user woke up."
+    },
+    {
+      "name": "sleep : minutesAsleep",
+      "description": "The total number of minutes the user was asleep."
+    },
+    {
+      "name": "sleep : minutesAwake",
+      "description": "The total number of minutes the user was awake."
+    },
+    {
+      "name": "sleep : minutesToFallAsleep",
+      "description": "The total number of minutes before the user fell asleep."
+    },
+    {
+      "name": "sleep : startTime",
+      "description": "Time the sleep log begins."
+    },
+    {
+      "name": "sleep : timeInBed",
+      "description": "Total number of minutes the user was in bed."
+    },
+    {
+      "name": "sleep : type",
+      "description": "The type of sleep log. Supported : classic | stages"
+    }
+  ],
+  "example_response": {
+    "sleep": {
+      "dateOfSleep": "2020-02-09",
+      "duration": 720000,
+      "efficiency": 100,
+      "endTime": "2020-02-09T22:12:00.000",
+      "infoCode": 0,
+      "isMainSleep": false,
+      "levels": {
+        "data": [
+          {
+            "dateTime": "2020-02-09T22:00:00.000",
+            "level": "asleep",
+            "seconds": 720
+          }
+        ],
+        "summary": {
+          "asleep": {
+            "count": 0,
+            "minutes": 12
+          },
+          "awake": {
+            "count": 0,
+            "minutes": 0
+          },
+          "restless": {
+            "count": 0,
+            "minutes": 0
+          }
+        }
+      },
+      "logId": 25793948582,
+      "minutesAfterWakeup": 0,
+      "minutesAsleep": 12,
+      "minutesAwake": 0,
+      "minutesToFallAsleep": 0,
+      "startTime": "2020-02-09T22:00:00.000",
+      "timeInBed": 12,
+      "type": "classic"
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "domain": "active-zone-minutes-timeseries",
+  "title": "Get AZM Time Series by Date",
+  "url": "https://dev.fitbit.com/build/reference/web-api/active-zone-minutes-timeseries/get-azm-timeseries-by-date/",
+  "method": "get",
+  "path": "/1/user/{user-id}/activities/active-zone-minutes/date/{date}/{period}.json",
+  "description": "This endpoint returns the daily summary values over a period of time by specifying a date and time period.",
+  "scope": "activity",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "date",
+      "location": "path",
+      "required": true,
+      "description": "The end date of the period in the format yyyy-MM-dd or today."
+    },
+    {
+      "name": "period",
+      "location": "path",
+      "required": true,
+      "description": "The range for which data will be returned. Supported: 1d | 7d | 30d | 1w | 1m | 3m | 6m | 1y"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "value : activeZoneMinutes",
+      "description": "Total count of active zone minutes."
+    },
+    {
+      "name": "value : fatBurnActiveZoneMinutes",
+      "description": "The number of active zone minutes in the fat burn heart rate zone. 1 fat burn minute = 1 fat burn active zone minute."
+    },
+    {
+      "name": "value : cardioActiveZoneMinutes",
+      "description": "The number of active zone minutes in the cardio heart rate zone. 1 cardio minute = 2 cardio active zone minutes."
+    },
+    {
+      "name": "value : peakActiveZoneMinutes",
+      "description": "The number of active zone minutes in the peak heart rate zone. 1 peak minute = 2 peak active zone minutes."
+    }
+  ],
+  "example_response": {
+    "activities-active-zone-minutes": [
+      {
+        "dateTime": "2022-05-01",
+        "value": {
+          "activeZoneMinutes": 21,
+          "fatBurnActiveZoneMinutes": 5,
+          "cardioActiveZoneMinutes": 12,
+          "peakActiveZoneMinutes": 4
+        }
+      }
+    ]
+  }
+}

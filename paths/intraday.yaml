@@ -1,0 +1,882 @@
+/1/user/{user-id}/activities/{resource}/date/{date}/1d/{detail-level}.json:
+  get:
+    operationId: intradayGetGetActivityIntradayByDate1UserUserIdActivitiesResourceDateDate1DDetailLevelJson
+    summary: Get Activity Intraday by Date
+    description: 'This endpoint retrieves the activity intraday time series data for
+      a given resource on a specific date or 24 hour period. Intraday support can
+      extend the detail-level response to include 1min, 5min and 15min for Activity.
+
+
+      3rd-party developers who want access to retrieve other Fitbit users’ Intraday
+      data through the “Client” or “Server” application type should submit a request
+      by filling out this form . A Fitbit developer’s personal Intraday data is automatically
+      available through the “Personal” application type. You do not need to submit
+      a request.'
+    tags:
+    - Intraday
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/intraday/get-activity-intraday-by-date/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: resource
+      in: path
+      required: true
+      description: 'The resource of the data to be returned. Supported: calories |
+        distance | elevation | floors | steps | swimming-strokes'
+      schema:
+        type: string
+    - name: date
+      in: path
+      required: true
+      description: The date in the format yyyy-MM-dd or today .
+      schema:
+        type: string
+        format: date
+    - name: detail-level
+      in: path
+      required: true
+      description: 'Number of data points to include. Supported: 1min | 5min | 15min'
+      schema:
+        type: string
+    - name: timezone
+      in: query
+      required: false
+      description: 'Returns the response from the specified timezone. Supported: UTC'
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - activity
+/1/user/{user-id}/activities/{resource}/date/{start-date}/{end-date}/{detail-level}.json:
+  get:
+    operationId: intradayGetGetActivityIntradayByInterval1UserUserIdActivitiesResourceDateStartDateEndDateDetailLevelJson
+    summary: Get Activity Intraday by Interval
+    description: 'This endpoint retrieves the activity intraday time series data for
+      a given resource on a specific date range for a 24 hour period. Intraday support
+      can extend the detail-level response to include 1min, 5min and 15min for Activity.
+
+
+      3rd-party developers who want access to retrieve other Fitbit users’ Intraday
+      data through the “Client” or “Server” application type should submit a request
+      by filling out this form . A Fitbit developer’s personal Intraday data is automatically
+      available through the “Personal” application type. You do not need to submit
+      a request.'
+    tags:
+    - Intraday
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/intraday/get-activity-intraday-by-interval/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: resource
+      in: path
+      required: true
+      description: 'The resource of the data to be returned. Supported: calories |
+        distance | elevation | floors | steps | swimming-strokes'
+      schema:
+        type: string
+    - name: start-date
+      in: path
+      required: true
+      description: The date in the format yyyy-MM-dd or today .
+      schema:
+        type: string
+        format: date
+    - name: end-date
+      in: path
+      required: true
+      description: 'The date in the format yyyy-MM-dd or today . Maximum range: 24
+        hours'
+      schema:
+        type: string
+        format: date
+    - name: detail-level
+      in: path
+      required: true
+      description: 'Number of data points to include. Supported: 1min | 5min | 15min'
+      schema:
+        type: string
+    - name: timezone
+      in: query
+      required: false
+      description: 'Returns the response from the specified timezone. Supported: UTC'
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - activity
+/1/user/{user-id}/activities/active-zone-minutes/date/{date}/1d/{detail-level}.json:
+  get:
+    operationId: intradayGetGetAzmIntradayByDate1UserUserIdActivitiesActiveZoneMinutesDateDate1DDetailLevelJson
+    summary: Get AZM Intraday by Date
+    description: 'This endpoint retrieves the active zone minute (AZM) intraday time
+      series data for a specific date or 24 hour period. Intraday support can extend
+      the detail-level response to include 1min, 5min and 15min for Active Zone Minutes.
+
+
+      3rd-party developers who want access to retrieve other Fitbit users’ Intraday
+      data through the “Client” or “Server” application type should submit a request
+      by filling out this form . A Fitbit developer’s personal Intraday data is automatically
+      available through the “Personal” application type. You do not need to submit
+      a request.'
+    tags:
+    - Intraday
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/intraday/get-azm-intraday-by-date/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: date
+      in: path
+      required: true
+      description: The date in the format yyyy-MM-dd or today .
+      schema:
+        type: string
+        format: date
+    - name: detail-level
+      in: path
+      required: true
+      description: 'Number of data points to include. Supported: 1min | 5min | 15min'
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              activities-active-zone-minutes-intraday:
+              - dateTime: '2020-09-17'
+                minutes:
+                - minute: '2020-09-17T17:00:00'
+                  value:
+                    fatBurnActiveZoneMinutes: 1
+                    activeZoneMinutes: 1
+                - minute: '2020-09-17T17:01:00'
+                  value:
+                    cardioActiveZoneMinutes: 1
+                    activeZoneMinutes: 1
+                - minute: '2020-09-17T17:02:00'
+                  value:
+                    activeZoneMinutes: 0
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - activity
+/1/user/{user-id}/activities/active-zone-minutes/date/{start-date}/{end-date}/{detail-level}.json:
+  get:
+    operationId: intradayGetGetAzmIntradayByInterval1UserUserIdActivitiesActiveZoneMinutesDateStartDateEndDateDetailLevelJson
+    summary: Get AZM Intraday by Interval
+    description: This endpoint retrieves the active zone minute (AZM) intraday time
+      series data on a specific date range or 24 hour period. Intraday support can
+      extend the detail-level response to include 1min, 5min and 15min for Active
+      Zone Minutes. 3rd-party developers who want access to retrieve other Fitbit
+      users’ Intraday data through the “Client” or “Server” application type should
+      submit a request by filling out this form . A Fitbit developer’s personal Intraday
+      data is automatically available through the “Personal” application type. You
+      do not need to submit a request.
+    tags:
+    - Intraday
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/intraday/get-azm-intraday-by-interval/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: start-date
+      in: path
+      required: true
+      description: The date in the format yyyy-MM-dd or today .
+      schema:
+        type: string
+        format: date
+    - name: end-date
+      in: path
+      required: true
+      description: 'The date in the format yyyy-MM-dd or today . Maximum range: 24
+        hours'
+      schema:
+        type: string
+        format: date
+    - name: detail-level
+      in: path
+      required: true
+      description: 'Number of data points to include. Supported: 1min | 5min | 15min'
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              activities-active-zone-minutes-intraday:
+              - dateTime: '2020-09-17'
+                minutes:
+                - minute: '2020-09-17T17:15:00'
+                  value:
+                    fatBurnActiveZoneMinutes: 1
+                    cardioActiveZoneMinutes: 2
+                    peakActiveZoneMinutes: 2
+                    activeZoneMinutes: 5
+                - minute: '2020-09-17T17:30:00'
+                  value:
+                    fatBurnActiveZoneMinutes: 2
+                    cardioActiveZoneMinutes: 1
+                    activeZoneMinutes: 3
+              - dateTime: '2020-09-18'
+                minutes:
+                - minute: '2020-09-18T10:00:00'
+                  value:
+                    fatBurnActiveZoneMinutes: 3
+                    cardioActiveZoneMinutes: 3
+                    activeZoneMinutes: 6
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - activity
+/1/user/{user-id}/br/date/{date}/all.json:
+  get:
+    operationId: intradayGetGetBreathingRateIntradayByDate1UserUserIdBrDateDateAllJson
+    summary: Get Breathing Rate Intraday by Date
+    description: 'This endpoint returns intraday breathing rate data for a specified
+      date. It measures the average breathing rate throughout the day and categories
+      your breathing rate by sleep stage. Sleep stages vary between light sleep, deep
+      sleep, REM sleep, and full sleep.
+
+
+      The single date measurements are provided at the end of a period of sleep. The
+      data returned can and often does reflect a sleep period that began the day before.
+      For example, if you request a daily breathing rate for 2021-12-22, it may include
+      measurements that were taken the previous night on 2021-12-21 when the user
+      started to sleep.
+
+
+      It uses units that correspond to the Accept-Language header provided.'
+    tags:
+    - Intraday
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/intraday/get-br-intraday-by-date/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: date
+      in: path
+      required: true
+      description: The date in the format yyyy-MM-dd or today.
+      schema:
+        type: string
+        format: date
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              br:
+              - value:
+                  deepSleepSummary:
+                    breathingRate: 16.8
+                  remSleepSummary:
+                    breathingRate: -1.0
+                  fullSleepSummary:
+                    breathingRate: 17.8
+                  lightSleepSummary:
+                    breathingRate: 16.8
+                dateTime: '2021-10-25'
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - respiratory_rate
+/1/user/{user-id}/br/date/{start-date}/{end-date}/all.json:
+  get:
+    operationId: intradayGetGetBreathingRateIntradayByInterval1UserUserIdBrDateStartDateEndDateAllJson
+    summary: Get Breathing Rate Intraday by Interval
+    description: 'This endpoint returns intraday breathing rate data for a date range.
+      It measures the average breathing rate throughout the day and categories your
+      breathing rate by sleep stage. Sleep stages vary between light sleep, deep sleep,
+      REM sleep, and full sleep.
+
+
+      The single date measurements are provided at the end of a period of sleep. The
+      data returned can and often does reflect a sleep period that began the day before.
+      For example, if you request a daily breathing rate for 2021-12-22, it may include
+      measurements that were taken the previous night on 2021-12-21 when the user
+      started to sleep.
+
+
+      It uses units that correspond to the Accept-Language header provided.'
+    tags:
+    - Intraday
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/intraday/get-br-intraday-by-interval/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: start-date
+      in: path
+      required: true
+      description: The date in the format yyyy-MM-dd or today.
+      schema:
+        type: string
+        format: date
+    - name: end-date
+      in: path
+      required: true
+      description: 'The date in the format yyyy-MM-dd or today. Maximum range: 30
+        days'
+      schema:
+        type: string
+        format: date
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - respiratory_rate
+/1/user/{user-id}/activities/heart/date/{date}/1d/{detail-level}.json:
+  get:
+    operationId: intradayGetGetHeartRateIntradayByDate1UserUserIdActivitiesHeartDateDate1DDetailLevelJson
+    summary: Get Heart Rate Intraday by Date
+    description: 'This endpoint retrieves the heart rate intraday time series data
+      on a specific date or 24 hour period. Intraday support can extend the detail-level
+      response to include 1sec, 1min, 5min or 15min for Heart Rate.
+
+
+      3rd-party developers who want access to retrieve other Fitbit users’ Intraday
+      data through the “Client” or “Server” application type should submit a request
+      by filling out this form . A Fitbit developer’s personal Intraday data is automatically
+      available through the “Personal” application type. You do not need to submit
+      a request.'
+    tags:
+    - Intraday
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/intraday/get-heartrate-intraday-by-date/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: date
+      in: path
+      required: true
+      description: The date in the format yyyy-MM-dd or today
+      schema:
+        type: string
+        format: date
+    - name: detail-level
+      in: path
+      required: true
+      description: 'Number of data points to include Supported: 1sec | 1min | 5min
+        | 15min'
+      schema:
+        type: string
+    - name: timezone
+      in: query
+      required: false
+      description: 'Returns the response from the specified timezone. Supported: UTC'
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              activities-heart:
+              - dateTime: '2019-05-08'
+                value:
+                  customHeartRateZones:
+                  - caloriesOut: 1164.09312
+                    max: 90
+                    min: 30
+                    minutes: 718
+                    name: Below
+                  - caloriesOut: 203.65344
+                    max: 110
+                    min: 90
+                    minutes: 74
+                    name: Custom Zone
+                  - caloriesOut: 330.76224
+                    max: 220
+                    min: 110
+                    minutes: 42
+                    name: Above
+                  heartRateZones:
+                  - caloriesOut: 979.43616
+                    max: 86
+                    min: 30
+                    minutes: 626
+                    name: Out of Range
+                  - caloriesOut: 514.16208
+                    max: 121
+                    min: 86
+                    minutes: 185
+                    name: Fat Burn
+                  - caloriesOut: 197.92656
+                    max: 147
+                    min: 121
+                    minutes: 18
+                    name: Cardio
+                  - caloriesOut: 6.984
+                    max: 220
+                    min: 147
+                    minutes: 5
+                    name: Peak
+                  restingHeartRate: 76
+              activities-heart-intraday:
+                dataset:
+                - time: 00:00:00
+                  value: 78
+                - time: 00:01:00
+                  value: 78
+                - time: 00:02:00
+                  value: 77
+                - time: 00:03:00
+                  value: 77
+                - time: 00:04:00
+                  value: 77
+                datasetInterval: 1
+                datasetType: minute
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - heartrate
+/1/user/{user-id}/activities/heart/date/{start-date}/{end-date}/{detail-level}.json:
+  get:
+    operationId: intradayGetGetHeartRateIntradayByInterval1UserUserIdActivitiesHeartDateStartDateEndDateDetailLevelJson
+    summary: Get Heart Rate Intraday by Interval
+    description: 'This endpoint retrieves the heart rate intraday time series data
+      on a specific date range for a 24 hour period. Intraday support can extend the
+      detail-level response to include 1sec, 1min, 5min or 15min for Heart Rate.
+
+
+      3rd-party developers who want access to retrieve other Fitbit users’ Intraday
+      data through the “Client” or “Server” application type should submit a request
+      by filling out this form . A Fitbit developer’s personal Intraday data is automatically
+      available through the “Personal” application type. You do not need to submit
+      a request.'
+    tags:
+    - Intraday
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/intraday/get-heartrate-intraday-by-interval/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: start-date
+      in: path
+      required: true
+      description: The date in the format yyyy-MM-dd or today
+      schema:
+        type: string
+        format: date
+    - name: end-date
+      in: path
+      required: true
+      description: 'The date in the format yyyy-MM-dd or today . Maximum range: 24
+        hours'
+      schema:
+        type: string
+        format: date
+    - name: detail-level
+      in: path
+      required: true
+      description: 'Number of data points to include Supported: 1sec | 1min | 5min
+        | 15min'
+      schema:
+        type: string
+    - name: timezone
+      in: query
+      required: false
+      description: 'Returns the response from the specified timezone. Supported: UTC'
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              activities-heart:
+              - dateTime: '2019-05-08'
+                value:
+                  customHeartRateZones:
+                  - caloriesOut: 1164.09312
+                    max: 90
+                    min: 30
+                    minutes: 718
+                    name: Below
+                  - caloriesOut: 203.65344
+                    max: 110
+                    min: 90
+                    minutes: 74
+                    name: Custom Zone
+                  - caloriesOut: 330.76224
+                    max: 220
+                    min: 110
+                    minutes: 42
+                    name: Above
+                  heartRateZones:
+                  - caloriesOut: 979.43616
+                    max: 86
+                    min: 30
+                    minutes: 626
+                    name: Out of Range
+                  - caloriesOut: 514.16208
+                    max: 121
+                    min: 86
+                    minutes: 185
+                    name: Fat Burn
+                  - caloriesOut: 197.92656
+                    max: 147
+                    min: 121
+                    minutes: 18
+                    name: Cardio
+                  - caloriesOut: 6.984
+                    max: 220
+                    min: 147
+                    minutes: 5
+                    name: Peak
+                  restingHeartRate: 76
+              activities-heart-intraday:
+                dataset:
+                - time: 00:00:00
+                  value: 78
+                - time: 00:01:00
+                  value: 78
+                - time: 00:02:00
+                  value: 77
+                - time: 00:03:00
+                  value: 77
+                - time: 00:04:00
+                  value: 77
+                datasetInterval: 1
+                datasetType: minute
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - heartrate
+/1/user/{user-id}/hrv/date/{date}/all.json:
+  get:
+    operationId: intradayGetGetHrvIntradayByDate1UserUserIdHrvDateDateAllJson
+    summary: Get HRV Intraday by Date
+    description: 'This endpoint returns the Heart Rate Variability (HRV) intraday
+      data for a single date. HRV data applies specifically to a user’s “main sleep,”
+      which is the longest single period of time asleep on a given date. It measures
+      the HRV rate at various times and returns Root Mean Square of Successive Differences
+      (rmssd), Low Frequency (LF), High Frequency (HF), and Coverage data for a given
+      measurement. Rmssd measures short-term variability in your heart rate while
+      asleep. LF and HF capture the power in interbeat interval fluctuations within
+      either high frequency or low frequency bands. Finally, coverage refers to data
+      completeness in terms of the number of interbeat intervals.
+
+
+      Single date measurements are provided at the end of a period of sleep. The data
+      returned usually reflects a sleep period that began the day before. For example,
+      if you request a daily HRV rate for 2021-12-22, it may include measurements
+      that were taken the previous night on 2021-12-21 when the user fell asleep.
+
+
+      It uses units that correspond to the Accept-Language header provided.'
+    tags:
+    - Intraday
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/intraday/get-hrv-intraday-by-date/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: date
+      in: path
+      required: true
+      description: The date in the format yyyy-MM-dd or today.
+      schema:
+        type: string
+        format: date
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - heartrate
+/1/user/{user-id}/hrv/date/{startDate}/{endDate}/all.json:
+  get:
+    operationId: intradayGetGetHrvIntradayByInterval1UserUserIdHrvDateStartdateEnddateAllJson
+    summary: Get HRV Intraday by Interval
+    description: 'This endpoint returns the Heart Rate Variability (HRV) intraday
+      data for a date range. HRV data applies specifically to a user’s “main sleep,”
+      which is the longest single period of time asleep on a given date. It measures
+      your HRV rate at various times and returns Root Mean Square of Successive Differences
+      (rmssd), Low Frequency (LF), High Frequency (HF), and Coverage data for a given
+      measurement. Rmssd measures short-term variability in your heart rate while
+      asleep. LF and HF capture the power in interbeat interval fluctuations within
+      either high frequency or low frequency bands. Finally, coverage refers to data
+      completeness in terms of the number of interbeat intervals.
+
+
+      Single date measurements are provided at the end of a period of sleep. The data
+      returned can and often does reflects a sleep period that began the day before.
+      For example, if you request a daily HRV rate for 2021-12-22, it may include
+      measurements that were taken the previous night on 2021-12-21 when the user
+      fell asleep.
+
+
+      It uses units that correspond to the Accept-Language header provided.'
+    tags:
+    - Intraday
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/intraday/get-hrv-intraday-by-interval/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: startDate
+      in: path
+      required: true
+      description: The date in the format yyyy-MM-dd or today.
+      schema:
+        type: string
+        format: date
+    - name: endDate
+      in: path
+      required: true
+      description: 'The date in the format yyyy-MM-dd or today. Maximum range: 30
+        days'
+      schema:
+        type: string
+        format: date
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - heartrate
+/1/user/{user-id}/spo2/date/{date}/all.json:
+  get:
+    operationId: intradayGetGetSpo2IntradayByDate1UserUserIdSpo2DateDateAllJson
+    summary: Get SpO2 Intraday by Date
+    description: 'This endpoint returns the SpO2 intraday data for a single date.
+      SpO2 applies specifically to a user’s “main sleep”, which is the longest single
+      period of time asleep on a given date. Spo2 values are calculated on a 5-minute
+      exponentially-moving average.
+
+
+      The measurement is provided at the end of a period of sleep. The data returned
+      usually reflects a sleep period that began the day before. For example, if you
+      request SpO2 levels for 2021-12-22, it may include measurements that were taken
+      the previous night on 2021-12-21 when the user fell asleep.
+
+
+      The data returned includes the percentage value of SpO2 in your bloodstream
+      and an accurate timestamp for that measurement. It also uses units that correspond
+      to the Accept-Language header provided.'
+    tags:
+    - Intraday
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/intraday/get-spo2-intraday-by-date/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: date
+      in: path
+      required: true
+      description: The date in the format yyyy-MM-dd or today.
+      schema:
+        type: string
+        format: date
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - oxygen_saturation
+/1/user/{user-id}/spo2/date/{start-date}/{end-date}/all.json:
+  get:
+    operationId: intradayGetGetSpo2IntradayByInterval1UserUserIdSpo2DateStartDateEndDateAllJson
+    summary: Get SpO2 Intraday by Interval
+    description: 'This endpoint returns the SpO2 intraday data for a specified date
+      range. SpO2 applies specifically to a user’s “main sleep”, which is the longest
+      single period of time asleep on a given date. Spo2 values are calculated on
+      a 5-minute exponentially-moving average.
+
+
+      The measurement is provided at the end of a period of sleep. The data returned
+      usually reflects a sleep period that began the day before. For example, if you
+      request SpO2 levels for 2021-12-22, it may include measurements that were taken
+      the previous night on 2021-12-21 when the user fell asleep.
+
+
+      The data returned includes the percentage value of SpO2 in your bloodstream
+      and an accurate timestamp for that measurement. It also uses units that correspond
+      to the Accept-Language header provided.'
+    tags:
+    - Intraday
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/intraday/get-spo2-intraday-by-interval/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: start-date
+      in: path
+      required: true
+      description: The date in the format yyyy-MM-dd or today.
+      schema:
+        type: string
+        format: date
+    - name: end-date
+      in: path
+      required: true
+      description: 'The date in the format yyyy-MM-dd or today. Maximum range: 30
+        days'
+      schema:
+        type: string
+        format: date
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - oxygen_saturation

@@ -1,0 +1,25 @@
+{
+  "domain": "nutrition",
+  "title": "Delete Custom Food",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/delete-custom-food/",
+  "method": "delete",
+  "path": "/1/user/{user-id}/foods/{food-id}.json",
+  "description": "Deletes a custom food created by the user.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "food-id",
+      "location": "path",
+      "required": true,
+      "description": "The ID of the food to be deleted."
+    }
+  ],
+  "response_fields": [],
+  "example_response": null
+}

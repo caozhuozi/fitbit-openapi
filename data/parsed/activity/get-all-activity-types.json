@@ -1,0 +1,49 @@
+{
+  "domain": "activity",
+  "title": "Get All Activity Types",
+  "url": "https://dev.fitbit.com/build/reference/web-api/activity/get-all-activity-types/",
+  "method": "get",
+  "path": "/1/activities.json",
+  "description": "Retrieves a list of all valid Fitbit public activities and the private, user-created activities from the Fitbit activities database in the format requested. If available, activity level details will display.",
+  "scope": "activity",
+  "parameters": [],
+  "response_fields": [
+    {
+      "name": "categories : activities : accessLevel",
+      "description": "Supported : PUBLIC | PRIVATE"
+    },
+    {
+      "name": "categories : activities : activityLevels : id",
+      "description": "Numerical value representing the corresponding activity level."
+    },
+    {
+      "name": "categories : activities : activityLevels : maxSpeedMPH",
+      "description": "Maximum speed in MPH. Value: -1 means not applicable."
+    },
+    {
+      "name": "categories : activities : activityLevels : mets",
+      "description": "METs score for the activity id."
+    },
+    {
+      "name": "categories : activities : activityLevels : minSpeedMPH",
+      "description": "Minimum speed in MPH. Value: -1 means not applicable."
+    },
+    {
+      "name": "categories : activities : activityLevels : name",
+      "description": "Name of the activity level."
+    },
+    {
+      "name": "categories : activities : hasSpeed",
+      "description": "Supported : true | false"
+    },
+    {
+      "name": "categories : activities : id",
+      "description": "Numerical value representing the corresponding activity."
+    },
+    {
+      "name": "categories : activities : name",
+      "description": "The name of the activity or exercise."
+    }
+  ],
+  "example_response": null
+}

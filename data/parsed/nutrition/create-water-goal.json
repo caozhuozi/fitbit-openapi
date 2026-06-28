@@ -1,0 +1,39 @@
+{
+  "domain": "nutrition",
+  "title": "Create Water Goal",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/create-water-goal/",
+  "method": "post",
+  "path": "/1/user/{user-id}/foods/log/water/goal.json",
+  "description": "Creates or updates a user's daily water consumption goal.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "target",
+      "location": "query",
+      "required": true,
+      "description": "Target water goal in the format X.X in the unit system that corresponds to the locale."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "goal : goal",
+      "description": "Amount of water to consume daily in the units specified by the Accept-Language header."
+    },
+    {
+      "name": "goal : startDate",
+      "description": "water goal's start date."
+    }
+  ],
+  "example_response": {
+    "goal": {
+      "goal": 24,
+      "startDate": "2019-03-21"
+    }
+  }
+}

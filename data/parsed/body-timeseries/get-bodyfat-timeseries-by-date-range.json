@@ -1,0 +1,104 @@
+{
+  "domain": "body-timeseries",
+  "title": "Get Body Fat Time Series by Date Range",
+  "url": "https://dev.fitbit.com/build/reference/web-api/body-timeseries/get-bodyfat-timeseries-by-date-range/",
+  "method": "get",
+  "path": "/1/user/{user-id}/body/log/fat/date/{start-date}/{end-date}.json",
+  "description": "Retrieves a list of all user's body fat log entries for a given date range.",
+  "scope": "weight",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "start-date",
+      "location": "path",
+      "required": true,
+      "description": "The start date specified in the format yyyy-MM-dd or today ."
+    },
+    {
+      "name": "end-date",
+      "location": "path",
+      "required": true,
+      "description": "The end date specified in the format yyyy-MM-dd or today . Maximum range: 30 days"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "fat : date",
+      "description": "The date the body fat log was recorded."
+    },
+    {
+      "name": "fat : fat",
+      "description": "The body fat percentage."
+    },
+    {
+      "name": "fat : logId",
+      "description": "The body fat log Id."
+    },
+    {
+      "name": "fat : source",
+      "description": "The location where the body fat data originated. See \"source\" values for more information. Support: API | Aria | AriaAir | Withings"
+    },
+    {
+      "name": "fat : time",
+      "description": "The timestamp when the body fat log was recorded."
+    }
+  ],
+  "example_response": {
+    "fat": [
+      {
+        "date": "2018-02-21",
+        "fat": 15.5,
+        "logId": 1532187349000,
+        "source": "Aria",
+        "time": "15:35:49"
+      },
+      {
+        "date": "2018-02-23",
+        "fat": 16.1,
+        "logId": 1532333041000,
+        "source": "Aria",
+        "time": "08:04:01"
+      },
+      {
+        "date": "2018-02-26",
+        "fat": 16.8,
+        "logId": 1532586869000,
+        "source": "Aria",
+        "time": "06:34:29"
+      },
+      {
+        "date": "2018-02-26",
+        "fat": 17.2,
+        "logId": 1532586900000,
+        "source": "Aria",
+        "time": "06:35:00"
+      },
+      {
+        "date": "2018-02-26",
+        "fat": 17.5,
+        "logId": 1532586936000,
+        "source": "Aria",
+        "time": "06:35:36"
+      },
+      {
+        "date": "2018-07-27",
+        "fat": 17.4,
+        "logId": 1532677290000,
+        "source": "Aria",
+        "time": "07:41:30"
+      },
+      {
+        "date": "2018-03-01",
+        "fat": 16.5,
+        "logId": 1532748067000,
+        "source": "Aria",
+        "time": "03:21:07"
+      }
+    ]
+  }
+}

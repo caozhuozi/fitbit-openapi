@@ -1,0 +1,413 @@
+/1/user/{user-id}/body/log/fat/goal.json:
+  post:
+    operationId: bodyPostCreateBodyFatGoal1UserUserIdBodyLogFatGoalJson
+    summary: Create Body Fat Goal
+    description: Create or update a user's body fat goal.
+    tags:
+    - Body
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/body/create-bodyfat-goal/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: fat
+      in: query
+      required: true
+      description: Target body fat percentage in the format X.XX.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              goal:
+                fat: 25
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - weight
+/1/user/{user-id}/body/log/fat.json:
+  post:
+    operationId: bodyPostCreateBodyFatLog1UserUserIdBodyLogFatJson
+    summary: Create Body Fat Log
+    description: Creates a body fat log entry.
+    tags:
+    - Body
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/body/create-bodyfat-log/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: fat
+      in: query
+      required: true
+      description: Body fat measurement in the format X.XX.
+      schema:
+        type: string
+    - name: date
+      in: query
+      required: true
+      description: The date the body fat measurement was recorded in the format yyyy-MM-dd.
+      schema:
+        type: string
+        format: date
+    - name: time
+      in: query
+      required: false
+      description: The timestamp the body fat measurement was recorded in the format
+        HH:mm:ss. If a value is not provided, the timestamp will be the last second
+        of the day.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              fatLog:
+                date: '2019-03-20'
+                fat: 15
+                logId: 1553069700000
+                source: api
+                time: 08:15:00
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - weight
+/1/user/{user-id}/body/log/weight/goal.json:
+  post:
+    operationId: bodyPostCreateWeightGoal1UserUserIdBodyLogWeightGoalJson
+    summary: Create Weight Goal
+    description: Creates or updates a user's weight goal.
+    tags:
+    - Body
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/body/create-weight-goal/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: startDate
+      in: query
+      required: true
+      description: Weight goal start date in the format yyyy-MM-dd.
+      schema:
+        type: string
+        format: date
+    - name: startWeight
+      in: query
+      required: true
+      description: Starting weight before reaching goal in the format X.XX; entered
+        in the unit system corresponding to the Accept-Language header provided.
+      schema:
+        type: string
+    - name: weight
+      in: query
+      required: true
+      description: Target weight goal in the format X.XX; entered in the unit system
+        corresponding to the Accept-Language header provided. Required if the user
+        doesn't have an existing weight goal.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              goal:
+                goalType: LOSE
+                startDate: '2019-03-21'
+                startWeight: 200
+                weight: 180.5
+                weightThreshold: 0.05
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - weight
+/1/user/{user-id}/body/log/weight.json:
+  post:
+    operationId: bodyPostCreateWeightLog1UserUserIdBodyLogWeightJson
+    summary: Create Weight Log
+    description: Creates a weight log entry
+    tags:
+    - Body
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/body/create-weight-log/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: weight
+      in: query
+      required: true
+      description: Weight measurement in the format X.XX.
+      schema:
+        type: string
+    - name: date
+      in: query
+      required: true
+      description: The date the weight measurement was recorded in the format yyyy-MM-dd.
+      schema:
+        type: string
+        format: date
+    - name: time
+      in: query
+      required: false
+      description: The timestamp the weight measurement was recorded in the format
+        HH:mm:ss. If a value is not provided, the timestamp will be the last second
+        of the day.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              weightLog:
+              - bmi: 25.91
+                date: '2019-03-01'
+                logId: 1553067494000
+                source: Aria
+                time: 07:38:14
+                weight: 200
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - weight
+/1/user/{user-id}/body/log/fat/{body-fat-log-id}.json:
+  delete:
+    operationId: bodyDeleteDeleteBodyFatLog1UserUserIdBodyLogFatBodyFatLogIdJson
+    summary: Delete Body Fat Log
+    description: Deletes a body fat log entry
+    tags:
+    - Body
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/body/delete-bodyfat-log/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: body-fat-log-id
+      in: path
+      required: true
+      description: The body fat log ID to be deleted.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - weight
+/1/user/{user-id}/body/log/weight/{weight-log-id}.json:
+  delete:
+    operationId: bodyDeleteDeleteWeightLog1UserUserIdBodyLogWeightWeightLogIdJson
+    summary: Delete Weight Log
+    description: Deletes a Weight log entry
+    tags:
+    - Body
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/body/delete-weight-log/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: weight-log-id
+      in: path
+      required: true
+      description: The weight log ID to be deleted.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - weight
+/1/user/{user-id}/body/log/{goal-type}/goal.json:
+  get:
+    operationId: bodyGetGetBodyGoals1UserUserIdBodyLogGoalTypeGoalJson
+    summary: Get Body Goals
+    description: Retrieves a user's body fat and weight goals.
+    tags:
+    - Body
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/body/get-body-goals/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: goal-type
+      in: path
+      required: true
+      description: 'Supported : weight | fat'
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - weight
+/1/user/{user-id}/body/log/fat/date/{date}.json:
+  get:
+    operationId: bodyGetGetBodyFatLog1UserUserIdBodyLogFatDateDateJson
+    summary: Get Body Fat Log
+    description: Retrieves a list of all user's body fat log entries for a given date.
+    tags:
+    - Body
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/body/get-bodyfat-log/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: date
+      in: path
+      required: true
+      description: The date in the format yyyy-MM-dd.
+      schema:
+        type: string
+        format: date
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              fat:
+              - date: '2019-03-20'
+                fat: 15
+                logId: 1553067000000
+                source: Aria
+                time: 07:38:14
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - weight
+/1/user/{user-id}/body/log/weight/date/{date}.json:
+  get:
+    operationId: bodyGetGetWeightLog1UserUserIdBodyLogWeightDateDateJson
+    summary: Get Weight Log
+    description: Retrieves a list of all user's weight log entries for a given date.
+    tags:
+    - Body
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/body/get-weight-log/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: date
+      in: path
+      required: true
+      description: The date in the format yyyy-MM-dd
+      schema:
+        type: string
+        format: date
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - weight

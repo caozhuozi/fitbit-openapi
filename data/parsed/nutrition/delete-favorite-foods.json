@@ -1,0 +1,25 @@
+{
+  "domain": "nutrition",
+  "title": "Delete Favorite Foods",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/delete-favorite-foods/",
+  "method": "delete",
+  "path": "/1/user/{user-id}/foods/log/favorite/{food-id}.json",
+  "description": "Deletes a food with the given ID from the user's list of favorite foods.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "food-id",
+      "location": "path",
+      "required": true,
+      "description": "The ID of the food to delete from the user's favorites."
+    }
+  ],
+  "response_fields": [],
+  "example_response": null
+}

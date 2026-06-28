@@ -1,0 +1,159 @@
+{
+  "domain": "nutrition",
+  "title": "Update Food Log",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/update-food-log/",
+  "method": "post",
+  "path": "/1/user/{user-id}/foods/log.json",
+  "description": "Updates the quantity or calories consumed for a user's food log entry with the given Food Log ID. The food item being edited in the food log must contain a foodId with a positive integer value.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "food-log-id",
+      "location": "path",
+      "required": true,
+      "description": "The ID of the food log to edit."
+    },
+    {
+      "name": "mealTypeId",
+      "location": "query",
+      "required": true,
+      "description": "Numerical value representing the meal type. Supported: 1 =Breakfast | 2 =Morning Snack | 3 =Lunch | 4 =Afternoon Snack | 5 =Dinner | 7 =Anytime"
+    },
+    {
+      "name": "unitId",
+      "location": "query",
+      "required": true,
+      "description": "ID representing the units used. Not required if the food log was created with the foodName parameter. The units ID can be retrieved using the Get Food Logs, Search Foods or Get Food Units endpoints."
+    },
+    {
+      "name": "amount",
+      "location": "query",
+      "required": true,
+      "description": "value representing the amount consumed in the format X.XX in the specified unitId. Not required if the food log was created with the foodName parameter."
+    },
+    {
+      "name": "calories",
+      "location": "query",
+      "required": false,
+      "description": "Number of calories for this serving size. Allowed with foodName parameter and defaults to zero. Otherwise, the parameter value is ignored."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "foodDay : date",
+      "description": ""
+    },
+    {
+      "name": "foodDay : summary",
+      "description": ""
+    },
+    {
+      "name": "foodLog : isFavorite",
+      "description": ""
+    },
+    {
+      "name": "foodLog : logDate",
+      "description": ""
+    },
+    {
+      "name": "foodLog : logId",
+      "description": ""
+    },
+    {
+      "name": "foodLog : loggedFood : accessLevel",
+      "description": ""
+    },
+    {
+      "name": "foodLog : loggedFood : amount",
+      "description": ""
+    },
+    {
+      "name": "foodLog : loggedFood : brand",
+      "description": ""
+    },
+    {
+      "name": "foodLog : loggedFood : calories",
+      "description": ""
+    },
+    {
+      "name": "foodLog : loggedFood : foodId",
+      "description": ""
+    },
+    {
+      "name": "foodLog : loggedFood : locale",
+      "description": ""
+    },
+    {
+      "name": "foodLog : loggedFood : mealTypeId",
+      "description": ""
+    },
+    {
+      "name": "foodLog : loggedFood : name",
+      "description": ""
+    },
+    {
+      "name": "foodLog : loggedFood : unit : id",
+      "description": ""
+    },
+    {
+      "name": "foodLog : loggedFood : unit : name",
+      "description": ""
+    },
+    {
+      "name": "foodLog : loggedFood : unit : plural",
+      "description": ""
+    },
+    {
+      "name": "foodLog : loggedFood : units",
+      "description": ""
+    },
+    {
+      "name": "foodLog : nutritionalValues",
+      "description": "Available nutritional values for the food consumed."
+    }
+  ],
+  "example_response": {
+    "foodLog": {
+      "isFavorite": false,
+      "logDate": "2020-06-10",
+      "logId": 22100146659,
+      "loggedFood": {
+        "accessLevel": "PUBLIC",
+        "amount": 1,
+        "brand": "",
+        "calories": 130,
+        "foodId": 81409,
+        "locale": "en_US",
+        "mealTypeId": 1,
+        "name": "Apple",
+        "unit": {
+          "id": 179,
+          "name": "large",
+          "plural": "larges"
+        },
+        "units": [
+          204,
+          179,
+          226,
+          180,
+          147,
+          389
+        ]
+      },
+      "nutritionalValues": {
+        "calories": 130,
+        "carbs": 35.75,
+        "fat": 0,
+        "fiber": 8.13,
+        "protein": 0,
+        "sodium": 0
+      }
+    }
+  }
+}

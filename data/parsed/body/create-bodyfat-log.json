@@ -1,0 +1,66 @@
+{
+  "domain": "body",
+  "title": "Create Body Fat Log",
+  "url": "https://dev.fitbit.com/build/reference/web-api/body/create-bodyfat-log/",
+  "method": "post",
+  "path": "/1/user/{user-id}/body/log/fat.json",
+  "description": "Creates a body fat log entry.",
+  "scope": "weight",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "fat",
+      "location": "query",
+      "required": true,
+      "description": "Body fat measurement in the format X.XX."
+    },
+    {
+      "name": "date",
+      "location": "query",
+      "required": true,
+      "description": "The date the body fat measurement was recorded in the format yyyy-MM-dd."
+    },
+    {
+      "name": "time",
+      "location": "query",
+      "required": false,
+      "description": "The timestamp the body fat measurement was recorded in the format HH:mm:ss. If a value is not provided, the timestamp will be the last second of the day."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "fatLog : date",
+      "description": "The date the body fat log was recorded."
+    },
+    {
+      "name": "fatLog : fat",
+      "description": "The body fat percentage."
+    },
+    {
+      "name": "fatLog : logId",
+      "description": "The body fat log Id. Note : The returned Body Fat Log IDs are unique to the user, but not globally unique."
+    },
+    {
+      "name": "fatLog : source",
+      "description": "The location where the body fat data originated. See \"source\" values for more information. Support: API | Aria | AriaAir | Withings"
+    },
+    {
+      "name": "fatLog : time",
+      "description": "The timestamp when the body fat log was recorded."
+    }
+  ],
+  "example_response": {
+    "fatLog": {
+      "date": "2019-03-20",
+      "fat": 15,
+      "logId": 1553069700000,
+      "source": "api",
+      "time": "08:15:00"
+    }
+  }
+}

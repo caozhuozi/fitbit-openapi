@@ -1,0 +1,24 @@
+{
+  "domain": "activity",
+  "title": "Get Favorite Activities",
+  "url": "https://dev.fitbit.com/build/reference/web-api/activity/get-favorite-activities/",
+  "method": "get",
+  "path": "/1/user/{user-id}/activities/favorite.json",
+  "description": "Retrieves a list of a user's favorite activities.",
+  "scope": "activity",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    }
+  ],
+  "response_fields": [],
+  "example_response": {
+    "activityId": 15680,
+    "description": "",
+    "mets": 6,
+    "name": "Tennis, doubles"
+  }
+}

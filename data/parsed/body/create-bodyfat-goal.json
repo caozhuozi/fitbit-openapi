@@ -1,0 +1,34 @@
+{
+  "domain": "body",
+  "title": "Create Body Fat Goal",
+  "url": "https://dev.fitbit.com/build/reference/web-api/body/create-bodyfat-goal/",
+  "method": "post",
+  "path": "/1/user/{user-id}/body/log/fat/goal.json",
+  "description": "Create or update a user's body fat goal.",
+  "scope": "weight",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "fat",
+      "location": "query",
+      "required": true,
+      "description": "Target body fat percentage in the format X.XX."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "goal : fat",
+      "description": "The body fat goal to achieve."
+    }
+  ],
+  "example_response": {
+    "goal": {
+      "fat": 25
+    }
+  }
+}

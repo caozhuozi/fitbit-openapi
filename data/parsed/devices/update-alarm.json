@@ -1,0 +1,133 @@
+{
+  "domain": "devices",
+  "title": "Update Alarm",
+  "url": "https://dev.fitbit.com/build/reference/web-api/devices/update-alarm/",
+  "method": "post",
+  "path": "/1/user/{user-id}/devices/tracker/{tracker-id}/alarms/{alarm-id}.json",
+  "description": "Updates an alarm on the given device. This endpoint is supported for trackers that support alarms.",
+  "scope": "settings",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "tracker-id",
+      "location": "path",
+      "required": true,
+      "description": "The ID of the tracker for which the alarm is created. The tracker-id can be found by using the Get Devices endpoint."
+    },
+    {
+      "name": "alarm-id",
+      "location": "path",
+      "required": true,
+      "description": "The ID of the alarm to be updated. The alarm-id can be found by using the Get Alarms endpoint."
+    },
+    {
+      "name": "time",
+      "location": "query",
+      "required": true,
+      "description": "The time of day and UTC offset that the alarm vibrates in the format HH:mm-offset, e.g. 07:00-08:00."
+    },
+    {
+      "name": "enabled",
+      "location": "query",
+      "required": true,
+      "description": "Enables the alarm to vibrate. Supported : true | false"
+    },
+    {
+      "name": "recurring",
+      "location": "query",
+      "required": true,
+      "description": "Defines the alarm as a recurring (true) or a single event (false). Supported : true | false"
+    },
+    {
+      "name": "weekDays",
+      "location": "query",
+      "required": true,
+      "description": "A comma separated list of days of the week which the alarm vibrates. Supported : MONDAY | TUESDAY | WEDNESDAY | THURSDAY | FRIDAY | SATURDAY | SUNDAY"
+    },
+    {
+      "name": "snoozeLength",
+      "location": "query",
+      "required": true,
+      "description": "Number of minutes between alarms."
+    },
+    {
+      "name": "snoozeCount",
+      "location": "query",
+      "required": true,
+      "description": "Maximum number of times allowed to snooze alarm."
+    },
+    {
+      "name": "label",
+      "location": "query",
+      "required": false,
+      "description": "Label or name for the alarm."
+    },
+    {
+      "name": "vibe",
+      "location": "query",
+      "required": false,
+      "description": "The vibration pattern. Supported : DEFAULT"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "trackerAlarm : alarmId",
+      "description": "Numerical value representing the alarm ID."
+    },
+    {
+      "name": "trackerAlarm : deleted",
+      "description": "Indicates if an alarm has been deleted. Supported : true | false"
+    },
+    {
+      "name": "trackerAlarm : enabled",
+      "description": "Indicates if an alarm is enabled. Supported : true | false"
+    },
+    {
+      "name": "trackerAlarm : recurring",
+      "description": "Indicates if an alarm is recurring. Supported : true | false"
+    },
+    {
+      "name": "trackerAlarm : snoozeCount",
+      "description": "Indicates the number of times the alarm will snooze."
+    },
+    {
+      "name": "trackerAlarm : snoozeLength",
+      "description": "Indicates the time in minutes between snooze periods."
+    },
+    {
+      "name": "trackerAlarm : syncedToDevice",
+      "description": "Supported : true | false"
+    },
+    {
+      "name": "trackerAlarm : time",
+      "description": "The time range for the specified alarm."
+    },
+    {
+      "name": "trackerAlarm : vibe",
+      "description": "Returns the type of vibration configured. Supported : DEFAULT"
+    },
+    {
+      "name": "trackerAlarm : weekDays",
+      "description": "Returns the recurring days of the week which the alarm is set. Supported : MONDAY | TUESDAY | WEDNESDAY | THURSDAY | FRIDAY | SATURDAY | SUNDAY"
+    }
+  ],
+  "example_response": {
+    "trackerAlarm": {
+      "alarmId": 1240569123,
+      "deleted": false,
+      "enabled": true,
+      "recurring": false,
+      "snoozeCount": 5,
+      "snoozeLength": 5,
+      "syncedToDevice": false,
+      "time": "12:00-08:00",
+      "vibe": "DEFAULT",
+      "weekDays": []
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "domain": "devices",
+  "title": "Get Alarms",
+  "url": "https://dev.fitbit.com/build/reference/web-api/devices/get-alarms/",
+  "method": "get",
+  "path": "/1/user/{user-id}/devices/tracker/{tracker-id}/alarms.json",
+  "description": "Retrieves the alarms enabled for a specific device. This endpoint is supported for trackers that support alarms.",
+  "scope": "settings",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "tracker-id",
+      "location": "path",
+      "required": true,
+      "description": "The ID of the tracker for which the data is returned. The tracker-id can be found by using the Get Devices endpoint."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "trackerAlarms : alarmId",
+      "description": "Numerical value representing the alarm ID."
+    },
+    {
+      "name": "trackerAlarms : deleted",
+      "description": "Indicates if an alarm has been deleted. Supported : true | false"
+    },
+    {
+      "name": "trackerAlarms : enabled",
+      "description": "Indicates if an alarm is enabled. Supported : true | false"
+    },
+    {
+      "name": "trackerAlarms : recurring",
+      "description": "Indicates if an alarm is recurring. Supported : true | false"
+    },
+    {
+      "name": "trackerAlarms : snoozeCount",
+      "description": "Indicates the number of times the alarm will snooze."
+    },
+    {
+      "name": "trackerAlarms : snoozeLength",
+      "description": "Indicates the time in minutes between snooze periods."
+    },
+    {
+      "name": "trackerAlarms : syncedToDevice",
+      "description": "Supported : true | false"
+    },
+    {
+      "name": "trackerAlarms : time",
+      "description": "The time and UTC offset for the specified alarm."
+    },
+    {
+      "name": "trackerAlarms : vibe",
+      "description": "Returns the type of vibration configured. Supported : DEFAULT"
+    },
+    {
+      "name": "trackerAlarms : weekDays",
+      "description": "Returns the recurring days of the week which the alarm is set. Supported : MONDAY | TUESDAY | WEDNESDAY | THURSDAY | FRIDAY | SATURDAY | SUNDAY"
+    }
+  ],
+  "example_response": {
+    "trackerAlarms": [
+      {
+        "alarmId": 11426382,
+        "deleted": false,
+        "enabled": true,
+        "recurring": true,
+        "snoozeCount": 3,
+        "snoozeLength": 9,
+        "syncedToDevice": false,
+        "time": "07:15-08:00",
+        "vibe": "DEFAULT",
+        "weekDays": [
+          "MONDAY",
+          "TUESDAY"
+        ]
+      }
+    ]
+  }
+}

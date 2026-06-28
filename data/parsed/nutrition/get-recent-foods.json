@@ -1,0 +1,59 @@
+{
+  "domain": "nutrition",
+  "title": "Get Recent Foods",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/get-recent-foods/",
+  "method": "get",
+  "path": "/1/user/{user-id}/foods/log/recent.json",
+  "description": "Retrieves a list of user-specific recently consumed foods.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "unit : id",
+      "description": ""
+    },
+    {
+      "name": "unit : name",
+      "description": ""
+    },
+    {
+      "name": "unit : plural",
+      "description": ""
+    },
+    {
+      "name": "foods : loggedFood : units",
+      "description": ""
+    }
+  ],
+  "example_response": {
+    "accessLevel": "PUBLIC",
+    "amount": 1,
+    "brand": "Smucker's",
+    "calories": 100,
+    "dateLastEaten": "2019-05-06",
+    "foodId": 14724757,
+    "locale": "en_US",
+    "mealTypeId": 1,
+    "name": "Natural Peanut Butter, Chunky",
+    "unit": {
+      "id": 349,
+      "name": "tbsp",
+      "plural": "tbsp"
+    },
+    "units": [
+      349,
+      364,
+      226,
+      180,
+      147,
+      389
+    ]
+  }
+}

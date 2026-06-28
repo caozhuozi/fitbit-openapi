@@ -1,0 +1,44 @@
+{
+  "domain": "friends",
+  "title": "Get Friends",
+  "url": "https://dev.fitbit.com/build/reference/web-api/friends/get-friends/",
+  "method": "get",
+  "path": "/1.1/user/{user-id}/friends.json",
+  "description": "This endpoint allows the application to retrieves a list of the specified Fitbit user's friends. This scope does not provide access to the friend's Fitbit data. Those users will need to individually consent to share their data with your application.",
+  "scope": "social",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "data : type",
+      "description": "Supported: person"
+    },
+    {
+      "name": "data : id",
+      "description": "Fitbit user id."
+    },
+    {
+      "name": "data : attributes : avatar",
+      "description": "Link to user's avatar picture."
+    },
+    {
+      "name": "data : attributes : child",
+      "description": "Boolean value describing friend as a child account."
+    },
+    {
+      "name": "data : attributes : friend",
+      "description": "Boolean value describing user as a friend."
+    },
+    {
+      "name": "data : attributes : name",
+      "description": "Person's display name."
+    }
+  ],
+  "example_response": null
+}

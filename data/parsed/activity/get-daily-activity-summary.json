@@ -1,0 +1,316 @@
+{
+  "domain": "activity",
+  "title": "Get Daily Activity Summary",
+  "url": "https://dev.fitbit.com/build/reference/web-api/activity/get-daily-activity-summary/",
+  "method": "get",
+  "path": "/1/user/{user-id}/activities/date/{date}.json",
+  "description": "Retrieves a summary and list of a user’s activities and activity log entries for a given day.",
+  "scope": "activity",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "date",
+      "location": "path",
+      "required": true,
+      "description": "The date in the format yyyy-MM-dd."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "activityLog : activityId",
+      "description": "The ID of the activity."
+    },
+    {
+      "name": "activityLog : activityParentId",
+      "description": "The ID of the top level (\"parent\") activity."
+    },
+    {
+      "name": "activityLog : activityParentName",
+      "description": "The name of the top level (\"parent\") activity."
+    },
+    {
+      "name": "activities : calories",
+      "description": "Number of calories burned during the exercise."
+    },
+    {
+      "name": "activities : description",
+      "description": "The description of the recorded exercise."
+    },
+    {
+      "name": "activities : detailsLink",
+      "description": "An endpoint that provides additional details about the user's activity either manually logged on the mobile application or API, or auto-recognized by the Fitbit device. Activities recorded using the device's exercise app are not supported."
+    },
+    {
+      "name": "activities : distance",
+      "description": "Distance traveled during the on-device recorded exercise."
+    },
+    {
+      "name": "activities : duration",
+      "description": "The activeDuration (milliseconds) + any pauses that occurred during the activity recording."
+    },
+    {
+      "name": "activities : hasActiveZoneMinutes",
+      "description": "Supported : true | false"
+    },
+    {
+      "name": "activities : hasStartTime",
+      "description": "Supported : true | false"
+    },
+    {
+      "name": "activities : isFavorite",
+      "description": "Supported : true | false"
+    },
+    {
+      "name": "activities : lastModified",
+      "description": "Timestamp the exercise was last modified."
+    },
+    {
+      "name": "activities : logId",
+      "description": "The activity log identifier for the exercise."
+    },
+    {
+      "name": "activities : name",
+      "description": "Name of the recorded exercise."
+    },
+    {
+      "name": "activities : startDate",
+      "description": "The start date of the recorded exercise."
+    },
+    {
+      "name": "activities : startTime",
+      "description": "The start time of the recorded exercise."
+    },
+    {
+      "name": "activities : steps",
+      "description": "Number of steps recorded during the exercise."
+    },
+    {
+      "name": "goals : activeMinutes",
+      "description": "User defined goal for daily active minutes."
+    },
+    {
+      "name": "goals : caloriesOut",
+      "description": "User defined goal for daily calories burned."
+    },
+    {
+      "name": "goals : distance",
+      "description": "User defined goal for daily distance traveled."
+    },
+    {
+      "name": "goals : floors",
+      "description": "User defined goal for daily floor count."
+    },
+    {
+      "name": "goals : steps",
+      "description": "User defined goal for daily step count."
+    },
+    {
+      "name": "summary : activeScore",
+      "description": "Functionality removed. A response is returned for backward compatibility. Supported: -1"
+    },
+    {
+      "name": "summary : activityCalories",
+      "description": "The number of calories burned for the day during periods the user was active above sedentary level. This includes both activity burned calories and BMR."
+    },
+    {
+      "name": "summary : caloriesEstimationMu",
+      "description": "Total estimated calories burned for the day based on measurement uncertainty."
+    },
+    {
+      "name": "summary : caloriesBMR",
+      "description": "Total BMR calories burned for the day."
+    },
+    {
+      "name": "summary : caloriesOut",
+      "description": "Total calories burned for the day (daily timeseries total)."
+    },
+    {
+      "name": "summary : caloriesOutUnestimated",
+      "description": "Total unestimated calories burned for the day."
+    },
+    {
+      "name": "summary : distances : activity",
+      "description": "Supported : <activity name> | total | tracker | loggedActivities | veryActive | moderatelyActive | lightlyActive | sedentaryActive"
+    },
+    {
+      "name": "summary : distances : distance",
+      "description": "For the specified resource, the distance traveled for the day displayed in the units defined by the Accept-Language header."
+    },
+    {
+      "name": "summary : elevation",
+      "description": "The elevation traveled for the day displayed in the units defined by the Accept-Language header."
+    },
+    {
+      "name": "summary : fairlyActiveMinutes",
+      "description": "Total minutes the user was fairly/moderately active."
+    },
+    {
+      "name": "summary : floors",
+      "description": "The equivalent floors climbed for the day displayed in the units defined by the Accept-Language header."
+    },
+    {
+      "name": "summary : heartRateZones : caloriesOut",
+      "description": "The Heart Rate scope is required to see this value."
+    },
+    {
+      "name": "summary : heartRateZones : max",
+      "description": "The Heart Rate scope is required to see this value."
+    },
+    {
+      "name": "summary : heartRateZones : min",
+      "description": "The Heart Rate scope is required to see this value."
+    },
+    {
+      "name": "summary : heartRateZones : minutes",
+      "description": "The Heart Rate scope is required to see this value."
+    },
+    {
+      "name": "summary : heartRateZones : name",
+      "description": "Heart Rate scope is required to see this value. Supported : Out of Range | Fat Burn | Cardio | Peak"
+    },
+    {
+      "name": "summary : lightlyActiveMinutes",
+      "description": "Total minutes the user was lightly active."
+    },
+    {
+      "name": "summary : marginalCalories",
+      "description": "Total marginal estimated calories burned for the day."
+    },
+    {
+      "name": "summary : restingHeartRate",
+      "description": "The user’s calculated resting heart rate. The Heart Rate scope is required to see this value. See Resting Heart Rate ."
+    },
+    {
+      "name": "summary : sedentaryMinutes",
+      "description": "Total minutes the user was sedentary."
+    },
+    {
+      "name": "summary : steps",
+      "description": "Total steps taken for the day."
+    },
+    {
+      "name": "summary : useEstimation",
+      "description": "Boolean value stating if estimations are used in calculations. Supported : true | false"
+    },
+    {
+      "name": "summary : veryActiveMinutes",
+      "description": "Total minutes the user was very active."
+    }
+  ],
+  "example_response": {
+    "activities": [],
+    "goals": {
+      "activeMinutes": 30,
+      "caloriesOut": 1950,
+      "distance": 8.05,
+      "floors": 10,
+      "steps": 6800
+    },
+    "summary": {
+      "activeScore": -1,
+      "activityCalories": 525,
+      "calorieEstimationMu": 2241,
+      "caloriesBMR": 1973,
+      "caloriesOut": 2628,
+      "caloriesOutUnestimated": 2628,
+      "customHeartRateZones": [
+        {
+          "caloriesOut": 2616.7788,
+          "max": 140,
+          "min": 30,
+          "minutes": 1432,
+          "name": "Below"
+        },
+        {
+          "caloriesOut": 0,
+          "max": 165,
+          "min": 140,
+          "minutes": 0,
+          "name": "Custom Zone"
+        },
+        {
+          "caloriesOut": 0,
+          "max": 220,
+          "min": 165,
+          "minutes": 0,
+          "name": "Above"
+        }
+      ],
+      "distances": [
+        {
+          "activity": "total",
+          "distance": 1.26
+        },
+        {
+          "activity": "tracker",
+          "distance": 1.26
+        },
+        {
+          "activity": "loggedActivities",
+          "distance": 0
+        },
+        {
+          "activity": "veryActive",
+          "distance": 0
+        },
+        {
+          "activity": "moderatelyActive",
+          "distance": 0
+        },
+        {
+          "activity": "lightlyActive",
+          "distance": 1.25
+        },
+        {
+          "activity": "sedentaryActive",
+          "distance": 0
+        }
+      ],
+      "elevation": 0,
+      "fairlyActiveMinutes": 0,
+      "floors": 0,
+      "heartRateZones": [
+        {
+          "caloriesOut": 1200.33336,
+          "max": 86,
+          "min": 30,
+          "minutes": 812,
+          "name": "Out of Range"
+        },
+        {
+          "caloriesOut": 1409.4564,
+          "max": 121,
+          "min": 86,
+          "minutes": 619,
+          "name": "Fat Burn"
+        },
+        {
+          "caloriesOut": 6.98904,
+          "max": 147,
+          "min": 121,
+          "minutes": 1,
+          "name": "Cardio"
+        },
+        {
+          "caloriesOut": 0,
+          "max": 220,
+          "min": 147,
+          "minutes": 0,
+          "name": "Peak"
+        }
+      ],
+      "lightlyActiveMinutes": 110,
+      "marginalCalories": 281,
+      "restingHeartRate": 77,
+      "sedentaryMinutes": 802,
+      "steps": 1698,
+      "useEstimation": true,
+      "veryActiveMinutes": 0
+    }
+  }
+}

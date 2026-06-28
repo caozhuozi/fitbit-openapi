@@ -1,0 +1,43 @@
+{
+  "domain": "sleep",
+  "title": "Get Sleep Goal",
+  "url": "https://dev.fitbit.com/build/reference/web-api/sleep/get-sleep-goals/",
+  "method": "get",
+  "path": "/1.2/user/{user-id}/sleep/goal.json",
+  "description": "Returns a user's current sleep goal.",
+  "scope": "sleep",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "goal : bedtime",
+      "description": "The user's targeted bedtime."
+    },
+    {
+      "name": "goal : minDuration",
+      "description": "Length of the sleep goal period in minutes."
+    },
+    {
+      "name": "goal : updatedOn",
+      "description": "The timestamp that the goal was created/updated."
+    },
+    {
+      "name": "goal : wakeupTime",
+      "description": "The user's targeted wake time."
+    }
+  ],
+  "example_response": {
+    "goal": {
+      "bedtime": "22:00",
+      "minDuration": 600,
+      "updatedOn": "2025-05-01T20:00:00.000Z",
+      "wakeupTime": "07:00"
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "domain": "irregular-rhythm-notifications",
+  "title": "Get IRN Alerts List",
+  "url": "https://dev.fitbit.com/build/reference/web-api/irregular-rhythm-notifications/get-irn-alerts-list/",
+  "method": "get",
+  "path": "/1/user/{user-id}/irn/alerts/list.json",
+  "description": "This endpoint returns a paginated list of Irregular Rhythm Notifications (IRN) alerts, as well as all of the alert tachograms. This endpoint will only return alerts that the user has read in the Fitbit app already, as that is meant as the primary entrypoint for viewing notifications.\n\nNote: The IRN API is for research use or investigational use only, and is not intended for clinical or diagnostic purposes.",
+  "scope": "irregular_rhythm_notifications",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "beforeDate",
+      "location": "query",
+      "required": true,
+      "description": "The date in the format yyyy-MM-ddTHH:mm:ss. Only yyyy-MM-dd is required. Either beforeDate or afterDate must be specified."
+    },
+    {
+      "name": "afterDate",
+      "location": "query",
+      "required": true,
+      "description": "The date in the format yyyy-MM-ddTHH:mm:ss. Only yyyy-MM-dd is required. Either beforeDate or afterDate must be specified."
+    },
+    {
+      "name": "sort",
+      "location": "query",
+      "required": true,
+      "description": "The sort order of entries by date. Use asc (ascending) when using afterDate. Use desc (descending) when using before date."
+    },
+    {
+      "name": "limit",
+      "location": "query",
+      "required": true,
+      "description": "The number of entries returned. See Limit / Offset for more information. Maximum: 10"
+    },
+    {
+      "name": "offset",
+      "location": "query",
+      "required": true,
+      "description": "See Limit / Offset for more information. Supported: 0"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "alerts : alertTime",
+      "description": "The start time for the irregular rhythm detection."
+    },
+    {
+      "name": "alerts : detectedTime",
+      "description": "The end time for the irregular rhythm detection."
+    },
+    {
+      "name": "alerts : serviceVersion",
+      "description": "The version of the service running when the alert was produced."
+    },
+    {
+      "name": "alerts : algoVersion",
+      "description": "The version of the algorithm running when the alert was produced."
+    },
+    {
+      "name": "alerts : deviceType",
+      "description": "The name of the device who generated the alert."
+    },
+    {
+      "name": "alerts : windows : startTime",
+      "description": "The start time for the analyzable window (representing 5 consecutive minutes of data following the start time)."
+    },
+    {
+      "name": "alerts : windows : bpmData : dataTime",
+      "description": "The timestamp of the individual heart beat."
+    },
+    {
+      "name": "alerts : windows : bpmData : value",
+      "description": "The extrapolated bpm value from the individual heart beat."
+    },
+    {
+      "name": "pagination : afterDate | beforeDate",
+      "description": "The afterDate or beforeDate parameter of the request (whichever was specified)."
+    },
+    {
+      "name": "pagination : next",
+      "description": "The URL of the request that will fetch the next page of results."
+    },
+    {
+      "name": "pagination : previous",
+      "description": "The URL of the request that will fetch the previous page of results."
+    },
+    {
+      "name": "pagination : sort",
+      "description": "The sort parameter of the request."
+    },
+    {
+      "name": "pagination : limit",
+      "description": "The limit parameter of the request. Maximum: 10"
+    },
+    {
+      "name": "pagination : offset",
+      "description": "The offset parameter of the request."
+    }
+  ],
+  "example_response": null
+}

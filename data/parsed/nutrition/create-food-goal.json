@@ -1,0 +1,50 @@
+{
+  "domain": "nutrition",
+  "title": "Create Food Goal",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/create-food-goal/",
+  "method": "post",
+  "path": "/1/user/{user-id}/foods/log/goal.json",
+  "description": "Creates or updates a user's daily calorie consumption or food plan goals.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "calories",
+      "location": "query",
+      "required": true,
+      "description": "Manual calories consumption goal. Either calories or intensity must be provided."
+    },
+    {
+      "name": "intensity",
+      "location": "query",
+      "required": true,
+      "description": "Food plan intensity. Either calories or intensity must be provided. Supported : MAINTENANCE | EASIER | MEDIUM | KINDAHARD | HARDER"
+    },
+    {
+      "name": "personalized",
+      "location": "query",
+      "required": false,
+      "description": "Food plan type. Supported : true | false"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "goals : calories",
+      "description": "The user's daily caloric consumption goal."
+    },
+    {
+      "name": "foodPlan : estimatedDate",
+      "description": "Estimated weight goal achievement date based on current body metrics and food plan intensity values specified. Returned when the intensity query parameter is provided."
+    },
+    {
+      "name": "foodPlan : intensity",
+      "description": "Food plan intensity value. Returned when the intensity query parameter is provided. Supported : MAINTENANCE | EASIER | MEDIUM | KINDAHARD | HARDER"
+    }
+  ],
+  "example_response": null
+}

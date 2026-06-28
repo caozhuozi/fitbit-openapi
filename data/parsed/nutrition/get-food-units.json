@@ -1,0 +1,12 @@
+{
+  "domain": "nutrition",
+  "title": "Get Food Units",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/get-food-units/",
+  "method": "get",
+  "path": "/1/foods/units.json",
+  "description": "Retrieves a list of all valid Fitbit food units in the format requested.",
+  "scope": "nutrition",
+  "parameters": [],
+  "response_fields": [],
+  "example_response": null
+}

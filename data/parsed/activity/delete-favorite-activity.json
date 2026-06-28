@@ -1,0 +1,25 @@
+{
+  "domain": "activity",
+  "title": "Delete Favorite Activity",
+  "url": "https://dev.fitbit.com/build/reference/web-api/activity/delete-favorite-activity/",
+  "method": "delete",
+  "path": "/1/user/{user-id}/activities/favorite/{activity-id}.json",
+  "description": "Removes the activity from a user’s list of favorite activities.",
+  "scope": "activity",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "activity-id",
+      "location": "path",
+      "required": true,
+      "description": "The ID of the activity to be removed."
+    }
+  ],
+  "response_fields": [],
+  "example_response": null
+}

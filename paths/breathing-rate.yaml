@@ -1,0 +1,120 @@
+/1/user/{user-id}/br/date/{date}.json:
+  get:
+    operationId: breathingRateGetGetBreathingRateSummaryByDate1UserUserIdBrDateDateJson
+    summary: Get Breathing Rate Summary by Date
+    description: 'This endpoint returns average breathing rate data for a single date.
+      Breathing Rate data applies specifically to a user’s “main sleep,” which is
+      the longest single period of time during which they were asleep on a given date.
+
+
+      The measurement is provided at the end of a period of sleep. The data returned
+      can and often does reflect a sleep period that began the day before. For example,
+      if you request a daily breathing rate for 2021-12-22, it may include measurements
+      that were taken the previous night on 2021-12-21 when the user started to sleep.
+
+
+      It uses units that correspond to the Accept-Language header provided.'
+    tags:
+    - Breathing-Rate
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/breathing-rate/get-br-summary-by-date/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: date
+      in: path
+      required: true
+      description: The date in the format yyyy-MM-dd or today.
+      schema:
+        type: string
+        format: date
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              br:
+              - value:
+                  breathingRate: 17.8
+                dateTime: '2021-10-25'
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - respiratory_rate
+/1/user/{user-id}/br/date/{start-date}/{end-date}.json:
+  get:
+    operationId: breathingRateGetGetBreathingRateSummaryByInterval1UserUserIdBrDateStartDateEndDateJson
+    summary: Get Breathing Rate Summary by Interval
+    description: 'This endpoint returns average breathing rate data for a date range.
+      Breathing Rate data applies specifically to a user’s “main sleep,” which is
+      the longest single period of time during which they were asleep on a given date.
+
+
+      The single date measurements are provided at the end of a period of sleep. The
+      data returned can and often does reflect a sleep period that began the day before.
+      For example, if you request a daily breathing rate for 2021-12-22, it may include
+      measurements that were taken the previous night on 2021-12-21 when the user
+      started to sleep.
+
+
+      It uses units that correspond to the Accept-Language header provided.'
+    tags:
+    - Breathing-Rate
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/breathing-rate/get-br-summary-by-interval/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: start-date
+      in: path
+      required: true
+      description: The date in the format yyyy-MM-dd or today.
+      schema:
+        type: string
+        format: date
+    - name: end-date
+      in: path
+      required: true
+      description: 'The date in the format yyyy-MM-dd or today. Maximum range: 30
+        days'
+      schema:
+        type: string
+        format: date
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              br:
+              - value:
+                  breathingRate: 17.8
+                dateTime: '2021-10-25'
+              - value:
+                  breathingRate: 17.9
+                dateTime: '2021-10-26'
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - respiratory_rate

@@ -1,0 +1,48 @@
+{
+  "domain": "temperature",
+  "title": "Get Temperature (Skin) Summary by Date",
+  "url": "https://dev.fitbit.com/build/reference/web-api/temperature/get-temperature-skin-summary-by-date/",
+  "method": "get",
+  "path": "/1/user/{user-id}/temp/skin/date/{date}.json",
+  "description": "This endpoint returns the Temperature (Skin) data for a single date. It only returns a value for dates on which the Fitbit device was able to record Temperature (skin) data.\n\nTemperature (Skin) data applies specifically to a user’s “main sleep,” which is the longest single period of time asleep on a given date.\n\nThe measurement is provided at the end of a period of sleep. The data returned usually reflects a sleep period that began the day before. For example, if you request a daily Temperature (Skin) rate for 2021-12-22, it may include measurements that were taken the previous night on 2021-12-21 when the user fell asleep.\n\nIt uses units that correspond to the Accept-Language header provided.",
+  "scope": "temperature",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "date",
+      "location": "path",
+      "required": true,
+      "description": "The date in the format yyyy-MM-dd or today."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "tempSkin : dateTime",
+      "description": "The log date in the format YYYY-MM-DD."
+    },
+    {
+      "name": "tempSkin : value : nightlyRelative",
+      "description": "The user's average temperature during a period of sleep. It is displayed to the user as a delta from their baseline temperature in degrees Celsius or Fahrenheit depending on the country specified in the Accept-Language header. See How can Fitbit help me track my temperature? for more information."
+    },
+    {
+      "name": "tempSkin : logType",
+      "description": "The type of skin temperature log created. See Temperature Sensors for more information Supported: dedicated_temp_sensor | other_sensors"
+    }
+  ],
+  "example_response": {
+    "tempSkin": [
+      {
+        "dateTime": "2019-12-10",
+        "value": {
+          "nightlyRelative": 0.3
+        },
+        "logType": "dedicated_temp_sensor"
+      }
+    ]
+  }
+}

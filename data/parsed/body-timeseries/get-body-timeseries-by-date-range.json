@@ -1,0 +1,61 @@
+{
+  "domain": "body-timeseries",
+  "title": "Get Body Time Series by Date Range",
+  "url": "https://dev.fitbit.com/build/reference/web-api/body-timeseries/get-body-timeseries-by-date-range/",
+  "method": "get",
+  "path": "/1/user/{user-id}/body/{resource}/date/{begin-date}/{end-date}.json",
+  "description": "Retrieves a list of all user's bmi, body fat, or weight for a given date range.",
+  "scope": "weight",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "resource",
+      "location": "path",
+      "required": true,
+      "description": "The body resource to be returned. Supported : bmi | fat | weight"
+    },
+    {
+      "name": "begin-date",
+      "location": "path",
+      "required": true,
+      "description": "The start date specified in the format yyyy-MM-dd or today ."
+    },
+    {
+      "name": "end-date",
+      "location": "path",
+      "required": true,
+      "description": "The end date specified in the format yyyy-MM-dd or today . Maximum range: 1095 days"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "body-<resource> : datetime",
+      "description": "The datetime which the resource was recorded."
+    },
+    {
+      "name": "body-<resource> : value",
+      "description": "The value of the resource."
+    }
+  ],
+  "example_response": {
+    "body-weight": [
+      {
+        "dateTime": "2019-01-01",
+        "value": "165"
+      },
+      {
+        "dateTime": "2019-01-02",
+        "value": "166"
+      },
+      {
+        "dateTime": "2019-01-03",
+        "value": "166"
+      }
+    ]
+  }
+}

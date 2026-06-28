@@ -1,0 +1,148 @@
+{
+  "domain": "heartrate-timeseries",
+  "title": "Get Heart Rate Time Series by Date",
+  "url": "https://dev.fitbit.com/build/reference/web-api/heartrate-timeseries/get-heartrate-timeseries-by-date/",
+  "method": "get",
+  "path": "/1/user/{user-id}/activities/heart/date/{date}/{period}.json",
+  "description": "Retrieves the heart rate time series data over a period of time by specifying a date and time period. The response will include only the daily summary values.",
+  "scope": "heartrate",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "date",
+      "location": "path",
+      "required": true,
+      "description": "The date in the format yyyy-MM-dd or today ."
+    },
+    {
+      "name": "period",
+      "location": "path",
+      "required": true,
+      "description": "Number of data points to include. Supported: 1d | 7d | 30d | 1w | 1m"
+    },
+    {
+      "name": "timezone",
+      "location": "query",
+      "required": false,
+      "description": "Returns the response from the specified timezone. Supported: UTC"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "activities-heart : datetime",
+      "description": "Date of the heart rate log."
+    },
+    {
+      "name": "activities-heart : value : customHeartRateZone : caloriesOut",
+      "description": "Number calories burned with the custom heart rate zone."
+    },
+    {
+      "name": "activities-heart : value : customHeartRateZone : max",
+      "description": "Maximum range for the custom heart rate zone."
+    },
+    {
+      "name": "activities-heart : value : customHeartRateZone : min",
+      "description": "Minimum range for the custom heart rate zone."
+    },
+    {
+      "name": "activities-heart : value : customHeartRateZone : minutes",
+      "description": "Number minutes withing the custom heart rate zone."
+    },
+    {
+      "name": "activities-heart : value : customHeartRateZone : name",
+      "description": "Name of the custom heart rate zone."
+    },
+    {
+      "name": "activities-heart : value : HeartRateZone : caloriesOut",
+      "description": "Number calories burned with the specified heart rate zone."
+    },
+    {
+      "name": "activities-heart : value : HeartRateZone : max",
+      "description": "Maximum range for the heart rate zone."
+    },
+    {
+      "name": "activities-heart : value : HeartRateZone : min",
+      "description": "Minimum range for the heart rate zone."
+    },
+    {
+      "name": "activities-heart : value : HeartRateZone : minutes",
+      "description": "Number minutes withing the specified heart rate zone."
+    },
+    {
+      "name": "activities-heart : value : HeartRateZone : name",
+      "description": "Name of the heart rate zone."
+    },
+    {
+      "name": "activities-heart : value : restingHeartRate",
+      "description": "The user’s calculated resting heart rate. See Resting Heart Rate ."
+    }
+  ],
+  "example_response": {
+    "activities-heart": [
+      {
+        "dateTime": "2019-05-08",
+        "value": {
+          "customHeartRateZones": [
+            {
+              "caloriesOut": 1164.09312,
+              "max": 90,
+              "min": 30,
+              "minutes": 718,
+              "name": "Below"
+            },
+            {
+              "caloriesOut": 203.65344,
+              "max": 110,
+              "min": 90,
+              "minutes": 74,
+              "name": "Custom Zone"
+            },
+            {
+              "caloriesOut": 330.76224,
+              "max": 220,
+              "min": 110,
+              "minutes": 42,
+              "name": "Above"
+            }
+          ],
+          "heartRateZones": [
+            {
+              "caloriesOut": 979.43616,
+              "max": 86,
+              "min": 30,
+              "minutes": 626,
+              "name": "Out of Range"
+            },
+            {
+              "caloriesOut": 514.16208,
+              "max": 121,
+              "min": 86,
+              "minutes": 185,
+              "name": "Fat Burn"
+            },
+            {
+              "caloriesOut": 197.92656,
+              "max": 147,
+              "min": 121,
+              "minutes": 18,
+              "name": "Cardio"
+            },
+            {
+              "caloriesOut": 6.984,
+              "max": 220,
+              "min": 147,
+              "minutes": 5,
+              "name": "Peak"
+            }
+          ],
+          "restingHeartRate": 76
+        }
+      }
+    ]
+  }
+}

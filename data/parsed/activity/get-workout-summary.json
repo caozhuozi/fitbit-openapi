@@ -1,0 +1,44 @@
+{
+  "domain": "activity",
+  "title": "Get Workout Summary",
+  "url": "https://dev.fitbit.com/build/reference/web-api/activity/get-workout-summary/",
+  "method": "get",
+  "path": "/1/user/-/activities/{logId}/workout-summary",
+  "description": "Exposes the ground contact time and step cadence collected during Run workouts:",
+  "scope": "activity",
+  "parameters": [
+    {
+      "name": "logId",
+      "location": "path",
+      "required": true,
+      "description": "The activity log id"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "workoutSummary : logId",
+      "description": "Exercise id of the structured workout"
+    },
+    {
+      "name": "workoutSummary : mobilityMetrics",
+      "description": "Group of mobility metrics"
+    },
+    {
+      "name": "workoutSummary : mobilityMetrics : avgCadenceStepsPerMinute",
+      "description": "Average workout cadence in steps per minute"
+    },
+    {
+      "name": "workoutSummary : mobilityMetrics : avgGroundContactTimeMilliseconds",
+      "description": "Average ground contact time in ms"
+    }
+  ],
+  "example_response": {
+    "workoutSummary": {
+      "logId": 9061654908234352000,
+      "mobilityMetrics": {
+        "avgCadenceStepsPerMinute": 5,
+        "avgGroundContactTimeMilliseconds": 345
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "domain": "nutrition",
+  "title": "Get Food Goals",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/get-food-goals/",
+  "method": "get",
+  "path": "/1/user/{user-id}/foods/log/goal.json",
+  "description": "Retrieves the user's current daily calorie consumption goal and/or food plan.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "goals : calories",
+      "description": "The daily calorie consumption goal."
+    }
+  ],
+  "example_response": {
+    "goals": {
+      "calories": 2910
+    }
+  }
+}

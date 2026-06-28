@@ -1,0 +1,55 @@
+{
+  "domain": "cardio-fitness-score",
+  "title": "Get VO2 Max Summary by Interval",
+  "url": "https://dev.fitbit.com/build/reference/web-api/cardio-fitness-score/get-vo2max-summary-by-interval/",
+  "method": "get",
+  "path": "/1/user/{user-id}/cardioscore/date/{start-date}/{end-date}.json",
+  "description": "This endpoint returns the Cardio Fitness Score (also know as VO2 Max) data for a date range. VO2 Max values will be shown as a range if no run data is available or a single numeric value if the user uses a GPS for runs. See Additional Information for further context.\n\nThe endpoint response ignores the Units header. The value returned is always in ml/kg/min.",
+  "scope": "cardio_fitness",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "start-date",
+      "location": "path",
+      "required": true,
+      "description": "The date in the format yyyy-MM-dd or today."
+    },
+    {
+      "name": "end-date",
+      "location": "path",
+      "required": true,
+      "description": "The date in the format yyyy-MM-dd or today. Maximum range: 30 days"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "cardioscore : dateTime",
+      "description": "The date specified in the format YYYY-MM-DD."
+    },
+    {
+      "name": "cardioscore : value : vo2Max",
+      "description": "The displayable value of VO2 Max in mL/kg/min."
+    }
+  ],
+  "example_response": {
+    "cardioScore": [
+      {
+        "dateTime": "2021-10-25",
+        "value": {
+          "vo2Max": "44-48"
+        }
+      },
+      {
+        "dateTime": "2021-10-26",
+        "value": {
+          "vo2Max": "45"
+        }
+      }
+    ]
+  }
+}

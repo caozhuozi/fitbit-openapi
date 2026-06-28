@@ -1,0 +1,25 @@
+{
+  "domain": "nutrition",
+  "title": "Delete Food Log",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/delete-food-log/",
+  "method": "delete",
+  "path": "/1/user/{user-id}/foods/log/{food-log-id}.json",
+  "description": "Deletes a user's food log entry using the given log ID.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "food-log-id",
+      "location": "path",
+      "required": true,
+      "description": "The id of the food log entry."
+    }
+  ],
+  "response_fields": [],
+  "example_response": null
+}

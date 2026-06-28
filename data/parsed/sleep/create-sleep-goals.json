@@ -1,0 +1,59 @@
+{
+  "domain": "sleep",
+  "title": "Create Sleep Goal",
+  "url": "https://dev.fitbit.com/build/reference/web-api/sleep/create-sleep-goals/",
+  "method": "post",
+  "path": "/1.2/user/{user-id}/sleep/goal.json",
+  "description": "Create or update a user's sleep goal.",
+  "scope": "sleep",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "bedtime",
+      "location": "query",
+      "required": true,
+      "description": "The user's targeted bedtime."
+    },
+    {
+      "name": "minDuration",
+      "location": "query",
+      "required": true,
+      "description": "Length of sleep goal in minutes."
+    },
+    {
+      "name": "wakeupTime",
+      "location": "query",
+      "required": true,
+      "description": "The user's targeted wake time."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "goal : bedtime",
+      "description": "The user's targeted bedtime. The response is returned if the query parameter is used."
+    },
+    {
+      "name": "goal : minDuration",
+      "description": "Length of the sleep goal period in minutes. The response is returned if the query parameter is used."
+    },
+    {
+      "name": "goal : updatedOn",
+      "description": "The timestamp that the goal was created/updated."
+    },
+    {
+      "name": "goal : wakeupTime",
+      "description": "The user's targeted wake time. The response is returned if the query parameter is used."
+    }
+  ],
+  "example_response": {
+    "goal": {
+      "minDuration": 600,
+      "updatedOn": "2020-01-01T00:26:40.794Z"
+    }
+  }
+}

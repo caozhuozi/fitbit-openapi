@@ -1,0 +1,34 @@
+{
+  "domain": "blood-glucose",
+  "title": "Get Blood Glucose by Interval",
+  "url": "https://dev.fitbit.com/build/reference/web-api/blood-glucose/get-blood-glucose-by-interval/",
+  "method": "get",
+  "path": "/1/user/-/health/metrics/glucose/values/{startDate}/{endDate}.json",
+  "description": "Retrieves the user's daily, min, max, sum and average values of blood glucose levels within an interval.",
+  "scope": "blood_glucose",
+  "parameters": [
+    {
+      "name": "startDate",
+      "location": "path",
+      "required": true,
+      "description": "Start date (inclusive) of the interval to query in format YYYY-MM-DD"
+    },
+    {
+      "name": "endDate",
+      "location": "path",
+      "required": true,
+      "description": "End date (inclusive) of the interval to query in format YYYY-MM-DD"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "values : dateTime",
+      "description": "Timestamp of the entry"
+    },
+    {
+      "name": "values : value",
+      "description": "Blood glucose value"
+    }
+  ],
+  "example_response": null
+}

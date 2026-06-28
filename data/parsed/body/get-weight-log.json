@@ -1,0 +1,50 @@
+{
+  "domain": "body",
+  "title": "Get Weight Log",
+  "url": "https://dev.fitbit.com/build/reference/web-api/body/get-weight-log/",
+  "method": "get",
+  "path": "/1/user/{user-id}/body/log/weight/date/{date}.json",
+  "description": "Retrieves a list of all user's weight log entries for a given date.",
+  "scope": "weight",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "date",
+      "location": "path",
+      "required": true,
+      "description": "The date in the format yyyy-MM-dd"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "weight : bmi",
+      "description": "Calculated BMI in the format X.XX<./td>"
+    },
+    {
+      "name": "weight : date",
+      "description": "Log entry date in the format yyyy-MM-dd."
+    },
+    {
+      "name": "weight : logId",
+      "description": "Weight Log IDs are unique to the user, but not globally unique."
+    },
+    {
+      "name": "weight : source",
+      "description": "The source of the weight log. See \"source\" values for more information. Support: API | Aria | AriaAir | Withings"
+    },
+    {
+      "name": "weight : time",
+      "description": "Time of the measurement; hours and minutes in the format HH:mm:ss, set to the last second of the day if not provided."
+    },
+    {
+      "name": "weight : weight",
+      "description": "Weight in the format X.XX, in the unit system that corresponds to the Accept-Language header provided or if not provided in metric."
+    }
+  ],
+  "example_response": null
+}

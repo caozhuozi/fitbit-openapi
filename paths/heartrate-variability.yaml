@@ -1,0 +1,127 @@
+/1/user/{user-id}/hrv/date/{date}.json:
+  get:
+    operationId: heartrateVariabilityGetGetHrvSummaryByDate1UserUserIdHrvDateDateJson
+    summary: Get HRV Summary by Date
+    description: 'This endpoint returns the Heart Rate Variability (HRV) data for
+      a single date. HRV data applies specifically to a user’s “main sleep,” which
+      is the longest single period of time asleep on a given date.
+
+
+      The measurement is provided at the end of a period of sleep. The data returned
+      usually reflects a sleep period that began the day before. For example, if you
+      request a daily HRV rate for 2021-12-22, it may include measurements that were
+      taken the previous night on 2021-12-21 when the user fell asleep.
+
+
+      It uses units that correspond to the Accept-Language header provided.'
+    tags:
+    - Heartrate-Variability
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/heartrate-variability/get-hrv-summary-by-date/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: date
+      in: path
+      required: true
+      description: The date in the format yyyy-MM-dd or today.
+      schema:
+        type: string
+        format: date
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              hrv:
+              - value:
+                  dailyRmssd: 34.938
+                  deepRmssd: 31.567
+                dateTime: '2021-10-25'
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - heartrate
+/1/user/{user-id}/hrv/date/{startDate}/{endDate}.json:
+  get:
+    operationId: heartrateVariabilityGetGetHrvSummaryByInterval1UserUserIdHrvDateStartdateEnddateJson
+    summary: Get HRV Summary by Interval
+    description: 'This endpoint returns the Heart Rate Variability (HRV) data for
+      a date range. HRV data applies specifically to a user’s “main sleep,” which
+      is the longest single period of time asleep on a given date.
+
+
+      Single date measurements are provided at the end of a period of sleep. The data
+      returned can and often does reflects a sleep period that began the day before.
+      For example, if you request a daily HRV rate for 2021-12-22, it may include
+      measurements that were taken the previous night on 2021-12-21 when the user
+      fell asleep.
+
+
+      It uses units that correspond to the Accept-Language header provided.'
+    tags:
+    - Heartrate-Variability
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/heartrate-variability/get-hrv-summary-by-interval/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: startDate
+      in: path
+      required: true
+      description: The date in the format yyyy-MM-dd or today.
+      schema:
+        type: string
+        format: date
+    - name: endDate
+      in: path
+      required: true
+      description: 'The date in the format yyyy-MM-dd or today. Maximum range: 30
+        days'
+      schema:
+        type: string
+        format: date
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              hrv:
+              - value:
+                  dailyRmssd: 62.887
+                  deepRmssd: 64.887
+                dateTime: '2021-10-25'
+              - value:
+                  dailyRmssd: 61.887
+                  deepRmssd: 64.887
+                dateTime: '2021-10-26'
+              - value:
+                  dailyRmssd: 60.887
+                  deepRmssd: 64.887
+                dateTime: '2021-10-27'
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - heartrate

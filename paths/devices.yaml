@@ -1,0 +1,328 @@
+/1/user/{user-id}/devices/tracker/{tracker-id}/alarms.json:
+  post:
+    operationId: devicesPostCreateAlarms1UserUserIdDevicesTrackerTrackerIdAlarmsJson
+    summary: Create Alarms
+    description: Creates an alarm for the given device. This endpoint is supported
+      for trackers that support alarms.
+    tags:
+    - Devices
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/devices/create-alarm/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: tracker-id
+      in: path
+      required: true
+      description: The ID of the tracker for which the alarm is created. The tracker-id
+        can be found by using the Get Devices endpoint.
+      schema:
+        type: string
+    - name: time
+      in: query
+      required: true
+      description: The time of day and UTC offset that the alarm vibrates in the format
+        HH:mm-offset, e.g. 07:00-08:00.
+      schema:
+        type: string
+    - name: enabled
+      in: query
+      required: true
+      description: 'Enables the alarm to vibrate. Supported : true | false'
+      schema:
+        type: string
+    - name: recurring
+      in: query
+      required: true
+      description: 'Defines the alarm as a recurring (true) or a single event (false).
+        Supported : true | false'
+      schema:
+        type: string
+    - name: weekDays
+      in: query
+      required: true
+      description: 'A comma separated list of days of the week which the alarm vibrates.
+        Supported : MONDAY | TUESDAY | WEDNESDAY | THURSDAY | FRIDAY | SATURDAY |
+        SUNDAY'
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              trackerAlarm:
+                alarmId: 802464368
+                deleted: false
+                enabled: true
+                recurring: true
+                snoozeCount: 3
+                snoozeLength: 9
+                syncedToDevice: false
+                time: 08:00-07:00
+                vibe: DEFAULT
+                weekDays:
+                - MONDAY
+                - TUESDAY
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - settings
+  get:
+    operationId: devicesGetGetAlarms1UserUserIdDevicesTrackerTrackerIdAlarmsJson
+    summary: Get Alarms
+    description: Retrieves the alarms enabled for a specific device. This endpoint
+      is supported for trackers that support alarms.
+    tags:
+    - Devices
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/devices/get-alarms/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: tracker-id
+      in: path
+      required: true
+      description: The ID of the tracker for which the data is returned. The tracker-id
+        can be found by using the Get Devices endpoint.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              trackerAlarms:
+              - alarmId: 11426382
+                deleted: false
+                enabled: true
+                recurring: true
+                snoozeCount: 3
+                snoozeLength: 9
+                syncedToDevice: false
+                time: 07:15-08:00
+                vibe: DEFAULT
+                weekDays:
+                - MONDAY
+                - TUESDAY
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - settings
+/1/user/{user-id}/devices/tracker/{tracker-id}/alarms/{alarm-id}.json:
+  delete:
+    operationId: devicesDeleteDeleteAlarm1UserUserIdDevicesTrackerTrackerIdAlarmsAlarmIdJson
+    summary: Delete Alarm
+    description: Deletes an alarm on the given device. This endpoint is supported
+      for trackers that support alarms.
+    tags:
+    - Devices
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/devices/delete-alarm/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: tracker-id
+      in: path
+      required: true
+      description: The ID of the tracker for which the alarm is to be deleted. The
+        tracker-id can be found by using the Get Devices endpoint.
+      schema:
+        type: string
+    - name: alarm-id
+      in: path
+      required: true
+      description: The ID of the alarm to be deleted. The alarm-id can be found by
+        using the Get Alarms endpoint.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - settings
+  post:
+    operationId: devicesPostUpdateAlarm1UserUserIdDevicesTrackerTrackerIdAlarmsAlarmIdJson
+    summary: Update Alarm
+    description: Updates an alarm on the given device. This endpoint is supported
+      for trackers that support alarms.
+    tags:
+    - Devices
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/devices/update-alarm/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: tracker-id
+      in: path
+      required: true
+      description: The ID of the tracker for which the alarm is created. The tracker-id
+        can be found by using the Get Devices endpoint.
+      schema:
+        type: string
+    - name: alarm-id
+      in: path
+      required: true
+      description: The ID of the alarm to be updated. The alarm-id can be found by
+        using the Get Alarms endpoint.
+      schema:
+        type: string
+    - name: time
+      in: query
+      required: true
+      description: The time of day and UTC offset that the alarm vibrates in the format
+        HH:mm-offset, e.g. 07:00-08:00.
+      schema:
+        type: string
+    - name: enabled
+      in: query
+      required: true
+      description: 'Enables the alarm to vibrate. Supported : true | false'
+      schema:
+        type: string
+    - name: recurring
+      in: query
+      required: true
+      description: 'Defines the alarm as a recurring (true) or a single event (false).
+        Supported : true | false'
+      schema:
+        type: string
+    - name: weekDays
+      in: query
+      required: true
+      description: 'A comma separated list of days of the week which the alarm vibrates.
+        Supported : MONDAY | TUESDAY | WEDNESDAY | THURSDAY | FRIDAY | SATURDAY |
+        SUNDAY'
+      schema:
+        type: string
+    - name: snoozeLength
+      in: query
+      required: true
+      description: Number of minutes between alarms.
+      schema:
+        type: string
+    - name: snoozeCount
+      in: query
+      required: true
+      description: Maximum number of times allowed to snooze alarm.
+      schema:
+        type: string
+    - name: label
+      in: query
+      required: false
+      description: Label or name for the alarm.
+      schema:
+        type: string
+    - name: vibe
+      in: query
+      required: false
+      description: 'The vibration pattern. Supported : DEFAULT'
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              trackerAlarm:
+                alarmId: 1240569123
+                deleted: false
+                enabled: true
+                recurring: false
+                snoozeCount: 5
+                snoozeLength: 5
+                syncedToDevice: false
+                time: 12:00-08:00
+                vibe: DEFAULT
+                weekDays: []
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - settings
+/1/user/{user-id}/devices.json:
+  get:
+    operationId: devicesGetGetDevices1UserUserIdDevicesJson
+    summary: Get Devices
+    description: Retrieves a list of Fitbit devices paired to a user's account.
+    tags:
+    - Devices
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/devices/get-devices/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              battery: Medium
+              batteryLevel: 60
+              deviceVersion: Charge 2
+              features: []
+              id: '816713257'
+              lastSyncTime: '2019-11-07T12:00:58.000'
+              mac: 16ADD56D54GD
+              type: TRACKER
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - settings

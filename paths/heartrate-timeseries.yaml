@@ -1,0 +1,95 @@
+/1/user/{user-id}/activities/heart/date/{start-date}/{end-date}.json:
+  get:
+    operationId: heartrateTimeseriesGetGetHeartRateTimeSeriesByDateRange1UserUserIdActivitiesHeartDateStartDateEndDateJson
+    summary: Get Heart Rate Time Series by Date Range
+    description: Retrieves the heart rate time series data over a period of time by
+      specifying a date range. The response will include only the daily summary values.
+    tags:
+    - Heartrate-Timeseries
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/heartrate-timeseries/get-heartrate-timeseries-by-date-range/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: start-date
+      in: path
+      required: true
+      description: The date in the format yyyy-MM-dd or today .
+      schema:
+        type: string
+        format: date
+    - name: end-date
+      in: path
+      required: true
+      description: 'The date in the format yyyy-MM-dd or today . Maximum range: 1
+        year'
+      schema:
+        type: string
+        format: date
+    - name: timezone
+      in: query
+      required: false
+      description: 'Returns the response from the specified timezone. Supported: UTC'
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              activities-heart:
+              - dateTime: '2019-05-08'
+                value:
+                  customHeartRateZones:
+                  - caloriesOut: 1164.09312
+                    max: 90
+                    min: 30
+                    minutes: 718
+                    name: Below
+                  - caloriesOut: 203.65344
+                    max: 110
+                    min: 90
+                    minutes: 74
+                    name: Custom Zone
+                  - caloriesOut: 330.76224
+                    max: 220
+                    min: 110
+                    minutes: 42
+                    name: Above
+                  heartRateZones:
+                  - caloriesOut: 979.43616
+                    max: 86
+                    min: 30
+                    minutes: 626
+                    name: Out of Range
+                  - caloriesOut: 514.16208
+                    max: 121
+                    min: 86
+                    minutes: 185
+                    name: Fat Burn
+                  - caloriesOut: 197.92656
+                    max: 147
+                    min: 121
+                    minutes: 18
+                    name: Cardio
+                  - caloriesOut: 6.984
+                    max: 220
+                    min: 147
+                    minutes: 5
+                    name: Peak
+                  restingHeartRate: 76
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - heartrate

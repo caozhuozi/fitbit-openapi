@@ -1,0 +1,19 @@
+{
+  "domain": "activity",
+  "title": "Get Frequent Activities",
+  "url": "https://dev.fitbit.com/build/reference/web-api/activity/get-frequent-activities/",
+  "method": "get",
+  "path": "/1/user/{user-id}/activities/frequent.json",
+  "description": "Retrieves a list of a user's frequent activities.",
+  "scope": "activity",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    }
+  ],
+  "response_fields": [],
+  "example_response": null
+}

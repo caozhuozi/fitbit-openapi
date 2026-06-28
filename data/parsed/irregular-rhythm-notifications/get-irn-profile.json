@@ -1,0 +1,23 @@
+{
+  "domain": "irregular-rhythm-notifications",
+  "title": "Get IRN Profile",
+  "url": "https://dev.fitbit.com/build/reference/web-api/irregular-rhythm-notifications/get-irn-profile/",
+  "method": "get",
+  "path": "/1/user/{user-id}/irn/profile.json",
+  "description": "This endpoint returns the user state for Irregular Rhythm Notifications (IRN). The user state contains most information about the user’s current engagement with the feature, including onboarding progress and algorithm processing state.\n\nNote: The IRN API is for research use or investigational use only, and is not intended for clinical or diagnostic purposes.",
+  "scope": "irregular_rhythm_notifications",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    }
+  ],
+  "response_fields": [],
+  "example_response": {
+    "onboarded": true,
+    "enrolled": true,
+    "lastUpdated": "2022-09-28T17:12:30.000"
+  }
+}

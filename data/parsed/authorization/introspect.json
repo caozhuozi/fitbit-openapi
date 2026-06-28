@@ -1,0 +1,12 @@
+{
+  "domain": "authorization",
+  "title": "Introspect",
+  "url": "https://dev.fitbit.com/build/reference/web-api/authorization/introspect/",
+  "method": "post",
+  "path": "/1.1/oauth2/introspect",
+  "description": "Allows the application to retrieve the active state of an OAuth 2.0 token. This endpoint conforms to RFC 7662 .",
+  "scope": null,
+  "parameters": [],
+  "response_fields": [],
+  "example_response": null
+}

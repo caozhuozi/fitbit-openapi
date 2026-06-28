@@ -1,0 +1,56 @@
+{
+  "domain": "nutrition",
+  "title": "Get Favorite Foods",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/get-favorite-foods/",
+  "method": "get",
+  "path": "/1/user/{user-id}/foods/log/favorite.json",
+  "description": "Retrieves a list of user-specific favorite consumed foods.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "defaultUnit : id",
+      "description": ""
+    },
+    {
+      "name": "defaultUnit : name",
+      "description": ""
+    },
+    {
+      "name": "defaultUnit : plural",
+      "description": ""
+    },
+    {
+      "name": "servings : multiplier",
+      "description": ""
+    },
+    {
+      "name": "servings : servingSize<",
+      "description": ""
+    },
+    {
+      "name": "servings : unit : id",
+      "description": ""
+    },
+    {
+      "name": "servings : unit : name",
+      "description": ""
+    },
+    {
+      "name": "servings : unit : plural",
+      "description": ""
+    },
+    {
+      "name": "servings : unitId",
+      "description": ""
+    }
+  ],
+  "example_response": null
+}

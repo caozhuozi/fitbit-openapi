@@ -1,0 +1,13 @@
+{
+  "status": 200,
+  "body": {
+    "br": [
+      {
+        "value": {
+          "breathingRate": 17.8
+        },
+        "dateTime": "2026-06-23"
+      }
+    ]
+  }
+}

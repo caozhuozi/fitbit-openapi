@@ -1,0 +1,59 @@
+{
+  "domain": "nutrition",
+  "title": "Get Frequent Foods",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/get-frequent-foods/",
+  "method": "get",
+  "path": "/1/user/{user-id}/foods/log/frequent.json",
+  "description": "Retrieves a list of user-specific frequent consumed foods.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "unit : id",
+      "description": ""
+    },
+    {
+      "name": "unit : name",
+      "description": ""
+    },
+    {
+      "name": "unit : plural",
+      "description": ""
+    },
+    {
+      "name": "foods : loggedFood : units",
+      "description": ""
+    }
+  ],
+  "example_response": {
+    "accessLevel": "PUBLIC",
+    "amount": 1,
+    "brand": "",
+    "calories": 80,
+    "dateLastEaten": "2020-06-10",
+    "foodId": 81409,
+    "locale": "en_US",
+    "mealTypeId": 1,
+    "name": "Apple",
+    "unit": {
+      "id": 204,
+      "name": "medium",
+      "plural": "mediums"
+    },
+    "units": [
+      204,
+      179,
+      226,
+      180,
+      147,
+      389
+    ]
+  }
+}

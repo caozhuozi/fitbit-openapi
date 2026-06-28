@@ -1,0 +1,44 @@
+{
+  "domain": "spo2",
+  "title": "Get SpO2 Summary by Interval",
+  "url": "https://dev.fitbit.com/build/reference/web-api/spo2/get-spo2-summary-by-interval/",
+  "method": "get",
+  "path": "/1/user/{user-id}/spo2/date/{start-date}/{end-date}.json",
+  "description": "This endpoint returns the SpO2 summary data for a specified date range. SpO2 applies specifically to a user’s “main sleep”, which is the longest single period of time asleep on a given date.\n\nThe measurement is provided at the end of a period of sleep. The data returned usually reflects a sleep period that began the day before. For example, if you request SpO2 levels for 2021-12-22, it may include measurements that were taken the previous night on 2021-12-21 when the user fell asleep.\n\nThe data returned includes average, minimum, and maximum SpO2 levels. It uses units that correspond to the Accept-Language header provided.",
+  "scope": "oxygen_saturation",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "start-date",
+      "location": "path",
+      "required": true,
+      "description": "The date in the format yyyy-MM-dd or today."
+    },
+    {
+      "name": "end-date",
+      "location": "path",
+      "required": true,
+      "description": "The date in the format yyyy-MM-dd or today. Maximum range: no limitation"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "value : avg",
+      "description": "The mean of the 1 minute SpO2 levels calculated as a percentage value."
+    },
+    {
+      "name": "value : min",
+      "description": "The minimum daily SpO2 level calculated as a percentage value."
+    },
+    {
+      "name": "value : max",
+      "description": "The maximum daily SpO2 level calculated as a percentage value."
+    }
+  ],
+  "example_response": null
+}

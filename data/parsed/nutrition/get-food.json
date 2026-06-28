@@ -1,0 +1,189 @@
+{
+  "domain": "nutrition",
+  "title": "Get Food",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/get-food/",
+  "method": "get",
+  "path": "/1/foods/{food-id}.json",
+  "description": "Retrieves the details of a specific food stored in the Fitbit food database or a private food the authorized user has entered.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "food-id",
+      "location": "path",
+      "required": true,
+      "description": "The ID of the food"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "food : accessLevel",
+      "description": ""
+    },
+    {
+      "name": "food : brand",
+      "description": ""
+    },
+    {
+      "name": "food : calories",
+      "description": ""
+    },
+    {
+      "name": "food : defaultServingSize",
+      "description": ""
+    },
+    {
+      "name": "food : defaultUnit : id",
+      "description": ""
+    },
+    {
+      "name": "food : defaultUnit : name",
+      "description": ""
+    },
+    {
+      "name": "food : defaultUnit : plural",
+      "description": ""
+    },
+    {
+      "name": "food : foodId",
+      "description": ""
+    },
+    {
+      "name": "food : isGeneric",
+      "description": ""
+    },
+    {
+      "name": "food : locale",
+      "description": ""
+    },
+    {
+      "name": "food : name",
+      "description": ""
+    },
+    {
+      "name": "food : servings : multiplier",
+      "description": ""
+    },
+    {
+      "name": "food : servings : servingSize",
+      "description": ""
+    },
+    {
+      "name": "food : servings : unit : id",
+      "description": ""
+    },
+    {
+      "name": "food : servings : unit : name",
+      "description": ""
+    },
+    {
+      "name": "food : servings : unit : plural",
+      "description": ""
+    },
+    {
+      "name": "food : servings : unitId",
+      "description": ""
+    },
+    {
+      "name": "food : units",
+      "description": ""
+    }
+  ],
+  "example_response": {
+    "food": {
+      "accessLevel": "PUBLIC",
+      "brand": "",
+      "calories": 79,
+      "defaultServingSize": 1,
+      "defaultUnit": {
+        "id": 91,
+        "name": "cup",
+        "plural": "cups"
+      },
+      "foodId": 17877,
+      "isGeneric": false,
+      "locale": "en_US",
+      "name": "Blueberry, Unsweetened, Frozen",
+      "servings": [
+        {
+          "multiplier": 1,
+          "servingSize": 1,
+          "unit": {
+            "id": 91,
+            "name": "cup",
+            "plural": "cups"
+          },
+          "unitId": 91
+        },
+        {
+          "multiplier": 2,
+          "servingSize": 1,
+          "unit": {
+            "id": 256,
+            "name": "pint",
+            "plural": "pints"
+          },
+          "unitId": 256
+        },
+        {
+          "multiplier": 4,
+          "servingSize": 1,
+          "unit": {
+            "id": 279,
+            "name": "quart",
+            "plural": "quarts"
+          },
+          "unitId": 279
+        },
+        {
+          "multiplier": 3.658064603805542,
+          "servingSize": 20,
+          "unit": {
+            "id": 226,
+            "name": "oz",
+            "plural": "oz"
+          },
+          "unitId": 226
+        },
+        {
+          "multiplier": 2.9264516830444336,
+          "servingSize": 1,
+          "unit": {
+            "id": 180,
+            "name": "lb",
+            "plural": "lbs"
+          },
+          "unitId": 180
+        },
+        {
+          "multiplier": 0.6451612710952759,
+          "servingSize": 100,
+          "unit": {
+            "id": 147,
+            "name": "gram",
+            "plural": "grams"
+          },
+          "unitId": 147
+        },
+        {
+          "multiplier": 6.45172119140625,
+          "servingSize": 1,
+          "unit": {
+            "id": 389,
+            "name": "kg",
+            "plural": "kg"
+          },
+          "unitId": 389
+        }
+      ],
+      "units": [
+        91,
+        256,
+        279,
+        226,
+        180,
+        147,
+        389
+      ]
+    }
+  }
+}

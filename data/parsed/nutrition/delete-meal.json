@@ -1,0 +1,25 @@
+{
+  "domain": "nutrition",
+  "title": "Delete Meal",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/delete-meal/",
+  "method": "delete",
+  "path": "/1/user/{user-id}/meals/{meal-id}.json",
+  "description": "Deletes an existing meal of the given meal ID.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "meal-id",
+      "location": "path",
+      "required": true,
+      "description": "The ID of the meal."
+    }
+  ],
+  "response_fields": [],
+  "example_response": null
+}

@@ -1,0 +1,155 @@
+{
+  "domain": "activity",
+  "title": "Get Lifetime Stats",
+  "url": "https://dev.fitbit.com/build/reference/web-api/activity/get-lifetime-stats/",
+  "method": "get",
+  "path": "/1/user/{user-id}/activities.json",
+  "description": "Retrieves the user's activity statistics.",
+  "scope": "activity",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "best : total : distance : date",
+      "description": "The date the user's best distance was achieved."
+    },
+    {
+      "name": "best : total : distance : value",
+      "description": "The user's best distance achieved. This includes tracker and manual activity log entries."
+    },
+    {
+      "name": "best : total : floors : date",
+      "description": "The date the user's best floors was achieved."
+    },
+    {
+      "name": "best : total : floors : value",
+      "description": "The user's best floors achieved. This includes tracker and manual activity log entries."
+    },
+    {
+      "name": "best : total : steps : date",
+      "description": "The date the user's best step count was achieved."
+    },
+    {
+      "name": "best : total : steps : value",
+      "description": "The user's best step count achieved. This includes tracker and manual activity log entries."
+    },
+    {
+      "name": "best : tracker : distance : date",
+      "description": "The date the user's best distance was achieved. This includes tracker data only."
+    },
+    {
+      "name": "best : tracker : distance : value",
+      "description": "The user's best distance achieved. This includes tracker data only."
+    },
+    {
+      "name": "best : tracker : floors : date",
+      "description": "The date the user's best floors was achieved. This includes tracker data only."
+    },
+    {
+      "name": "best : tracker : floors : value",
+      "description": "The user's best floors achieved. This includes tracker data only."
+    },
+    {
+      "name": "best : tracker : steps : date",
+      "description": "The date the user's best step count was achieved. This includes tracker data only."
+    },
+    {
+      "name": "best : tracker : steps : value",
+      "description": "The user's best step count achieved. This includes tracker data only."
+    },
+    {
+      "name": "lifetime : total : activeScore",
+      "description": "Functionality removed. A response is returned for backward compatibility. Supported: -1"
+    },
+    {
+      "name": "lifetime : total : caloriesOut",
+      "description": "Functionality removed. A response is returned for backward compatibility. Supported: -1"
+    },
+    {
+      "name": "lifetime : total : distance",
+      "description": "The total distance recorded over the lifetime of the user's account. This includes tracker and manual activity log entries."
+    },
+    {
+      "name": "lifetime : total : floors",
+      "description": "The total floors recorded over the lifetime of the user's account. This includes tracker and manual activity log entries."
+    },
+    {
+      "name": "lifetime : total : steps",
+      "description": "The total steps recorded over the lifetime of the user's account. This includes tracker and manual activity log entries."
+    },
+    {
+      "name": "lifetime : tracker : activeScore",
+      "description": "Functionality removed. A response is returned for backward compatibility. Supported: -1"
+    },
+    {
+      "name": "lifetime : tracker : caloriesOut",
+      "description": "Functionality removed. A response is returned for backward compatibility. Supported: -1"
+    },
+    {
+      "name": "lifetime : tracker : distance",
+      "description": "The total distance recorded by the tracker over the lifetime of the user's account."
+    },
+    {
+      "name": "lifetime : tracker : floors",
+      "description": "The total floors recorded by the tracker over the lifetime of the user's account."
+    },
+    {
+      "name": "lifetime : tracker : steps",
+      "description": "The total steps recorded by the tracker over the lifetime of the user's account."
+    }
+  ],
+  "example_response": {
+    "best": {
+      "total": {
+        "distance": {
+          "date": "2016-07-17",
+          "value": 28.69259
+        },
+        "floors": {
+          "date": "2018-05-28",
+          "value": 73.00000011096
+        },
+        "steps": {
+          "date": "2016-07-17",
+          "value": 38826
+        }
+      },
+      "tracker": {
+        "distance": {
+          "date": "2016-07-17",
+          "value": 28.69259
+        },
+        "floors": {
+          "date": "2018-05-28",
+          "value": 73.00000011096
+        },
+        "steps": {
+          "date": "2016-07-17",
+          "value": 38826
+        }
+      }
+    },
+    "lifetime": {
+      "total": {
+        "activeScore": -1,
+        "caloriesOut": -1,
+        "distance": 8302.5,
+        "floors": 10278,
+        "steps": 11152512
+      },
+      "tracker": {
+        "activeScore": -1,
+        "caloriesOut": -1,
+        "distance": 8288.26,
+        "floors": 10278,
+        "steps": 11133281
+      }
+    }
+  }
+}

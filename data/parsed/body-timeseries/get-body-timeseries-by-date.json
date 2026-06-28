@@ -1,0 +1,77 @@
+{
+  "domain": "body-timeseries",
+  "title": "Get Body Time Series by Date",
+  "url": "https://dev.fitbit.com/build/reference/web-api/body-timeseries/get-body-timeseries-by-date/",
+  "method": "get",
+  "path": "/1/user/{user-id}/body/{resource}/date/{date}/{period}.json",
+  "description": "Retrieves a list of all user's bmi, body fat, or weight for a given period.",
+  "scope": "weight",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "resource",
+      "location": "path",
+      "required": true,
+      "description": "The body resource to be returned. Supported : bmi | fat | weight"
+    },
+    {
+      "name": "date",
+      "location": "path",
+      "required": true,
+      "description": "The end date of the period specified in the format yyyy-MM-dd or today ."
+    },
+    {
+      "name": "period",
+      "location": "path",
+      "required": true,
+      "description": "The range for which data will be returned. Supported: 1d | 7d | 30d | 1w | 1m | 3m | 6m | 1y | max"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "body-<resource> : datetime",
+      "description": "The datetime which the resource was recorded."
+    },
+    {
+      "name": "body-<resource> : value",
+      "description": "The value of the resource."
+    }
+  ],
+  "example_response": {
+    "body-weight": [
+      {
+        "dateTime": "2019-03-13",
+        "value": "170"
+      },
+      {
+        "dateTime": "2019-03-14",
+        "value": "171"
+      },
+      {
+        "dateTime": "2019-03-15",
+        "value": "170"
+      },
+      {
+        "dateTime": "2019-03-16",
+        "value": "172"
+      },
+      {
+        "dateTime": "2019-03-17",
+        "value": "171"
+      },
+      {
+        "dateTime": "2019-03-18",
+        "value": "171"
+      },
+      {
+        "dateTime": "2019-03-19",
+        "value": "171"
+      }
+    ]
+  }
+}

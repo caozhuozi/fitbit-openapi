@@ -1,0 +1,25 @@
+{
+  "domain": "sleep",
+  "title": "Delete Sleep Log",
+  "url": "https://dev.fitbit.com/build/reference/web-api/sleep/delete-sleep-log/",
+  "method": "delete",
+  "path": "/1.2/user/{user-id}/sleep/{log-id}.json",
+  "description": "Deletes a sleep log with the given log id.",
+  "scope": "sleep",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "log-id",
+      "location": "path",
+      "required": true,
+      "description": "ID of the sleep log to be deleted."
+    }
+  ],
+  "response_fields": [],
+  "example_response": null
+}

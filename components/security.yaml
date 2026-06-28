@@ -1,0 +1,21 @@
+fitbitOAuth:
+  type: oauth2
+  flows:
+    authorizationCode:
+      authorizationUrl: https://www.fitbit.com/oauth2/authorize
+      tokenUrl: https://api.fitbit.com/oauth2/token
+      scopes:
+        sleep: Read and write sleep data
+        activity: Read and write activity data
+        heartrate: Read heart rate data
+        profile: Read profile data
+        weight: Read and write weight data
+        nutrition: Read and write nutrition data
+        settings: Read settings
+        social: Read social data
+        respiratory_rate: Read breathing rate data
+        temperature: Read temperature data
+        oxygen_saturation: Read oxygen saturation data
+        cardio_fitness: Read cardio fitness data
+        electrocardiogram: Read electrocardiogram data
+        irregular_rhythm_notifications: Read irregular rhythm notifications data

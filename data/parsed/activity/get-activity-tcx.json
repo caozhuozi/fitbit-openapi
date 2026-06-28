@@ -1,0 +1,88 @@
+{
+  "domain": "activity",
+  "title": "Get Activity TCX",
+  "url": "https://dev.fitbit.com/build/reference/web-api/activity/get-activity-tcx/",
+  "method": "get",
+  "path": "/1/user/{user-id}/activities/{log-id}.tcx",
+  "description": "The Training Center XML (TCX) is a data exchange format that contains GPS, heart rate, and lap data. This endpoint retrieves the details of a user's location using GPS and heart rate data during a logged exercise.",
+  "scope": "activity",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "log-id",
+      "location": "path",
+      "required": true,
+      "description": "The activity's log ID."
+    },
+    {
+      "name": "includePartialTCX",
+      "location": "query",
+      "required": false,
+      "description": "Includes the TCX points when the GPS data is not available."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "Activity : Sport",
+      "description": ""
+    },
+    {
+      "name": "Activity : Id",
+      "description": "The identifier or timestamp of the associated exercise."
+    },
+    {
+      "name": "Lap : StartTime",
+      "description": "Timestamp representing each lap's start time."
+    },
+    {
+      "name": "Lap : TotalTimeSeconds",
+      "description": "Length of the exercise lap in seconds."
+    },
+    {
+      "name": "Lap : DistanceMeters",
+      "description": "Number of meters traveled during the exercise lap. See Distance"
+    },
+    {
+      "name": "Lap : Calories",
+      "description": "Number of calories burned during the exercise lap."
+    },
+    {
+      "name": "Lap : Intensity",
+      "description": "Specifies when the user is in an \"active\" or \"resting\" state during an interval activity. Currently, \"active\" is returned for all activities, and \"resting\" is not supported. Supported : Active"
+    },
+    {
+      "name": "Lap : TriggerMethod",
+      "description": "Value associated with the recorded exercise's logType."
+    },
+    {
+      "name": "Track : Trackpoint : Time",
+      "description": "The time metrics were recorded during the exercise."
+    },
+    {
+      "name": "Track : Trackpoint : Position : LatitudeDegrees",
+      "description": "The GPS latitude recorded at the specified time."
+    },
+    {
+      "name": "Track : Trackpoint : pPosition : LongitudeDegrees",
+      "description": "The GPS longitude recorded at the specified time."
+    },
+    {
+      "name": "Track : Trackpoint : AltitudeMeters",
+      "description": "The altitude in meters recorded at the specified time."
+    },
+    {
+      "name": "Track : Trackpoint : DistanceMeters",
+      "description": "The distance in meters recorded at the specified time."
+    },
+    {
+      "name": "Track : Trackpoint : HeartRateBpm : Value",
+      "description": "The heart rate recorded at the specified time. Heart Rate scope is required to see this value."
+    }
+  ],
+  "example_response": null
+}

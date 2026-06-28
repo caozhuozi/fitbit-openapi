@@ -1,0 +1,194 @@
+{
+  "domain": "nutrition",
+  "title": "Create Food Log",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/create-food-log/",
+  "method": "post",
+  "path": "/1/user/{user-id}/foods/log.json",
+  "description": "Creates a food log entry for a given day.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "foodId",
+      "location": "query",
+      "required": true,
+      "description": "ID of the food to be logged. Either foodId or foodName must be provided."
+    },
+    {
+      "name": "foodName",
+      "location": "query",
+      "required": true,
+      "description": "Food entry name. Either foodId or foodName must be provided."
+    },
+    {
+      "name": "mealTypeId",
+      "location": "query",
+      "required": true,
+      "description": "Numerical value representing the meal type. Supported: 1 =Breakfast | 2 =Morning Snack | 3 =Lunch | 4 =Afternoon Snack | 5 =Dinner | 7 =Anytime"
+    },
+    {
+      "name": "unitId",
+      "location": "query",
+      "required": true,
+      "description": "ID representing the units used. The units ID can be retrieved using the Get Food Logs, Search Foods or Get Food Units endpoints."
+    },
+    {
+      "name": "amount",
+      "location": "query",
+      "required": true,
+      "description": "value representing the amount consumed in the format X.XX in the specified unitId."
+    },
+    {
+      "name": "date",
+      "location": "query",
+      "required": true,
+      "description": "Log entry date in the format yyyy-MM-dd."
+    },
+    {
+      "name": "favorite",
+      "location": "query",
+      "required": false,
+      "description": "Supported: true | false True will add the food to the user's favorite's after creating the log entry. Supported only when the foodId value is used."
+    },
+    {
+      "name": "brandName",
+      "location": "query",
+      "required": false,
+      "description": "Brand name of the food. Supported only when the foodName parameter is used."
+    },
+    {
+      "name": "calories",
+      "location": "query",
+      "required": false,
+      "description": "Number of calories for this serving size. Allowed with foodName parameter and defaults to zero. Otherwise, the parameter value is ignored."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "foodDay : date",
+      "description": ""
+    },
+    {
+      "name": "foodDay : summary",
+      "description": ""
+    },
+    {
+      "name": "foodLog : isFavorite",
+      "description": ""
+    },
+    {
+      "name": "foodLog : logDate",
+      "description": ""
+    },
+    {
+      "name": "foodLog : logId",
+      "description": ""
+    },
+    {
+      "name": "foodLog : loggedFood : accessLevel",
+      "description": ""
+    },
+    {
+      "name": "foodLog : loggedFood : amount",
+      "description": ""
+    },
+    {
+      "name": "foodLog : loggedFood : brand",
+      "description": ""
+    },
+    {
+      "name": "foodLog : loggedFood : calories",
+      "description": ""
+    },
+    {
+      "name": "foodLog : loggedFood : foodId",
+      "description": ""
+    },
+    {
+      "name": "foodLog : loggedFood : locale",
+      "description": ""
+    },
+    {
+      "name": "foodLog : loggedFood : mealTypeId",
+      "description": ""
+    },
+    {
+      "name": "foodLog : loggedFood : name",
+      "description": ""
+    },
+    {
+      "name": "foodLog : loggedFood : unit : id",
+      "description": ""
+    },
+    {
+      "name": "foodLog : loggedFood : unit : name",
+      "description": ""
+    },
+    {
+      "name": "foodLog : loggedFood : unit : plural",
+      "description": ""
+    },
+    {
+      "name": "foodLog : loggedFood : units",
+      "description": ""
+    },
+    {
+      "name": "foodLog : nutritionalValues",
+      "description": "Available nutritional values for the food consumed."
+    }
+  ],
+  "example_response": {
+    "foodDay": {
+      "date": "2019-03-21",
+      "summary": {
+        "calories": 1224,
+        "carbs": 165.85,
+        "fat": 48.13,
+        "fiber": 17.75,
+        "protein": 30.75,
+        "sodium": 1588.75,
+        "water": 1892.7099609375
+      }
+    },
+    "foodLog": {
+      "isFavorite": true,
+      "logDate": "2019-03-21",
+      "logId": 17406014466,
+      "loggedFood": {
+        "accessLevel": "PUBLIC",
+        "amount": 2.55,
+        "brand": "",
+        "calories": 944,
+        "foodId": 82294,
+        "locale": "en_US",
+        "mealTypeId": 3,
+        "name": "Chips",
+        "unit": {
+          "id": 304,
+          "name": "serving",
+          "plural": "servings"
+        },
+        "units": [
+          304,
+          226,
+          180,
+          147,
+          389
+        ]
+      },
+      "nutritionalValues": {
+        "calories": 944,
+        "carbs": 119.85,
+        "fat": 44.63,
+        "fiber": 12.75,
+        "protein": 12.75,
+        "sodium": 828.75
+      }
+    }
+  }
+}

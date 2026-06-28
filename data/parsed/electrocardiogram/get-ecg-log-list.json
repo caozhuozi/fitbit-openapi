@@ -1,0 +1,118 @@
+{
+  "domain": "electrocardiogram",
+  "title": "Get ECG Log List",
+  "url": "https://dev.fitbit.com/build/reference/web-api/electrocardiogram/get-ecg-log-list/",
+  "method": "get",
+  "path": "/1/user/{user-id}/ecg/list.json",
+  "description": "This endpoint retrieves a list of the user’s Electrocardiogram (ECG) log entries before or after a given day.\n\nNote: The ECG API is for research use or investigational use only, and is not intended for clinical or diagnostic purposes.",
+  "scope": "electrocardiogram",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "beforeDate",
+      "location": "query",
+      "required": true,
+      "description": "The date in the format yyyy-MM-ddTHH:mm:ss. Only yyyy-MM-dd is required. Either beforeDate or afterDate must be specified."
+    },
+    {
+      "name": "afterDate",
+      "location": "query",
+      "required": true,
+      "description": "The date in the format yyyy-MM-ddTHH:mm:ss. Only yyyy-MM-dd is required. Either beforeDate or afterDate must be specified."
+    },
+    {
+      "name": "sort",
+      "location": "query",
+      "required": true,
+      "description": "The sort order of entries by date. Use asc (ascending) when using afterDate. Use desc (descending) when using before date."
+    },
+    {
+      "name": "limit",
+      "location": "query",
+      "required": true,
+      "description": "The number of entries returned. See Limit / Offset for more information. Maximum: 10"
+    },
+    {
+      "name": "offset",
+      "location": "query",
+      "required": true,
+      "description": "See Limit / Offset for more information. Supported: 0"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "ecgReadings : startTime",
+      "description": "The date and time when the reading was started on the device."
+    },
+    {
+      "name": "ecgReadings : averageHeartRate",
+      "description": "The average heart rate of the user during the reading."
+    },
+    {
+      "name": "ecgReadings : resultClassification",
+      "description": "See Classification of ECG results for more information. Supported: Atrial Fibrillation | Normal Sinus Rhythm | Inconclusive | Inconclusive: High heart rate | Inconclusive: Low heart rate"
+    },
+    {
+      "name": "ecgReadings : waveformSamples",
+      "description": "An array of integers representing the ECG waveform."
+    },
+    {
+      "name": "ecgReadings : samplingFrequencyHz",
+      "description": "The frequency in hertz at which the Fitbit ECG app sampled the voltage. Supported: 250"
+    },
+    {
+      "name": "ecgReadings : scalingFactor",
+      "description": "The scaling factor used to convert waveform samples to ECG voltages in mV (mV = waveformSamples / scalingFactor). Supported: 10922"
+    },
+    {
+      "name": "ecgReadings : numberOfWaveformSamples",
+      "description": "The total number of samples in the reading"
+    },
+    {
+      "name": "ecgReadings : leadNumber",
+      "description": "The ECG lead being used to take the reading. The compatible Fitbit wrist-worn devices contain a single-lead. Therefore, the leadNumber will always be 1. Supported: 1"
+    },
+    {
+      "name": "ecgReadings : featureVersion",
+      "description": "The version of the ECG app running on the device. The format of the compatible wrist-worn device components’ version [x.xx-x.xx-x.xx] represents app-service-web respectively."
+    },
+    {
+      "name": "ecgReadings : deviceName",
+      "description": "Hardware name of the compatible wrist-worn device used to take the reading."
+    },
+    {
+      "name": "ecgReadings : firmwareVersion",
+      "description": "Firmware running on the compatible wrist-worn device used to take the reading."
+    },
+    {
+      "name": "pagination : afterDate | beforeDate",
+      "description": "The afterDate or beforeDate parameter of the request (whichever was specified)."
+    },
+    {
+      "name": "pagination : limit",
+      "description": "The limit parameter of the request. Maximum: 10"
+    },
+    {
+      "name": "pagination : next",
+      "description": "The URL of the request that will fetch the next page of results."
+    },
+    {
+      "name": "pagination : offset",
+      "description": "The offset parameter of the request."
+    },
+    {
+      "name": "pagination : previous",
+      "description": "The URL of the request that will fetch the previous page of results."
+    },
+    {
+      "name": "pagination : sort",
+      "description": "The sort parameter of the request."
+    }
+  ],
+  "example_response": null
+}

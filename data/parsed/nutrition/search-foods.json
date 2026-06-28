@@ -1,0 +1,68 @@
+{
+  "domain": "nutrition",
+  "title": "Search Foods",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/search-foods/",
+  "method": "get",
+  "path": "/1/foods/search.json",
+  "description": "Retrieves a list of public foods from the Fitbit foods database and private foods the user created in the format requested.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "query",
+      "location": "query",
+      "required": true,
+      "description": "The URL-encoded search query"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "foods : accessLevel",
+      "description": ""
+    },
+    {
+      "name": "foods : brand",
+      "description": ""
+    },
+    {
+      "name": "foods : calories",
+      "description": ""
+    },
+    {
+      "name": "foods : defaultServingSize",
+      "description": ""
+    },
+    {
+      "name": "foods : defaultUnit : id",
+      "description": ""
+    },
+    {
+      "name": "foods : defaultUnit : name",
+      "description": ""
+    },
+    {
+      "name": "foods : defaultUnit : plural",
+      "description": ""
+    },
+    {
+      "name": "foods : foodId",
+      "description": ""
+    },
+    {
+      "name": "foods : isGeneric",
+      "description": ""
+    },
+    {
+      "name": "foods : locale",
+      "description": ""
+    },
+    {
+      "name": "foods : name",
+      "description": ""
+    },
+    {
+      "name": "foods : units",
+      "description": ""
+    }
+  ],
+  "example_response": null
+}

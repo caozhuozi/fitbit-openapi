@@ -1,0 +1,14 @@
+{
+  "status": 200,
+  "body": {
+    "tempSkin": [
+      {
+        "value": {
+          "nightlyRelative": -0.5
+        },
+        "dateTime": "2026-06-23",
+        "logType": "other_sensors"
+      }
+    ]
+  }
+}

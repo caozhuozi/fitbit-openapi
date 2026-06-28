@@ -1,0 +1,235 @@
+/1/user/{user-id}/badges.json:
+  get:
+    operationId: userGetGetBadges1UserUserIdBadgesJson
+    summary: Get Badges
+    description: Retrieves a list of the user’s badges.
+    tags:
+    - User
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/user/get-badges/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - profile
+/1/user/{user-id}/profile.json:
+  get:
+    operationId: userGetGetProfile1UserUserIdProfileJson
+    summary: Get Profile
+    description: Retrieves the user's profile data.
+    tags:
+    - User
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/user/get-profile/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - profile
+  post:
+    operationId: userPostUpdateProfile1UserUserIdProfileJson
+    summary: Update Profile
+    description: Modifies a user's profile data.
+    tags:
+    - User
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/user/update-profile/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: aboutMe
+      in: query
+      required: false
+      description: Value of "About Me" field in user's profile.
+      schema:
+        type: string
+    - name: birthday
+      in: query
+      required: false
+      description: Date of birth in the format yyyy-MM-dd .
+      schema:
+        type: string
+    - name: city
+      in: query
+      required: false
+      description: Value of "City" field in user's profile. Location scope is required
+        to update this value.
+      schema:
+        type: string
+    - name: clockTimeDisplayFormat
+      in: query
+      required: false
+      description: How trackers with a clock should display the time. Either 12hour
+        or 24hour.
+      schema:
+        type: string
+    - name: country
+      in: query
+      required: false
+      description: Value of Country field in user's profile; two-character code. Location
+        scope is required to update this value.
+      schema:
+        type: string
+    - name: foodsLocale
+      in: query
+      required: false
+      description: Food Database Locale; in the format "xx_XX". Nutrition scope is
+        required to update this value.
+      schema:
+        type: string
+    - name: fullName
+      in: query
+      required: false
+      description: Fitbit user's full name.
+      schema:
+        type: string
+    - name: gender
+      in: query
+      required: false
+      description: 'The Fitbit user''s gender identity. Supported values: MALE | FEMALE
+        | NA'
+      schema:
+        type: string
+    - name: glucoseUnit
+      in: query
+      required: false
+      description: Default glucose unit on website (doesn't affect API); one of (en_US,
+        "any" for METRIC).
+      schema:
+        type: string
+    - name: height
+      in: query
+      required: false
+      description: Height in the format X.XX . Displayed in the unit system that corresponds
+        to the Accept-Language header provided.
+      schema:
+        type: string
+    - name: heightUnit
+      in: query
+      required: false
+      description: Default height/distance unit on website (doesn't affect API); one
+        of (en_US, "any" for METRIC).
+      schema:
+        type: string
+    - name: locale
+      in: query
+      required: false
+      description: Locale of website (country/language); one of the locales, currently
+        – (en_US, fr_FR, de_DE, es_ES, en_GB, en_AU, en_NZ, ja_JP).
+      schema:
+        type: string
+    - name: localeCountry
+      in: query
+      required: false
+      description: Country; in the format xx . You should specify either locale or
+        both - localeLang and localeCountry (locale is higher priority).
+      schema:
+        type: string
+    - name: localeLang
+      in: query
+      required: false
+      description: Language; in the format xx . You should specify either locale or
+        both - localeLang and localeCountry (locale is higher priority).
+      schema:
+        type: string
+    - name: startDayOfWeek
+      in: query
+      required: false
+      description: Start day of the week; what day the week should start on. Either
+        Sunday or Monday.
+      schema:
+        type: string
+    - name: state
+      in: query
+      required: false
+      description: Value of "State" field in user's profile; two-character code. Valid
+        only if country is set to US. Location scope is required to update this value.
+      schema:
+        type: string
+    - name: strideLengthRunning
+      in: query
+      required: false
+      description: Walking stride length in the format X.XX . Displayed in the unit
+        system that corresponds to the Accept-Language header provided.
+      schema:
+        type: string
+    - name: strideLengthWalking
+      in: query
+      required: false
+      description: Walking stride length in the format X.XX . Displayed in the unit
+        system that corresponds to the Accept-Language header provided.
+      schema:
+        type: string
+    - name: timezone
+      in: query
+      required: false
+      description: Timezone; in the format "America/Los_Angeles".
+      schema:
+        type: string
+    - name: waterUnit
+      in: query
+      required: false
+      description: Default water unit on website (doesn't affect API); one of (en_US,
+        "any" for METRIC). Nutrition scope is required to update this value.
+      schema:
+        type: string
+    - name: weightUnit
+      in: query
+      required: false
+      description: Default weight unit on website (doesn't affect API); one of (en_US,
+        en_GB, "any" for METRIC).
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - profile

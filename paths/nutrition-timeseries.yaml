@@ -1,0 +1,71 @@
+/1/user/{user-id}/foods/log/{resource}/date/{start-date}/{end-date}.json:
+  get:
+    operationId: nutritionTimeseriesGetGetNutritionTimeSeriesByDateRange1UserUserIdFoodsLogResourceDateStartDateEndDateJson
+    summary: Get Nutrition Time Series by Date Range
+    description: Retrieves the food and water consumption data for a given resource
+      over a period of time by specifying a date range. The response will include
+      only the daily summary values.
+    tags:
+    - Nutrition-Timeseries
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition-timeseries/get-nutrition-timeseries-by-date-range/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: resource
+      in: path
+      required: true
+      description: 'The resource of the data to be returned. Supported : caloriesIn
+        | water'
+      schema:
+        type: string
+    - name: start-date
+      in: path
+      required: true
+      description: The start date specified in the format yyyy-MM-dd or today .
+      schema:
+        type: string
+        format: date
+    - name: end-date
+      in: path
+      required: true
+      description: 'The end date specified in the format yyyy-MM-dd or today . Maximum
+        range: 1095 days'
+      schema:
+        type: string
+        format: date
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              foods-log-water:
+              - dateTime: '2025-12-12'
+                value: 0
+              - dateTime: '2025-12-13'
+                value: 0
+              - dateTime: '2025-12-14'
+                value: 0
+              - dateTime: '2025-12-15'
+                value: 0
+              - dateTime: '2025-12-16'
+                value: 0
+              - dateTime: '2025-12-17'
+                value: 64
+              - dateTime: '2025-12-18'
+                value: 0
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition

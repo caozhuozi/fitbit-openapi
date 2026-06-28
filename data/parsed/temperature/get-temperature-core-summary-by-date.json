@@ -1,0 +1,34 @@
+{
+  "domain": "temperature",
+  "title": "Get Temperature (Core) Summary by Date",
+  "url": "https://dev.fitbit.com/build/reference/web-api/temperature/get-temperature-core-summary-by-date/",
+  "method": "get",
+  "path": "/1/user/{user-id}/temp/core/date/{date}.json",
+  "description": "This endpoint returns the Temperature (Core) data for a single date. Temperature (Core) data applies specifically to data logged manually by the user throughout the day.\n\nIt uses units that correspond to the Accept-Language header provided.",
+  "scope": "temperature",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "date",
+      "location": "path",
+      "required": true,
+      "description": "The date in the format yyyy-MM-dd or today."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "tempCore : dateTime",
+      "description": "The log timestamp specified in the format YYYY-MM-DDThh:mm:ss."
+    },
+    {
+      "name": "tempCore : value",
+      "description": "The temperature value in degrees Celsius or Fahrenheit depending on the country specified in the Accept-Language header."
+    }
+  ],
+  "example_response": null
+}

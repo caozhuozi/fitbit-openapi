@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fitbit-openapi"
+version = "0.1.0"
+description = "Maintenance tools for Fitbit Web API (Legacy) OpenAPI specs"
+requires-python = ">=3.11"
+dependencies = [
+  "beautifulsoup4>=4.12.3",
+  "jsonschema>=4.23.0",
+  "pydantic>=2.8.0",
+  "PyYAML>=6.0.2",
+  "requests>=2.32.3",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["tools*"]

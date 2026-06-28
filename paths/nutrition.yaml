@@ -1,0 +1,1600 @@
+/1/user/{user-id}/foods/log/favorite/{food-id}.json:
+  post:
+    operationId: nutritionPostAddFavoriteFoods1UserUserIdFoodsLogFavoriteFoodIdJson
+    summary: Add Favorite Foods
+    description: Adds a food with the given ID to the user's list of favorite foods.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/add-favorite-foods/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: food-id
+      in: path
+      required: true
+      description: The ID of the food to add to the user's favorites.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+  delete:
+    operationId: nutritionDeleteDeleteFavoriteFoods1UserUserIdFoodsLogFavoriteFoodIdJson
+    summary: Delete Favorite Foods
+    description: Deletes a food with the given ID from the user's list of favorite
+      foods.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/delete-favorite-foods/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: food-id
+      in: path
+      required: true
+      description: The ID of the food to delete from the user's favorites.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+/1/user/{user-id}/foods/log/goal.json:
+  post:
+    operationId: nutritionPostCreateFoodGoal1UserUserIdFoodsLogGoalJson
+    summary: Create Food Goal
+    description: Creates or updates a user's daily calorie consumption or food plan
+      goals.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/create-food-goal/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: calories
+      in: query
+      required: true
+      description: Manual calories consumption goal. Either calories or intensity
+        must be provided.
+      schema:
+        type: string
+    - name: intensity
+      in: query
+      required: true
+      description: 'Food plan intensity. Either calories or intensity must be provided.
+        Supported : MAINTENANCE | EASIER | MEDIUM | KINDAHARD | HARDER'
+      schema:
+        type: string
+    - name: personalized
+      in: query
+      required: false
+      description: 'Food plan type. Supported : true | false'
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+  get:
+    operationId: nutritionGetGetFoodGoals1UserUserIdFoodsLogGoalJson
+    summary: Get Food Goals
+    description: Retrieves the user's current daily calorie consumption goal and/or
+      food plan.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/get-food-goals/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              goals:
+                calories: 2910
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+/1/user/{user-id}/foods/log.json:
+  post:
+    operationId: nutritionPostCreateFoodLog1UserUserIdFoodsLogJson
+    summary: Create Food Log
+    description: Creates a food log entry for a given day.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/create-food-log/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: foodId
+      in: query
+      required: true
+      description: ID of the food to be logged. Either foodId or foodName must be
+        provided.
+      schema:
+        type: string
+    - name: foodName
+      in: query
+      required: true
+      description: Food entry name. Either foodId or foodName must be provided.
+      schema:
+        type: string
+    - name: mealTypeId
+      in: query
+      required: true
+      description: 'Numerical value representing the meal type. Supported: 1 =Breakfast
+        | 2 =Morning Snack | 3 =Lunch | 4 =Afternoon Snack | 5 =Dinner | 7 =Anytime'
+      schema:
+        type: string
+    - name: unitId
+      in: query
+      required: true
+      description: ID representing the units used. The units ID can be retrieved using
+        the Get Food Logs, Search Foods or Get Food Units endpoints.
+      schema:
+        type: string
+    - name: amount
+      in: query
+      required: true
+      description: value representing the amount consumed in the format X.XX in the
+        specified unitId.
+      schema:
+        type: string
+    - name: date
+      in: query
+      required: true
+      description: Log entry date in the format yyyy-MM-dd.
+      schema:
+        type: string
+        format: date
+    - name: favorite
+      in: query
+      required: false
+      description: 'Supported: true | false True will add the food to the user''s
+        favorite''s after creating the log entry. Supported only when the foodId value
+        is used.'
+      schema:
+        type: string
+    - name: brandName
+      in: query
+      required: false
+      description: Brand name of the food. Supported only when the foodName parameter
+        is used.
+      schema:
+        type: string
+    - name: calories
+      in: query
+      required: false
+      description: Number of calories for this serving size. Allowed with foodName
+        parameter and defaults to zero. Otherwise, the parameter value is ignored.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              foodDay:
+                date: '2019-03-21'
+                summary:
+                  calories: 1224
+                  carbs: 165.85
+                  fat: 48.13
+                  fiber: 17.75
+                  protein: 30.75
+                  sodium: 1588.75
+                  water: 1892.7099609375
+              foodLog:
+                isFavorite: true
+                logDate: '2019-03-21'
+                logId: 17406014466
+                loggedFood:
+                  accessLevel: PUBLIC
+                  amount: 2.55
+                  brand: ''
+                  calories: 944
+                  foodId: 82294
+                  locale: en_US
+                  mealTypeId: 3
+                  name: Chips
+                  unit:
+                    id: 304
+                    name: serving
+                    plural: servings
+                  units:
+                  - 304
+                  - 226
+                  - 180
+                  - 147
+                  - 389
+                nutritionalValues:
+                  calories: 944
+                  carbs: 119.85
+                  fat: 44.63
+                  fiber: 12.75
+                  protein: 12.75
+                  sodium: 828.75
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+/1/user/{user-id}/foods.json:
+  post:
+    operationId: nutritionPostCreateFood1UserUserIdFoodsJson
+    summary: Create Food
+    description: Creates a new private food for a user.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/create-food/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: defaultFoodMeasurementUnitId
+      in: query
+      required: true
+      description: ID representing the default measurement unit used. A full list
+        of units can be retrieved using the Get Food Units endpoints.
+      schema:
+        type: string
+    - name: defaultServingSize
+      in: query
+      required: true
+      description: Size of the default serving. Nutritional values should be provided
+        for this serving size.
+      schema:
+        type: string
+    - name: calories
+      in: query
+      required: true
+      description: Number of calories for the default serving size.
+      schema:
+        type: string
+    - name: formType
+      in: query
+      required: true
+      description: 'The texture of the food. Supported : LIQUID | DRY'
+      schema:
+        type: string
+    - name: description
+      in: query
+      required: true
+      description: Description of the food.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              food:
+                accessLevel: PRIVATE
+                brand: ''
+                calories: 200
+                creatorEncodedId: GGNJL9
+                defaultServingSize: 1
+                defaultUnit:
+                  id: 304
+                  name: serving
+                  plural: servings
+                foodId: 753871120
+                isGeneric: false
+                name: Lasagna
+                nutritionalValues:
+                  biotin: 0
+                  calcium: 0
+                  calories: 200
+                  caloriesFromFat: 0
+                  cholesterol: 0
+                  copper: 0
+                  dietaryFiber: 0
+                  folicAcid: 0
+                  iodine: 0
+                  iron: 0
+                  magnesium: 0
+                  niacin: 0
+                  pantothenicAcid: 0
+                  phosphorus: 0
+                  potassium: 0
+                  protein: 0
+                  riboflavin: 0
+                  saturatedFat: 0
+                  sodium: 0
+                  sugars: 0
+                  thiamin: 0
+                  totalCarbohydrate: 0
+                  totalFat: 0
+                  transFat: 0
+                  vitaminA: 0
+                  vitaminB12: 0
+                  vitaminB6: 0
+                  vitaminC: 0
+                  vitaminD: 0
+                  vitaminE: 0
+                  zinc: 0
+                servings:
+                - multiplier: 1
+                  servingSize: 1
+                  unit:
+                    id: 304
+                    name: serving
+                    plural: servings
+                  unitId: 304
+                units:
+                - 304
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+/1/user/{user-id}/meals.json:
+  post:
+    operationId: nutritionPostCreateMeal1UserUserIdMealsJson
+    summary: Create Meal
+    description: Creates a meal with the given food.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/create-meal/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: description
+      in: query
+      required: true
+      description: Short description of the meal.
+      schema:
+        type: string
+    - name: foodId
+      in: query
+      required: true
+      description: ID of the food to be included in the meal.
+      schema:
+        type: string
+    - name: unitId
+      in: query
+      required: true
+      description: ID of the units used. The units ID can be retrieved through a call
+        to Get Food Logs, Search Foods or Get Food Units.
+      schema:
+        type: string
+    - name: amount
+      in: query
+      required: true
+      description: Amount consumed in the format X.XX, in the specified unitId.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              meal:
+                description: Banana
+                id: 383590338
+                mealFoods:
+                - accessLevel: PUBLIC
+                  amount: 1
+                  brand: ''
+                  calories: 1
+                  foodId: 81000
+                  locale: en_US
+                  mealTypeId: 7
+                  name: Banana
+                  unit:
+                    id: 147
+                    name: gram
+                    plural: grams
+                  units:
+                  - 16
+                  - 121
+                  - 120
+                  - 304
+                  - 319
+                  - 204
+                  - 179
+                  - 91
+                  - 256
+                  - 279
+                  - 226
+                  - 180
+                  - 147
+                  - 389
+                name: Breakfast
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+  get:
+    operationId: nutritionGetGetMeals1UserUserIdMealsJson
+    summary: Get Meals
+    description: Retrieves a list of meals created by the user from their food log.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/get-meals/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              meals:
+              - description: ''
+                id: 250763687
+                mealFoods:
+                - accessLevel: PUBLIC
+                  amount: 1
+                  brand: ''
+                  calories: 774
+                  foodId: 28395
+                  locale: en_US
+                  mealTypeId: 7
+                  name: Ground Beef, Broiled, 95% Lean
+                  unit:
+                    id: 180
+                    name: lb
+                    plural: lbs
+                  units:
+                  - 238
+                  - 226
+                  - 180
+                  - 147
+                  - 389
+                - accessLevel: PUBLIC
+                  amount: 1
+                  brand: Southern valley
+                  calories: 30
+                  foodId: 727995344
+                  locale: en_US
+                  mealTypeId: 7
+                  name: Bell Pepper
+                  unit:
+                    id: 304
+                    name: serving
+                    plural: servings
+                  units:
+                  - 304
+                  - 226
+                  - 180
+                  - 147
+                  - 389
+                - accessLevel: PUBLIC
+                  amount: 1
+                  brand: ''
+                  calories: 53
+                  foodId: 81002
+                  locale: en_US
+                  mealTypeId: 7
+                  name: Onion
+                  unit:
+                    id: 204
+                    name: medium
+                    plural: mediums
+                  units:
+                  - 288
+                  - 316
+                  - 311
+                  - 319
+                  - 204
+                  - 179
+                  - 304
+                  - 349
+                  - 364
+                  - 91
+                  - 256
+                  - 279
+                  - 226
+                  - 180
+                  - 147
+                  - 389
+                name: Spaghetti
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+/1/user/{user-id}/foods/log/water/goal.json:
+  post:
+    operationId: nutritionPostCreateWaterGoal1UserUserIdFoodsLogWaterGoalJson
+    summary: Create Water Goal
+    description: Creates or updates a user's daily water consumption goal.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/create-water-goal/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: target
+      in: query
+      required: true
+      description: Target water goal in the format X.X in the unit system that corresponds
+        to the locale.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              goal:
+                goal: 24
+                startDate: '2019-03-21'
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+  get:
+    operationId: nutritionGetGetWaterGoal1UserUserIdFoodsLogWaterGoalJson
+    summary: Get Water Goal
+    description: Retrieves a user's daily water consumption goal.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/get-water-goal/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              goal:
+                goal: 24
+                startDate: '2019-03-21'
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+/1/user/{user-id}/foods/log/water.json:
+  post:
+    operationId: nutritionPostCreateWaterLog1UserUserIdFoodsLogWaterJson
+    summary: Create Water Log
+    description: Create a user's water log entry.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/create-water-log/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: amount
+      in: query
+      required: true
+      description: Amount of water consumed in the format X.X and in the specified
+        unit or in the unit system that corresponds to the Accept-Language header
+        provided.
+      schema:
+        type: string
+    - name: date
+      in: query
+      required: true
+      description: Date when the water was consumed specified in the formate yyyy-MM-dd.
+      schema:
+        type: string
+        format: date
+    - name: unit
+      in: query
+      required: false
+      description: 'Water measurement unit. Supported : ml | fl oz | cup'
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              waterLog:
+                amount: 8
+                logId: 6088037892
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+/1/user/{user-id}/foods/{food-id}.json:
+  delete:
+    operationId: nutritionDeleteDeleteCustomFood1UserUserIdFoodsFoodIdJson
+    summary: Delete Custom Food
+    description: Deletes a custom food created by the user.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/delete-custom-food/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: food-id
+      in: path
+      required: true
+      description: The ID of the food to be deleted.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+/1/user/{user-id}/foods/log/{food-log-id}.json:
+  delete:
+    operationId: nutritionDeleteDeleteFoodLog1UserUserIdFoodsLogFoodLogIdJson
+    summary: Delete Food Log
+    description: Deletes a user's food log entry using the given log ID.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/delete-food-log/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: food-log-id
+      in: path
+      required: true
+      description: The id of the food log entry.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+/1/user/{user-id}/meals/{meal-id}.json:
+  delete:
+    operationId: nutritionDeleteDeleteMeal1UserUserIdMealsMealIdJson
+    summary: Delete Meal
+    description: Deletes an existing meal of the given meal ID.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/delete-meal/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: meal-id
+      in: path
+      required: true
+      description: The ID of the meal.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+  get:
+    operationId: nutritionGetGetMeal1UserUserIdMealsMealIdJson
+    summary: Get Meal
+    description: Retrieves a single meal created by the user from their food log given
+      the meal id.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/get-meal/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: meal-id
+      in: path
+      required: true
+      description: The ID of the meal.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              meal:
+                description: ''
+                id: 254745613
+                mealFoods:
+                - accessLevel: PUBLIC
+                  amount: 1
+                  brand: ''
+                  calories: 79
+                  foodId: 17877
+                  locale: en_US
+                  mealTypeId: 7
+                  name: Blueberry, Unsweetened, Frozen
+                  unit:
+                    id: 91
+                    name: cup
+                    plural: cups
+                  units:
+                  - 91
+                  - 256
+                  - 279
+                  - 226
+                  - 180
+                  - 147
+                  - 389
+                - accessLevel: PUBLIC
+                  amount: 1
+                  brand: Smucker's
+                  calories: 100
+                  foodId: 14724757
+                  locale: en_US
+                  mealTypeId: 7
+                  name: Natural Peanut Butter, Chunky
+                  unit:
+                    id: 349
+                    name: tbsp
+                    plural: tbsp
+                  units:
+                  - 349
+                  - 364
+                  - 226
+                  - 180
+                  - 147
+                  - 389
+                - accessLevel: PUBLIC
+                  amount: 1
+                  brand: Pacific
+                  calories: 130
+                  foodId: 14742523
+                  locale: en_US
+                  mealTypeId: 7
+                  name: Organic Oat Non-Dairy Beverage, Original
+                  unit:
+                    id: 91
+                    name: cup
+                    plural: cups
+                  units:
+                  - 91
+                  - 256
+                  - 279
+                name: Breakfast Smoothie
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+  post:
+    operationId: nutritionPostUpdateMeal1UserUserIdMealsMealIdJson
+    summary: Update Meal
+    description: Updates an existing meal with the contents of the request.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/update-meal/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: meal-id
+      in: path
+      required: true
+      description: The ID of the meal.
+      schema:
+        type: string
+    - name: description
+      in: query
+      required: true
+      description: Short description of the meal.
+      schema:
+        type: string
+    - name: foodId
+      in: query
+      required: true
+      description: ID of the food to be included in the meal.
+      schema:
+        type: string
+    - name: unitId
+      in: query
+      required: true
+      description: ID of the units used. The units ID can be retrieved through a call
+        to Get Food Logs, Search Foods or Get Food Units.
+      schema:
+        type: string
+    - name: amount
+      in: query
+      required: true
+      description: Amount consumed in the format X.XX, in the specified unitId.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              meal:
+                description: ''
+                id: 254745613
+                mealFoods:
+                - accessLevel: PUBLIC
+                  amount: 1
+                  brand: ''
+                  calories: 79
+                  foodId: 17877
+                  locale: en_US
+                  mealTypeId: 7
+                  name: Blueberry, Unsweetened, Frozen
+                  unit:
+                    id: 91
+                    name: cup
+                    plural: cups
+                  units:
+                  - 91
+                  - 256
+                  - 279
+                  - 226
+                  - 180
+                  - 147
+                  - 389
+                - accessLevel: PUBLIC
+                  amount: 1
+                  brand: Smucker's
+                  calories: 100
+                  foodId: 14724757
+                  locale: en_US
+                  mealTypeId: 7
+                  name: Natural Peanut Butter, Chunky
+                  unit:
+                    id: 349
+                    name: tbsp
+                    plural: tbsp
+                  units:
+                  - 349
+                  - 364
+                  - 226
+                  - 180
+                  - 147
+                  - 389
+                - accessLevel: PUBLIC
+                  amount: 1
+                  brand: Pacific
+                  calories: 130
+                  foodId: 14742523
+                  locale: en_US
+                  mealTypeId: 7
+                  name: Organic Oat Non-Dairy Beverage, Original
+                  unit:
+                    id: 91
+                    name: cup
+                    plural: cups
+                  units:
+                  - 91
+                  - 256
+                  - 279
+                name: Breakfast Smoothie
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+/1/user/{user-id}/foods/log/water/{water-log-id}.json:
+  delete:
+    operationId: nutritionDeleteDeleteWaterLog1UserUserIdFoodsLogWaterWaterLogIdJson
+    summary: Delete Water Log
+    description: Deleted a user's water log entry using the given log ID.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/delete-water-log/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: water-log-id
+      in: path
+      required: true
+      description: The id of the water log entry.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+  post:
+    operationId: nutritionPostUpdateWaterLog1UserUserIdFoodsLogWaterWaterLogIdJson
+    summary: Update Water Log
+    description: Updates the quantity consumed for a user's water log entry with the
+      given Water Log ID.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/update-water-log/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: water-log-id
+      in: path
+      required: true
+      description: The ID of the water log to be updated.
+      schema:
+        type: string
+    - name: amount
+      in: query
+      required: true
+      description: Amount of water consumed in the format X.X and in the specified
+        unit or in the unit system that corresponds to the Accept-Language header
+        provided.
+      schema:
+        type: string
+    - name: unit
+      in: query
+      required: false
+      description: 'Water measurement unit. Supported : ml | fl oz | cup'
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              waterLog:
+                logId: 1543654
+                amount: 12
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+/1/user/{user-id}/foods/log/favorite.json:
+  get:
+    operationId: nutritionGetGetFavoriteFoods1UserUserIdFoodsLogFavoriteJson
+    summary: Get Favorite Foods
+    description: Retrieves a list of user-specific favorite consumed foods.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/get-favorite-foods/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+/1/foods/locales.json:
+  get:
+    operationId: nutritionGetGetFoodLocales1FoodsLocalesJson
+    summary: Get Food Locales
+    description: Retrieves the food locales used to search, log or create food.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/get-food-locales/
+    parameters: []
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+/1/user/{user-id}/foods/log/date/{date}.json:
+  get:
+    operationId: nutritionGetGetFoodLog1UserUserIdFoodsLogDateDateJson
+    summary: Get Food Log
+    description: Retrieves a summary of the user's food log entry for a given day.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/get-food-log/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: date
+      in: path
+      required: true
+      description: The date of records to be returned in the format yyyy-MM-dd.
+      schema:
+        type: string
+        format: date
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              foods:
+              - isFavorite: true
+                logDate: '2019-03-21'
+                logId: 17406206369
+                loggedFood:
+                  accessLevel: PUBLIC
+                  amount: 1
+                  brand: Subway
+                  calories: 280
+                  foodId: 14022778
+                  locale: en_US
+                  mealTypeId: 3
+                  name: 6 inch Turkey Breast
+                  unit:
+                    id: 296
+                    name: sandwich
+                    plural: sandwiches
+                  units:
+                  - 296
+                  - 226
+                  - 180
+                  - 147
+                  - 389
+                nutritionalValues:
+                  calories: 280
+                  carbs: 46
+                  fat: 3.5
+                  fiber: 5
+                  protein: 18
+                  sodium: 760
+              goals:
+                calories: 2910
+              summary:
+                calories: 280
+                carbs: 46
+                fat: 3.5
+                fiber: 5
+                protein: 18
+                sodium: 760
+                water: 0
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+/1/foods/units.json:
+  get:
+    operationId: nutritionGetGetFoodUnits1FoodsUnitsJson
+    summary: Get Food Units
+    description: Retrieves a list of all valid Fitbit food units in the format requested.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/get-food-units/
+    parameters: []
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+/1/foods/{food-id}.json:
+  get:
+    operationId: nutritionGetGetFood1FoodsFoodIdJson
+    summary: Get Food
+    description: Retrieves the details of a specific food stored in the Fitbit food
+      database or a private food the authorized user has entered.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/get-food/
+    parameters:
+    - name: food-id
+      in: path
+      required: true
+      description: The ID of the food
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              food:
+                accessLevel: PUBLIC
+                brand: ''
+                calories: 79
+                defaultServingSize: 1
+                defaultUnit:
+                  id: 91
+                  name: cup
+                  plural: cups
+                foodId: 17877
+                isGeneric: false
+                locale: en_US
+                name: Blueberry, Unsweetened, Frozen
+                servings:
+                - multiplier: 1
+                  servingSize: 1
+                  unit:
+                    id: 91
+                    name: cup
+                    plural: cups
+                  unitId: 91
+                - multiplier: 2
+                  servingSize: 1
+                  unit:
+                    id: 256
+                    name: pint
+                    plural: pints
+                  unitId: 256
+                - multiplier: 4
+                  servingSize: 1
+                  unit:
+                    id: 279
+                    name: quart
+                    plural: quarts
+                  unitId: 279
+                - multiplier: 3.658064603805542
+                  servingSize: 20
+                  unit:
+                    id: 226
+                    name: oz
+                    plural: oz
+                  unitId: 226
+                - multiplier: 2.9264516830444336
+                  servingSize: 1
+                  unit:
+                    id: 180
+                    name: lb
+                    plural: lbs
+                  unitId: 180
+                - multiplier: 0.6451612710952759
+                  servingSize: 100
+                  unit:
+                    id: 147
+                    name: gram
+                    plural: grams
+                  unitId: 147
+                - multiplier: 6.45172119140625
+                  servingSize: 1
+                  unit:
+                    id: 389
+                    name: kg
+                    plural: kg
+                  unitId: 389
+                units:
+                - 91
+                - 256
+                - 279
+                - 226
+                - 180
+                - 147
+                - 389
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+/1/user/{user-id}/foods/log/frequent.json:
+  get:
+    operationId: nutritionGetGetFrequentFoods1UserUserIdFoodsLogFrequentJson
+    summary: Get Frequent Foods
+    description: Retrieves a list of user-specific frequent consumed foods.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/get-frequent-foods/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              accessLevel: PUBLIC
+              amount: 1
+              brand: ''
+              calories: 80
+              dateLastEaten: '2020-06-10'
+              foodId: 81409
+              locale: en_US
+              mealTypeId: 1
+              name: Apple
+              unit:
+                id: 204
+                name: medium
+                plural: mediums
+              units:
+              - 204
+              - 179
+              - 226
+              - 180
+              - 147
+              - 389
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+/1/user/{user-id}/foods/log/recent.json:
+  get:
+    operationId: nutritionGetGetRecentFoods1UserUserIdFoodsLogRecentJson
+    summary: Get Recent Foods
+    description: Retrieves a list of user-specific recently consumed foods.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/get-recent-foods/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              accessLevel: PUBLIC
+              amount: 1
+              brand: Smucker's
+              calories: 100
+              dateLastEaten: '2019-05-06'
+              foodId: 14724757
+              locale: en_US
+              mealTypeId: 1
+              name: Natural Peanut Butter, Chunky
+              unit:
+                id: 349
+                name: tbsp
+                plural: tbsp
+              units:
+              - 349
+              - 364
+              - 226
+              - 180
+              - 147
+              - 389
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+/1/user/{user-id}/foods/log/water/date/{date}.json:
+  get:
+    operationId: nutritionGetGetWaterLog1UserUserIdFoodsLogWaterDateDateJson
+    summary: Get Water Log
+    description: Retrieves a summary and list of a user's water log entries for a
+      given day.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/get-water-log/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: date
+      in: path
+      required: true
+      description: The date in the format yyyy-MM-dd.
+      schema:
+        type: string
+        format: date
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              summary:
+                water: 1892.7099609375
+              water:
+              - amount: 1892.7099609375
+                logId: 6088001986
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition
+/1/foods/search.json:
+  get:
+    operationId: nutritionGetSearchFoods1FoodsSearchJson
+    summary: Search Foods
+    description: Retrieves a list of public foods from the Fitbit foods database and
+      private foods the user created in the format requested.
+    tags:
+    - Nutrition
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/nutrition/search-foods/
+    parameters:
+    - name: query
+      in: query
+      required: true
+      description: The URL-encoded search query
+      schema:
+        type: string
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - nutrition

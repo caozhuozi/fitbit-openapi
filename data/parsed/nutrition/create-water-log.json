@@ -1,0 +1,57 @@
+{
+  "domain": "nutrition",
+  "title": "Create Water Log",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/create-water-log/",
+  "method": "post",
+  "path": "/1/user/{user-id}/foods/log/water.json",
+  "description": "Create a user's water log entry.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "water-log-id",
+      "location": "path",
+      "required": true,
+      "description": "The id of the water log entry."
+    },
+    {
+      "name": "amount",
+      "location": "query",
+      "required": true,
+      "description": "Amount of water consumed in the format X.X and in the specified unit or in the unit system that corresponds to the Accept-Language header provided."
+    },
+    {
+      "name": "date",
+      "location": "query",
+      "required": true,
+      "description": "Date when the water was consumed specified in the formate yyyy-MM-dd."
+    },
+    {
+      "name": "unit",
+      "location": "query",
+      "required": false,
+      "description": "Water measurement unit. Supported : ml | fl oz | cup"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "waterLog : amount",
+      "description": "Amount of water consumed."
+    },
+    {
+      "name": "waterLog : logId",
+      "description": "Water log ID."
+    }
+  ],
+  "example_response": {
+    "waterLog": {
+      "amount": 8,
+      "logId": 6088037892
+    }
+  }
+}

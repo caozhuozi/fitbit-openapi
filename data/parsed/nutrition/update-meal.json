@@ -1,0 +1,185 @@
+{
+  "domain": "nutrition",
+  "title": "Update Meal",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/update-meal/",
+  "method": "post",
+  "path": "/1/user/{user-id}/meals/{meal-id}.json",
+  "description": "Updates an existing meal with the contents of the request.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "meal-id",
+      "location": "path",
+      "required": true,
+      "description": "The ID of the meal."
+    },
+    {
+      "name": "description",
+      "location": "query",
+      "required": true,
+      "description": "Short description of the meal."
+    },
+    {
+      "name": "foodId",
+      "location": "query",
+      "required": true,
+      "description": "ID of the food to be included in the meal."
+    },
+    {
+      "name": "unitId",
+      "location": "query",
+      "required": true,
+      "description": "ID of the units used. The units ID can be retrieved through a call to Get Food Logs, Search Foods or Get Food Units."
+    },
+    {
+      "name": "amount",
+      "location": "query",
+      "required": true,
+      "description": "Amount consumed in the format X.XX, in the specified unitId."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "meal : description",
+      "description": ""
+    },
+    {
+      "name": "meal : id",
+      "description": ""
+    },
+    {
+      "name": "meal : mealFoods : accessLevel",
+      "description": ""
+    },
+    {
+      "name": "meal : mealFoods : amount",
+      "description": ""
+    },
+    {
+      "name": "meal : mealFoods : brand",
+      "description": ""
+    },
+    {
+      "name": "meal : mealFoods : calories",
+      "description": ""
+    },
+    {
+      "name": "meal : mealFoods : foodId",
+      "description": ""
+    },
+    {
+      "name": "meal : mealFoods : locale",
+      "description": ""
+    },
+    {
+      "name": "meal : mealFoods : mealTypeId",
+      "description": ""
+    },
+    {
+      "name": "meal : mealFoods : name",
+      "description": ""
+    },
+    {
+      "name": "meal : mealFoods : unit : id",
+      "description": ""
+    },
+    {
+      "name": "meal : mealFoods : unit : name",
+      "description": ""
+    },
+    {
+      "name": "meal : mealFoods : unit : plural",
+      "description": ""
+    },
+    {
+      "name": "meal : mealFoods : units",
+      "description": ""
+    },
+    {
+      "name": "meal : name",
+      "description": ""
+    }
+  ],
+  "example_response": {
+    "meal": {
+      "description": "",
+      "id": 254745613,
+      "mealFoods": [
+        {
+          "accessLevel": "PUBLIC",
+          "amount": 1,
+          "brand": "",
+          "calories": 79,
+          "foodId": 17877,
+          "locale": "en_US",
+          "mealTypeId": 7,
+          "name": "Blueberry, Unsweetened, Frozen",
+          "unit": {
+            "id": 91,
+            "name": "cup",
+            "plural": "cups"
+          },
+          "units": [
+            91,
+            256,
+            279,
+            226,
+            180,
+            147,
+            389
+          ]
+        },
+        {
+          "accessLevel": "PUBLIC",
+          "amount": 1,
+          "brand": "Smucker's",
+          "calories": 100,
+          "foodId": 14724757,
+          "locale": "en_US",
+          "mealTypeId": 7,
+          "name": "Natural Peanut Butter, Chunky",
+          "unit": {
+            "id": 349,
+            "name": "tbsp",
+            "plural": "tbsp"
+          },
+          "units": [
+            349,
+            364,
+            226,
+            180,
+            147,
+            389
+          ]
+        },
+        {
+          "accessLevel": "PUBLIC",
+          "amount": 1,
+          "brand": "Pacific",
+          "calories": 130,
+          "foodId": 14742523,
+          "locale": "en_US",
+          "mealTypeId": 7,
+          "name": "Organic Oat Non-Dairy Beverage, Original",
+          "unit": {
+            "id": 91,
+            "name": "cup",
+            "plural": "cups"
+          },
+          "units": [
+            91,
+            256,
+            279
+          ]
+        }
+      ],
+      "name": "Breakfast Smoothie"
+    }
+  }
+}

@@ -1,0 +1,236 @@
+{
+  "domain": "user",
+  "title": "Get Profile",
+  "url": "https://dev.fitbit.com/build/reference/web-api/user/get-profile/",
+  "method": "get",
+  "path": "/1/user/{user-id}/profile.json",
+  "description": "Retrieves the user's profile data.",
+  "scope": "profile",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "user : aboutMe",
+      "description": "The \"About Me\" information specified in the user's account settings."
+    },
+    {
+      "name": "user : age",
+      "description": "The age based on their specified birthday in the user's account settings."
+    },
+    {
+      "name": "user : ambassador",
+      "description": "Supported: true | false"
+    },
+    {
+      "name": "user : autoStrideEnabled",
+      "description": "Supported: true | false"
+    },
+    {
+      "name": "user : avatar",
+      "description": "The user's avatar picture displayed as 100 pixels square."
+    },
+    {
+      "name": "user : avatar150",
+      "description": "The user's avatar picture displayed as 150 pixels square."
+    },
+    {
+      "name": "user : avatar640",
+      "description": "The user's avatar picture displayed as 640 pixels square."
+    },
+    {
+      "name": "user : averageDailySteps",
+      "description": "Average daily steps calculated for the user."
+    },
+    {
+      "name": "user : challengesBeta",
+      "description": "Supported: true | false"
+    },
+    {
+      "name": "user : city",
+      "description": "The city specified in the user's account settings. Location scope is required to see this value."
+    },
+    {
+      "name": "user : clockTimeDisplayFormat",
+      "description": "Supported: 12hour | 24hour"
+    },
+    {
+      "name": "user : country",
+      "description": "The country specified in the user's account settings. Location scope is required to see this value."
+    },
+    {
+      "name": "user : corporate",
+      "description": "Supported: true | false"
+    },
+    {
+      "name": "user : corporateAdmin",
+      "description": "Supported: true | false"
+    },
+    {
+      "name": "user : dateOfBirth",
+      "description": "The birthday date specified in the user's account settings."
+    },
+    {
+      "name": "user : displayName",
+      "description": "The name shown when the user's friends look at their Fitbit profile, send a message, or other interactions within the Friends section of the Fitbit app or fitbit.com dashboard, such as challenges."
+    },
+    {
+      "name": "user : displayNameSetting",
+      "description": "Returns the displayName's attribute. Supported: name | username"
+    },
+    {
+      "name": "user : distanceUnit",
+      "description": "The unit system defined in the user's account settings. See Localization ."
+    },
+    {
+      "name": "user : encodedId",
+      "description": "The ID representing the Fitbit user."
+    },
+    {
+      "name": "user : features : exerciseGoal",
+      "description": "Supported: true | false"
+    },
+    {
+      "name": "user : firstName",
+      "description": "The first name value specified in the user's account settings."
+    },
+    {
+      "name": "user : foodsLocale",
+      "description": "The locale defined in the user's account settings. See Localization . Nutrition scope is required to see this value."
+    },
+    {
+      "name": "user : fullName",
+      "description": "The full name value specified in the user's account settings."
+    },
+    {
+      "name": "user : gender",
+      "description": "The user's specified gender. Supported: MALE | FEMALE | NA"
+    },
+    {
+      "name": "user : glucloseUnit",
+      "description": "The unit system defined in the user's account settings. See Localization ."
+    },
+    {
+      "name": "user : height",
+      "description": "The height value specified in the user's account settings."
+    },
+    {
+      "name": "user : heightUnit",
+      "description": "The unit system defined in the user's account settings. See Localization ."
+    },
+    {
+      "name": "user : isBugReportEnabled",
+      "description": "Supported: true | false"
+    },
+    {
+      "name": "user : isChild",
+      "description": "Supported: true | false"
+    },
+    {
+      "name": "user : isCoach",
+      "description": "Supported: true | false"
+    },
+    {
+      "name": "user : languageLocale",
+      "description": "The language locale defined in the user's account settings. See Localization ."
+    },
+    {
+      "name": "user : lastName",
+      "description": "The last name value specified in the user's account settings."
+    },
+    {
+      "name": "user : legalTermsAcceptRequired",
+      "description": "Supported: true | false"
+    },
+    {
+      "name": "user : locale",
+      "description": "The locale defined in the user's account settings. See Localization ."
+    },
+    {
+      "name": "user : memberSince",
+      "description": "The date the user created their Fitbit account."
+    },
+    {
+      "name": "user : mfaEnabled",
+      "description": "Supported: true | false"
+    },
+    {
+      "name": "user : offsetFromUTCMillis",
+      "description": "The timezone offset in milliseconds from UTC."
+    },
+    {
+      "name": "user : phoneNumber",
+      "description": "Multi-factor Authentication is required to see this value."
+    },
+    {
+      "name": "user : sdkDeveloper",
+      "description": "Supported: true | false"
+    },
+    {
+      "name": "user : sleepTracking",
+      "description": "The sleep sensitivity defined in the user's account settings. Supported: Normal | Sensitive"
+    },
+    {
+      "name": "user : startDayOfWeek",
+      "description": "The day the week begins as defined in the user's account settings. Supported: SUNDAY | MONDAY"
+    },
+    {
+      "name": "user : state",
+      "description": "Location scope is required to see this value."
+    },
+    {
+      "name": "user : strideLengthRunning",
+      "description": "The stride length value specified in the unit system defined in the user's account settings. See Localization ."
+    },
+    {
+      "name": "user : strideLengthRunningType",
+      "description": "Specifies if the user's stride length is determined automatically (default) or manually as defined in the user's account settings. Supported: default | manual"
+    },
+    {
+      "name": "user : strideLengthWalking",
+      "description": "The stride length value specified in the unit system defined in the user's account settings. See Localization ."
+    },
+    {
+      "name": "user : strideLengthWalkingType",
+      "description": "Specifies if the user's stride length is determined automatically (default) or manually as defined in the user's account settings. Supported: default | manual"
+    },
+    {
+      "name": "user : swimUnit",
+      "description": "The unit system defined in the user's account settings. See Localization ."
+    },
+    {
+      "name": "user : temperatureUnit",
+      "description": "The unit system defined in the user's account settings. See Localization ."
+    },
+    {
+      "name": "user : timezone",
+      "description": "The timezone defined in the user's account settings."
+    },
+    {
+      "name": "user : topBadges",
+      "description": "An array listing the Fitbit badges currently earned by the user."
+    },
+    {
+      "name": "user : waterUnit",
+      "description": "The unit system defined in the user's account settings. See Localization . Nutrition scope is required to see this value."
+    },
+    {
+      "name": "user : waterUnitName",
+      "description": "The unit of measure defined by the waterUnit metric. See Localization . Nutrition scope is required to see this value."
+    },
+    {
+      "name": "user : weight",
+      "description": "The user's current weight defined by the weightUnit metric. Body scope is required to see this value."
+    },
+    {
+      "name": "user : weightUnit",
+      "description": "The unit system defined in the user's account settings. See Localization ."
+    }
+  ],
+  "example_response": null
+}

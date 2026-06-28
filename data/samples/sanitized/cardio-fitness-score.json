@@ -1,0 +1,13 @@
+{
+  "status": 200,
+  "body": {
+    "cardioScore": [
+      {
+        "dateTime": "2026-06-23",
+        "value": {
+          "vo2Max": "59-63"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,250 @@
+{
+  "domain": "activity",
+  "title": "Get Activity Log List",
+  "url": "https://dev.fitbit.com/build/reference/web-api/activity/get-activity-log-list/",
+  "method": "get",
+  "path": "/1/user/{user-id}/activities/list.json",
+  "description": "Retrieves a list of a user's activity log entries before or after a given day.",
+  "scope": "activity",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "beforeDate",
+      "location": "query",
+      "required": true,
+      "description": "The date in the format yyyy-MM-ddTHH:mm:ss. Only yyyy-MM-dd is required. Either beforeDate or afterDate must be specified."
+    },
+    {
+      "name": "afterDate",
+      "location": "query",
+      "required": true,
+      "description": "The date in the format yyyy-MM-ddTHH:mm:ss. Only yyyy-MM-dd is required. Either beforeDate or afterDate must be specified."
+    },
+    {
+      "name": "sort",
+      "location": "query",
+      "required": true,
+      "description": "The sort order of entries by date. Use asc (ascending) when using afterDate. Use desc (descending) when sing before date."
+    },
+    {
+      "name": "limit",
+      "location": "query",
+      "required": true,
+      "description": "The number of entries returned. Maximum: 100"
+    },
+    {
+      "name": "offset",
+      "location": "query",
+      "required": true,
+      "description": "Supported : 0 See \"offset\" Query Parameter for more information."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "activities : activeDuration",
+      "description": "The amount of time (milliseconds) within each activityLevel."
+    },
+    {
+      "name": "activeZoneMinutes : minutesInHeartRateZones : minuteMultiplier",
+      "description": ""
+    },
+    {
+      "name": "activeZoneMinutes : minutesInHeartRateZones : minutes",
+      "description": ""
+    },
+    {
+      "name": "activeZoneMinutes : minutesInHeartRateZones : order",
+      "description": ""
+    },
+    {
+      "name": "activeZoneMinutes : minutesInHeartRateZones : type",
+      "description": "Supported : OUT_OF_ZONE | FAT_BURN | CARDIO | PEAK"
+    },
+    {
+      "name": "activeZoneMinutes : minutesInHeartRateZones : zoneName",
+      "description": "Supported : Out of Range | Fat Burn | Cardio | Peak"
+    },
+    {
+      "name": "activeZoneMinutes : totalMinutes",
+      "description": ""
+    },
+    {
+      "name": "activities: activityLevel : minutes",
+      "description": "Total number of minutes the user spent during the specified activity level for that day."
+    },
+    {
+      "name": "activities: activityLevel : name",
+      "description": "Name of the activity level. Supported : sedentary | lightly | fairly | very"
+    },
+    {
+      "name": "activities : activityName",
+      "description": "Name of the recorded exercise."
+    },
+    {
+      "name": "activities : activityTypeId",
+      "description": "The activityName's identifier number."
+    },
+    {
+      "name": "activities : averageHeartRate",
+      "description": "The Heart Rate scope is required to see this value; the average heart rate during the exercise."
+    },
+    {
+      "name": "activities : calories",
+      "description": "Number of calories burned during the exercise."
+    },
+    {
+      "name": "activities : caloriesLink",
+      "description": "Web API endpoint to call to get the specific calories burned for the named exercise."
+    },
+    {
+      "name": "activities : detailsLink",
+      "description": "An endpoint that provides additional details about the user's activity either manually logged on the mobile application or API, or auto-recognized by the Fitbit device. Activities recorded using the device's exercise app are not supported."
+    },
+    {
+      "name": "activities : distance",
+      "description": "Distance traveled during the exercise."
+    },
+    {
+      "name": "activities : distanceUnit",
+      "description": "Distance units defined by the Accept-Language header."
+    },
+    {
+      "name": "activities : duration",
+      "description": "The length in time (milliseconds) after the exercise was edited. If the exercise was not edited, the duration = originalDuration. This value will contain pauses during the exercise."
+    },
+    {
+      "name": "activities : elevationGain",
+      "description": "Elevation gained during the exercise."
+    },
+    {
+      "name": "activities : hasActiveZoneMinutes",
+      "description": "The Heart Rate scope is required to see this value. Supported : true | false"
+    },
+    {
+      "name": "activities : heartRateLink",
+      "description": "The Heart Rate scope is required to see this value."
+    },
+    {
+      "name": "activities : heartRateZones : caloriesOut",
+      "description": "The Heart Rate scope is required to see this value."
+    },
+    {
+      "name": "activities : heartRateZones : max",
+      "description": "The Heart Rate scope is required to see this value."
+    },
+    {
+      "name": "activities : heartRateZones : min",
+      "description": "The Heart Rate scope is required to see this value."
+    },
+    {
+      "name": "activities : heartRateZones : minutes",
+      "description": "The Heart Rate scope is required to see this value."
+    },
+    {
+      "name": "activities : heartRateZones : name",
+      "description": "The Heart Rate scope is required to see this value. Supported : Cardio | Fat Burn | Out of Range | Peak"
+    },
+    {
+      "name": "activities : lastModified",
+      "description": "The timestamp the exercise was last modified."
+    },
+    {
+      "name": "activities : logId",
+      "description": "The activity log identifier for the exercise."
+    },
+    {
+      "name": "activities : logType",
+      "description": "The type of activity log created. Supported : auto_detected | manual | mobile_run | tracker | the name of the 3rd party application"
+    },
+    {
+      "name": "activities : manualValuesSpecified : calories",
+      "description": "A boolean value stating if calories was provided when recording the exercise."
+    },
+    {
+      "name": "activities : manualValuesSpecified : distance",
+      "description": "A boolean value stating if distance was provided when recording the exercise."
+    },
+    {
+      "name": "activities : manualValuesSpecified : steps",
+      "description": "A boolean value stating if steps was provided when recording the exercise."
+    },
+    {
+      "name": "activities : originalDuration",
+      "description": "The initial length in time (milliseconds) that the exercise was recorded. This value will contain pauses during the exercise."
+    },
+    {
+      "name": "activities : originalStartTime",
+      "description": "The initial start datetime that the exercise was recorded."
+    },
+    {
+      "name": "activities : pace",
+      "description": "Calculated average pace during the exercise."
+    },
+    {
+      "name": "activities : source : id",
+      "description": "Identifier associated to the source of the exercise. If the source is a 3rd party applicaton, the ID will be the application's client ID."
+    },
+    {
+      "name": "activities : source : name",
+      "description": "The name associated with the source identifier."
+    },
+    {
+      "name": "activities : source : trackerFeatures",
+      "description": "Supported : CALORIES | DISTANCE | ELEVATION | GPS | HEARTRATE | PACE | STEPS | VO2_MAX"
+    },
+    {
+      "name": "activities : source : type",
+      "description": "The source type."
+    },
+    {
+      "name": "activities : source : url",
+      "description": "The URL associated with the source."
+    },
+    {
+      "name": "activities : speed",
+      "description": "Average speed during the exercise."
+    },
+    {
+      "name": "activities : startTime",
+      "description": "The start datetime after the exercise was edited. If the exercise was not edited, the startTime = originalStartTime."
+    },
+    {
+      "name": "activities : steps",
+      "description": "Number of steps taken during the exercise."
+    },
+    {
+      "name": "activities : tcxLink",
+      "description": "URL to download the TCX file."
+    },
+    {
+      "name": "pagination : afterDate",
+      "description": ""
+    },
+    {
+      "name": "pagination : limit",
+      "description": ""
+    },
+    {
+      "name": "pagination : next",
+      "description": ""
+    },
+    {
+      "name": "pagination : offset",
+      "description": ""
+    },
+    {
+      "name": "pagination : previous",
+      "description": ""
+    },
+    {
+      "name": "pagination : sort",
+      "description": ""
+    }
+  ],
+  "example_response": null
+}

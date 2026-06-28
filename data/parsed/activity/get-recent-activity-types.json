@@ -1,0 +1,19 @@
+{
+  "domain": "activity",
+  "title": "Get Recent Activity Types",
+  "url": "https://dev.fitbit.com/build/reference/web-api/activity/get-recent-activity-types/",
+  "method": "get",
+  "path": "/1/user/{user-id}/activities/recent.json",
+  "description": "Retrieves a list of a user's recent activities types logged with some details of the last activity log of that type.",
+  "scope": "activity",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    }
+  ],
+  "response_fields": [],
+  "example_response": null
+}

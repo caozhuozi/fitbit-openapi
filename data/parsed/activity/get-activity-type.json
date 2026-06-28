@@ -1,0 +1,79 @@
+{
+  "domain": "activity",
+  "title": "Get Activity Type",
+  "url": "https://dev.fitbit.com/build/reference/web-api/activity/get-activity-type/",
+  "method": "get",
+  "path": "/1/activities/{activity-id}.json",
+  "description": "Retrieves the details for a single activity from the Fitbit activities database in the format requested. If available, activity level details will display.",
+  "scope": "activity",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "activity : accessLevel",
+      "description": "Supported : PUBLIC | PRIVATE"
+    },
+    {
+      "name": "activity : activityLevels : id",
+      "description": "Numerical value representing the corresponding activity level."
+    },
+    {
+      "name": "activity : activityLevels : maxSpeedMPH",
+      "description": "Maximum speed in MPH. Value: -1 means not applicable."
+    },
+    {
+      "name": "activity : activityLevels : mets",
+      "description": "METs score for the activity id."
+    },
+    {
+      "name": "activity : activityLevels : minSpeedMPH",
+      "description": "Minimum speed in MPH. Value: -1 means not applicable."
+    },
+    {
+      "name": "activity : activityLevels : name",
+      "description": "Name of the activity level."
+    },
+    {
+      "name": "activity : hasSpeed",
+      "description": "Supported : true | false"
+    },
+    {
+      "name": "activity : id",
+      "description": "Numerical value representing the corresponding activity."
+    },
+    {
+      "name": "activity : name",
+      "description": "The name of the activity or exercise."
+    }
+  ],
+  "example_response": {
+    "activity": {
+      "accessLevel": "PUBLIC",
+      "activityLevels": [
+        {
+          "id": 1010,
+          "maxSpeedMPH": 9.9,
+          "mets": 4,
+          "minSpeedMPH": -1,
+          "name": "under 10 mph"
+        },
+        {
+          "id": 1020,
+          "maxSpeedMPH": 11.9,
+          "mets": 6,
+          "minSpeedMPH": 10,
+          "name": "10-11.9 mph"
+        }
+      ],
+      "hasSpeed": true,
+      "id": 90001,
+      "name": "Bike"
+    }
+  }
+}

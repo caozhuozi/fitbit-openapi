@@ -1,0 +1,202 @@
+{
+  "domain": "intraday",
+  "title": "Get Heart Rate Intraday by Date",
+  "url": "https://dev.fitbit.com/build/reference/web-api/intraday/get-heartrate-intraday-by-date/",
+  "method": "get",
+  "path": "/1/user/{user-id}/activities/heart/date/{date}/1d/{detail-level}.json",
+  "description": "This endpoint retrieves the heart rate intraday time series data on a specific date or 24 hour period. Intraday support can extend the detail-level response to include 1sec, 1min, 5min or 15min for Heart Rate.\n\n3rd-party developers who want access to retrieve other Fitbit users’ Intraday data through the “Client” or “Server” application type should submit a request by filling out this form . A Fitbit developer’s personal Intraday data is automatically available through the “Personal” application type. You do not need to submit a request.",
+  "scope": "heartrate",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "date",
+      "location": "path",
+      "required": true,
+      "description": "The date in the format yyyy-MM-dd or today"
+    },
+    {
+      "name": "detail-level",
+      "location": "path",
+      "required": true,
+      "description": "Number of data points to include Supported: 1sec | 1min | 5min | 15min"
+    },
+    {
+      "name": "start-time",
+      "location": "path",
+      "required": false,
+      "description": "The start of the time period in the format HH:mm ."
+    },
+    {
+      "name": "end-time",
+      "location": "path",
+      "required": false,
+      "description": "The end of the time period in the format HH:mm ."
+    },
+    {
+      "name": "timezone",
+      "location": "query",
+      "required": false,
+      "description": "Returns the response from the specified timezone. Supported: UTC"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "activities-heart : datetime",
+      "description": "Date of the heart rate log"
+    },
+    {
+      "name": "activities-heart : value : customHeartRateZone : caloriesOut",
+      "description": "Number calories burned with the custom heart rate zone"
+    },
+    {
+      "name": "activities-heart : value : customHeartRateZone : max",
+      "description": "Maximum range for the custom heart rate zone"
+    },
+    {
+      "name": "activities-heart : value : customHeartRateZone : min",
+      "description": "Minimum range for the custom heart rate zone"
+    },
+    {
+      "name": "activities-heart : value : customHeartRateZone : minutes",
+      "description": "Number minutes withing the custom heart rate zone"
+    },
+    {
+      "name": "activities-heart : value : customHeartRateZone : name",
+      "description": "Name of the custom heart rate zone"
+    },
+    {
+      "name": "activities-heart : value : HeartRateZone : caloriesOut",
+      "description": "Number calories burned with the specified heart rate zone"
+    },
+    {
+      "name": "activities-heart : value : HeartRateZone : max",
+      "description": "Maximum range for the heart rate zone"
+    },
+    {
+      "name": "activities-heart : value : HeartRateZone : min",
+      "description": "Minimum range for the heart rate zone"
+    },
+    {
+      "name": "activities-heart : value : HeartRateZone : minutes",
+      "description": "Number minutes withing the specified heart rate zone"
+    },
+    {
+      "name": "activities-heart : value : HeartRateZone : name",
+      "description": "Name of the heart rate zone"
+    },
+    {
+      "name": "activities-heart : value : restingHeartRate",
+      "description": "The user’s calculated resting heart rate. See Resting Heart Rate ."
+    },
+    {
+      "name": "activities-heart-intraday : dataset : time",
+      "description": "The time the intraday heart rate value was recorded"
+    },
+    {
+      "name": "activities-heart-intraday : dataset : value",
+      "description": "The intraday heart rate value"
+    },
+    {
+      "name": "activities-heart-intraday : datasetInterval",
+      "description": "The requested detail-level numerical interval"
+    },
+    {
+      "name": "activities-heart-intraday : datasetType",
+      "description": "The requested detail-level unit of measure"
+    }
+  ],
+  "example_response": {
+    "activities-heart": [
+      {
+        "dateTime": "2019-05-08",
+        "value": {
+          "customHeartRateZones": [
+            {
+              "caloriesOut": 1164.09312,
+              "max": 90,
+              "min": 30,
+              "minutes": 718,
+              "name": "Below"
+            },
+            {
+              "caloriesOut": 203.65344,
+              "max": 110,
+              "min": 90,
+              "minutes": 74,
+              "name": "Custom Zone"
+            },
+            {
+              "caloriesOut": 330.76224,
+              "max": 220,
+              "min": 110,
+              "minutes": 42,
+              "name": "Above"
+            }
+          ],
+          "heartRateZones": [
+            {
+              "caloriesOut": 979.43616,
+              "max": 86,
+              "min": 30,
+              "minutes": 626,
+              "name": "Out of Range"
+            },
+            {
+              "caloriesOut": 514.16208,
+              "max": 121,
+              "min": 86,
+              "minutes": 185,
+              "name": "Fat Burn"
+            },
+            {
+              "caloriesOut": 197.92656,
+              "max": 147,
+              "min": 121,
+              "minutes": 18,
+              "name": "Cardio"
+            },
+            {
+              "caloriesOut": 6.984,
+              "max": 220,
+              "min": 147,
+              "minutes": 5,
+              "name": "Peak"
+            }
+          ],
+          "restingHeartRate": 76
+        }
+      }
+    ],
+    "activities-heart-intraday": {
+      "dataset": [
+        {
+          "time": "00:00:00",
+          "value": 78
+        },
+        {
+          "time": "00:01:00",
+          "value": 78
+        },
+        {
+          "time": "00:02:00",
+          "value": 77
+        },
+        {
+          "time": "00:03:00",
+          "value": 77
+        },
+        {
+          "time": "00:04:00",
+          "value": 77
+        }
+      ],
+      "datasetInterval": 1,
+      "datasetType": "minute"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "domain": "nutrition",
+  "title": "Update Water Log",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/update-water-log/",
+  "method": "post",
+  "path": "/1/user/{user-id}/foods/log/water/{water-log-id}.json",
+  "description": "Updates the quantity consumed for a user's water log entry with the given Water Log ID.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "water-log-id",
+      "location": "path",
+      "required": true,
+      "description": "The ID of the water log to be updated."
+    },
+    {
+      "name": "amount",
+      "location": "query",
+      "required": true,
+      "description": "Amount of water consumed in the format X.X and in the specified unit or in the unit system that corresponds to the Accept-Language header provided."
+    },
+    {
+      "name": "unit",
+      "location": "query",
+      "required": false,
+      "description": "Water measurement unit. Supported : ml | fl oz | cup"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "waterLog : logId",
+      "description": ""
+    },
+    {
+      "name": "waterLog : amount",
+      "description": ""
+    }
+  ],
+  "example_response": {
+    "waterLog": {
+      "logId": 1543654,
+      "amount": 12
+    }
+  }
+}

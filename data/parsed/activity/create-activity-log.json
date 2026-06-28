@@ -1,0 +1,147 @@
+{
+  "domain": "activity",
+  "title": "Create Activity Log",
+  "url": "https://dev.fitbit.com/build/reference/web-api/activity/create-activity-log/",
+  "method": "post",
+  "path": "/1/user/{user-id}/activities.json",
+  "description": "Creates a log entry containing the Fitbit user's activity or private custom activity.",
+  "scope": "activity",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "activityId",
+      "location": "query",
+      "required": true,
+      "description": "This is the activity ID of the activity, directory activity or intensity level activity. If you pass directory activity id, Fitbit calculates and substitutes it with the corresponding intensity level activity ID based on the specified distance and/or duration. Either activityId or activityName must be provided."
+    },
+    {
+      "name": "activityName",
+      "location": "query",
+      "required": true,
+      "description": "Custom activity name. Either activityId or activityName must be provided."
+    },
+    {
+      "name": "manualCalories",
+      "location": "query",
+      "required": true,
+      "description": "Calories burned, specified manually. Request with activityName parameter, otherwise optional"
+    },
+    {
+      "name": "startTime",
+      "location": "query",
+      "required": true,
+      "description": "Activity start time. Hours and minutes in the format HH:mm."
+    },
+    {
+      "name": "durationMillis",
+      "location": "query",
+      "required": true,
+      "description": "Duration in milliseconds."
+    },
+    {
+      "name": "date",
+      "location": "query",
+      "required": true,
+      "description": "Log entry date in the format yyyy-MM-dd."
+    },
+    {
+      "name": "distance",
+      "location": "query",
+      "required": true,
+      "description": "Distance; required for logging directory activity. In the format X.XX and in the selected distanceUnit or in the unit system that corresponds to the Accept-Language header provided."
+    },
+    {
+      "name": "distanceUnit",
+      "location": "query",
+      "required": false,
+      "description": "Distance measurement unit. See Units for acceptable values. \"Steps\" may be used as a distanceUnits value when the activity is either \"Walking\" (activityId=90013) or \"Running\" (activityId=90009)."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "activityLog : activityId",
+      "description": "The ID of the activity."
+    },
+    {
+      "name": "activityLog : activityParentId",
+      "description": "The ID of the top level (\"parent\") activity."
+    },
+    {
+      "name": "activityLog : activityParentName",
+      "description": "The name of the top level (\"parent\") activity."
+    },
+    {
+      "name": "activityLog : calories",
+      "description": "Calories burned during the exercise."
+    },
+    {
+      "name": "activityLog : description",
+      "description": "Description of the activity logged."
+    },
+    {
+      "name": "activityLog : distance",
+      "description": "The distance traveled during the recorded activity in the unit system corresponding to the Accept-Language header."
+    },
+    {
+      "name": "activityLog : duration",
+      "description": "The length of time in milliseconds."
+    },
+    {
+      "name": "activityLog : hasStartTime",
+      "description": "Specifies if the activity was entered with a start time. Supported : true | false"
+    },
+    {
+      "name": "activityLog : isFavorite",
+      "description": "Specifies if activity is listed as a user's favorite. Supported : true | false"
+    },
+    {
+      "name": "activityLog : lastModified",
+      "description": "The timestamp the activity was entered in the format yyyy-MM-ddThh:mm:ss.fff."
+    },
+    {
+      "name": "activityLog : logId",
+      "description": "The activity log's reference id."
+    },
+    {
+      "name": "activityLog : name",
+      "description": "The name of the activity log."
+    },
+    {
+      "name": "activityLog : startDate",
+      "description": "The date the activity occurred."
+    },
+    {
+      "name": "activityLog : startTime",
+      "description": "The start time the activity occurred."
+    },
+    {
+      "name": "activityLog : steps",
+      "description": "The number of steps taken during the activity."
+    }
+  ],
+  "example_response": {
+    "activityLog": {
+      "activityId": 90013,
+      "activityParentId": 90013,
+      "activityParentName": "Walk",
+      "calories": 300,
+      "description": "Walking less than 2 mph, strolling very slowly",
+      "distance": 2,
+      "duration": 6000000,
+      "hasActiveZoneMinutes": true,
+      "hasStartTime": true,
+      "isFavorite": false,
+      "lastModified": "2023-06-05T18:39:39.035Z",
+      "logId": 56268507015,
+      "name": "Walk",
+      "startDate": "2023-06-01",
+      "startTime": "10:30",
+      "steps": 2706
+    }
+  }
+}

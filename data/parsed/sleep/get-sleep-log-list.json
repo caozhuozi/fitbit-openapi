@@ -1,0 +1,182 @@
+{
+  "domain": "sleep",
+  "title": "get-sleep-log-list",
+  "url": "https://dev.fitbit.com/build/reference/web-api/sleep/get-sleep-log-list/",
+  "method": "get",
+  "path": "/1.2/user/{user-id}/sleep/list.json",
+  "description": "This endpoint returns a list of a user's sleep log entries before or after a given date, and specifying offset, limit and sort order. The data returned for different dates can include sleep periods that began on the previous date. For example, a sleep log entry for 2018-10-21 may have ended that day but started the previous night on 2018-10-20.\n\nIt uses units that correspond to the Accept-Language header provided.",
+  "scope": "sleep",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "beforeDate",
+      "location": "query",
+      "required": true,
+      "description": "The date in the format yyyy-MM-ddTHH:mm:ss. Only yyyy-MM-dd is required. Either beforeDate or afterDate must be specified. Set sort to desc when using beforeDate."
+    },
+    {
+      "name": "afterDate",
+      "location": "query",
+      "required": true,
+      "description": "The date in the format yyyy-MM-ddTHH:mm:ss. Only yyyy-MM-dd is required. Either beforeDate or afterDate must be specified. Set sort to asc when using afterDate."
+    },
+    {
+      "name": "sort",
+      "location": "query",
+      "required": true,
+      "description": "Supported : asc | desc The sort oder of entries by date. Use asc to show the oldest sleep log first. Use desc to show the most frequent sleep log first."
+    },
+    {
+      "name": "limit",
+      "location": "query",
+      "required": true,
+      "description": "The number of sleep logs to be returned. Maximum: 100"
+    },
+    {
+      "name": "offset",
+      "location": "query",
+      "required": true,
+      "description": "Supported : 0 (zero) IMPORTANT : To paginate, request the next and previous links in the pagination response object. Do not manually specify the offset parameter, as it will be removed in the future and your app will break."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "pagination : [date]",
+      "description": "The specified beforeDate or afterDate."
+    },
+    {
+      "name": "pagination : limit",
+      "description": "The specified limit."
+    },
+    {
+      "name": "pagination : next",
+      "description": ""
+    },
+    {
+      "name": "pagination : offset",
+      "description": "The specified offset."
+    },
+    {
+      "name": "pagination : previous",
+      "description": ""
+    },
+    {
+      "name": "pagination : sort",
+      "description": "The specified sort order."
+    },
+    {
+      "name": "sleep : dateOfSleep",
+      "description": "The data the sleep log ended."
+    },
+    {
+      "name": "sleep : duration",
+      "description": "Length of the sleep in milliseconds."
+    },
+    {
+      "name": "sleep : efficiency",
+      "description": "Calculated sleep efficiency score. See Sleep Efficiency Calculation ."
+    },
+    {
+      "name": "sleep : endTime",
+      "description": "Time the sleep log ended."
+    },
+    {
+      "name": "sleep : infoCode",
+      "description": "An integer value representing the quality of data collected within the sleep log. 0 = Sufficient data to generate a sleep log. 1 = Insufficient heart rate data. 2 = Sleep period was too short (less than 3 hours). 3 = Server-side issue when generating the sleep log. No data impact."
+    },
+    {
+      "name": "sleep : isMainSleep",
+      "description": "Boolean value: true or false"
+    },
+    {
+      "name": "sleep : levels : data : dateTime",
+      "description": "Timestamp the user started in sleep level."
+    },
+    {
+      "name": "sleep : levels : data : level",
+      "description": "The sleep level the user entered. The values returned for the sleep log type are: classic : restless | asleep | awake stages : deep | light | rem | wake"
+    },
+    {
+      "name": "sleep : levels : data : seconds",
+      "description": "The length of time the user was in the sleep level. Displayed in seconds."
+    },
+    {
+      "name": "sleep : levels : shortData : dateTime",
+      "description": "Timestamp the user started in sleep level. Only supported when log type = stages."
+    },
+    {
+      "name": "sleep : levels : shortData : level",
+      "description": "The sleep level the user entered. Only supported when log type = stages."
+    },
+    {
+      "name": "sleep : levels : shortData : seconds",
+      "description": "The length of time the user was in the sleep level. Displayed in seconds."
+    },
+    {
+      "name": "sleep : levels : summary : [level] : count",
+      "description": "Total number of times the user entered the sleep level."
+    },
+    {
+      "name": "sleep : levels : summary : [level] : minutes",
+      "description": "Total number of minutes the user appeared in the sleep level."
+    },
+    {
+      "name": "sleep : levels : summary : [level] : thirtyDayAvgMinutes",
+      "description": "The average sleep stage time over the past 30 days. A sleep stage log is required to generate this value. When a classic sleep log is recorded, this value will be missing."
+    },
+    {
+      "name": "sleep : logId",
+      "description": "Sleep log ID."
+    },
+    {
+      "name": "sleep : minutesAfterWakeup",
+      "description": "The total number of minutes after the user woke up."
+    },
+    {
+      "name": "sleep : minutesAsleep",
+      "description": "The total number of minutes the user was asleep."
+    },
+    {
+      "name": "sleep : minutesAwake",
+      "description": "The total sum of \"wake\" minutes only. It does not include before falling asleep or after waking up."
+    },
+    {
+      "name": "sleep : minutesToFallAsleep",
+      "description": "The total number of minutes before the user falls asleep. This value is generally 0 for autosleep created sleep logs."
+    },
+    {
+      "name": "sleep : logType",
+      "description": "The type of sleep in terms of how it was logged. See \"logType\" for more detail. Supported : auto_detected | manual"
+    },
+    {
+      "name": "sleep : startTime",
+      "description": "Time the sleep log begins."
+    },
+    {
+      "name": "sleep : timeInBed",
+      "description": "Total number of minutes the user was in bed."
+    },
+    {
+      "name": "sleep : type",
+      "description": "The type of sleep log. Supported : classic | stages"
+    },
+    {
+      "name": "summary : totalMinutesAsleep",
+      "description": "Total number of minutes the user was asleep across all sleep records in the sleep log."
+    },
+    {
+      "name": "summary : totalSleepRecords",
+      "description": "The number of sleep records within the sleep log."
+    },
+    {
+      "name": "summary : timeInBed",
+      "description": "Total number of minutes the user was in bed across all records in the sleep log."
+    }
+  ],
+  "example_response": null
+}

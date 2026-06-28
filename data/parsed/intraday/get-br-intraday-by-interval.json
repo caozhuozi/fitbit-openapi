@@ -1,0 +1,52 @@
+{
+  "domain": "intraday",
+  "title": "Get Breathing Rate Intraday by Interval",
+  "url": "https://dev.fitbit.com/build/reference/web-api/intraday/get-br-intraday-by-interval/",
+  "method": "get",
+  "path": "/1/user/{user-id}/br/date/{start-date}/{end-date}/all.json",
+  "description": "This endpoint returns intraday breathing rate data for a date range. It measures the average breathing rate throughout the day and categories your breathing rate by sleep stage. Sleep stages vary between light sleep, deep sleep, REM sleep, and full sleep.\n\nThe single date measurements are provided at the end of a period of sleep. The data returned can and often does reflect a sleep period that began the day before. For example, if you request a daily breathing rate for 2021-12-22, it may include measurements that were taken the previous night on 2021-12-21 when the user started to sleep.\n\nIt uses units that correspond to the Accept-Language header provided.",
+  "scope": "respiratory_rate",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "start-date",
+      "location": "path",
+      "required": true,
+      "description": "The date in the format yyyy-MM-dd or today."
+    },
+    {
+      "name": "end-date",
+      "location": "path",
+      "required": true,
+      "description": "The date in the format yyyy-MM-dd or today. Maximum range: 30 days"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "br : dateTime",
+      "description": "The sleep log date specified within the specified date range in the format YYYY-MM-DD."
+    },
+    {
+      "name": "br : value : lightSleepSummary : breathingRate",
+      "description": "Average number of breaths taken per minute when the user was in light sleep."
+    },
+    {
+      "name": "br : value : deepSleepSummary : breathingRate",
+      "description": "Average number of breaths taken per minute when the user was in deep sleep."
+    },
+    {
+      "name": "br : value : remSleepSummary : breathingRate",
+      "description": "Average number of breaths taken per minute when the user was in rem sleep."
+    },
+    {
+      "name": "br : value : fullSleepSummary : breathingRate",
+      "description": "Average number of breaths taken per minute throughout the entire period of sleep which you can compare to the sleep stage-specific measurements."
+    }
+  ],
+  "example_response": null
+}

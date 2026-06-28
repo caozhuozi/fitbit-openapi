@@ -1,0 +1,80 @@
+{
+  "domain": "intraday",
+  "title": "Get Activity Intraday by Date",
+  "url": "https://dev.fitbit.com/build/reference/web-api/intraday/get-activity-intraday-by-date/",
+  "method": "get",
+  "path": "/1/user/{user-id}/activities/{resource}/date/{date}/1d/{detail-level}.json",
+  "description": "This endpoint retrieves the activity intraday time series data for a given resource on a specific date or 24 hour period. Intraday support can extend the detail-level response to include 1min, 5min and 15min for Activity.\n\n3rd-party developers who want access to retrieve other Fitbit users’ Intraday data through the “Client” or “Server” application type should submit a request by filling out this form . A Fitbit developer’s personal Intraday data is automatically available through the “Personal” application type. You do not need to submit a request.",
+  "scope": "activity",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "resource",
+      "location": "path",
+      "required": true,
+      "description": "The resource of the data to be returned. Supported: calories | distance | elevation | floors | steps | swimming-strokes"
+    },
+    {
+      "name": "date",
+      "location": "path",
+      "required": true,
+      "description": "The date in the format yyyy-MM-dd or today ."
+    },
+    {
+      "name": "detail-level",
+      "location": "path",
+      "required": true,
+      "description": "Number of data points to include. Supported: 1min | 5min | 15min"
+    },
+    {
+      "name": "start-time",
+      "location": "path",
+      "required": false,
+      "description": "The start of the time period in the format HH:mm ."
+    },
+    {
+      "name": "end-time",
+      "location": "path",
+      "required": false,
+      "description": "The end of the time period in the format HH:mm ."
+    },
+    {
+      "name": "timezone",
+      "location": "query",
+      "required": false,
+      "description": "Returns the response from the specified timezone. Supported: UTC"
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "activities-<resource> : datetime",
+      "description": "The date of the recorded resource in the format yyyy-MM-dd."
+    },
+    {
+      "name": "activities-<resource> : value",
+      "description": "The specified resource's daily total or the total during the time period specified."
+    },
+    {
+      "name": "activities-<resource>-intraday : dataset : level",
+      "description": "Numerical value representing the user's activity-level at the moment when the resource was recorded. 0 = sedentary 1 = lightly active 2 = fairly/moderately active 3 = very active Returned only when resource = calories."
+    },
+    {
+      "name": "activities-<resource>-intraday : dataset : mets",
+      "description": "METs value at the moment when the resource was recorded. Returned only when resource = calories."
+    },
+    {
+      "name": "activities-<resource>-intraday : dataset : time",
+      "description": "The time of the recorded resource."
+    },
+    {
+      "name": "activities-<resource>-intraday : dataset : value",
+      "description": "The specified resource's value at the time it is recorded."
+    }
+  ],
+  "example_response": null
+}

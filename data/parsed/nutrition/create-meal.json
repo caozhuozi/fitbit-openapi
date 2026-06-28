@@ -1,0 +1,143 @@
+{
+  "domain": "nutrition",
+  "title": "Create Meal",
+  "url": "https://dev.fitbit.com/build/reference/web-api/nutrition/create-meal/",
+  "method": "post",
+  "path": "/1/user/{user-id}/meals.json",
+  "description": "Creates a meal with the given food.",
+  "scope": "nutrition",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "description",
+      "location": "query",
+      "required": true,
+      "description": "Short description of the meal."
+    },
+    {
+      "name": "foodId",
+      "location": "query",
+      "required": true,
+      "description": "ID of the food to be included in the meal."
+    },
+    {
+      "name": "unitId",
+      "location": "query",
+      "required": true,
+      "description": "ID of the units used. The units ID can be retrieved through a call to Get Food Logs, Search Foods or Get Food Units."
+    },
+    {
+      "name": "amount",
+      "location": "query",
+      "required": true,
+      "description": "Amount consumed in the format X.XX, in the specified unitId."
+    }
+  ],
+  "response_fields": [
+    {
+      "name": "meal : description",
+      "description": ""
+    },
+    {
+      "name": "meal : id",
+      "description": ""
+    },
+    {
+      "name": "meal : mealFoods : accessLevel",
+      "description": ""
+    },
+    {
+      "name": "meal : mealFoods : amount",
+      "description": ""
+    },
+    {
+      "name": "meal : mealFoods : brand",
+      "description": ""
+    },
+    {
+      "name": "meal : mealFoods : calories",
+      "description": ""
+    },
+    {
+      "name": "meal : mealFoods : foodId",
+      "description": ""
+    },
+    {
+      "name": "meal : mealFoods : locale",
+      "description": ""
+    },
+    {
+      "name": "meal : mealFoods : mealTypeId",
+      "description": ""
+    },
+    {
+      "name": "meal : mealFoods : name",
+      "description": ""
+    },
+    {
+      "name": "meal : mealFoods : unit : id",
+      "description": ""
+    },
+    {
+      "name": "meal : mealFoods : unit : name",
+      "description": ""
+    },
+    {
+      "name": "meal : mealFoods : unit : plural",
+      "description": ""
+    },
+    {
+      "name": "meal : mealFoods : units",
+      "description": ""
+    },
+    {
+      "name": "meal : name",
+      "description": ""
+    }
+  ],
+  "example_response": {
+    "meal": {
+      "description": "Banana",
+      "id": 383590338,
+      "mealFoods": [
+        {
+          "accessLevel": "PUBLIC",
+          "amount": 1,
+          "brand": "",
+          "calories": 1,
+          "foodId": 81000,
+          "locale": "en_US",
+          "mealTypeId": 7,
+          "name": "Banana",
+          "unit": {
+            "id": 147,
+            "name": "gram",
+            "plural": "grams"
+          },
+          "units": [
+            16,
+            121,
+            120,
+            304,
+            319,
+            204,
+            179,
+            91,
+            256,
+            279,
+            226,
+            180,
+            147,
+            389
+          ]
+        }
+      ],
+      "name": "Breakfast"
+    }
+  }
+}

@@ -1,0 +1,111 @@
+/1/user/{user-id}/cardioscore/date/{date}.json:
+  get:
+    operationId: cardioFitnessScoreGetGetVo2MaxSummaryByDate1UserUserIdCardioscoreDateDateJson
+    summary: Get VO2 Max Summary by Date
+    description: 'This endpoint returns the Cardio Fitness Score (also known as VO2
+      Max) data for a single date. VO2 Max values will be shown as a range if no run
+      data is available or a single numeric value if the user uses a GPS for runs.
+      See Additional Information for further context.
+
+
+      The endpoint response ignores the Units header. The value returned is always
+      in ml/kg/min.'
+    tags:
+    - Cardio-Fitness-Score
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/cardio-fitness-score/get-vo2max-summary-by-date/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: date
+      in: path
+      required: true
+      description: The date in the format yyyy-MM-dd or today.
+      schema:
+        type: string
+        format: date
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              cardioScore:
+              - dateTime: '2021-10-25'
+                value:
+                  vo2Max: '46'
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - cardio_fitness
+/1/user/{user-id}/cardioscore/date/{start-date}/{end-date}.json:
+  get:
+    operationId: cardioFitnessScoreGetGetVo2MaxSummaryByInterval1UserUserIdCardioscoreDateStartDateEndDateJson
+    summary: Get VO2 Max Summary by Interval
+    description: 'This endpoint returns the Cardio Fitness Score (also know as VO2
+      Max) data for a date range. VO2 Max values will be shown as a range if no run
+      data is available or a single numeric value if the user uses a GPS for runs.
+      See Additional Information for further context.
+
+
+      The endpoint response ignores the Units header. The value returned is always
+      in ml/kg/min.'
+    tags:
+    - Cardio-Fitness-Score
+    x-fitbit-doc-url: https://dev.fitbit.com/build/reference/web-api/cardio-fitness-score/get-vo2max-summary-by-interval/
+    parameters:
+    - name: user-id
+      in: path
+      required: true
+      description: The encoded ID of the user. Use "-" (dash) for current logged-in
+        user.
+      schema:
+        type: string
+    - name: start-date
+      in: path
+      required: true
+      description: The date in the format yyyy-MM-dd or today.
+      schema:
+        type: string
+        format: date
+    - name: end-date
+      in: path
+      required: true
+      description: 'The date in the format yyyy-MM-dd or today. Maximum range: 30
+        days'
+      schema:
+        type: string
+        format: date
+    responses:
+      '200':
+        description: Successful response
+        content:
+          application/json:
+            schema: {}
+            example:
+              cardioScore:
+              - dateTime: '2021-10-25'
+                value:
+                  vo2Max: 44-48
+              - dateTime: '2021-10-26'
+                value:
+                  vo2Max: '45'
+      '400':
+        description: Fitbit API error
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FitbitErrorResponse'
+    security:
+    - fitbitOAuth:
+      - cardio_fitness

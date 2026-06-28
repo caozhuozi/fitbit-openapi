@@ -1,0 +1,25 @@
+{
+  "domain": "activity",
+  "title": "Create Favorite Activity",
+  "url": "https://dev.fitbit.com/build/reference/web-api/activity/create-favorite-activity/",
+  "method": "post",
+  "path": "/1/user/{user-id}/activities/favorite/{activity-id}.json",
+  "description": "Adds the activity with the given ID to user's list of favorite activities.",
+  "scope": "activity",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "activity-id",
+      "location": "path",
+      "required": true,
+      "description": "The ID of the activity to be added."
+    }
+  ],
+  "response_fields": [],
+  "example_response": null
+}

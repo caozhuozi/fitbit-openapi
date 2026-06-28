@@ -1,0 +1,12 @@
+{
+  "domain": "authorization",
+  "title": "Revoke Token",
+  "url": "https://dev.fitbit.com/build/reference/web-api/authorization/revoke-token/",
+  "method": "post",
+  "path": "/oauth2/revoke",
+  "description": "Used to disable a user's authorization for an application. The revoke endpoint, specifying either the access token or refresh token, will remove the user's authorizations and all associated tokens. This endpoint conforms to RFC 7009 .\n\nRevoking the access token or refresh token will provide the same result. When the token is revoked, all tokens are revoked for that user. If an application has multiple sessions (web, mobile, etc.) for the same user, the revocation will remove all sessions (web, mobile, etc.) associated with that user.\n\nIn addition, a revocation request can be made for tokens used by public clients. The Authorization header is not used. Instead, the public client's client_id and associated token will need to be specified as parameters in the revocation request.",
+  "scope": null,
+  "parameters": [],
+  "response_fields": [],
+  "example_response": null
+}

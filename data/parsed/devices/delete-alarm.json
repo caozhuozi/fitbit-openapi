@@ -1,0 +1,31 @@
+{
+  "domain": "devices",
+  "title": "Delete Alarm",
+  "url": "https://dev.fitbit.com/build/reference/web-api/devices/delete-alarm/",
+  "method": "delete",
+  "path": "/1/user/{user-id}/devices/tracker/{tracker-id}/alarms/{alarm-id}.json",
+  "description": "Deletes an alarm on the given device. This endpoint is supported for trackers that support alarms.",
+  "scope": "settings",
+  "parameters": [
+    {
+      "name": "user-id",
+      "location": "path",
+      "required": true,
+      "description": "The encoded ID of the user. Use \"-\" (dash) for current logged-in user."
+    },
+    {
+      "name": "tracker-id",
+      "location": "path",
+      "required": true,
+      "description": "The ID of the tracker for which the alarm is to be deleted. The tracker-id can be found by using the Get Devices endpoint."
+    },
+    {
+      "name": "alarm-id",
+      "location": "path",
+      "required": true,
+      "description": "The ID of the alarm to be deleted. The alarm-id can be found by using the Get Alarms endpoint."
+    }
+  ],
+  "response_fields": [],
+  "example_response": null
+}
