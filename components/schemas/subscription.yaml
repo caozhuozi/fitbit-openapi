@@ -1,0 +1,30 @@
+SubscriptionCreateSubscriptionResponse:
+  type: object
+  properties:
+    collectionType:
+      type: string
+    ownerId:
+      type: string
+    ownerType:
+      type: string
+    subscriberId:
+      type: string
+    subscriptionId:
+      type: string
+  additionalProperties: true
+  description: Generated from the official example response for Create Subscription.
+SubscriptionGetSubscriptionListResponse:
+  type: object
+  properties:
+    collectionType:
+      type: string
+    ownerId:
+      type: string
+    ownerType:
+      type: string
+    subscriberId:
+      type: string
+    subscriptionId:
+      type: string
+  additionalProperties: true
+  description: Generated from the official example response for Get Subscription List.

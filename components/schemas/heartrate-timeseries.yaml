@@ -1,0 +1,52 @@
+HeartrateTimeseriesGetHeartRateTimeSeriesByDateRangeResponse:
+  type: object
+  properties:
+    activities-heart:
+      type: array
+      items:
+        type: object
+        properties:
+          dateTime:
+            type: string
+          value:
+            type: object
+            properties:
+              customHeartRateZones:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    caloriesOut:
+                      type: number
+                    max:
+                      type: integer
+                    min:
+                      type: integer
+                    minutes:
+                      type: integer
+                    name:
+                      type: string
+                  additionalProperties: true
+              heartRateZones:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    caloriesOut:
+                      type: number
+                    max:
+                      type: integer
+                    min:
+                      type: integer
+                    minutes:
+                      type: integer
+                    name:
+                      type: string
+                  additionalProperties: true
+              restingHeartRate:
+                type: integer
+            additionalProperties: true
+        additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Get Heart Rate Time
+    Series by Date Range.

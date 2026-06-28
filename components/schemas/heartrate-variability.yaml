@@ -1,0 +1,44 @@
+HeartrateVariabilityGetHRVSummaryByDateResponse:
+  type: object
+  properties:
+    hrv:
+      type: array
+      items:
+        type: object
+        properties:
+          dateTime:
+            type: string
+          value:
+            type: object
+            properties:
+              dailyRmssd:
+                type: number
+              deepRmssd:
+                type: number
+            additionalProperties: true
+        additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Get HRV Summary by
+    Date.
+HeartrateVariabilityGetHRVSummaryByIntervalResponse:
+  type: object
+  properties:
+    hrv:
+      type: array
+      items:
+        type: object
+        properties:
+          dateTime:
+            type: string
+          value:
+            type: object
+            properties:
+              dailyRmssd:
+                type: number
+              deepRmssd:
+                type: number
+            additionalProperties: true
+        additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Get HRV Summary by
+    Interval.

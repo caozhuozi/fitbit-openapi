@@ -37,7 +37,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/BreathingRateGetBreathingRateSummaryByDateResponse'
             example:
               br:
               - value:
@@ -100,7 +101,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/BreathingRateGetBreathingRateSummaryByIntervalResponse'
             example:
               br:
               - value:

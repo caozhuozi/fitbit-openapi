@@ -1,8 +1,11 @@
 {
-  "goal": {
-    "minDuration": 480,
-    "updatedOn": "2026-06-01T00:34:38.493007Z",
-    "bedtime": "23:37",
-    "wakeupTime": "08:30"
+  "status": 200,
+  "body": {
+    "goal": {
+      "minDuration": 0,
+      "updatedOn": "2026-01-01",
+      "bedtime": "2026-01-01T00:00:00.000",
+      "wakeupTime": "2026-01-01T00:00:00.000"
+    }
   }
 }

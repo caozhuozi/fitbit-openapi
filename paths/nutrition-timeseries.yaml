@@ -43,7 +43,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/NutritionTimeseriesGetNutritionTimeSeriesByDateRangeResponse'
             example:
               foods-log-water:
               - dateTime: '2025-12-12'

@@ -3,9 +3,9 @@
   "body": {
     "cardioScore": [
       {
-        "dateTime": "2026-06-23",
+        "dateTime": "2026-01-01T00:00:00.000",
         "value": {
-          "vo2Max": "59-63"
+          "vo2Max": "<redacted>"
         }
       }
     ]

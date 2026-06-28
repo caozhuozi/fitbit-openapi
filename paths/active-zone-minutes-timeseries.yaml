@@ -34,7 +34,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/ActiveZoneMinutesTimeseriesGetAZMTimeSeriesByDateResponse'
             example:
               activities-active-zone-minutes:
               - dateTime: '2022-05-01'

@@ -181,7 +181,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/IntradayGetAZMIntradayByDateResponse'
             example:
               activities-active-zone-minutes-intraday:
               - dateTime: '2020-09-17'
@@ -255,7 +256,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/IntradayGetAZMIntradayByIntervalResponse'
             example:
               activities-active-zone-minutes-intraday:
               - dateTime: '2020-09-17'
@@ -328,7 +330,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/IntradayGetBreathingRateIntradayByDateResponse'
             example:
               br:
               - value:
@@ -459,7 +462,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/IntradayGetHeartRateIntradayByDateResponse'
             example:
               activities-heart:
               - dateTime: '2019-05-08'
@@ -583,7 +587,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/IntradayGetHeartRateIntradayByIntervalResponse'
             example:
               activities-heart:
               - dateTime: '2019-05-08'

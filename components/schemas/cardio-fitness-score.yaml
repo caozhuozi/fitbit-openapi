@@ -1,0 +1,40 @@
+CardioFitnessScoreGetVO2MaxSummaryByDateResponse:
+  type: object
+  properties:
+    cardioScore:
+      type: array
+      items:
+        type: object
+        properties:
+          dateTime:
+            type: string
+          value:
+            type: object
+            properties:
+              vo2Max:
+                type: string
+            additionalProperties: true
+        additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Get VO2 Max Summary
+    by Date.
+CardioFitnessScoreGetVO2MaxSummaryByIntervalResponse:
+  type: object
+  properties:
+    cardioScore:
+      type: array
+      items:
+        type: object
+        properties:
+          dateTime:
+            type: string
+          value:
+            type: object
+            properties:
+              vo2Max:
+                type: string
+            additionalProperties: true
+        additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Get VO2 Max Summary
+    by Interval.

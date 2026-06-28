@@ -1,0 +1,157 @@
+BodyCreateBodyFatGoalResponse:
+  type: object
+  properties:
+    goal:
+      type: object
+      properties:
+        fat:
+          type: integer
+      additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Create Body Fat Goal.
+BodyCreateBodyFatLogResponse:
+  type: object
+  properties:
+    fatLog:
+      type: object
+      properties:
+        date:
+          type: string
+        fat:
+          type: integer
+        logId:
+          type: integer
+        source:
+          type: string
+        time:
+          type: string
+      additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Create Body Fat Log.
+BodyCreateWeightGoalResponse:
+  type: object
+  properties:
+    goal:
+      type: object
+      properties:
+        goalType:
+          type: string
+        startDate:
+          type: string
+        startWeight:
+          type: integer
+        weight:
+          type: number
+        weightThreshold:
+          type: number
+      additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Create Weight Goal.
+BodyCreateWeightLogResponse:
+  type: object
+  properties:
+    weightLog:
+      type: array
+      items:
+        type: object
+        properties:
+          bmi:
+            type: number
+          date:
+            type: string
+          logId:
+            type: integer
+          source:
+            type: string
+          time:
+            type: string
+          weight:
+            type: integer
+        additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Create Weight Log.
+BodyGetBodyFatLogResponse:
+  type: object
+  properties:
+    fat:
+      type: array
+      items:
+        type: object
+        properties:
+          date:
+            type: string
+          fat:
+            type: integer
+          logId:
+            type: integer
+          source:
+            type: string
+          time:
+            type: string
+        additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Get Body Fat Log.
+BodyTimeseriesGetBodyTimeSeriesByDateRangeResponse:
+  type: object
+  properties:
+    body-weight:
+      type: array
+      items:
+        type: object
+        properties:
+          dateTime:
+            type: string
+          value:
+            type: string
+        additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Get Body Time Series
+    by Date Range.
+BodyTimeseriesGetBodyFatTimeSeriesByDateRangeResponse:
+  type: object
+  properties:
+    fat:
+      type: array
+      items:
+        type: object
+        properties:
+          date:
+            type: string
+          fat:
+            type: number
+          logId:
+            type: integer
+          source:
+            type: string
+          time:
+            type: string
+        additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Get Body Fat Time
+    Series by Date Range.
+BodyTimeseriesGetWeightTimeSeriesByDateRangeResponse:
+  type: object
+  properties:
+    weight:
+      type: array
+      items:
+        type: object
+        properties:
+          bmi:
+            type: number
+          date:
+            type: string
+          fat:
+            type: integer
+          logId:
+            type: integer
+          source:
+            type: string
+          time:
+            type: string
+          weight:
+            type: integer
+        additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Get Weight Time Series
+    by Date Range.

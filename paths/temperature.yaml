@@ -137,7 +137,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/TemperatureGetTemperatureSkinSummaryByDateResponse'
             example:
               tempSkin:
               - dateTime: '2019-12-10'

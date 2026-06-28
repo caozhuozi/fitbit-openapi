@@ -38,7 +38,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/Spo2GetSpO2SummaryByDateResponse'
             example:
               dateTime: '2021-10-04'
               value:

@@ -55,7 +55,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/DevicesCreateAlarmsResponse'
             example:
               trackerAlarm:
                 alarmId: 802464368
@@ -107,7 +108,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/DevicesGetAlarmsResponse'
             example:
               trackerAlarms:
               - alarmId: 11426382
@@ -264,7 +266,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/DevicesUpdateAlarmResponse'
             example:
               trackerAlarm:
                 alarmId: 1240569123
@@ -307,7 +310,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/DevicesGetDevicesResponse'
             example:
               battery: Medium
               batteryLevel: 60

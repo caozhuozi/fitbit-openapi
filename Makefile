@@ -15,7 +15,7 @@ help:
 	@echo "  parse DOMAIN=all                Parse crawled docs into endpoint JSON"
 	@echo "  generate DOMAIN=all             Generate OpenAPI source files"
 	@echo "  validate-live DOMAIN=all        Validate representative live API samples"
-	@echo "  validate-samples                Validate sanitized sleep samples"
+	@echo "  validate-samples DOMAIN=all     Validate sanitized live API samples"
 	@echo "  lint                            Redocly lint openapi.yaml"
 	@echo "  bundle                          Bundle dist/fitbit-openapi.yaml"
 	@echo "  validate                        Run sample validation, lint, and bundle"
@@ -40,7 +40,7 @@ validate-live:
 	$(PY) -m tools.fitbit_docs validate-live --domain $(DOMAIN) --env-file $(ENV_FILE)
 
 validate-samples:
-	$(PY) -m tools.fitbit_docs validate-samples --domain sleep
+	$(PY) -m tools.fitbit_docs validate-samples --domain $(DOMAIN)
 
 lint:
 	npm run lint
@@ -53,7 +53,7 @@ validate: validate-samples lint bundle
 release:
 	@test -n "$(VERSION)" || (echo "VERSION is required. Usage: make release VERSION=0.1.0" >&2; exit 1)
 	$(PY) -m tools.fitbit_docs generate --domain all --version $(VERSION)
-	$(PY) -m tools.fitbit_docs validate-samples --domain sleep
+	$(PY) -m tools.fitbit_docs validate-samples --domain all
 	npm run lint
 	npm run bundle
 	mkdir -p release

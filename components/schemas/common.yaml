@@ -1,0 +1,18 @@
+FitbitErrorResponse:
+  type: object
+  properties:
+    success:
+      type: boolean
+    errors:
+      type: array
+      items:
+        type: object
+        properties:
+          errorType:
+            type: string
+          fieldName:
+            type: string
+          message:
+            type: string
+        additionalProperties: true
+  additionalProperties: true

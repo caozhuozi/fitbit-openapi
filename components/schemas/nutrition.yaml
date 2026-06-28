@@ -1,0 +1,748 @@
+NutritionCreateFoodLogResponse:
+  type: object
+  properties:
+    foodDay:
+      type: object
+      properties:
+        date:
+          type: string
+        summary:
+          type: object
+          properties:
+            calories:
+              type: integer
+            carbs:
+              type: number
+            fat:
+              type: number
+            fiber:
+              type: number
+            protein:
+              type: number
+            sodium:
+              type: number
+            water:
+              type: number
+          additionalProperties: true
+      additionalProperties: true
+    foodLog:
+      type: object
+      properties:
+        isFavorite:
+          type: boolean
+        logDate:
+          type: string
+        logId:
+          type: integer
+        loggedFood:
+          type: object
+          properties:
+            accessLevel:
+              type: string
+            amount:
+              type: number
+            brand:
+              type: string
+            calories:
+              type: integer
+            foodId:
+              type: integer
+            locale:
+              type: string
+            mealTypeId:
+              type: integer
+            name:
+              type: string
+            unit:
+              type: object
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: string
+                plural:
+                  type: string
+              additionalProperties: true
+            units:
+              type: array
+              items:
+                type: integer
+          additionalProperties: true
+        nutritionalValues:
+          type: object
+          properties:
+            calories:
+              type: integer
+            carbs:
+              type: number
+            fat:
+              type: number
+            fiber:
+              type: number
+            protein:
+              type: number
+            sodium:
+              type: number
+          additionalProperties: true
+      additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Create Food Log.
+NutritionCreateFoodResponse:
+  type: object
+  properties:
+    food:
+      type: object
+      properties:
+        accessLevel:
+          type: string
+        brand:
+          type: string
+        calories:
+          type: integer
+        creatorEncodedId:
+          type: string
+        defaultServingSize:
+          type: integer
+        defaultUnit:
+          type: object
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+            plural:
+              type: string
+          additionalProperties: true
+        foodId:
+          type: integer
+        isGeneric:
+          type: boolean
+        name:
+          type: string
+        nutritionalValues:
+          type: object
+          properties:
+            biotin:
+              type: integer
+            calcium:
+              type: integer
+            calories:
+              type: integer
+            caloriesFromFat:
+              type: integer
+            cholesterol:
+              type: integer
+            copper:
+              type: integer
+            dietaryFiber:
+              type: integer
+            folicAcid:
+              type: integer
+            iodine:
+              type: integer
+            iron:
+              type: integer
+            magnesium:
+              type: integer
+            niacin:
+              type: integer
+            pantothenicAcid:
+              type: integer
+            phosphorus:
+              type: integer
+            potassium:
+              type: integer
+            protein:
+              type: integer
+            riboflavin:
+              type: integer
+            saturatedFat:
+              type: integer
+            sodium:
+              type: integer
+            sugars:
+              type: integer
+            thiamin:
+              type: integer
+            totalCarbohydrate:
+              type: integer
+            totalFat:
+              type: integer
+            transFat:
+              type: integer
+            vitaminA:
+              type: integer
+            vitaminB12:
+              type: integer
+            vitaminB6:
+              type: integer
+            vitaminC:
+              type: integer
+            vitaminD:
+              type: integer
+            vitaminE:
+              type: integer
+            zinc:
+              type: integer
+          additionalProperties: true
+        servings:
+          type: array
+          items:
+            type: object
+            properties:
+              multiplier:
+                type: integer
+              servingSize:
+                type: integer
+              unit:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  plural:
+                    type: string
+                additionalProperties: true
+              unitId:
+                type: integer
+            additionalProperties: true
+        units:
+          type: array
+          items:
+            type: integer
+      additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Create Food.
+NutritionCreateMealResponse:
+  type: object
+  properties:
+    meal:
+      type: object
+      properties:
+        description:
+          type: string
+        id:
+          type: integer
+        mealFoods:
+          type: array
+          items:
+            type: object
+            properties:
+              accessLevel:
+                type: string
+              amount:
+                type: integer
+              brand:
+                type: string
+              calories:
+                type: integer
+              foodId:
+                type: integer
+              locale:
+                type: string
+              mealTypeId:
+                type: integer
+              name:
+                type: string
+              unit:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  plural:
+                    type: string
+                additionalProperties: true
+              units:
+                type: array
+                items:
+                  type: integer
+            additionalProperties: true
+        name:
+          type: string
+      additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Create Meal.
+NutritionCreateWaterGoalResponse:
+  type: object
+  properties:
+    goal:
+      type: object
+      properties:
+        goal:
+          type: integer
+        startDate:
+          type: string
+      additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Create Water Goal.
+NutritionCreateWaterLogResponse:
+  type: object
+  properties:
+    waterLog:
+      type: object
+      properties:
+        amount:
+          type: integer
+        logId:
+          type: integer
+      additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Create Water Log.
+NutritionGetFoodGoalsResponse:
+  type: object
+  properties:
+    goals:
+      type: object
+      properties:
+        calories:
+          type: integer
+      additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Get Food Goals.
+NutritionGetFoodLogResponse:
+  type: object
+  properties:
+    foods:
+      type: array
+      items:
+        type: object
+        properties:
+          isFavorite:
+            type: boolean
+          logDate:
+            type: string
+          logId:
+            type: integer
+          loggedFood:
+            type: object
+            properties:
+              accessLevel:
+                type: string
+              amount:
+                type: integer
+              brand:
+                type: string
+              calories:
+                type: integer
+              foodId:
+                type: integer
+              locale:
+                type: string
+              mealTypeId:
+                type: integer
+              name:
+                type: string
+              unit:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  plural:
+                    type: string
+                additionalProperties: true
+              units:
+                type: array
+                items:
+                  type: integer
+            additionalProperties: true
+          nutritionalValues:
+            type: object
+            properties:
+              calories:
+                type: integer
+              carbs:
+                type: integer
+              fat:
+                type: number
+              fiber:
+                type: integer
+              protein:
+                type: integer
+              sodium:
+                type: integer
+            additionalProperties: true
+        additionalProperties: true
+    goals:
+      type: object
+      properties:
+        calories:
+          type: integer
+      additionalProperties: true
+    summary:
+      type: object
+      properties:
+        calories:
+          type: integer
+        carbs:
+          type: integer
+        fat:
+          type: number
+        fiber:
+          type: integer
+        protein:
+          type: integer
+        sodium:
+          type: integer
+        water:
+          type: integer
+      additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Get Food Log.
+NutritionGetFoodResponse:
+  type: object
+  properties:
+    food:
+      type: object
+      properties:
+        accessLevel:
+          type: string
+        brand:
+          type: string
+        calories:
+          type: integer
+        defaultServingSize:
+          type: integer
+        defaultUnit:
+          type: object
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+            plural:
+              type: string
+          additionalProperties: true
+        foodId:
+          type: integer
+        isGeneric:
+          type: boolean
+        locale:
+          type: string
+        name:
+          type: string
+        servings:
+          type: array
+          items:
+            type: object
+            properties:
+              multiplier:
+                type: number
+              servingSize:
+                type: integer
+              unit:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  plural:
+                    type: string
+                additionalProperties: true
+              unitId:
+                type: integer
+            additionalProperties: true
+        units:
+          type: array
+          items:
+            type: integer
+      additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Get Food.
+NutritionGetFrequentFoodsResponse:
+  type: object
+  properties:
+    accessLevel:
+      type: string
+    amount:
+      type: integer
+    brand:
+      type: string
+    calories:
+      type: integer
+    dateLastEaten:
+      type: string
+    foodId:
+      type: integer
+    locale:
+      type: string
+    mealTypeId:
+      type: integer
+    name:
+      type: string
+    unit:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        plural:
+          type: string
+      additionalProperties: true
+    units:
+      type: array
+      items:
+        type: integer
+  additionalProperties: true
+  description: Generated from the official example response for Get Frequent Foods.
+NutritionGetMealResponse:
+  type: object
+  properties:
+    meal:
+      type: object
+      properties:
+        description:
+          type: string
+        id:
+          type: integer
+        mealFoods:
+          type: array
+          items:
+            type: object
+            properties:
+              accessLevel:
+                type: string
+              amount:
+                type: integer
+              brand:
+                type: string
+              calories:
+                type: integer
+              foodId:
+                type: integer
+              locale:
+                type: string
+              mealTypeId:
+                type: integer
+              name:
+                type: string
+              unit:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  plural:
+                    type: string
+                additionalProperties: true
+              units:
+                type: array
+                items:
+                  type: integer
+            additionalProperties: true
+        name:
+          type: string
+      additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Get Meal.
+NutritionGetMealsResponse:
+  type: object
+  properties:
+    meals:
+      type: array
+      items:
+        type: object
+        properties:
+          description:
+            type: string
+          id:
+            type: integer
+          mealFoods:
+            type: array
+            items:
+              type: object
+              properties:
+                accessLevel:
+                  type: string
+                amount:
+                  type: integer
+                brand:
+                  type: string
+                calories:
+                  type: integer
+                foodId:
+                  type: integer
+                locale:
+                  type: string
+                mealTypeId:
+                  type: integer
+                name:
+                  type: string
+                unit:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    plural:
+                      type: string
+                  additionalProperties: true
+                units:
+                  type: array
+                  items:
+                    type: integer
+              additionalProperties: true
+          name:
+            type: string
+        additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Get Meals.
+NutritionGetRecentFoodsResponse:
+  type: object
+  properties:
+    accessLevel:
+      type: string
+    amount:
+      type: integer
+    brand:
+      type: string
+    calories:
+      type: integer
+    dateLastEaten:
+      type: string
+    foodId:
+      type: integer
+    locale:
+      type: string
+    mealTypeId:
+      type: integer
+    name:
+      type: string
+    unit:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        plural:
+          type: string
+      additionalProperties: true
+    units:
+      type: array
+      items:
+        type: integer
+  additionalProperties: true
+  description: Generated from the official example response for Get Recent Foods.
+NutritionGetWaterGoalResponse:
+  type: object
+  properties:
+    goal:
+      type: object
+      properties:
+        goal:
+          type: integer
+        startDate:
+          type: string
+      additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Get Water Goal.
+NutritionGetWaterLogResponse:
+  type: object
+  properties:
+    summary:
+      type: object
+      properties:
+        water:
+          type: number
+      additionalProperties: true
+    water:
+      type: array
+      items:
+        type: object
+        properties:
+          amount:
+            type: number
+          logId:
+            type: integer
+        additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Get Water Log.
+NutritionUpdateMealResponse:
+  type: object
+  properties:
+    meal:
+      type: object
+      properties:
+        description:
+          type: string
+        id:
+          type: integer
+        mealFoods:
+          type: array
+          items:
+            type: object
+            properties:
+              accessLevel:
+                type: string
+              amount:
+                type: integer
+              brand:
+                type: string
+              calories:
+                type: integer
+              foodId:
+                type: integer
+              locale:
+                type: string
+              mealTypeId:
+                type: integer
+              name:
+                type: string
+              unit:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  plural:
+                    type: string
+                additionalProperties: true
+              units:
+                type: array
+                items:
+                  type: integer
+            additionalProperties: true
+        name:
+          type: string
+      additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Update Meal.
+NutritionUpdateWaterLogResponse:
+  type: object
+  properties:
+    waterLog:
+      type: object
+      properties:
+        logId:
+          type: integer
+        amount:
+          type: integer
+      additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Update Water Log.
+NutritionTimeseriesGetNutritionTimeSeriesByDateRangeResponse:
+  type: object
+  properties:
+    foods-log-water:
+      type: array
+      items:
+        type: object
+        properties:
+          dateTime:
+            type: string
+          value:
+            type: integer
+        additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Get Nutrition Time
+    Series by Date Range.

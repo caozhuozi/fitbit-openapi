@@ -1,118 +1,384 @@
-SleepResponse:
+SleepCreateSleepGoalResponse:
+  type: object
+  properties:
+    goal:
+      type: object
+      properties:
+        minDuration:
+          type: integer
+        updatedOn:
+          type: string
+      additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Create Sleep Goal.
+SleepCreateSleepLogResponse:
+  type: object
+  properties:
+    sleep:
+      type: object
+      properties:
+        dateOfSleep:
+          type: string
+        duration:
+          type: integer
+        efficiency:
+          type: integer
+        endTime:
+          type: string
+        infoCode:
+          type: integer
+        isMainSleep:
+          type: boolean
+        levels:
+          type: object
+          properties:
+            data:
+              type: array
+              items:
+                type: object
+                properties:
+                  dateTime:
+                    type: string
+                  level:
+                    type: string
+                  seconds:
+                    type: integer
+                additionalProperties: true
+            summary:
+              type: object
+              properties:
+                asleep:
+                  type: object
+                  properties:
+                    count:
+                      type: integer
+                    minutes:
+                      type: integer
+                  additionalProperties: true
+                awake:
+                  type: object
+                  properties:
+                    count:
+                      type: integer
+                    minutes:
+                      type: integer
+                  additionalProperties: true
+                restless:
+                  type: object
+                  properties:
+                    count:
+                      type: integer
+                    minutes:
+                      type: integer
+                  additionalProperties: true
+              additionalProperties: true
+          additionalProperties: true
+        logId:
+          type: integer
+        minutesAfterWakeup:
+          type: integer
+        minutesAsleep:
+          type: integer
+        minutesAwake:
+          type: integer
+        minutesToFallAsleep:
+          type: integer
+        startTime:
+          type: string
+        timeInBed:
+          type: integer
+        type:
+          type: string
+      additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Create Sleep Log.
+SleepGetSleepGoalResponse:
+  type: object
+  properties:
+    goal:
+      type: object
+      properties:
+        bedtime:
+          type: string
+        minDuration:
+          type: integer
+        updatedOn:
+          type: string
+        wakeupTime:
+          type: string
+      additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Get Sleep Goal.
+SleepGetSleepLogByDateRangeResponse:
   type: object
   properties:
     sleep:
       type: array
       items:
-        $ref: '#/SleepRecord'
-    summary:
-      $ref: '#/SleepSummary'
-    meta:
-      type: object
-      additionalProperties: true
+        type: object
+        properties:
+          dateOfSleep:
+            type: string
+          duration:
+            type: integer
+          efficiency:
+            type: integer
+          endTime:
+            type: string
+          infoCode:
+            type: integer
+          isMainSleep:
+            type: boolean
+          levels:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    dateTime:
+                      type: string
+                    level:
+                      type: string
+                    seconds:
+                      type: integer
+                  additionalProperties: true
+              shortData:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    dateTime:
+                      type: string
+                    level:
+                      type: string
+                    seconds:
+                      type: integer
+                  additionalProperties: true
+              summary:
+                type: object
+                properties:
+                  asleep:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                      minutes:
+                        type: integer
+                    additionalProperties: true
+                  awake:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                      minutes:
+                        type: integer
+                    additionalProperties: true
+                  deep:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                      minutes:
+                        type: integer
+                      thirtyDayAvgMinutes:
+                        type: integer
+                    additionalProperties: true
+                  light:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                      minutes:
+                        type: integer
+                      thirtyDayAvgMinutes:
+                        type: integer
+                    additionalProperties: true
+                  rem:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                      minutes:
+                        type: integer
+                      thirtyDayAvgMinutes:
+                        type: integer
+                    additionalProperties: true
+                  restless:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                      minutes:
+                        type: integer
+                    additionalProperties: true
+                  wake:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                      minutes:
+                        type: integer
+                      thirtyDayAvgMinutes:
+                        type: integer
+                    additionalProperties: true
+                additionalProperties: true
+            additionalProperties: true
+          logId:
+            type: integer
+          logType:
+            type: string
+          minutesAfterWakeup:
+            type: integer
+          minutesAsleep:
+            type: integer
+          minutesAwake:
+            type: integer
+          minutesToFallAsleep:
+            type: integer
+          startTime:
+            type: string
+          timeInBed:
+            type: integer
+          type:
+            type: string
+        additionalProperties: true
   additionalProperties: true
-SleepRecord:
+  description: Generated from the official example response for Get Sleep Log by Date
+    Range.
+SleepGetSleepLogByDateResponse:
   type: object
   properties:
-    dateOfSleep:
-      type: string
-      format: date
-    duration:
-      type: integer
-    efficiency:
-      type: integer
-    endTime:
-      type: string
-    infoCode:
-      type: integer
-    isMainSleep:
-      type: boolean
-    levels:
-      $ref: '#/SleepLevels'
-    logId:
-      type: integer
-    logType:
-      type: string
-    minutesAfterWakeup:
-      type: integer
-    minutesAsleep:
-      type: integer
-    minutesAwake:
-      type: integer
-    minutesToFallAsleep:
-      type: integer
-    startTime:
-      type: string
-    timeInBed:
-      type: integer
-    type:
-      type: string
-  additionalProperties: true
-SleepLevels:
-  type: object
-  properties:
-    data:
-      type: array
-      items:
-        $ref: '#/SleepLevelData'
-    shortData:
-      type: array
-      items:
-        $ref: '#/SleepLevelData'
-    summary:
-      type: object
-      additionalProperties:
-        $ref: '#/SleepStageSummary'
-  additionalProperties: true
-SleepLevelData:
-  type: object
-  properties:
-    dateTime:
-      type: string
-    level:
-      type: string
-    seconds:
-      type: integer
-  additionalProperties: true
-SleepStageSummary:
-  type: object
-  properties:
-    count:
-      type: integer
-    minutes:
-      type: integer
-    thirtyDayAvgMinutes:
-      type: integer
-  additionalProperties: true
-SleepSummary:
-  type: object
-  properties:
-    stages:
-      type: object
-      additionalProperties:
-        type: integer
-    totalMinutesAsleep:
-      type: integer
-    totalSleepRecords:
-      type: integer
-    totalTimeInBed:
-      type: integer
-  additionalProperties: true
-FitbitErrorResponse:
-  type: object
-  properties:
-    success:
-      type: boolean
-    errors:
+    sleep:
       type: array
       items:
         type: object
         properties:
-          errorType:
+          dateOfSleep:
             type: string
-          fieldName:
+          duration:
+            type: integer
+          efficiency:
+            type: integer
+          endTime:
             type: string
-          message:
+          infoCode:
+            type: integer
+          isMainSleep:
+            type: boolean
+          levels:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    dateTime:
+                      type: string
+                    level:
+                      type: string
+                    seconds:
+                      type: integer
+                  additionalProperties: true
+              shortData:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    dateTime:
+                      type: string
+                    level:
+                      type: string
+                    seconds:
+                      type: integer
+                  additionalProperties: true
+              summary:
+                type: object
+                properties:
+                  deep:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                      minutes:
+                        type: integer
+                      thirtyDayAvgMinutes:
+                        type: integer
+                    additionalProperties: true
+                  light:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                      minutes:
+                        type: integer
+                      thirtyDayAvgMinutes:
+                        type: integer
+                    additionalProperties: true
+                  rem:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                      minutes:
+                        type: integer
+                      thirtyDayAvgMinutes:
+                        type: integer
+                    additionalProperties: true
+                  wake:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                      minutes:
+                        type: integer
+                      thirtyDayAvgMinutes:
+                        type: integer
+                    additionalProperties: true
+                additionalProperties: true
+            additionalProperties: true
+          logId:
+            type: integer
+          logType:
+            type: string
+          minutesAfterWakeup:
+            type: integer
+          minutesAsleep:
+            type: integer
+          minutesAwake:
+            type: integer
+          minutesToFallAsleep:
+            type: integer
+          startTime:
+            type: string
+          timeInBed:
+            type: integer
+          type:
             type: string
         additionalProperties: true
+    summary:
+      type: object
+      properties:
+        stages:
+          type: object
+          properties:
+            deep:
+              type: integer
+            light:
+              type: integer
+            rem:
+              type: integer
+            wake:
+              type: integer
+          additionalProperties: true
+        totalMinutesAsleep:
+          type: integer
+        totalSleepRecords:
+          type: integer
+        totalTimeInBed:
+          type: integer
+      additionalProperties: true
   additionalProperties: true
+  description: Generated from the official example response for Get Sleep Log by Date.

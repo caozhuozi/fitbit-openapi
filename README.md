@@ -89,4 +89,53 @@ The `.env` file is private and ignored by Git. Use `.env.example` as the templat
 
 ## Scope
 
-The crawler/parser/generator covers the Fitbit Web API domains listed in the official reference sidebar. Sleep has a detailed response schema and schema validation against live samples. Other domains currently use permissive response schemas while preserving official request paths, parameters, scopes, descriptions, examples, and source URLs.
+The crawler/parser/generator covers the Fitbit Web API domains listed in the official reference sidebar. It preserves official request paths, parameters, scopes, descriptions, examples, and source URLs.
+
+Response schemas are generated from official example responses when examples are available. Endpoints without official examples are still included with an open response schema.
+
+Schema coverage by domain:
+
+| Domain | Endpoints | Generated response schemas | Open response schemas |
+| --- | ---: | ---: | ---: |
+| active-zone-minutes-timeseries | 2 | 2 | 0 |
+| activity | 16 | 8 | 8 |
+| activity-timeseries | 2 | 2 | 0 |
+| authorization | 5 | 1 | 4 |
+| blood-glucose | 1 | 0 | 1 |
+| body | 9 | 5 | 4 |
+| body-timeseries | 6 | 6 | 0 |
+| breathing-rate | 2 | 2 | 0 |
+| cardio-fitness-score | 2 | 2 | 0 |
+| devices | 5 | 4 | 1 |
+| electrocardiogram | 1 | 0 | 1 |
+| friends | 2 | 0 | 2 |
+| heartrate-timeseries | 2 | 2 | 0 |
+| heartrate-variability | 2 | 2 | 0 |
+| intraday | 12 | 5 | 7 |
+| irregular-rhythm-notifications | 2 | 1 | 1 |
+| nutrition | 28 | 17 | 11 |
+| nutrition-timeseries | 2 | 2 | 0 |
+| sleep | 7 | 5 | 2 |
+| spo2 | 2 | 1 | 1 |
+| subscription | 3 | 2 | 1 |
+| temperature | 4 | 1 | 3 |
+| user | 3 | 0 | 3 |
+
+Totals: 120 parsed endpoints, 61 generated response schemas, and 59 open response schemas.
+
+## Schema Sources
+
+The generated response schemas are inferred from the official example response payloads published in Fitbit's documentation. They are intentionally structural: object properties, arrays, scalar JSON types, and permissive `additionalProperties: true`.
+
+The generator does not currently turn the prose response field tables into strict schemas. Those field descriptions are preserved in `data/parsed/`, but the OpenAPI response schema follows the example payload when both are present.
+
+Known documentation differences:
+
+| Area | Difference | Current handling |
+| --- | --- | --- |
+| Devices | The official `Get Devices` example is a single device object, while the live API returns an array of device objects. | The schema is generated from the official example. Live validation accepts an array by validating each item against the generated object schema. |
+| Dynamic time-series keys | Some docs describe placeholders such as `activities-<resource>` or `body-<resource>`, while examples use concrete keys such as `activities-steps` or `body-weight`. | The generated schema follows the concrete official example key. |
+| Response field tables vs examples | Several field tables list fields not present in the paired example, or examples include top-level fields not listed in the field table. This appears in areas such as daily activity summary, intraday data, nutrition logs, sleep goal/date responses, and SpO2 summary. | The generated schema follows the example. The field table text remains available in parsed endpoint JSON for future manual refinement. |
+| Ambiguous intraday paths | Redocly reports two ambiguous OpenAPI paths where Fitbit documents both a generic activity intraday path and more specific AZM/heart intraday paths. | The spec preserves the official paths and accepts the Redocly warnings. |
+
+Representative live validation currently covers 19 API calls across user, devices, activity, heart rate, body, breathing rate, SpO2, temperature, cardio fitness, nutrition, and sleep. Live samples are sanitized before being written to `data/samples/sanitized/`.

@@ -1,0 +1,22 @@
+TemperatureGetTemperatureSkinSummaryByDateResponse:
+  type: object
+  properties:
+    tempSkin:
+      type: array
+      items:
+        type: object
+        properties:
+          dateTime:
+            type: string
+          logType:
+            type: string
+          value:
+            type: object
+            properties:
+              nightlyRelative:
+                type: number
+            additionalProperties: true
+        additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Get Temperature (Skin)
+    Summary by Date.

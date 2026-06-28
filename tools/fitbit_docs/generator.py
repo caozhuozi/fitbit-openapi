@@ -25,13 +25,20 @@ def generate(domain: str, version: str = "0.1.0") -> None:
     ensure_dirs()
     domains = API_DOMAINS if domain == "all" else [domain]
     write_security()
-    schemas = write_sleep_schemas()
-    paths: dict[str, Any] = {}
-    seen_operations: set[tuple[str, str]] = set()
+    endpoints_by_domain: dict[str, list[Endpoint]] = {}
     for current_domain in domains:
         endpoints = load_parsed(current_domain)
-        if not endpoints:
-            continue
+        if endpoints:
+            endpoints_by_domain[current_domain] = endpoints
+
+    schemas = write_common_schemas()
+    generated_schemas = build_generated_response_schemas(endpoints_by_domain)
+    schemas.update(generated_schemas)
+    write_generated_schema_files(generated_schemas)
+
+    paths: dict[str, Any] = {}
+    seen_operations: set[tuple[str, str]] = set()
+    for current_domain, endpoints in endpoints_by_domain.items():
         domain_paths = write_domain_paths(current_domain, endpoints, seen_operations)
         merge_paths(paths, domain_paths)
     write_root_openapi(paths=paths, schemas=qualify_component_refs(schemas), version=version)
@@ -127,82 +134,8 @@ def write_security() -> None:
     )
 
 
-def write_sleep_schemas() -> dict[str, Any]:
+def write_common_schemas() -> dict[str, Any]:
     schemas = {
-        "SleepResponse": {
-            "type": "object",
-            "properties": {
-                "sleep": {"type": "array", "items": {"$ref": "#/SleepRecord"}},
-                "summary": {"$ref": "#/SleepSummary"},
-                "meta": {"type": "object", "additionalProperties": True},
-            },
-            "additionalProperties": True,
-        },
-        "SleepRecord": {
-            "type": "object",
-            "properties": {
-                "dateOfSleep": {"type": "string", "format": "date"},
-                "duration": {"type": "integer"},
-                "efficiency": {"type": "integer"},
-                "endTime": {"type": "string"},
-                "infoCode": {"type": "integer"},
-                "isMainSleep": {"type": "boolean"},
-                "levels": {"$ref": "#/SleepLevels"},
-                "logId": {"type": "integer"},
-                "logType": {"type": "string"},
-                "minutesAfterWakeup": {"type": "integer"},
-                "minutesAsleep": {"type": "integer"},
-                "minutesAwake": {"type": "integer"},
-                "minutesToFallAsleep": {"type": "integer"},
-                "startTime": {"type": "string"},
-                "timeInBed": {"type": "integer"},
-                "type": {"type": "string"},
-            },
-            "additionalProperties": True,
-        },
-        "SleepLevels": {
-            "type": "object",
-            "properties": {
-                "data": {"type": "array", "items": {"$ref": "#/SleepLevelData"}},
-                "shortData": {"type": "array", "items": {"$ref": "#/SleepLevelData"}},
-                "summary": {
-                    "type": "object",
-                    "additionalProperties": {"$ref": "#/SleepStageSummary"},
-                },
-            },
-            "additionalProperties": True,
-        },
-        "SleepLevelData": {
-            "type": "object",
-            "properties": {
-                "dateTime": {"type": "string"},
-                "level": {"type": "string"},
-                "seconds": {"type": "integer"},
-            },
-            "additionalProperties": True,
-        },
-        "SleepStageSummary": {
-            "type": "object",
-            "properties": {
-                "count": {"type": "integer"},
-                "minutes": {"type": "integer"},
-                "thirtyDayAvgMinutes": {"type": "integer"},
-            },
-            "additionalProperties": True,
-        },
-        "SleepSummary": {
-            "type": "object",
-            "properties": {
-                "stages": {
-                    "type": "object",
-                    "additionalProperties": {"type": "integer"},
-                },
-                "totalMinutesAsleep": {"type": "integer"},
-                "totalSleepRecords": {"type": "integer"},
-                "totalTimeInBed": {"type": "integer"},
-            },
-            "additionalProperties": True,
-        },
         "FitbitErrorResponse": {
             "type": "object",
             "properties": {
@@ -223,8 +156,42 @@ def write_sleep_schemas() -> dict[str, Any]:
             "additionalProperties": True,
         },
     }
-    write_yaml(SCHEMAS / "sleep.yaml", schemas)
+    write_yaml(SCHEMAS / "common.yaml", schemas)
     return schemas
+
+
+def build_generated_response_schemas(endpoints_by_domain: dict[str, list[Endpoint]]) -> dict[str, Any]:
+    schemas: dict[str, Any] = {}
+    seen_operations: set[tuple[str, str]] = set()
+    for endpoints in endpoints_by_domain.values():
+        for endpoint in endpoints:
+            key = (endpoint.method, normalized_path_shape(endpoint.path))
+            if key in seen_operations:
+                continue
+            seen_operations.add(key)
+            if endpoint.example_response is None:
+                continue
+            name = response_component_name(endpoint)
+            schemas[name] = infer_schema(endpoint.example_response)
+            schemas[name]["description"] = f"Generated from the official example response for {endpoint.title}."
+    return schemas
+
+
+def write_generated_schema_files(schemas: dict[str, Any]) -> None:
+    by_domain: dict[str, dict[str, Any]] = {}
+    for name, schema in schemas.items():
+        domain = schema_name_domain(name)
+        by_domain.setdefault(domain, {})[name] = schema
+    for domain, domain_schemas in by_domain.items():
+        write_yaml(SCHEMAS / f"{domain}.yaml", domain_schemas)
+
+
+def schema_name_domain(name: str) -> str:
+    for domain in API_DOMAINS:
+        prefix = pascal_case(domain)
+        if name.startswith(prefix):
+            return domain
+    return "generated"
 
 
 def write_domain_paths(domain: str, endpoints: list[Endpoint], seen_operations: set[tuple[str, str]] | None = None) -> dict[str, Any]:
@@ -328,10 +295,8 @@ def parameter_schema(name: str) -> dict[str, str]:
 
 
 def response_schema_for(endpoint: Endpoint) -> dict[str, Any]:
-    if endpoint.domain == "sleep":
-        if "goal" in endpoint.path or (endpoint.method == "post" and endpoint.path.endswith("/sleep.json")):
-            return {}
-        return {"$ref": "#/components/schemas/SleepResponse"}
+    if endpoint.example_response is not None:
+        return {"$ref": f"#/components/schemas/{response_component_name(endpoint)}"}
     return {}
 
 
@@ -359,6 +324,64 @@ def operation_id(endpoint: Endpoint) -> str:
     if not words:
         words = endpoint.method.title()
     return words[0].lower() + words[1:]
+
+
+def response_component_name(endpoint: Endpoint) -> str:
+    return f"{pascal_case(endpoint.domain)}{pascal_case(endpoint.title)}Response"
+
+
+def pascal_case(value: str) -> str:
+    words = re.findall(r"[A-Za-z0-9]+", value)
+    return "".join(word[:1].upper() + word[1:] for word in words)
+
+
+def infer_schema(value: Any) -> dict[str, Any]:
+    if isinstance(value, dict):
+        return {
+            "type": "object",
+            "properties": {str(k): infer_schema(v) for k, v in value.items()},
+            "additionalProperties": True,
+        }
+    if isinstance(value, list):
+        return {
+            "type": "array",
+            "items": merge_schemas([infer_schema(item) for item in value]) if value else {},
+        }
+    if isinstance(value, bool):
+        return {"type": "boolean"}
+    if isinstance(value, int):
+        return {"type": "integer"}
+    if isinstance(value, float):
+        return {"type": "number"}
+    if value is None:
+        return {"nullable": True}
+    return {"type": "string"}
+
+
+def merge_schemas(schemas: list[dict[str, Any]]) -> dict[str, Any]:
+    if not schemas:
+        return {}
+
+    types = {schema.get("type") for schema in schemas if schema.get("type")}
+    if types == {"integer", "number"}:
+        return {"type": "number"}
+    if len(types) != 1:
+        return {"oneOf": schemas}
+
+    schema_type = next(iter(types))
+    if schema_type == "object":
+        properties: dict[str, Any] = {}
+        keys = sorted({key for schema in schemas for key in schema.get("properties", {})})
+        for key in keys:
+            child_schemas = [schema["properties"][key] for schema in schemas if key in schema.get("properties", {})]
+            properties[key] = merge_schemas(child_schemas)
+        return {"type": "object", "properties": properties, "additionalProperties": True}
+
+    if schema_type == "array":
+        item_schemas = [schema.get("items", {}) for schema in schemas if schema.get("items") is not None]
+        return {"type": "array", "items": merge_schemas(item_schemas)}
+
+    return schemas[0]
 
 
 def write_yaml(path: Path, value: Any) -> None:

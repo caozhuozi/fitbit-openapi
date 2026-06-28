@@ -5,7 +5,7 @@ from pathlib import Path
 
 from .crawler import API_DOMAINS, crawl_domain
 from .generator import generate
-from .live import validate_all_live, validate_sleep_live, validate_sleep_samples
+from .live import validate_live, validate_samples
 from .parser import parse_domain
 from .paths import ensure_dirs
 
@@ -28,8 +28,8 @@ def main(argv: list[str] | None = None) -> int:
     validate.add_argument("--domain", default="sleep")
     validate.add_argument("--env-file", type=Path, default=Path(".env"))
 
-    validate_samples = subparsers.add_parser("validate-samples")
-    validate_samples.add_argument("--domain", default="sleep")
+    validate_samples_cmd = subparsers.add_parser("validate-samples")
+    validate_samples_cmd.add_argument("--domain", default="sleep")
 
     all_cmd = subparsers.add_parser("all")
     all_cmd.add_argument("--domain", default="sleep")
@@ -59,21 +59,13 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     if args.command == "validate-live":
-        if args.domain == "sleep":
-            written = validate_sleep_live(args.env_file)
-            print(f"validated live sleep responses and wrote {len(written)} samples")
-        elif args.domain == "all":
-            written = validate_all_live(args.env_file)
-            print(f"validated live representative API responses and wrote {len(written)} samples")
-        else:
-            raise SystemExit("live validation currently supports only --domain sleep or --domain all")
+        written = validate_live(args.domain, args.env_file)
+        print(f"validated live representative API responses for {args.domain} and wrote {len(written)} samples")
         return 0
 
     if args.command == "validate-samples":
-        if args.domain != "sleep":
-            raise SystemExit("sample validation currently supports only --domain sleep")
-        validated = validate_sleep_samples()
-        print(f"validated {len(validated)} sanitized sleep samples")
+        validated = validate_samples(args.domain)
+        print(f"validated {len(validated)} sanitized samples for {args.domain}")
         return 0
 
     if args.command == "all":
@@ -86,10 +78,8 @@ def main(argv: list[str] | None = None) -> int:
         generate(args.domain, version=args.version)
         print(f"generated OpenAPI files for {args.domain}")
         if args.env_file:
-            if args.domain != "sleep":
-                raise SystemExit("live validation currently supports only --domain sleep")
-            written = validate_sleep_live(args.env_file)
-            print(f"validated live sleep responses and wrote {len(written)} samples")
+            written = validate_live(args.domain, args.env_file)
+            print(f"validated live representative API responses for {args.domain} and wrote {len(written)} samples")
         return 0
 
     return 1

@@ -4,9 +4,9 @@
     "br": [
       {
         "value": {
-          "breathingRate": 17.8
+          "breathingRate": 0.0
         },
-        "dateTime": "2026-06-23"
+        "dateTime": "2026-01-01T00:00:00.000"
       }
     ]
   }

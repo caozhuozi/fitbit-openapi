@@ -1,0 +1,26 @@
+ActiveZoneMinutesTimeseriesGetAZMTimeSeriesByDateResponse:
+  type: object
+  properties:
+    activities-active-zone-minutes:
+      type: array
+      items:
+        type: object
+        properties:
+          dateTime:
+            type: string
+          value:
+            type: object
+            properties:
+              activeZoneMinutes:
+                type: integer
+              cardioActiveZoneMinutes:
+                type: integer
+              fatBurnActiveZoneMinutes:
+                type: integer
+              peakActiveZoneMinutes:
+                type: integer
+            additionalProperties: true
+        additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Get AZM Time Series
+    by Date.

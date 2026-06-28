@@ -41,7 +41,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/ActivityCreateActivityGoalResponse'
             example:
               goals:
                 activeMinutes: 55
@@ -88,7 +89,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/ActivityGetActivityGoalsResponse'
             example:
               goals:
                 activeMinutes: 55
@@ -187,7 +189,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/ActivityCreateActivityLogResponse'
             example:
               activityLog:
                 activityId: 90013
@@ -235,7 +238,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/ActivityGetLifetimeStatsResponse'
             example:
               best:
                 total:
@@ -524,7 +528,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/ActivityGetActivityTypeResponse'
             example:
               activity:
                 accessLevel: PUBLIC
@@ -606,7 +611,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/ActivityGetDailyActivitySummaryResponse'
             example:
               activities: []
               goals:
@@ -714,7 +720,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/ActivityGetFavoriteActivitiesResponse'
             example:
               activityId: 15680
               description: ''
@@ -813,7 +820,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/ActivityGetWorkoutSummaryResponse'
             example:
               workoutSummary:
                 logId: 9061654908234352000

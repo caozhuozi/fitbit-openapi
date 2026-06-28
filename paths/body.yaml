@@ -25,7 +25,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/BodyCreateBodyFatGoalResponse'
             example:
               goal:
                 fat: 25
@@ -80,7 +81,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/BodyCreateBodyFatLogResponse'
             example:
               fatLog:
                 date: '2019-03-20'
@@ -140,7 +142,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/BodyCreateWeightGoalResponse'
             example:
               goal:
                 goalType: LOSE
@@ -199,7 +202,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/BodyCreateWeightLogResponse'
             example:
               weightLog:
               - bmi: 25.91
@@ -356,7 +360,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/BodyGetBodyFatLogResponse'
             example:
               fat:
               - date: '2019-03-20'

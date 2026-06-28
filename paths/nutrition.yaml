@@ -145,7 +145,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/NutritionGetFoodGoalsResponse'
             example:
               goals:
                 calories: 2910
@@ -242,7 +243,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/NutritionCreateFoodLogResponse'
             example:
               foodDay:
                 date: '2019-03-21'
@@ -346,7 +348,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/NutritionCreateFoodResponse'
             example:
               food:
                 accessLevel: PRIVATE
@@ -458,7 +461,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/NutritionCreateMealResponse'
             example:
               meal:
                 description: Banana
@@ -521,7 +525,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/NutritionGetMealsResponse'
             example:
               meals:
               - description: ''
@@ -630,7 +635,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/NutritionCreateWaterGoalResponse'
             example:
               goal:
                 goal: 24
@@ -664,7 +670,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/NutritionGetWaterGoalResponse'
             example:
               goal:
                 goal: 24
@@ -720,7 +727,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/NutritionCreateWaterLogResponse'
             example:
               waterLog:
                 amount: 8
@@ -872,7 +880,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/NutritionGetMealResponse'
             example:
               meal:
                 description: ''
@@ -994,7 +1003,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/NutritionUpdateMealResponse'
             example:
               meal:
                 description: ''
@@ -1143,7 +1153,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/NutritionUpdateWaterLogResponse'
             example:
               waterLog:
                 logId: 1543654
@@ -1240,7 +1251,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/NutritionGetFoodLogResponse'
             example:
               foods:
               - isFavorite: true
@@ -1336,7 +1348,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/NutritionGetFoodResponse'
             example:
               food:
                 accessLevel: PUBLIC
@@ -1439,7 +1452,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/NutritionGetFrequentFoodsResponse'
             example:
               accessLevel: PUBLIC
               amount: 1
@@ -1491,7 +1505,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/NutritionGetRecentFoodsResponse'
             example:
               accessLevel: PUBLIC
               amount: 1
@@ -1551,7 +1566,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/NutritionGetWaterLogResponse'
             example:
               summary:
                 water: 1892.7099609375

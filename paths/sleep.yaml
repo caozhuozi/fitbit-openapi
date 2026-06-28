@@ -37,7 +37,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/SleepCreateSleepGoalResponse'
             example:
               goal:
                 minDuration: 600
@@ -71,7 +72,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/SleepGetSleepGoalResponse'
             example:
               goal:
                 bedtime: '22:00'
@@ -128,7 +130,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/SleepCreateSleepLogResponse'
             example:
               sleep:
                 dateOfSleep: '2020-02-09'
@@ -196,8 +199,7 @@
         description: Successful response
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/SleepResponse'
+            schema: {}
       '400':
         description: Fitbit API error
         content:
@@ -251,7 +253,7 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SleepResponse'
+              $ref: '#/components/schemas/SleepGetSleepLogByDateRangeResponse'
             example:
               sleep:
               - dateOfSleep: '2020-01-27'
@@ -394,7 +396,7 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SleepResponse'
+              $ref: '#/components/schemas/SleepGetSleepLogByDateResponse'
             example:
               sleep:
               - dateOfSleep: '2020-02-21'
@@ -540,8 +542,7 @@
         description: Successful response
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/SleepResponse'
+            schema: {}
       '400':
         description: Fitbit API error
         content:

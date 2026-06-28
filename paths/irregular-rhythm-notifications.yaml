@@ -99,7 +99,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/IrregularRhythmNotificationsGetIRNProfileResponse'
             example:
               onboarded: true
               enrolled: true

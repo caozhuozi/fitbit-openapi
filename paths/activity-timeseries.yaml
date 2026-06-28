@@ -48,7 +48,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/ActivityTimeseriesGetActivityTimeSeriesByDateRangeResponse'
             example:
               activities-steps:
               - dateTime: '2018-12-26'

@@ -33,7 +33,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/CardioFitnessScoreGetVO2MaxSummaryByDateResponse'
             example:
               cardioScore:
               - dateTime: '2021-10-25'
@@ -91,7 +92,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/CardioFitnessScoreGetVO2MaxSummaryByIntervalResponse'
             example:
               cardioScore:
               - dateTime: '2021-10-25'

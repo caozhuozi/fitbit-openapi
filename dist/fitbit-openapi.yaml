@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: Fitbit Web API (Legacy)
-  version: 0.1.0
+  version: 0.5.0
   license:
     name: Fitbit API Terms
     url: https://dev.fitbit.com/legal/platform-terms-of-service/
@@ -44,7 +44,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/ActiveZoneMinutesTimeseriesGetAZMTimeSeriesByDateResponse'
               example:
                 activities-active-zone-minutes:
                   - dateTime: '2022-05-01'
@@ -103,7 +104,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/ActivityCreateActivityGoalResponse'
               example:
                 goals:
                   activeMinutes: 55
@@ -149,7 +151,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/ActivityGetActivityGoalsResponse'
               example:
                 goals:
                   activeMinutes: 55
@@ -236,7 +239,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/ActivityCreateActivityLogResponse'
               example:
                 activityLog:
                   activityId: 90013
@@ -283,7 +287,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/ActivityGetLifetimeStatsResponse'
               example:
                 best:
                   total:
@@ -559,7 +564,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/ActivityGetActivityTypeResponse'
               example:
                 activity:
                   accessLevel: PUBLIC
@@ -637,7 +643,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/ActivityGetDailyActivitySummaryResponse'
               example:
                 activities: []
                 goals:
@@ -744,7 +751,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/ActivityGetFavoriteActivitiesResponse'
               example:
                 activityId: 15680
                 description: ''
@@ -839,7 +847,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/ActivityGetWorkoutSummaryResponse'
               example:
                 workoutSummary:
                   logId: 9061654908234352000
@@ -901,7 +910,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/ActivityTimeseriesGetActivityTimeSeriesByDateRangeResponse'
               example:
                 activities-steps:
                   - dateTime: '2018-12-26'
@@ -1066,7 +1076,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/BodyCreateBodyFatGoalResponse'
               example:
                 goal:
                   fat: 25
@@ -1118,7 +1129,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/BodyCreateBodyFatLogResponse'
               example:
                 fatLog:
                   date: '2019-03-20'
@@ -1174,7 +1186,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/BodyCreateWeightGoalResponse'
               example:
                 goal:
                   goalType: LOSE
@@ -1230,7 +1243,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/BodyCreateWeightLogResponse'
               example:
                 weightLog:
                   - bmi: 25.91
@@ -1383,7 +1397,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/BodyGetBodyFatLogResponse'
               example:
                 fat:
                   - date: '2019-03-20'
@@ -1477,7 +1492,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/BodyTimeseriesGetBodyTimeSeriesByDateRangeResponse'
               example:
                 body-weight:
                   - dateTime: '2019-01-01'
@@ -1529,7 +1545,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/BodyTimeseriesGetBodyFatTimeSeriesByDateRangeResponse'
               example:
                 fat:
                   - date: '2018-02-21'
@@ -1610,7 +1627,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/BodyTimeseriesGetWeightTimeSeriesByDateRangeResponse'
               example:
                 weight:
                   - bmi: 25.91
@@ -1667,7 +1685,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/BreathingRateGetBreathingRateSummaryByDateResponse'
               example:
                 br:
                   - value:
@@ -1721,7 +1740,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/BreathingRateGetBreathingRateSummaryByIntervalResponse'
               example:
                 br:
                   - value:
@@ -1769,7 +1789,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/CardioFitnessScoreGetVO2MaxSummaryByDateResponse'
               example:
                 cardioScore:
                   - dateTime: '2021-10-25'
@@ -1821,7 +1842,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/CardioFitnessScoreGetVO2MaxSummaryByIntervalResponse'
               example:
                 cardioScore:
                   - dateTime: '2021-10-25'
@@ -1889,7 +1911,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/DevicesCreateAlarmsResponse'
               example:
                 trackerAlarm:
                   alarmId: 802464368
@@ -1938,7 +1961,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/DevicesGetAlarmsResponse'
               example:
                 trackerAlarms:
                   - alarmId: 11426382
@@ -2083,7 +2107,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/DevicesUpdateAlarmResponse'
               example:
                 trackerAlarm:
                   alarmId: 1240569123
@@ -2125,7 +2150,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/DevicesGetDevicesResponse'
               example:
                 battery: Medium
                 batteryLevel: 60
@@ -2303,7 +2329,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/HeartrateTimeseriesGetHeartRateTimeSeriesByDateRangeResponse'
               example:
                 activities-heart:
                   - dateTime: '2019-05-08'
@@ -2387,7 +2414,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/HeartrateVariabilityGetHRVSummaryByDateResponse'
               example:
                 hrv:
                   - value:
@@ -2442,7 +2470,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/HeartrateVariabilityGetHRVSummaryByIntervalResponse'
               example:
                 hrv:
                   - value:
@@ -2625,7 +2654,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/IntradayGetAZMIntradayByDateResponse'
               example:
                 activities-active-zone-minutes-intraday:
                   - dateTime: '2020-09-17'
@@ -2690,7 +2720,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/IntradayGetAZMIntradayByIntervalResponse'
               example:
                 activities-active-zone-minutes-intraday:
                   - dateTime: '2020-09-17'
@@ -2754,7 +2785,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/IntradayGetBreathingRateIntradayByDateResponse'
               example:
                 br:
                   - value:
@@ -2867,7 +2899,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/IntradayGetHeartRateIntradayByDateResponse'
               example:
                 activities-heart:
                   - dateTime: '2019-05-08'
@@ -2982,7 +3015,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/IntradayGetHeartRateIntradayByIntervalResponse'
               example:
                 activities-heart:
                   - dateTime: '2019-05-08'
@@ -3318,7 +3352,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/IrregularRhythmNotificationsGetIRNProfileResponse'
               example:
                 onboarded: true
                 enrolled: true
@@ -3470,7 +3505,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/NutritionGetFoodGoalsResponse'
               example:
                 goals:
                   calories: 2910
@@ -3558,7 +3594,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/NutritionCreateFoodLogResponse'
               example:
                 foodDay:
                   date: '2019-03-21'
@@ -3659,7 +3696,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/NutritionCreateFoodResponse'
               example:
                 food:
                   accessLevel: PRIVATE
@@ -3769,7 +3807,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/NutritionCreateMealResponse'
               example:
                 meal:
                   description: Banana
@@ -3831,7 +3870,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/NutritionGetMealsResponse'
               example:
                 meals:
                   - description: ''
@@ -3938,7 +3978,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/NutritionCreateWaterGoalResponse'
               example:
                 goal:
                   goal: 24
@@ -3971,7 +4012,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/NutritionGetWaterGoalResponse'
               example:
                 goal:
                   goal: 24
@@ -4024,7 +4066,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/NutritionCreateWaterLogResponse'
               example:
                 waterLog:
                   amount: 8
@@ -4171,7 +4214,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/NutritionGetMealResponse'
               example:
                 meal:
                   description: ''
@@ -4291,7 +4335,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/NutritionUpdateMealResponse'
               example:
                 meal:
                   description: ''
@@ -4435,7 +4480,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/NutritionUpdateWaterLogResponse'
               example:
                 waterLog:
                   logId: 1543654
@@ -4530,7 +4576,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/NutritionGetFoodLogResponse'
               example:
                 foods:
                   - isFavorite: true
@@ -4625,7 +4672,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/NutritionGetFoodResponse'
               example:
                 food:
                   accessLevel: PUBLIC
@@ -4727,7 +4775,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/NutritionGetFrequentFoodsResponse'
               example:
                 accessLevel: PUBLIC
                 amount: 1
@@ -4778,7 +4827,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/NutritionGetRecentFoodsResponse'
               example:
                 accessLevel: PUBLIC
                 amount: 1
@@ -4836,7 +4886,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/NutritionGetWaterLogResponse'
               example:
                 summary:
                   water: 1892.7099609375
@@ -4922,7 +4973,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/NutritionTimeseriesGetNutritionTimeSeriesByDateRangeResponse'
               example:
                 foods-log-water:
                   - dateTime: '2025-12-12'
@@ -4986,7 +5038,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/SleepCreateSleepGoalResponse'
               example:
                 goal:
                   minDuration: 600
@@ -5019,7 +5072,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/SleepGetSleepGoalResponse'
               example:
                 goal:
                   bedtime: '22:00'
@@ -5074,7 +5128,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/SleepCreateSleepLogResponse'
               example:
                 sleep:
                   dateOfSleep: '2020-02-09'
@@ -5141,8 +5196,7 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/SleepResponse'
+              schema: {}
         '400':
           description: Fitbit API error
           content:
@@ -5190,7 +5244,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SleepResponse'
+                $ref: '#/components/schemas/SleepGetSleepLogByDateRangeResponse'
               example:
                 sleep:
                   - dateOfSleep: '2020-01-27'
@@ -5328,7 +5382,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SleepResponse'
+                $ref: '#/components/schemas/SleepGetSleepLogByDateResponse'
               example:
                 sleep:
                   - dateOfSleep: '2020-02-21'
@@ -5460,8 +5514,7 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/SleepResponse'
+              schema: {}
         '400':
           description: Fitbit API error
           content:
@@ -5503,7 +5556,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/Spo2GetSpO2SummaryByDateResponse'
               example:
                 dateTime: '2021-10-04'
                 value:
@@ -5600,7 +5654,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/SubscriptionCreateSubscriptionResponse'
               example:
                 collectionType: activities
                 ownerId: GGNJL9
@@ -5683,7 +5738,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/SubscriptionGetSubscriptionListResponse'
               example:
                 collectionType: activities
                 ownerId: GGNJL9
@@ -5820,7 +5876,8 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/TemperatureGetTemperatureSkinSummaryByDateResponse'
               example:
                 tempSkin:
                   - dateTime: '2019-12-10'
@@ -6126,106 +6183,6 @@ components:
             electrocardiogram: Read electrocardiogram data
             irregular_rhythm_notifications: Read irregular rhythm notifications data
   schemas:
-    SleepResponse:
-      type: object
-      properties:
-        sleep:
-          type: array
-          items:
-            $ref: '#/components/schemas/SleepRecord'
-        summary:
-          $ref: '#/components/schemas/SleepSummary'
-        meta:
-          type: object
-          additionalProperties: true
-      additionalProperties: true
-    SleepRecord:
-      type: object
-      properties:
-        dateOfSleep:
-          type: string
-          format: date
-        duration:
-          type: integer
-        efficiency:
-          type: integer
-        endTime:
-          type: string
-        infoCode:
-          type: integer
-        isMainSleep:
-          type: boolean
-        levels:
-          $ref: '#/components/schemas/SleepLevels'
-        logId:
-          type: integer
-        logType:
-          type: string
-        minutesAfterWakeup:
-          type: integer
-        minutesAsleep:
-          type: integer
-        minutesAwake:
-          type: integer
-        minutesToFallAsleep:
-          type: integer
-        startTime:
-          type: string
-        timeInBed:
-          type: integer
-        type:
-          type: string
-      additionalProperties: true
-    SleepLevels:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/SleepLevelData'
-        shortData:
-          type: array
-          items:
-            $ref: '#/components/schemas/SleepLevelData'
-        summary:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/SleepStageSummary'
-      additionalProperties: true
-    SleepLevelData:
-      type: object
-      properties:
-        dateTime:
-          type: string
-        level:
-          type: string
-        seconds:
-          type: integer
-      additionalProperties: true
-    SleepStageSummary:
-      type: object
-      properties:
-        count:
-          type: integer
-        minutes:
-          type: integer
-        thirtyDayAvgMinutes:
-          type: integer
-      additionalProperties: true
-    SleepSummary:
-      type: object
-      properties:
-        stages:
-          type: object
-          additionalProperties:
-            type: integer
-        totalMinutesAsleep:
-          type: integer
-        totalSleepRecords:
-          type: integer
-        totalTimeInBed:
-          type: integer
-      additionalProperties: true
     FitbitErrorResponse:
       type: object
       properties:
@@ -6244,3 +6201,2279 @@ components:
                 type: string
             additionalProperties: true
       additionalProperties: true
+    ActiveZoneMinutesTimeseriesGetAZMTimeSeriesByDateResponse:
+      type: object
+      properties:
+        activities-active-zone-minutes:
+          type: array
+          items:
+            type: object
+            properties:
+              dateTime:
+                type: string
+              value:
+                type: object
+                properties:
+                  activeZoneMinutes:
+                    type: integer
+                  cardioActiveZoneMinutes:
+                    type: integer
+                  fatBurnActiveZoneMinutes:
+                    type: integer
+                  peakActiveZoneMinutes:
+                    type: integer
+                additionalProperties: true
+            additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get AZM Time Series by Date.
+    ActivityCreateActivityGoalResponse:
+      type: object
+      properties:
+        goals:
+          type: object
+          properties:
+            activeMinutes:
+              type: integer
+            activeZoneMinutes:
+              type: integer
+            caloriesOut:
+              type: integer
+            distance:
+              type: integer
+            floors:
+              type: integer
+            steps:
+              type: integer
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Create Activity Goal.
+    ActivityCreateActivityLogResponse:
+      type: object
+      properties:
+        activityLog:
+          type: object
+          properties:
+            activityId:
+              type: integer
+            activityParentId:
+              type: integer
+            activityParentName:
+              type: string
+            calories:
+              type: integer
+            description:
+              type: string
+            distance:
+              type: integer
+            duration:
+              type: integer
+            hasActiveZoneMinutes:
+              type: boolean
+            hasStartTime:
+              type: boolean
+            isFavorite:
+              type: boolean
+            lastModified:
+              type: string
+            logId:
+              type: integer
+            name:
+              type: string
+            startDate:
+              type: string
+            startTime:
+              type: string
+            steps:
+              type: integer
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Create Activity Log.
+    ActivityGetActivityGoalsResponse:
+      type: object
+      properties:
+        goals:
+          type: object
+          properties:
+            activeMinutes:
+              type: integer
+            activeZoneMinutes:
+              type: integer
+            caloriesOut:
+              type: integer
+            distance:
+              type: integer
+            floors:
+              type: integer
+            steps:
+              type: integer
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Activity Goals.
+    ActivityGetActivityTypeResponse:
+      type: object
+      properties:
+        activity:
+          type: object
+          properties:
+            accessLevel:
+              type: string
+            activityLevels:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  maxSpeedMPH:
+                    type: number
+                  mets:
+                    type: integer
+                  minSpeedMPH:
+                    type: integer
+                  name:
+                    type: string
+                additionalProperties: true
+            hasSpeed:
+              type: boolean
+            id:
+              type: integer
+            name:
+              type: string
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Activity Type.
+    ActivityGetDailyActivitySummaryResponse:
+      type: object
+      properties:
+        activities:
+          type: array
+          items: {}
+        goals:
+          type: object
+          properties:
+            activeMinutes:
+              type: integer
+            caloriesOut:
+              type: integer
+            distance:
+              type: number
+            floors:
+              type: integer
+            steps:
+              type: integer
+          additionalProperties: true
+        summary:
+          type: object
+          properties:
+            activeScore:
+              type: integer
+            activityCalories:
+              type: integer
+            calorieEstimationMu:
+              type: integer
+            caloriesBMR:
+              type: integer
+            caloriesOut:
+              type: integer
+            caloriesOutUnestimated:
+              type: integer
+            customHeartRateZones:
+              type: array
+              items:
+                type: object
+                properties:
+                  caloriesOut:
+                    type: number
+                  max:
+                    type: integer
+                  min:
+                    type: integer
+                  minutes:
+                    type: integer
+                  name:
+                    type: string
+                additionalProperties: true
+            distances:
+              type: array
+              items:
+                type: object
+                properties:
+                  activity:
+                    type: string
+                  distance:
+                    type: number
+                additionalProperties: true
+            elevation:
+              type: integer
+            fairlyActiveMinutes:
+              type: integer
+            floors:
+              type: integer
+            heartRateZones:
+              type: array
+              items:
+                type: object
+                properties:
+                  caloriesOut:
+                    type: number
+                  max:
+                    type: integer
+                  min:
+                    type: integer
+                  minutes:
+                    type: integer
+                  name:
+                    type: string
+                additionalProperties: true
+            lightlyActiveMinutes:
+              type: integer
+            marginalCalories:
+              type: integer
+            restingHeartRate:
+              type: integer
+            sedentaryMinutes:
+              type: integer
+            steps:
+              type: integer
+            useEstimation:
+              type: boolean
+            veryActiveMinutes:
+              type: integer
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Daily Activity Summary.
+    ActivityGetFavoriteActivitiesResponse:
+      type: object
+      properties:
+        activityId:
+          type: integer
+        description:
+          type: string
+        mets:
+          type: integer
+        name:
+          type: string
+      additionalProperties: true
+      description: Generated from the official example response for Get Favorite Activities.
+    ActivityGetLifetimeStatsResponse:
+      type: object
+      properties:
+        best:
+          type: object
+          properties:
+            total:
+              type: object
+              properties:
+                distance:
+                  type: object
+                  properties:
+                    date:
+                      type: string
+                    value:
+                      type: number
+                  additionalProperties: true
+                floors:
+                  type: object
+                  properties:
+                    date:
+                      type: string
+                    value:
+                      type: number
+                  additionalProperties: true
+                steps:
+                  type: object
+                  properties:
+                    date:
+                      type: string
+                    value:
+                      type: integer
+                  additionalProperties: true
+              additionalProperties: true
+            tracker:
+              type: object
+              properties:
+                distance:
+                  type: object
+                  properties:
+                    date:
+                      type: string
+                    value:
+                      type: number
+                  additionalProperties: true
+                floors:
+                  type: object
+                  properties:
+                    date:
+                      type: string
+                    value:
+                      type: number
+                  additionalProperties: true
+                steps:
+                  type: object
+                  properties:
+                    date:
+                      type: string
+                    value:
+                      type: integer
+                  additionalProperties: true
+              additionalProperties: true
+          additionalProperties: true
+        lifetime:
+          type: object
+          properties:
+            total:
+              type: object
+              properties:
+                activeScore:
+                  type: integer
+                caloriesOut:
+                  type: integer
+                distance:
+                  type: number
+                floors:
+                  type: integer
+                steps:
+                  type: integer
+              additionalProperties: true
+            tracker:
+              type: object
+              properties:
+                activeScore:
+                  type: integer
+                caloriesOut:
+                  type: integer
+                distance:
+                  type: number
+                floors:
+                  type: integer
+                steps:
+                  type: integer
+              additionalProperties: true
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Lifetime Stats.
+    ActivityGetWorkoutSummaryResponse:
+      type: object
+      properties:
+        workoutSummary:
+          type: object
+          properties:
+            logId:
+              type: integer
+            mobilityMetrics:
+              type: object
+              properties:
+                avgCadenceStepsPerMinute:
+                  type: integer
+                avgGroundContactTimeMilliseconds:
+                  type: integer
+              additionalProperties: true
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Workout Summary.
+    ActivityTimeseriesGetActivityTimeSeriesByDateRangeResponse:
+      type: object
+      properties:
+        activities-steps:
+          type: array
+          items:
+            type: object
+            properties:
+              dateTime:
+                type: string
+              value:
+                type: string
+            additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Activity Time Series by Date Range.
+    BodyCreateBodyFatGoalResponse:
+      type: object
+      properties:
+        goal:
+          type: object
+          properties:
+            fat:
+              type: integer
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Create Body Fat Goal.
+    BodyCreateBodyFatLogResponse:
+      type: object
+      properties:
+        fatLog:
+          type: object
+          properties:
+            date:
+              type: string
+            fat:
+              type: integer
+            logId:
+              type: integer
+            source:
+              type: string
+            time:
+              type: string
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Create Body Fat Log.
+    BodyCreateWeightGoalResponse:
+      type: object
+      properties:
+        goal:
+          type: object
+          properties:
+            goalType:
+              type: string
+            startDate:
+              type: string
+            startWeight:
+              type: integer
+            weight:
+              type: number
+            weightThreshold:
+              type: number
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Create Weight Goal.
+    BodyCreateWeightLogResponse:
+      type: object
+      properties:
+        weightLog:
+          type: array
+          items:
+            type: object
+            properties:
+              bmi:
+                type: number
+              date:
+                type: string
+              logId:
+                type: integer
+              source:
+                type: string
+              time:
+                type: string
+              weight:
+                type: integer
+            additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Create Weight Log.
+    BodyGetBodyFatLogResponse:
+      type: object
+      properties:
+        fat:
+          type: array
+          items:
+            type: object
+            properties:
+              date:
+                type: string
+              fat:
+                type: integer
+              logId:
+                type: integer
+              source:
+                type: string
+              time:
+                type: string
+            additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Body Fat Log.
+    BodyTimeseriesGetBodyTimeSeriesByDateRangeResponse:
+      type: object
+      properties:
+        body-weight:
+          type: array
+          items:
+            type: object
+            properties:
+              dateTime:
+                type: string
+              value:
+                type: string
+            additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Body Time Series by Date Range.
+    BodyTimeseriesGetBodyFatTimeSeriesByDateRangeResponse:
+      type: object
+      properties:
+        fat:
+          type: array
+          items:
+            type: object
+            properties:
+              date:
+                type: string
+              fat:
+                type: number
+              logId:
+                type: integer
+              source:
+                type: string
+              time:
+                type: string
+            additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Body Fat Time Series by Date Range.
+    BodyTimeseriesGetWeightTimeSeriesByDateRangeResponse:
+      type: object
+      properties:
+        weight:
+          type: array
+          items:
+            type: object
+            properties:
+              bmi:
+                type: number
+              date:
+                type: string
+              fat:
+                type: integer
+              logId:
+                type: integer
+              source:
+                type: string
+              time:
+                type: string
+              weight:
+                type: integer
+            additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Weight Time Series by Date Range.
+    BreathingRateGetBreathingRateSummaryByDateResponse:
+      type: object
+      properties:
+        br:
+          type: array
+          items:
+            type: object
+            properties:
+              dateTime:
+                type: string
+              value:
+                type: object
+                properties:
+                  breathingRate:
+                    type: number
+                additionalProperties: true
+            additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Breathing Rate Summary by Date.
+    BreathingRateGetBreathingRateSummaryByIntervalResponse:
+      type: object
+      properties:
+        br:
+          type: array
+          items:
+            type: object
+            properties:
+              dateTime:
+                type: string
+              value:
+                type: object
+                properties:
+                  breathingRate:
+                    type: number
+                additionalProperties: true
+            additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Breathing Rate Summary by Interval.
+    CardioFitnessScoreGetVO2MaxSummaryByDateResponse:
+      type: object
+      properties:
+        cardioScore:
+          type: array
+          items:
+            type: object
+            properties:
+              dateTime:
+                type: string
+              value:
+                type: object
+                properties:
+                  vo2Max:
+                    type: string
+                additionalProperties: true
+            additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get VO2 Max Summary by Date.
+    CardioFitnessScoreGetVO2MaxSummaryByIntervalResponse:
+      type: object
+      properties:
+        cardioScore:
+          type: array
+          items:
+            type: object
+            properties:
+              dateTime:
+                type: string
+              value:
+                type: object
+                properties:
+                  vo2Max:
+                    type: string
+                additionalProperties: true
+            additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get VO2 Max Summary by Interval.
+    DevicesCreateAlarmsResponse:
+      type: object
+      properties:
+        trackerAlarm:
+          type: object
+          properties:
+            alarmId:
+              type: integer
+            deleted:
+              type: boolean
+            enabled:
+              type: boolean
+            recurring:
+              type: boolean
+            snoozeCount:
+              type: integer
+            snoozeLength:
+              type: integer
+            syncedToDevice:
+              type: boolean
+            time:
+              type: string
+            vibe:
+              type: string
+            weekDays:
+              type: array
+              items:
+                type: string
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Create Alarms.
+    DevicesGetAlarmsResponse:
+      type: object
+      properties:
+        trackerAlarms:
+          type: array
+          items:
+            type: object
+            properties:
+              alarmId:
+                type: integer
+              deleted:
+                type: boolean
+              enabled:
+                type: boolean
+              recurring:
+                type: boolean
+              snoozeCount:
+                type: integer
+              snoozeLength:
+                type: integer
+              syncedToDevice:
+                type: boolean
+              time:
+                type: string
+              vibe:
+                type: string
+              weekDays:
+                type: array
+                items:
+                  type: string
+            additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Alarms.
+    DevicesGetDevicesResponse:
+      type: object
+      properties:
+        battery:
+          type: string
+        batteryLevel:
+          type: integer
+        deviceVersion:
+          type: string
+        features:
+          type: array
+          items: {}
+        id:
+          type: string
+        lastSyncTime:
+          type: string
+        mac:
+          type: string
+        type:
+          type: string
+      additionalProperties: true
+      description: Generated from the official example response for Get Devices.
+    DevicesUpdateAlarmResponse:
+      type: object
+      properties:
+        trackerAlarm:
+          type: object
+          properties:
+            alarmId:
+              type: integer
+            deleted:
+              type: boolean
+            enabled:
+              type: boolean
+            recurring:
+              type: boolean
+            snoozeCount:
+              type: integer
+            snoozeLength:
+              type: integer
+            syncedToDevice:
+              type: boolean
+            time:
+              type: string
+            vibe:
+              type: string
+            weekDays:
+              type: array
+              items: {}
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Update Alarm.
+    HeartrateTimeseriesGetHeartRateTimeSeriesByDateRangeResponse:
+      type: object
+      properties:
+        activities-heart:
+          type: array
+          items:
+            type: object
+            properties:
+              dateTime:
+                type: string
+              value:
+                type: object
+                properties:
+                  customHeartRateZones:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        caloriesOut:
+                          type: number
+                        max:
+                          type: integer
+                        min:
+                          type: integer
+                        minutes:
+                          type: integer
+                        name:
+                          type: string
+                      additionalProperties: true
+                  heartRateZones:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        caloriesOut:
+                          type: number
+                        max:
+                          type: integer
+                        min:
+                          type: integer
+                        minutes:
+                          type: integer
+                        name:
+                          type: string
+                      additionalProperties: true
+                  restingHeartRate:
+                    type: integer
+                additionalProperties: true
+            additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Heart Rate Time Series by Date Range.
+    HeartrateVariabilityGetHRVSummaryByDateResponse:
+      type: object
+      properties:
+        hrv:
+          type: array
+          items:
+            type: object
+            properties:
+              dateTime:
+                type: string
+              value:
+                type: object
+                properties:
+                  dailyRmssd:
+                    type: number
+                  deepRmssd:
+                    type: number
+                additionalProperties: true
+            additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get HRV Summary by Date.
+    HeartrateVariabilityGetHRVSummaryByIntervalResponse:
+      type: object
+      properties:
+        hrv:
+          type: array
+          items:
+            type: object
+            properties:
+              dateTime:
+                type: string
+              value:
+                type: object
+                properties:
+                  dailyRmssd:
+                    type: number
+                  deepRmssd:
+                    type: number
+                additionalProperties: true
+            additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get HRV Summary by Interval.
+    IntradayGetAZMIntradayByDateResponse:
+      type: object
+      properties:
+        activities-active-zone-minutes-intraday:
+          type: array
+          items:
+            type: object
+            properties:
+              dateTime:
+                type: string
+              minutes:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    minute:
+                      type: string
+                    value:
+                      type: object
+                      properties:
+                        activeZoneMinutes:
+                          type: integer
+                        cardioActiveZoneMinutes:
+                          type: integer
+                        fatBurnActiveZoneMinutes:
+                          type: integer
+                      additionalProperties: true
+                  additionalProperties: true
+            additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get AZM Intraday by Date.
+    IntradayGetAZMIntradayByIntervalResponse:
+      type: object
+      properties:
+        activities-active-zone-minutes-intraday:
+          type: array
+          items:
+            type: object
+            properties:
+              dateTime:
+                type: string
+              minutes:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    minute:
+                      type: string
+                    value:
+                      type: object
+                      properties:
+                        activeZoneMinutes:
+                          type: integer
+                        cardioActiveZoneMinutes:
+                          type: integer
+                        fatBurnActiveZoneMinutes:
+                          type: integer
+                        peakActiveZoneMinutes:
+                          type: integer
+                      additionalProperties: true
+                  additionalProperties: true
+            additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get AZM Intraday by Interval.
+    IntradayGetBreathingRateIntradayByDateResponse:
+      type: object
+      properties:
+        br:
+          type: array
+          items:
+            type: object
+            properties:
+              dateTime:
+                type: string
+              value:
+                type: object
+                properties:
+                  deepSleepSummary:
+                    type: object
+                    properties:
+                      breathingRate:
+                        type: number
+                    additionalProperties: true
+                  fullSleepSummary:
+                    type: object
+                    properties:
+                      breathingRate:
+                        type: number
+                    additionalProperties: true
+                  lightSleepSummary:
+                    type: object
+                    properties:
+                      breathingRate:
+                        type: number
+                    additionalProperties: true
+                  remSleepSummary:
+                    type: object
+                    properties:
+                      breathingRate:
+                        type: number
+                    additionalProperties: true
+                additionalProperties: true
+            additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Breathing Rate Intraday by Date.
+    IntradayGetHeartRateIntradayByDateResponse:
+      type: object
+      properties:
+        activities-heart:
+          type: array
+          items:
+            type: object
+            properties:
+              dateTime:
+                type: string
+              value:
+                type: object
+                properties:
+                  customHeartRateZones:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        caloriesOut:
+                          type: number
+                        max:
+                          type: integer
+                        min:
+                          type: integer
+                        minutes:
+                          type: integer
+                        name:
+                          type: string
+                      additionalProperties: true
+                  heartRateZones:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        caloriesOut:
+                          type: number
+                        max:
+                          type: integer
+                        min:
+                          type: integer
+                        minutes:
+                          type: integer
+                        name:
+                          type: string
+                      additionalProperties: true
+                  restingHeartRate:
+                    type: integer
+                additionalProperties: true
+            additionalProperties: true
+        activities-heart-intraday:
+          type: object
+          properties:
+            dataset:
+              type: array
+              items:
+                type: object
+                properties:
+                  time:
+                    type: string
+                  value:
+                    type: integer
+                additionalProperties: true
+            datasetInterval:
+              type: integer
+            datasetType:
+              type: string
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Heart Rate Intraday by Date.
+    IntradayGetHeartRateIntradayByIntervalResponse:
+      type: object
+      properties:
+        activities-heart:
+          type: array
+          items:
+            type: object
+            properties:
+              dateTime:
+                type: string
+              value:
+                type: object
+                properties:
+                  customHeartRateZones:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        caloriesOut:
+                          type: number
+                        max:
+                          type: integer
+                        min:
+                          type: integer
+                        minutes:
+                          type: integer
+                        name:
+                          type: string
+                      additionalProperties: true
+                  heartRateZones:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        caloriesOut:
+                          type: number
+                        max:
+                          type: integer
+                        min:
+                          type: integer
+                        minutes:
+                          type: integer
+                        name:
+                          type: string
+                      additionalProperties: true
+                  restingHeartRate:
+                    type: integer
+                additionalProperties: true
+            additionalProperties: true
+        activities-heart-intraday:
+          type: object
+          properties:
+            dataset:
+              type: array
+              items:
+                type: object
+                properties:
+                  time:
+                    type: string
+                  value:
+                    type: integer
+                additionalProperties: true
+            datasetInterval:
+              type: integer
+            datasetType:
+              type: string
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Heart Rate Intraday by Interval.
+    IrregularRhythmNotificationsGetIRNProfileResponse:
+      type: object
+      properties:
+        onboarded:
+          type: boolean
+        enrolled:
+          type: boolean
+        lastUpdated:
+          type: string
+      additionalProperties: true
+      description: Generated from the official example response for Get IRN Profile.
+    NutritionCreateFoodLogResponse:
+      type: object
+      properties:
+        foodDay:
+          type: object
+          properties:
+            date:
+              type: string
+            summary:
+              type: object
+              properties:
+                calories:
+                  type: integer
+                carbs:
+                  type: number
+                fat:
+                  type: number
+                fiber:
+                  type: number
+                protein:
+                  type: number
+                sodium:
+                  type: number
+                water:
+                  type: number
+              additionalProperties: true
+          additionalProperties: true
+        foodLog:
+          type: object
+          properties:
+            isFavorite:
+              type: boolean
+            logDate:
+              type: string
+            logId:
+              type: integer
+            loggedFood:
+              type: object
+              properties:
+                accessLevel:
+                  type: string
+                amount:
+                  type: number
+                brand:
+                  type: string
+                calories:
+                  type: integer
+                foodId:
+                  type: integer
+                locale:
+                  type: string
+                mealTypeId:
+                  type: integer
+                name:
+                  type: string
+                unit:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    plural:
+                      type: string
+                  additionalProperties: true
+                units:
+                  type: array
+                  items:
+                    type: integer
+              additionalProperties: true
+            nutritionalValues:
+              type: object
+              properties:
+                calories:
+                  type: integer
+                carbs:
+                  type: number
+                fat:
+                  type: number
+                fiber:
+                  type: number
+                protein:
+                  type: number
+                sodium:
+                  type: number
+              additionalProperties: true
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Create Food Log.
+    NutritionCreateFoodResponse:
+      type: object
+      properties:
+        food:
+          type: object
+          properties:
+            accessLevel:
+              type: string
+            brand:
+              type: string
+            calories:
+              type: integer
+            creatorEncodedId:
+              type: string
+            defaultServingSize:
+              type: integer
+            defaultUnit:
+              type: object
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: string
+                plural:
+                  type: string
+              additionalProperties: true
+            foodId:
+              type: integer
+            isGeneric:
+              type: boolean
+            name:
+              type: string
+            nutritionalValues:
+              type: object
+              properties:
+                biotin:
+                  type: integer
+                calcium:
+                  type: integer
+                calories:
+                  type: integer
+                caloriesFromFat:
+                  type: integer
+                cholesterol:
+                  type: integer
+                copper:
+                  type: integer
+                dietaryFiber:
+                  type: integer
+                folicAcid:
+                  type: integer
+                iodine:
+                  type: integer
+                iron:
+                  type: integer
+                magnesium:
+                  type: integer
+                niacin:
+                  type: integer
+                pantothenicAcid:
+                  type: integer
+                phosphorus:
+                  type: integer
+                potassium:
+                  type: integer
+                protein:
+                  type: integer
+                riboflavin:
+                  type: integer
+                saturatedFat:
+                  type: integer
+                sodium:
+                  type: integer
+                sugars:
+                  type: integer
+                thiamin:
+                  type: integer
+                totalCarbohydrate:
+                  type: integer
+                totalFat:
+                  type: integer
+                transFat:
+                  type: integer
+                vitaminA:
+                  type: integer
+                vitaminB12:
+                  type: integer
+                vitaminB6:
+                  type: integer
+                vitaminC:
+                  type: integer
+                vitaminD:
+                  type: integer
+                vitaminE:
+                  type: integer
+                zinc:
+                  type: integer
+              additionalProperties: true
+            servings:
+              type: array
+              items:
+                type: object
+                properties:
+                  multiplier:
+                    type: integer
+                  servingSize:
+                    type: integer
+                  unit:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      plural:
+                        type: string
+                    additionalProperties: true
+                  unitId:
+                    type: integer
+                additionalProperties: true
+            units:
+              type: array
+              items:
+                type: integer
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Create Food.
+    NutritionCreateMealResponse:
+      type: object
+      properties:
+        meal:
+          type: object
+          properties:
+            description:
+              type: string
+            id:
+              type: integer
+            mealFoods:
+              type: array
+              items:
+                type: object
+                properties:
+                  accessLevel:
+                    type: string
+                  amount:
+                    type: integer
+                  brand:
+                    type: string
+                  calories:
+                    type: integer
+                  foodId:
+                    type: integer
+                  locale:
+                    type: string
+                  mealTypeId:
+                    type: integer
+                  name:
+                    type: string
+                  unit:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      plural:
+                        type: string
+                    additionalProperties: true
+                  units:
+                    type: array
+                    items:
+                      type: integer
+                additionalProperties: true
+            name:
+              type: string
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Create Meal.
+    NutritionCreateWaterGoalResponse:
+      type: object
+      properties:
+        goal:
+          type: object
+          properties:
+            goal:
+              type: integer
+            startDate:
+              type: string
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Create Water Goal.
+    NutritionCreateWaterLogResponse:
+      type: object
+      properties:
+        waterLog:
+          type: object
+          properties:
+            amount:
+              type: integer
+            logId:
+              type: integer
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Create Water Log.
+    NutritionGetFoodGoalsResponse:
+      type: object
+      properties:
+        goals:
+          type: object
+          properties:
+            calories:
+              type: integer
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Food Goals.
+    NutritionGetFoodLogResponse:
+      type: object
+      properties:
+        foods:
+          type: array
+          items:
+            type: object
+            properties:
+              isFavorite:
+                type: boolean
+              logDate:
+                type: string
+              logId:
+                type: integer
+              loggedFood:
+                type: object
+                properties:
+                  accessLevel:
+                    type: string
+                  amount:
+                    type: integer
+                  brand:
+                    type: string
+                  calories:
+                    type: integer
+                  foodId:
+                    type: integer
+                  locale:
+                    type: string
+                  mealTypeId:
+                    type: integer
+                  name:
+                    type: string
+                  unit:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      plural:
+                        type: string
+                    additionalProperties: true
+                  units:
+                    type: array
+                    items:
+                      type: integer
+                additionalProperties: true
+              nutritionalValues:
+                type: object
+                properties:
+                  calories:
+                    type: integer
+                  carbs:
+                    type: integer
+                  fat:
+                    type: number
+                  fiber:
+                    type: integer
+                  protein:
+                    type: integer
+                  sodium:
+                    type: integer
+                additionalProperties: true
+            additionalProperties: true
+        goals:
+          type: object
+          properties:
+            calories:
+              type: integer
+          additionalProperties: true
+        summary:
+          type: object
+          properties:
+            calories:
+              type: integer
+            carbs:
+              type: integer
+            fat:
+              type: number
+            fiber:
+              type: integer
+            protein:
+              type: integer
+            sodium:
+              type: integer
+            water:
+              type: integer
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Food Log.
+    NutritionGetFoodResponse:
+      type: object
+      properties:
+        food:
+          type: object
+          properties:
+            accessLevel:
+              type: string
+            brand:
+              type: string
+            calories:
+              type: integer
+            defaultServingSize:
+              type: integer
+            defaultUnit:
+              type: object
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: string
+                plural:
+                  type: string
+              additionalProperties: true
+            foodId:
+              type: integer
+            isGeneric:
+              type: boolean
+            locale:
+              type: string
+            name:
+              type: string
+            servings:
+              type: array
+              items:
+                type: object
+                properties:
+                  multiplier:
+                    type: number
+                  servingSize:
+                    type: integer
+                  unit:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      plural:
+                        type: string
+                    additionalProperties: true
+                  unitId:
+                    type: integer
+                additionalProperties: true
+            units:
+              type: array
+              items:
+                type: integer
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Food.
+    NutritionGetFrequentFoodsResponse:
+      type: object
+      properties:
+        accessLevel:
+          type: string
+        amount:
+          type: integer
+        brand:
+          type: string
+        calories:
+          type: integer
+        dateLastEaten:
+          type: string
+        foodId:
+          type: integer
+        locale:
+          type: string
+        mealTypeId:
+          type: integer
+        name:
+          type: string
+        unit:
+          type: object
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+            plural:
+              type: string
+          additionalProperties: true
+        units:
+          type: array
+          items:
+            type: integer
+      additionalProperties: true
+      description: Generated from the official example response for Get Frequent Foods.
+    NutritionGetMealResponse:
+      type: object
+      properties:
+        meal:
+          type: object
+          properties:
+            description:
+              type: string
+            id:
+              type: integer
+            mealFoods:
+              type: array
+              items:
+                type: object
+                properties:
+                  accessLevel:
+                    type: string
+                  amount:
+                    type: integer
+                  brand:
+                    type: string
+                  calories:
+                    type: integer
+                  foodId:
+                    type: integer
+                  locale:
+                    type: string
+                  mealTypeId:
+                    type: integer
+                  name:
+                    type: string
+                  unit:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      plural:
+                        type: string
+                    additionalProperties: true
+                  units:
+                    type: array
+                    items:
+                      type: integer
+                additionalProperties: true
+            name:
+              type: string
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Meal.
+    NutritionGetMealsResponse:
+      type: object
+      properties:
+        meals:
+          type: array
+          items:
+            type: object
+            properties:
+              description:
+                type: string
+              id:
+                type: integer
+              mealFoods:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    accessLevel:
+                      type: string
+                    amount:
+                      type: integer
+                    brand:
+                      type: string
+                    calories:
+                      type: integer
+                    foodId:
+                      type: integer
+                    locale:
+                      type: string
+                    mealTypeId:
+                      type: integer
+                    name:
+                      type: string
+                    unit:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        name:
+                          type: string
+                        plural:
+                          type: string
+                      additionalProperties: true
+                    units:
+                      type: array
+                      items:
+                        type: integer
+                  additionalProperties: true
+              name:
+                type: string
+            additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Meals.
+    NutritionGetRecentFoodsResponse:
+      type: object
+      properties:
+        accessLevel:
+          type: string
+        amount:
+          type: integer
+        brand:
+          type: string
+        calories:
+          type: integer
+        dateLastEaten:
+          type: string
+        foodId:
+          type: integer
+        locale:
+          type: string
+        mealTypeId:
+          type: integer
+        name:
+          type: string
+        unit:
+          type: object
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+            plural:
+              type: string
+          additionalProperties: true
+        units:
+          type: array
+          items:
+            type: integer
+      additionalProperties: true
+      description: Generated from the official example response for Get Recent Foods.
+    NutritionGetWaterGoalResponse:
+      type: object
+      properties:
+        goal:
+          type: object
+          properties:
+            goal:
+              type: integer
+            startDate:
+              type: string
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Water Goal.
+    NutritionGetWaterLogResponse:
+      type: object
+      properties:
+        summary:
+          type: object
+          properties:
+            water:
+              type: number
+          additionalProperties: true
+        water:
+          type: array
+          items:
+            type: object
+            properties:
+              amount:
+                type: number
+              logId:
+                type: integer
+            additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Water Log.
+    NutritionUpdateMealResponse:
+      type: object
+      properties:
+        meal:
+          type: object
+          properties:
+            description:
+              type: string
+            id:
+              type: integer
+            mealFoods:
+              type: array
+              items:
+                type: object
+                properties:
+                  accessLevel:
+                    type: string
+                  amount:
+                    type: integer
+                  brand:
+                    type: string
+                  calories:
+                    type: integer
+                  foodId:
+                    type: integer
+                  locale:
+                    type: string
+                  mealTypeId:
+                    type: integer
+                  name:
+                    type: string
+                  unit:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      plural:
+                        type: string
+                    additionalProperties: true
+                  units:
+                    type: array
+                    items:
+                      type: integer
+                additionalProperties: true
+            name:
+              type: string
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Update Meal.
+    NutritionUpdateWaterLogResponse:
+      type: object
+      properties:
+        waterLog:
+          type: object
+          properties:
+            logId:
+              type: integer
+            amount:
+              type: integer
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Update Water Log.
+    NutritionTimeseriesGetNutritionTimeSeriesByDateRangeResponse:
+      type: object
+      properties:
+        foods-log-water:
+          type: array
+          items:
+            type: object
+            properties:
+              dateTime:
+                type: string
+              value:
+                type: integer
+            additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Nutrition Time Series by Date Range.
+    SleepCreateSleepGoalResponse:
+      type: object
+      properties:
+        goal:
+          type: object
+          properties:
+            minDuration:
+              type: integer
+            updatedOn:
+              type: string
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Create Sleep Goal.
+    SleepCreateSleepLogResponse:
+      type: object
+      properties:
+        sleep:
+          type: object
+          properties:
+            dateOfSleep:
+              type: string
+            duration:
+              type: integer
+            efficiency:
+              type: integer
+            endTime:
+              type: string
+            infoCode:
+              type: integer
+            isMainSleep:
+              type: boolean
+            levels:
+              type: object
+              properties:
+                data:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      dateTime:
+                        type: string
+                      level:
+                        type: string
+                      seconds:
+                        type: integer
+                    additionalProperties: true
+                summary:
+                  type: object
+                  properties:
+                    asleep:
+                      type: object
+                      properties:
+                        count:
+                          type: integer
+                        minutes:
+                          type: integer
+                      additionalProperties: true
+                    awake:
+                      type: object
+                      properties:
+                        count:
+                          type: integer
+                        minutes:
+                          type: integer
+                      additionalProperties: true
+                    restless:
+                      type: object
+                      properties:
+                        count:
+                          type: integer
+                        minutes:
+                          type: integer
+                      additionalProperties: true
+                  additionalProperties: true
+              additionalProperties: true
+            logId:
+              type: integer
+            minutesAfterWakeup:
+              type: integer
+            minutesAsleep:
+              type: integer
+            minutesAwake:
+              type: integer
+            minutesToFallAsleep:
+              type: integer
+            startTime:
+              type: string
+            timeInBed:
+              type: integer
+            type:
+              type: string
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Create Sleep Log.
+    SleepGetSleepGoalResponse:
+      type: object
+      properties:
+        goal:
+          type: object
+          properties:
+            bedtime:
+              type: string
+            minDuration:
+              type: integer
+            updatedOn:
+              type: string
+            wakeupTime:
+              type: string
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Sleep Goal.
+    SleepGetSleepLogByDateRangeResponse:
+      type: object
+      properties:
+        sleep:
+          type: array
+          items:
+            type: object
+            properties:
+              dateOfSleep:
+                type: string
+              duration:
+                type: integer
+              efficiency:
+                type: integer
+              endTime:
+                type: string
+              infoCode:
+                type: integer
+              isMainSleep:
+                type: boolean
+              levels:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        dateTime:
+                          type: string
+                        level:
+                          type: string
+                        seconds:
+                          type: integer
+                      additionalProperties: true
+                  shortData:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        dateTime:
+                          type: string
+                        level:
+                          type: string
+                        seconds:
+                          type: integer
+                      additionalProperties: true
+                  summary:
+                    type: object
+                    properties:
+                      asleep:
+                        type: object
+                        properties:
+                          count:
+                            type: integer
+                          minutes:
+                            type: integer
+                        additionalProperties: true
+                      awake:
+                        type: object
+                        properties:
+                          count:
+                            type: integer
+                          minutes:
+                            type: integer
+                        additionalProperties: true
+                      deep:
+                        type: object
+                        properties:
+                          count:
+                            type: integer
+                          minutes:
+                            type: integer
+                          thirtyDayAvgMinutes:
+                            type: integer
+                        additionalProperties: true
+                      light:
+                        type: object
+                        properties:
+                          count:
+                            type: integer
+                          minutes:
+                            type: integer
+                          thirtyDayAvgMinutes:
+                            type: integer
+                        additionalProperties: true
+                      rem:
+                        type: object
+                        properties:
+                          count:
+                            type: integer
+                          minutes:
+                            type: integer
+                          thirtyDayAvgMinutes:
+                            type: integer
+                        additionalProperties: true
+                      restless:
+                        type: object
+                        properties:
+                          count:
+                            type: integer
+                          minutes:
+                            type: integer
+                        additionalProperties: true
+                      wake:
+                        type: object
+                        properties:
+                          count:
+                            type: integer
+                          minutes:
+                            type: integer
+                          thirtyDayAvgMinutes:
+                            type: integer
+                        additionalProperties: true
+                    additionalProperties: true
+                additionalProperties: true
+              logId:
+                type: integer
+              logType:
+                type: string
+              minutesAfterWakeup:
+                type: integer
+              minutesAsleep:
+                type: integer
+              minutesAwake:
+                type: integer
+              minutesToFallAsleep:
+                type: integer
+              startTime:
+                type: string
+              timeInBed:
+                type: integer
+              type:
+                type: string
+            additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Sleep Log by Date Range.
+    SleepGetSleepLogByDateResponse:
+      type: object
+      properties:
+        sleep:
+          type: array
+          items:
+            type: object
+            properties:
+              dateOfSleep:
+                type: string
+              duration:
+                type: integer
+              efficiency:
+                type: integer
+              endTime:
+                type: string
+              infoCode:
+                type: integer
+              isMainSleep:
+                type: boolean
+              levels:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        dateTime:
+                          type: string
+                        level:
+                          type: string
+                        seconds:
+                          type: integer
+                      additionalProperties: true
+                  shortData:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        dateTime:
+                          type: string
+                        level:
+                          type: string
+                        seconds:
+                          type: integer
+                      additionalProperties: true
+                  summary:
+                    type: object
+                    properties:
+                      deep:
+                        type: object
+                        properties:
+                          count:
+                            type: integer
+                          minutes:
+                            type: integer
+                          thirtyDayAvgMinutes:
+                            type: integer
+                        additionalProperties: true
+                      light:
+                        type: object
+                        properties:
+                          count:
+                            type: integer
+                          minutes:
+                            type: integer
+                          thirtyDayAvgMinutes:
+                            type: integer
+                        additionalProperties: true
+                      rem:
+                        type: object
+                        properties:
+                          count:
+                            type: integer
+                          minutes:
+                            type: integer
+                          thirtyDayAvgMinutes:
+                            type: integer
+                        additionalProperties: true
+                      wake:
+                        type: object
+                        properties:
+                          count:
+                            type: integer
+                          minutes:
+                            type: integer
+                          thirtyDayAvgMinutes:
+                            type: integer
+                        additionalProperties: true
+                    additionalProperties: true
+                additionalProperties: true
+              logId:
+                type: integer
+              logType:
+                type: string
+              minutesAfterWakeup:
+                type: integer
+              minutesAsleep:
+                type: integer
+              minutesAwake:
+                type: integer
+              minutesToFallAsleep:
+                type: integer
+              startTime:
+                type: string
+              timeInBed:
+                type: integer
+              type:
+                type: string
+            additionalProperties: true
+        summary:
+          type: object
+          properties:
+            stages:
+              type: object
+              properties:
+                deep:
+                  type: integer
+                light:
+                  type: integer
+                rem:
+                  type: integer
+                wake:
+                  type: integer
+              additionalProperties: true
+            totalMinutesAsleep:
+              type: integer
+            totalSleepRecords:
+              type: integer
+            totalTimeInBed:
+              type: integer
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Sleep Log by Date.
+    Spo2GetSpO2SummaryByDateResponse:
+      type: object
+      properties:
+        dateTime:
+          type: string
+        value:
+          type: object
+          properties:
+            avg:
+              type: number
+            min:
+              type: number
+            max:
+              type: number
+          additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get SpO2 Summary by Date.
+    SubscriptionCreateSubscriptionResponse:
+      type: object
+      properties:
+        collectionType:
+          type: string
+        ownerId:
+          type: string
+        ownerType:
+          type: string
+        subscriberId:
+          type: string
+        subscriptionId:
+          type: string
+      additionalProperties: true
+      description: Generated from the official example response for Create Subscription.
+    SubscriptionGetSubscriptionListResponse:
+      type: object
+      properties:
+        collectionType:
+          type: string
+        ownerId:
+          type: string
+        ownerType:
+          type: string
+        subscriberId:
+          type: string
+        subscriptionId:
+          type: string
+      additionalProperties: true
+      description: Generated from the official example response for Get Subscription List.
+    TemperatureGetTemperatureSkinSummaryByDateResponse:
+      type: object
+      properties:
+        tempSkin:
+          type: array
+          items:
+            type: object
+            properties:
+              dateTime:
+                type: string
+              logType:
+                type: string
+              value:
+                type: object
+                properties:
+                  nightlyRelative:
+                    type: number
+                additionalProperties: true
+            additionalProperties: true
+      additionalProperties: true
+      description: Generated from the official example response for Get Temperature (Skin) Summary by Date.

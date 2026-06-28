@@ -1,0 +1,18 @@
+Spo2GetSpO2SummaryByDateResponse:
+  type: object
+  properties:
+    dateTime:
+      type: string
+    value:
+      type: object
+      properties:
+        avg:
+          type: number
+        min:
+          type: number
+        max:
+          type: number
+      additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Get SpO2 Summary by
+    Date.

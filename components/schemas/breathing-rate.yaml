@@ -1,0 +1,40 @@
+BreathingRateGetBreathingRateSummaryByDateResponse:
+  type: object
+  properties:
+    br:
+      type: array
+      items:
+        type: object
+        properties:
+          dateTime:
+            type: string
+          value:
+            type: object
+            properties:
+              breathingRate:
+                type: number
+            additionalProperties: true
+        additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Get Breathing Rate
+    Summary by Date.
+BreathingRateGetBreathingRateSummaryByIntervalResponse:
+  type: object
+  properties:
+    br:
+      type: array
+      items:
+        type: object
+        properties:
+          dateTime:
+            type: string
+          value:
+            type: object
+            properties:
+              breathingRate:
+                type: number
+            additionalProperties: true
+        additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Get Breathing Rate
+    Summary by Interval.

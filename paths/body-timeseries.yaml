@@ -41,7 +41,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/BodyTimeseriesGetBodyTimeSeriesByDateRangeResponse'
             example:
               body-weight:
               - dateTime: '2019-01-01'
@@ -96,7 +97,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/BodyTimeseriesGetBodyFatTimeSeriesByDateRangeResponse'
             example:
               fat:
               - date: '2018-02-21'
@@ -180,7 +182,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/BodyTimeseriesGetWeightTimeSeriesByDateRangeResponse'
             example:
               weight:
               - bmi: 25.91

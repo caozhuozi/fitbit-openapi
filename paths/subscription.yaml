@@ -44,7 +44,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/SubscriptionCreateSubscriptionResponse'
             example:
               collectionType: activities
               ownerId: GGNJL9
@@ -153,7 +154,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/SubscriptionGetSubscriptionListResponse'
             example:
               collectionType: activities
               ownerId: GGNJL9

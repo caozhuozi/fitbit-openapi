@@ -37,7 +37,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/HeartrateVariabilityGetHRVSummaryByDateResponse'
             example:
               hrv:
               - value:
@@ -101,7 +102,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/HeartrateVariabilityGetHRVSummaryByIntervalResponse'
             example:
               hrv:
               - value:

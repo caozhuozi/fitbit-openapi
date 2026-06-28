@@ -41,7 +41,8 @@
         description: Successful response
         content:
           application/json:
-            schema: {}
+            schema:
+              $ref: '#/components/schemas/HeartrateTimeseriesGetHeartRateTimeSeriesByDateRangeResponse'
             example:
               activities-heart:
               - dateTime: '2019-05-08'

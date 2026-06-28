@@ -1,0 +1,11 @@
+IrregularRhythmNotificationsGetIRNProfileResponse:
+  type: object
+  properties:
+    onboarded:
+      type: boolean
+    enrolled:
+      type: boolean
+    lastUpdated:
+      type: string
+  additionalProperties: true
+  description: Generated from the official example response for Get IRN Profile.

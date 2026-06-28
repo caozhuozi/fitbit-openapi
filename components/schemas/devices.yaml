@@ -1,0 +1,116 @@
+DevicesCreateAlarmsResponse:
+  type: object
+  properties:
+    trackerAlarm:
+      type: object
+      properties:
+        alarmId:
+          type: integer
+        deleted:
+          type: boolean
+        enabled:
+          type: boolean
+        recurring:
+          type: boolean
+        snoozeCount:
+          type: integer
+        snoozeLength:
+          type: integer
+        syncedToDevice:
+          type: boolean
+        time:
+          type: string
+        vibe:
+          type: string
+        weekDays:
+          type: array
+          items:
+            type: string
+      additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Create Alarms.
+DevicesGetAlarmsResponse:
+  type: object
+  properties:
+    trackerAlarms:
+      type: array
+      items:
+        type: object
+        properties:
+          alarmId:
+            type: integer
+          deleted:
+            type: boolean
+          enabled:
+            type: boolean
+          recurring:
+            type: boolean
+          snoozeCount:
+            type: integer
+          snoozeLength:
+            type: integer
+          syncedToDevice:
+            type: boolean
+          time:
+            type: string
+          vibe:
+            type: string
+          weekDays:
+            type: array
+            items:
+              type: string
+        additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Get Alarms.
+DevicesGetDevicesResponse:
+  type: object
+  properties:
+    battery:
+      type: string
+    batteryLevel:
+      type: integer
+    deviceVersion:
+      type: string
+    features:
+      type: array
+      items: {}
+    id:
+      type: string
+    lastSyncTime:
+      type: string
+    mac:
+      type: string
+    type:
+      type: string
+  additionalProperties: true
+  description: Generated from the official example response for Get Devices.
+DevicesUpdateAlarmResponse:
+  type: object
+  properties:
+    trackerAlarm:
+      type: object
+      properties:
+        alarmId:
+          type: integer
+        deleted:
+          type: boolean
+        enabled:
+          type: boolean
+        recurring:
+          type: boolean
+        snoozeCount:
+          type: integer
+        snoozeLength:
+          type: integer
+        syncedToDevice:
+          type: boolean
+        time:
+          type: string
+        vibe:
+          type: string
+        weekDays:
+          type: array
+          items: {}
+      additionalProperties: true
+  additionalProperties: true
+  description: Generated from the official example response for Update Alarm.
